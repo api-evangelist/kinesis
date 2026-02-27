@@ -1,0 +1,122 @@
+name: AWS Kinesis
+description: Amazon Kinesis makes it easy to collect, process, and analyze real-time streaming data so you can get timely insights and react quickly to new information.
+image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+tags:
+- streaming
+- real-time
+- data processing
+- analytics
+- big data
+created: '2024'
+modified: '2024'
+specificationVersion: '0.18'
+apis:
+- name: Amazon Kinesis Data Streams API
+  description: Amazon Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources.
+  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.{region}.amazonaws.com
+  tags:
+  - streaming
+  - data streams
+  - real-time
+  properties:
+  - type: X-documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: X-openapi
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: X-pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: X-getting-started
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: X-faq
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  contact:
+  - FN: AWS Support
+    url: https://aws.amazon.com/contact-us/
+- name: Amazon Kinesis Data Firehose API
+  description: Amazon Kinesis Data Firehose is the easiest way to reliably load streaming data into data lakes, data stores, and analytics services.
+  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  humanURL: https://aws.amazon.com/kinesis/data-firehose/
+  baseURL: https://firehose.{region}.amazonaws.com
+  tags:
+  - streaming
+  - data delivery
+  - ETL
+  properties:
+  - type: X-documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: X-openapi
+    url: https://api.apis.guru/v2/specs/amazonaws.com/firehose/2015-08-04/openapi.yaml
+  - type: X-pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: X-getting-started
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: X-faq
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  contact:
+  - FN: AWS Support
+    url: https://aws.amazon.com/contact-us/
+- name: Amazon Kinesis Data Analytics API
+  description: Amazon Kinesis Data Analytics is the easiest way to analyze streaming data, gain actionable insights, and respond to your business and customer needs in real time.
+  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  humanURL: https://aws.amazon.com/kinesis/data-analytics/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - streaming
+  - analytics
+  - SQL
+  - Apache Flink
+  properties:
+  - type: X-documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: X-openapi
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesisanalyticsv2/2018-05-23/openapi.yaml
+  - type: X-pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: X-getting-started
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: X-faq
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  contact:
+  - FN: AWS Support
+    url: https://aws.amazon.com/contact-us/
+- name: Amazon Kinesis Video Streams API
+  description: Amazon Kinesis Video Streams makes it easy to securely stream video from connected devices to AWS for analytics, machine learning, playback, and other processing.
+  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  humanURL: https://aws.amazon.com/kinesis/video-streams/
+  baseURL: https://kinesisvideo.{region}.amazonaws.com
+  tags:
+  - streaming
+  - video
+  - IoT
+  - machine learning
+  properties:
+  - type: X-documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: X-openapi
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesisvideo/2017-09-30/openapi.yaml
+  - type: X-pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: X-getting-started
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: X-faq
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  contact:
+  - FN: AWS Support
+    url: https://aws.amazon.com/contact-us/
+common:
+- type: X-blog
+  url: https://aws.amazon.com/blogs/big-data/category/analytics/amazon-kinesis/
+- type: X-console
+  url: https://console.aws.amazon.com/kinesis/
+- type: X-sdks
+  url: https://aws.amazon.com/tools/
+- type: X-status
+  url: https://status.aws.amazon.com/
+- type: X-support
+  url: https://aws.amazon.com/premiumsupport/
+maintainers:
+- FN: APIs.json Maintainer
+  email: info@example.com
+include: []
