@@ -9,7 +9,7 @@ tags:
 - big data
 - aws
 created: '2024'
-modified: '2026-03-03'
+modified: '2026-03-16'
 specificationVersion: '0.18'
 apis:
 - name: Amazon Kinesis Data Streams API
