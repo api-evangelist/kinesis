@@ -1,0 +1,13 @@
+{
+  "repo": "kinesis",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/big-data/category/analytics/amazon-kinesis/",
+      "feed_url": "https://aws.amazon.com/blogs/big-data/category/analytics/amazon-kinesis/feed/",
+      "saved": 10,
+      "title": "Amazon Kinesis \u2013 AWS Big Data Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:30:10Z"
+}
