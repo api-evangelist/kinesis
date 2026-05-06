@@ -4,109 +4,125 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: AWS Kinesis
 providerId: kinesis
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
-  - Analytics
-  - Apache Flink
-  - AWS
-  - Big Data
-  - Data Processing
-  - Real-Time
-  - Streaming
-  - Video
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the AWS Kinesis API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Streaming
+  - AWS
+  - Real-Time
+description: Kinesis Data Streams enforces a mix of per-account/per-region control-plane API TPS limits
+  and per-shard data-plane throughput limits (1 MB/s or 1000 records/s write per shard, 2 MB/s or 5 GetRecords/s
+  read per shard). Limits are scoped per AWS account per region; many control-plane limits are adjustable
+  via Service Quotas. Exceeding throughput returns ProvisionedThroughputExceededException.
+sources:
+  - https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - https://aws.amazon.com/kinesis/data-streams/pricing/
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  throttled: 400
+  provisionedThroughputExceeded: 400
+  limitExceeded: 400
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
+  - name: PutRecord (per shard)
+    scope: shard
+    metric: requests_per_second
+    limit: 1000
+    timeFrame: second
+    notes: Each shard supports up to 1000 records/s and 1 MB/s write.
+  - name: PutRecords (per shard)
+    scope: shard
+    metric: bytes_per_second
+    limit: 1048576
+    timeFrame: second
+    notes: 500 records max per request; 10 MiB request limit; 10 MiB max per record (burst).
+  - name: GetRecords (per shard)
+    scope: shard
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+    notes: Returns ProvisionedThroughputExceededException for 5 seconds after a 10 MB response.
+  - name: GetRecords data read rate (per shard)
+    scope: shard
+    metric: bytes_per_second
+    limit: 2097152
+    timeFrame: second
+  - name: SubscribeToShard (Enhanced Fan-Out)
+    scope: consumer-shard
+    metric: requests_per_second
+    limit: 1
+    timeFrame: second
+    notes: One call per second per registered consumer per shard.
+  - name: GetShardIterator
+    scope: shard
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+  - name: ListShards
+    scope: stream
+    metric: requests_per_second
+    limit: 1000
+    timeFrame: second
+  - name: DescribeStream
+    scope: account
+    metric: requests_per_second
     limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Amazon Kinesis Data Streams API
-      - Amazon Data Firehose API
-      - Amazon Kinesis Data Analytics API
-      - Amazon Managed Service for Apache Flink API
-      - Amazon Kinesis Video Streams API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Amazon Kinesis Data Streams API
-      - Amazon Data Firehose API
-      - Amazon Kinesis Data Analytics API
-      - Amazon Managed Service for Apache Flink API
-      - Amazon Kinesis Video Streams API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Amazon Kinesis Data Streams API
-      - Amazon Data Firehose API
-      - Amazon Kinesis Data Analytics API
-      - Amazon Managed Service for Apache Flink API
-      - Amazon Kinesis Video Streams API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Amazon Kinesis Data Streams API
-      - Amazon Data Firehose API
-      - Amazon Kinesis Data Analytics API
-      - Amazon Managed Service for Apache Flink API
-      - Amazon Kinesis Video Streams API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Amazon Kinesis Data Streams API
-      - Amazon Data Firehose API
-      - Amazon Kinesis Data Analytics API
-      - Amazon Managed Service for Apache Flink API
-      - Amazon Kinesis Video Streams API
+    timeFrame: second
+  - name: DescribeStreamSummary
+    scope: account
+    metric: requests_per_second
+    limit: 20
+    timeFrame: second
+  - name: CreateStream / DeleteStream / ListStreams
+    scope: account
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+  - name: On-Demand Standard default throughput
+    scope: stream
+    metric: bytes_per_second
+    limit: 4194304
+    timeFrame: second
+    notes: 4 MB/s write / 8 MB/s read default; auto-scales to 200 MB/s write or higher in select regions.
+  - name: On-Demand max throughput (US-East-1, US-West-2, EU-West-1)
+    scope: stream
+    metric: bytes_per_second
+    limit: 10737418240
+    timeFrame: second
+    notes: 10 GB/s write, 20 GB/s read with support-ticket increase.
+  - name: Provisioned default shard quota
+    scope: account/region
+    metric: shards
+    limit: 'see Service Quotas - defaults 20000 / 6000 / 1000 by region'
+  - name: On-demand streams default
+    scope: account
+    metric: streams
+    limit: 50
+  - name: Stream retention
+    scope: stream
+    metric: hours
+    limit: 8760
+    notes: Default 24 hours; max 365 days (8760 hours).
+  - name: Registered consumers per stream
+    scope: stream
+    metric: consumers
+    limit: 50
+    notes: 50 on On-Demand Advantage, 20 on Standard / Provisioned.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Provisioned throughput exceptions
+    description: When per-shard write or read throughput is exceeded, the API returns ProvisionedThroughputExceededException;
+      AWS SDKs implement automatic retry with exponential backoff.
+  - name: Backoff and retry
+    description: Use exponential backoff with jitter on throttling. KCL and KPL libraries handle this automatically
+      for typical workloads.
+  - name: Capacity-mode switching
+    description: A stream can switch between On-Demand and Provisioned modes only twice in any 24-hour
+      window.
+  - name: Service Quotas adjustments
+    description: Most control-plane and shard-count limits are adjustable via the AWS Service Quotas console;
+      some (like UpdateShardCount) require an AWS Support case.
+  - name: Resharding
+    description: Use SplitShard / MergeShards (provisioned) or rely on Kinesis auto-scaling (on-demand)
+      to keep per-shard limits ahead of producer/consumer load.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
