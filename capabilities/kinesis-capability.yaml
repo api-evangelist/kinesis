@@ -1,0 +1,537 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Kinesis Firehose
+  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully
+    managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3),
+    Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  tags:
+  - Kinesis
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: kinesis
+    baseUri: http://firehose.us-east-1.amazonaws.com
+    description: Amazon Kinesis Firehose HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: Authorization
+      value: '{{KINESIS_TOKEN}}'
+    resources:
+    - name: x-amz-target-firehose-20150804-createdeliverystr
+      path: /#X-Amz-Target=Firehose_20150804.CreateDeliveryStream
+      operations:
+      - name: createdeliverystream
+        method: POST
+        description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
+          streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
+          status of the del
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-deletedeliverystr
+      path: /#X-Amz-Target=Firehose_20150804.DeleteDeliveryStream
+      operations:
+      - name: deletedeliverystream
+        method: POST
+        description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+          You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-describedeliverys
+      path: /#X-Amz-Target=Firehose_20150804.DescribeDeliveryStream
+      operations:
+      - name: describedeliverystream
+        method: POST
+        description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is
+          created, call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and
+          therefore ready for data t
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-listdeliverystrea
+      path: /#X-Amz-Target=Firehose_20150804.ListDeliveryStreams
+      operations:
+      - name: listdeliverystreams
+        method: POST
+        description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
+          might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
+          delivery streams re
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-listtagsfordelive
+      path: /#X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream
+      operations:
+      - name: listtagsfordeliverystream
+        method: POST
+        description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per
+          second per account.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-putrecord
+      path: /#X-Amz-Target=Firehose_20150804.PutRecord
+      operations:
+      - name: putrecord
+        method: POST
+        description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
+          data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred
+          to as producers.</p> <p>
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-putrecordbatch
+      path: /#X-Amz-Target=Firehose_20150804.PutRecordBatch
+      operations:
+      - name: putrecordbatch
+        method: POST
+        description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
+          per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
+          Applicati
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-startdeliverystre
+      path: /#X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption
+      operations:
+      - name: startdeliverystreamencryption
+        method: POST
+        description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+          It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
+          to <code>ENABLING</cod
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-stopdeliverystrea
+      path: /#X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption
+      operations:
+      - name: stopdeliverystreamencryption
+        method: POST
+        description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+          It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
+          to <code>DISABLING</c
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-tagdeliverystream
+      path: /#X-Amz-Target=Firehose_20150804.TagDeliveryStream
+      operations:
+      - name: tagdeliverystream
+        method: POST
+        description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
+          and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced
+          with the value that yo
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-untagdeliverystre
+      path: /#X-Amz-Target=Firehose_20150804.UntagDeliveryStream
+      operations:
+      - name: untagdeliverystream
+        method: POST
+        description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
+          after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
+          it.</p> <p>This oper
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: x-amz-target-firehose-20150804-updatedestination
+      path: /#X-Amz-Target=Firehose_20150804.UpdateDestination
+      operations:
+      - name: updatedestination
+        method: POST
+        description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
+          the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
+          associated wit
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: kinesis-rest
+    description: REST adapter for Amazon Kinesis Firehose.
+    resources:
+    - path: /#X-Amz-Target=Firehose_20150804.CreateDeliveryStream
+      name: createdeliverystream
+      operations:
+      - method: POST
+        name: createdeliverystream
+        description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
+          streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
+          status of the del
+        call: kinesis.createdeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.DeleteDeliveryStream
+      name: deletedeliverystream
+      operations:
+      - method: POST
+        name: deletedeliverystream
+        description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+          You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
+        call: kinesis.deletedeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.DescribeDeliveryStream
+      name: describedeliverystream
+      operations:
+      - method: POST
+        name: describedeliverystream
+        description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is
+          created, call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and
+          therefore ready for data t
+        call: kinesis.describedeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.ListDeliveryStreams
+      name: listdeliverystreams
+      operations:
+      - method: POST
+        name: listdeliverystreams
+        description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
+          might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
+          delivery streams re
+        call: kinesis.listdeliverystreams
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream
+      name: listtagsfordeliverystream
+      operations:
+      - method: POST
+        name: listtagsfordeliverystream
+        description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per
+          second per account.
+        call: kinesis.listtagsfordeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.PutRecord
+      name: putrecord
+      operations:
+      - method: POST
+        name: putrecord
+        description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
+          data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred
+          to as producers.</p> <p>
+        call: kinesis.putrecord
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.PutRecordBatch
+      name: putrecordbatch
+      operations:
+      - method: POST
+        name: putrecordbatch
+        description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
+          per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
+          Applicati
+        call: kinesis.putrecordbatch
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption
+      name: startdeliverystreamencryption
+      operations:
+      - method: POST
+        name: startdeliverystreamencryption
+        description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+          It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
+          to <code>ENABLING</cod
+        call: kinesis.startdeliverystreamencryption
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption
+      name: stopdeliverystreamencryption
+      operations:
+      - method: POST
+        name: stopdeliverystreamencryption
+        description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+          It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
+          to <code>DISABLING</c
+        call: kinesis.stopdeliverystreamencryption
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.TagDeliveryStream
+      name: tagdeliverystream
+      operations:
+      - method: POST
+        name: tagdeliverystream
+        description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
+          and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced
+          with the value that yo
+        call: kinesis.tagdeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.UntagDeliveryStream
+      name: untagdeliverystream
+      operations:
+      - method: POST
+        name: untagdeliverystream
+        description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
+          after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
+          it.</p> <p>This oper
+        call: kinesis.untagdeliverystream
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /#X-Amz-Target=Firehose_20150804.UpdateDestination
+      name: updatedestination
+      operations:
+      - method: POST
+        name: updatedestination
+        description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
+          the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
+          associated wit
+        call: kinesis.updatedestination
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: kinesis-mcp
+    transport: http
+    description: MCP adapter for Amazon Kinesis Firehose for AI agent use.
+    tools:
+    - name: createdeliverystream
+      description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
+        streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
+        status of the del
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.createdeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletedeliverystream
+      description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
+        You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.deletedeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: describedeliverystream
+      description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is created,
+        call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and therefore ready
+        for data t
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.describedeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listdeliverystreams
+      description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
+        might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
+        delivery streams re
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.listdeliverystreams
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtagsfordeliverystream
+      description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second
+        per account.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.listtagsfordeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putrecord
+      description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
+        data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred to
+        as producers.</p> <p>
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.putrecord
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putrecordbatch
+      description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
+        per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
+        Applicati
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.putrecordbatch
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: startdeliverystreamencryption
+      description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+        It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream to
+        <code>ENABLING</cod
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.startdeliverystreamencryption
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: stopdeliverystreamencryption
+      description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
+        It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream to
+        <code>DISABLING</c
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.stopdeliverystreamencryption
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tagdeliverystream
+      description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
+        and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with
+        the value that yo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.tagdeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: untagdeliverystream
+      description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
+        after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
+        it.</p> <p>This oper
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.untagdeliverystream
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatedestination
+      description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
+        the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
+        associated wit
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: kinesis.updatedestination
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    KINESIS_TOKEN: KINESIS_TOKEN
