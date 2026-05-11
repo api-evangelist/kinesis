@@ -224,6 +224,8 @@ common:
     url: https://aws.amazon.com/legal/service-level-agreements/
   - type: Contact
     url: https://aws.amazon.com/contact-us/
+integrations:
+  - name: AWS Partners
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
