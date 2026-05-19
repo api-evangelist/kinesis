@@ -1,0 +1,1575 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon Kinesis
+  description: 'Amazon Kinesis. 28 operations. Lead operation: Amazon Kinesis. Self-contained Naftiko capability covering
+    one Kinesis business surface.'
+  tags:
+  - Kinesis
+  - Amazon Kinesis
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KINESIS_API_KEY: KINESIS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-kinesis-data-streams
+    baseUri: http://kinesis.{region}.amazonaws.com
+    description: Amazon Kinesis business capability. Self-contained, no shared references.
+    resources:
+    - name: '#X-Amz-Target=Kinesis_20131202.AddTagsToStream'
+      path: /#X-Amz-Target=Kinesis_20131202.AddTagsToStream
+      operations:
+      - name: addtagstostream
+        method: POST
+        description: <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50 tags to a data
+          stream.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter
+          rather than the <code>S
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.CreateStream'
+      path: /#X-Amz-Target=Kinesis_20131202.CreateStream
+      operations:
+      - name: createstream
+        method: POST
+        description: <p>Creates a Kinesis data stream. A stream captures and transports data records that are continuously
+          emitted from different data sources or <i>producers</i>. Scale-out within a stream is explicitly supported by means
+          of shards, which are u
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DecreaseStreamRetentionPeriod'
+      path: /#X-Amz-Target=Kinesis_20131202.DecreaseStreamRetentionPeriod
+      operations:
+      - name: decreasestreamretentionperiod
+        method: POST
+        description: <p>Decreases the Kinesis data stream's retention period, which is the length of time data records are
+          accessible after they are added to the stream. The minimum value of a stream's retention period is 24 hours.</p>
+          <note> <p>When invoking t
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DeleteStream'
+      path: /#X-Amz-Target=Kinesis_20131202.DeleteStream
+      operations:
+      - name: deletestream
+        method: POST
+        description: <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that
+          are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream,
+          it receives the exce
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DeregisterStreamConsumer'
+      path: /#X-Amz-Target=Kinesis_20131202.DeregisterStreamConsumer
+      operations:
+      - name: deregisterstreamconsumer
+        method: POST
+        description: <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of the data stream
+          and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as
+          they don't conflict wit
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DescribeLimits'
+      path: /#X-Amz-Target=Kinesis_20131202.DescribeLimits
+      operations:
+      - name: describelimits
+        method: POST
+        description: <p>Describes the shard limits and usage for the account.</p> <p>If you update your account limits, the
+          old limits might be returned for a few minutes.</p> <p>This operation has a limit of one transaction per second
+          per account.</p>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DescribeStream'
+      path: /#X-Amz-Target=Kinesis_20131202.DescribeStream
+      operations:
+      - name: describestream
+        method: POST
+        description: '<p>Describes the specified Kinesis data stream.</p> <note> <p>This API has been revised. It''s highly
+          recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the specified Kinesis
+          data stream and the '
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Limit
+          in: query
+          type: string
+          description: Pagination limit
+        - name: ExclusiveStartShardId
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DescribeStreamConsumer'
+      path: /#X-Amz-Target=Kinesis_20131202.DescribeStreamConsumer
+      operations:
+      - name: describestreamconsumer
+        method: POST
+        description: <p>To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you
+          can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide
+          all three paramet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DescribeStreamSummary'
+      path: /#X-Amz-Target=Kinesis_20131202.DescribeStreamSummary
+      operations:
+      - name: describestreamsummary
+        method: POST
+        description: <p>Provides a summarized description of the specified Kinesis data stream without the shard list.</p>
+          <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than
+          the <code>StreamName</c
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.DisableEnhancedMonitoring'
+      path: /#X-Amz-Target=Kinesis_20131202.DisableEnhancedMonitoring
+      operations:
+      - name: disableenhancedmonitoring
+        method: POST
+        description: <p>Disables enhanced monitoring.</p> <note> <p>When invoking this API, it is recommended you use the
+          <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.EnableEnhancedMonitoring'
+      path: /#X-Amz-Target=Kinesis_20131202.EnableEnhancedMonitoring
+      operations:
+      - name: enableenhancedmonitoring
+        method: POST
+        description: <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p> <note> <p>When invoking
+          this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code>
+          input parameter.<
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.GetRecords'
+      path: /#X-Amz-Target=Kinesis_20131202.GetRecords
+      operations:
+      - name: getrecords
+        method: POST
+        description: <p>Gets data records from a Kinesis data stream's shard.</p> <note> <p>When invoking this API, it is
+          recommended you use the <code>StreamARN</code> input parameter in addition to the <code>ShardIterator</code> parameter.</p>
+          </note> <p>Spec
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.GetShardIterator'
+      path: /#X-Amz-Target=Kinesis_20131202.GetShardIterator
+      operations:
+      - name: getsharditerator
+        method: POST
+        description: <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is returned to
+          the requester.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+          parameter rather than the <
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.IncreaseStreamRetentionPeriod'
+      path: /#X-Amz-Target=Kinesis_20131202.IncreaseStreamRetentionPeriod
+      operations:
+      - name: increasestreamretentionperiod
+        method: POST
+        description: <p>Increases the Kinesis data stream's retention period, which is the length of time data records are
+          accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours (365
+          days).</p> <note> <p>Wh
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.ListShards'
+      path: /#X-Amz-Target=Kinesis_20131202.ListShards
+      operations:
+      - name: listshards
+        method: POST
+        description: <p>Lists the shards in a stream and provides information about each shard. This operation has a limit
+          of 1000 transactions per second per data stream.</p> <note> <p>When invoking this API, it is recommended you use
+          the <code>StreamARN</code
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.ListStreamConsumers'
+      path: /#X-Amz-Target=Kinesis_20131202.ListStreamConsumers
+      operations:
+      - name: liststreamconsumers
+        method: POST
+        description: <p>Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides
+          information about each consumer.</p> <p>This operation has a limit of 5 transactions per second per stream.</p>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.ListStreams'
+      path: /#X-Amz-Target=Kinesis_20131202.ListStreams
+      operations:
+      - name: liststreams
+        method: POST
+        description: <p>Lists your Kinesis data streams.</p> <p>The number of streams may be too large to return from a single
+          call to <code>ListStreams</code>. You can limit the number of returned streams using the <code>Limit</code> parameter.
+          If you do not s
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Limit
+          in: query
+          type: string
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.ListTagsForStream'
+      path: /#X-Amz-Target=Kinesis_20131202.ListTagsForStream
+      operations:
+      - name: listtagsforstream
+        method: POST
+        description: <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions
+          per second per account.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code>
+          input parameter rath
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.MergeShards'
+      path: /#X-Amz-Target=Kinesis_20131202.MergeShards
+      operations:
+      - name: mergeshards
+        method: POST
+        description: <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single shard to reduce
+          the stream's capacity to ingest and transport data. This API is only supported for the data streams with the provisioned
+          capacity mode. T
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.PutRecord'
+      path: /#X-Amz-Target=Kinesis_20131202.PutRecord
+      operations:
+      - name: putrecord
+        method: POST
+        description: <p>Writes a single data record into an Amazon Kinesis data stream. Call <code>PutRecord</code> to send
+          data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support
+          writes up to 1,000 r
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.PutRecords'
+      path: /#X-Amz-Target=Kinesis_20131202.PutRecords
+      operations:
+      - name: putrecords
+        method: POST
+        description: <p>Writes multiple data records into a Kinesis data stream in a single call (also referred to as a <code>PutRecords</code>
+          request). Use this operation to send data into the stream for data ingestion and processing. </p> <note> <p>When
+          invo
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.RegisterStreamConsumer'
+      path: /#X-Amz-Target=Kinesis_20131202.RegisterStreamConsumer
+      operations:
+      - name: registerstreamconsumer
+        method: POST
+        description: <p>Registers a consumer with a Kinesis data stream. When you use this operation, the consumer you register
+          can then call <a>SubscribeToShard</a> to receive data from the stream using enhanced fan-out, at a rate of up to
+          2 MiB per second for
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.RemoveTagsFromStream'
+      path: /#X-Amz-Target=Kinesis_20131202.RemoveTagsFromStream
+      operations:
+      - name: removetagsfromstream
+        method: POST
+        description: <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered
+          after this operation successfully completes.</p> <note> <p>When invoking this API, it is recommended you use the
+          <code>StreamARN</code>
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.SplitShard'
+      path: /#X-Amz-Target=Kinesis_20131202.SplitShard
+      operations:
+      - name: splitshard
+        method: POST
+        description: <p>Splits a shard into two new shards in the Kinesis data stream, to increase the stream's capacity to
+          ingest and transport data. <code>SplitShard</code> is called when there is a need to increase the overall capacity
+          of a stream because of
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.StartStreamEncryption'
+      path: /#X-Amz-Target=Kinesis_20131202.StartStreamEncryption
+      operations:
+      - name: startstreamencryption
+        method: POST
+        description: <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a specified stream.
+          </p> <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns
+          immediately and set
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.StopStreamEncryption'
+      path: /#X-Amz-Target=Kinesis_20131202.StopStreamEncryption
+      operations:
+      - name: stopstreamencryption
+        method: POST
+        description: <p>Disables server-side encryption for a specified stream. </p> <note> <p>When invoking this API, it
+          is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input
+          parameter.</p> </note> <p>S
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.UpdateShardCount'
+      path: /#X-Amz-Target=Kinesis_20131202.UpdateShardCount
+      operations:
+      - name: updateshardcount
+        method: POST
+        description: <p>Updates the shard count of the specified stream to the specified number of shards. This API is only
+          supported for the data streams with the provisioned capacity mode.</p> <note> <p>When invoking this API, it is recommended
+          you use the <c
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Kinesis_20131202.UpdateStreamMode'
+      path: /#X-Amz-Target=Kinesis_20131202.UpdateStreamMode
+      operations:
+      - name: updatestreammode
+        method: POST
+        description: Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between
+          an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data stream.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KINESIS_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-kinesis-data-streams-rest
+    port: 8080
+    description: REST adapter for Amazon Kinesis. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/x-amz-target-kinesis-20131202-addtagstostream
+      name: x-amz-target-kinesis-20131202-addtagstostream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.AddTagsToStream.'
+      operations:
+      - method: POST
+        name: addtagstostream
+        description: <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50 tags to a data
+          stream.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter
+          rather than the <code>S
+        call: amazon-kinesis-data-streams.addtagstostream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-createstream
+      name: x-amz-target-kinesis-20131202-createstream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.CreateStream.'
+      operations:
+      - method: POST
+        name: createstream
+        description: <p>Creates a Kinesis data stream. A stream captures and transports data records that are continuously
+          emitted from different data sources or <i>producers</i>. Scale-out within a stream is explicitly supported by means
+          of shards, which are u
+        call: amazon-kinesis-data-streams.createstream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-decreasestreamretentionperiod
+      name: x-amz-target-kinesis-20131202-decreasestreamretentionperiod
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DecreaseStreamRetentionPeriod.'
+      operations:
+      - method: POST
+        name: decreasestreamretentionperiod
+        description: <p>Decreases the Kinesis data stream's retention period, which is the length of time data records are
+          accessible after they are added to the stream. The minimum value of a stream's retention period is 24 hours.</p>
+          <note> <p>When invoking t
+        call: amazon-kinesis-data-streams.decreasestreamretentionperiod
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-deletestream
+      name: x-amz-target-kinesis-20131202-deletestream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DeleteStream.'
+      operations:
+      - method: POST
+        name: deletestream
+        description: <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that
+          are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream,
+          it receives the exce
+        call: amazon-kinesis-data-streams.deletestream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-deregisterstreamconsumer
+      name: x-amz-target-kinesis-20131202-deregisterstreamconsumer
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DeregisterStreamConsumer.'
+      operations:
+      - method: POST
+        name: deregisterstreamconsumer
+        description: <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of the data stream
+          and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as
+          they don't conflict wit
+        call: amazon-kinesis-data-streams.deregisterstreamconsumer
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-describelimits
+      name: x-amz-target-kinesis-20131202-describelimits
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DescribeLimits.'
+      operations:
+      - method: POST
+        name: describelimits
+        description: <p>Describes the shard limits and usage for the account.</p> <p>If you update your account limits, the
+          old limits might be returned for a few minutes.</p> <p>This operation has a limit of one transaction per second
+          per account.</p>
+        call: amazon-kinesis-data-streams.describelimits
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-describestream
+      name: x-amz-target-kinesis-20131202-describestream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DescribeStream.'
+      operations:
+      - method: POST
+        name: describestream
+        description: '<p>Describes the specified Kinesis data stream.</p> <note> <p>This API has been revised. It''s highly
+          recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the specified Kinesis
+          data stream and the '
+        call: amazon-kinesis-data-streams.describestream
+        with:
+          Limit: rest.Limit
+          ExclusiveStartShardId: rest.ExclusiveStartShardId
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-describestreamconsumer
+      name: x-amz-target-kinesis-20131202-describestreamconsumer
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DescribeStreamConsumer.'
+      operations:
+      - method: POST
+        name: describestreamconsumer
+        description: <p>To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you
+          can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide
+          all three paramet
+        call: amazon-kinesis-data-streams.describestreamconsumer
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-describestreamsummary
+      name: x-amz-target-kinesis-20131202-describestreamsummary
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DescribeStreamSummary.'
+      operations:
+      - method: POST
+        name: describestreamsummary
+        description: <p>Provides a summarized description of the specified Kinesis data stream without the shard list.</p>
+          <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than
+          the <code>StreamName</c
+        call: amazon-kinesis-data-streams.describestreamsummary
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-disableenhancedmonitoring
+      name: x-amz-target-kinesis-20131202-disableenhancedmonitoring
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.DisableEnhancedMonitoring.'
+      operations:
+      - method: POST
+        name: disableenhancedmonitoring
+        description: <p>Disables enhanced monitoring.</p> <note> <p>When invoking this API, it is recommended you use the
+          <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note>
+        call: amazon-kinesis-data-streams.disableenhancedmonitoring
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-enableenhancedmonitoring
+      name: x-amz-target-kinesis-20131202-enableenhancedmonitoring
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.EnableEnhancedMonitoring.'
+      operations:
+      - method: POST
+        name: enableenhancedmonitoring
+        description: <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p> <note> <p>When invoking
+          this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code>
+          input parameter.<
+        call: amazon-kinesis-data-streams.enableenhancedmonitoring
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-getrecords
+      name: x-amz-target-kinesis-20131202-getrecords
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.GetRecords.'
+      operations:
+      - method: POST
+        name: getrecords
+        description: <p>Gets data records from a Kinesis data stream's shard.</p> <note> <p>When invoking this API, it is
+          recommended you use the <code>StreamARN</code> input parameter in addition to the <code>ShardIterator</code> parameter.</p>
+          </note> <p>Spec
+        call: amazon-kinesis-data-streams.getrecords
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-getsharditerator
+      name: x-amz-target-kinesis-20131202-getsharditerator
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.GetShardIterator.'
+      operations:
+      - method: POST
+        name: getsharditerator
+        description: <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is returned to
+          the requester.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+          parameter rather than the <
+        call: amazon-kinesis-data-streams.getsharditerator
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-increasestreamretentionperiod
+      name: x-amz-target-kinesis-20131202-increasestreamretentionperiod
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.IncreaseStreamRetentionPeriod.'
+      operations:
+      - method: POST
+        name: increasestreamretentionperiod
+        description: <p>Increases the Kinesis data stream's retention period, which is the length of time data records are
+          accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours (365
+          days).</p> <note> <p>Wh
+        call: amazon-kinesis-data-streams.increasestreamretentionperiod
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-listshards
+      name: x-amz-target-kinesis-20131202-listshards
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.ListShards.'
+      operations:
+      - method: POST
+        name: listshards
+        description: <p>Lists the shards in a stream and provides information about each shard. This operation has a limit
+          of 1000 transactions per second per data stream.</p> <note> <p>When invoking this API, it is recommended you use
+          the <code>StreamARN</code
+        call: amazon-kinesis-data-streams.listshards
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-liststreamconsumers
+      name: x-amz-target-kinesis-20131202-liststreamconsumers
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.ListStreamConsumers.'
+      operations:
+      - method: POST
+        name: liststreamconsumers
+        description: <p>Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides
+          information about each consumer.</p> <p>This operation has a limit of 5 transactions per second per stream.</p>
+        call: amazon-kinesis-data-streams.liststreamconsumers
+        with:
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-liststreams
+      name: x-amz-target-kinesis-20131202-liststreams
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.ListStreams.'
+      operations:
+      - method: POST
+        name: liststreams
+        description: <p>Lists your Kinesis data streams.</p> <p>The number of streams may be too large to return from a single
+          call to <code>ListStreams</code>. You can limit the number of returned streams using the <code>Limit</code> parameter.
+          If you do not s
+        call: amazon-kinesis-data-streams.liststreams
+        with:
+          Limit: rest.Limit
+          NextToken: rest.NextToken
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-listtagsforstream
+      name: x-amz-target-kinesis-20131202-listtagsforstream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.ListTagsForStream.'
+      operations:
+      - method: POST
+        name: listtagsforstream
+        description: <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions
+          per second per account.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code>
+          input parameter rath
+        call: amazon-kinesis-data-streams.listtagsforstream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-mergeshards
+      name: x-amz-target-kinesis-20131202-mergeshards
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.MergeShards.'
+      operations:
+      - method: POST
+        name: mergeshards
+        description: <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single shard to reduce
+          the stream's capacity to ingest and transport data. This API is only supported for the data streams with the provisioned
+          capacity mode. T
+        call: amazon-kinesis-data-streams.mergeshards
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-putrecord
+      name: x-amz-target-kinesis-20131202-putrecord
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.PutRecord.'
+      operations:
+      - method: POST
+        name: putrecord
+        description: <p>Writes a single data record into an Amazon Kinesis data stream. Call <code>PutRecord</code> to send
+          data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support
+          writes up to 1,000 r
+        call: amazon-kinesis-data-streams.putrecord
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-putrecords
+      name: x-amz-target-kinesis-20131202-putrecords
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.PutRecords.'
+      operations:
+      - method: POST
+        name: putrecords
+        description: <p>Writes multiple data records into a Kinesis data stream in a single call (also referred to as a <code>PutRecords</code>
+          request). Use this operation to send data into the stream for data ingestion and processing. </p> <note> <p>When
+          invo
+        call: amazon-kinesis-data-streams.putrecords
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-registerstreamconsumer
+      name: x-amz-target-kinesis-20131202-registerstreamconsumer
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.RegisterStreamConsumer.'
+      operations:
+      - method: POST
+        name: registerstreamconsumer
+        description: <p>Registers a consumer with a Kinesis data stream. When you use this operation, the consumer you register
+          can then call <a>SubscribeToShard</a> to receive data from the stream using enhanced fan-out, at a rate of up to
+          2 MiB per second for
+        call: amazon-kinesis-data-streams.registerstreamconsumer
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-removetagsfromstream
+      name: x-amz-target-kinesis-20131202-removetagsfromstream
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.RemoveTagsFromStream.'
+      operations:
+      - method: POST
+        name: removetagsfromstream
+        description: <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered
+          after this operation successfully completes.</p> <note> <p>When invoking this API, it is recommended you use the
+          <code>StreamARN</code>
+        call: amazon-kinesis-data-streams.removetagsfromstream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-splitshard
+      name: x-amz-target-kinesis-20131202-splitshard
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.SplitShard.'
+      operations:
+      - method: POST
+        name: splitshard
+        description: <p>Splits a shard into two new shards in the Kinesis data stream, to increase the stream's capacity to
+          ingest and transport data. <code>SplitShard</code> is called when there is a need to increase the overall capacity
+          of a stream because of
+        call: amazon-kinesis-data-streams.splitshard
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-startstreamencryption
+      name: x-amz-target-kinesis-20131202-startstreamencryption
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.StartStreamEncryption.'
+      operations:
+      - method: POST
+        name: startstreamencryption
+        description: <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a specified stream.
+          </p> <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns
+          immediately and set
+        call: amazon-kinesis-data-streams.startstreamencryption
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-stopstreamencryption
+      name: x-amz-target-kinesis-20131202-stopstreamencryption
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.StopStreamEncryption.'
+      operations:
+      - method: POST
+        name: stopstreamencryption
+        description: <p>Disables server-side encryption for a specified stream. </p> <note> <p>When invoking this API, it
+          is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input
+          parameter.</p> </note> <p>S
+        call: amazon-kinesis-data-streams.stopstreamencryption
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-updateshardcount
+      name: x-amz-target-kinesis-20131202-updateshardcount
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.UpdateShardCount.'
+      operations:
+      - method: POST
+        name: updateshardcount
+        description: <p>Updates the shard count of the specified stream to the specified number of shards. This API is only
+          supported for the data streams with the provisioned capacity mode.</p> <note> <p>When invoking this API, it is recommended
+          you use the <c
+        call: amazon-kinesis-data-streams.updateshardcount
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-kinesis-20131202-updatestreammode
+      name: x-amz-target-kinesis-20131202-updatestreammode
+      description: 'REST surface for #X-Amz-Target=Kinesis_20131202.UpdateStreamMode.'
+      operations:
+      - method: POST
+        name: updatestreammode
+        description: Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between
+          an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data stream.
+        call: amazon-kinesis-data-streams.updatestreammode
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-kinesis-data-streams-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon Kinesis. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: p-adds-updates-tags-specified-kinesis
+      description: <p>Adds or updates tags for the specified Kinesis data stream. You can assign up to 50 tags to a data stream.</p>
+        <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than
+        the <code>S
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.addtagstostream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-creates-kinesis-data-stream-stream
+      description: <p>Creates a Kinesis data stream. A stream captures and transports data records that are continuously emitted
+        from different data sources or <i>producers</i>. Scale-out within a stream is explicitly supported by means of shards,
+        which are u
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.createstream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-decreases-kinesis-data-stream-s-retention
+      description: <p>Decreases the Kinesis data stream's retention period, which is the length of time data records are accessible
+        after they are added to the stream. The minimum value of a stream's retention period is 24 hours.</p> <note> <p>When
+        invoking t
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.decreasestreamretentionperiod
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-deletes-kinesis-data-stream-and
+      description: <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that
+        are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream,
+        it receives the exce
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.deletestream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-to-deregister-consumer-provide-its
+      description: <p>To deregister a consumer, provide its ARN. Alternatively, you can provide the ARN of the data stream
+        and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as they
+        don't conflict wit
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.deregisterstreamconsumer
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-describes-shard-limits-and-usage
+      description: <p>Describes the shard limits and usage for the account.</p> <p>If you update your account limits, the
+        old limits might be returned for a few minutes.</p> <p>This operation has a limit of one transaction per second per
+        account.</p>
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.describelimits
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-describes-specified-kinesis-data-stream
+      description: '<p>Describes the specified Kinesis data stream.</p> <note> <p>This API has been revised. It''s highly
+        recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the specified Kinesis
+        data stream and the '
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.describestream
+      with:
+        Limit: tools.Limit
+        ExclusiveStartShardId: tools.ExclusiveStartShardId
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-to-get-description-registered-consumer
+      description: <p>To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you
+        can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide
+        all three paramet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.describestreamconsumer
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-provides-summarized-description-specified-kinesis
+      description: <p>Provides a summarized description of the specified Kinesis data stream without the shard list.</p> <note>
+        <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</c
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.describestreamsummary
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-disables-enhanced-monitoring-p-note
+      description: <p>Disables enhanced monitoring.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code>
+        input parameter rather than the <code>StreamName</code> input parameter.</p> </note>
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.disableenhancedmonitoring
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-enables-enhanced-kinesis-data-stream
+      description: <p>Enables enhanced Kinesis data stream monitoring for shard-level metrics.</p> <note> <p>When invoking
+        this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code>
+        input parameter.<
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.enableenhancedmonitoring
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-gets-data-records-kinesis-data
+      description: <p>Gets data records from a Kinesis data stream's shard.</p> <note> <p>When invoking this API, it is recommended
+        you use the <code>StreamARN</code> input parameter in addition to the <code>ShardIterator</code> parameter.</p> </note>
+        <p>Spec
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.getrecords
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-gets-amazon-kinesis-shard-iterator
+      description: <p>Gets an Amazon Kinesis shard iterator. A shard iterator expires 5 minutes after it is returned to the
+        requester.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter
+        rather than the <
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.getsharditerator
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-increases-kinesis-data-stream-s-retention
+      description: <p>Increases the Kinesis data stream's retention period, which is the length of time data records are accessible
+        after they are added to the stream. The maximum value of a stream's retention period is 8760 hours (365 days).</p>
+        <note> <p>Wh
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.increasestreamretentionperiod
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-lists-shards-stream-and-provides
+      description: <p>Lists the shards in a stream and provides information about each shard. This operation has a limit of
+        1000 transactions per second per data stream.</p> <note> <p>When invoking this API, it is recommended you use the
+        <code>StreamARN</code
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.listshards
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-lists-consumers-registered-receive-data
+      description: <p>Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides information
+        about each consumer.</p> <p>This operation has a limit of 5 transactions per second per stream.</p>
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.liststreamconsumers
+      with:
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-lists-your-kinesis-data-streams
+      description: <p>Lists your Kinesis data streams.</p> <p>The number of streams may be too large to return from a single
+        call to <code>ListStreams</code>. You can limit the number of returned streams using the <code>Limit</code> parameter.
+        If you do not s
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.liststreams
+      with:
+        Limit: tools.Limit
+        NextToken: tools.NextToken
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-lists-tags-specified-kinesis-data
+      description: <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions
+        per second per account.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code>
+        input parameter rath
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.listtagsforstream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-merges-two-adjacent-shards-kinesis
+      description: <p>Merges two adjacent shards in a Kinesis data stream and combines them into a single shard to reduce
+        the stream's capacity to ingest and transport data. This API is only supported for the data streams with the provisioned
+        capacity mode. T
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.mergeshards
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-writes-single-data-record-amazon
+      description: <p>Writes a single data record into an Amazon Kinesis data stream. Call <code>PutRecord</code> to send
+        data into the stream for real-time ingestion and subsequent processing, one record at a time. Each shard can support
+        writes up to 1,000 r
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.putrecord
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-writes-multiple-data-records-kinesis
+      description: <p>Writes multiple data records into a Kinesis data stream in a single call (also referred to as a <code>PutRecords</code>
+        request). Use this operation to send data into the stream for data ingestion and processing. </p> <note> <p>When invo
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.putrecords
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-registers-consumer-kinesis-data-stream
+      description: <p>Registers a consumer with a Kinesis data stream. When you use this operation, the consumer you register
+        can then call <a>SubscribeToShard</a> to receive data from the stream using enhanced fan-out, at a rate of up to 2
+        MiB per second for
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.registerstreamconsumer
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-removes-tags-specified-kinesis-data
+      description: <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and cannot be recovered
+        after this operation successfully completes.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code>
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.removetagsfromstream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-splits-shard-two-new-shards
+      description: <p>Splits a shard into two new shards in the Kinesis data stream, to increase the stream's capacity to
+        ingest and transport data. <code>SplitShard</code> is called when there is a need to increase the overall capacity
+        of a stream because of
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.splitshard
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-enables-updates-server-side-encryption
+      description: <p>Enables or updates server-side encryption using an Amazon Web Services KMS key for a specified stream.
+        </p> <p>Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns
+        immediately and set
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.startstreamencryption
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-disables-server-side-encryption-specified
+      description: <p>Disables server-side encryption for a specified stream. </p> <note> <p>When invoking this API, it is
+        recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p>
+        </note> <p>S
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.stopstreamencryption
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: p-updates-shard-count-specified-stream
+      description: <p>Updates the shard count of the specified stream to the specified number of shards. This API is only
+        supported for the data streams with the provisioned capacity mode.</p> <note> <p>When invoking this API, it is recommended
+        you use the <c
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.updateshardcount
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updates-capacity-mode-data-stream
+      description: Updates the capacity mode of the data stream. Currently, in Kinesis Data Streams, you can choose between
+        an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data stream.
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-kinesis-data-streams.updatestreammode
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

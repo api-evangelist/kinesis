@@ -1,27 +1,25 @@
 naftiko: 1.0.0-alpha2
 info:
   label: Amazon Kinesis Firehose
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully
-    managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3),
-    Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  description: 'Amazon Kinesis Firehose. 12 operations. Lead operation: Amazon Kinesis Firehose. Self-contained Naftiko capability
+    covering one Kinesis business surface.'
   tags:
   - Kinesis
-  - API
-  created: '2026-05-06'
-  modified: '2026-05-06'
+  - Amazon Kinesis Firehose
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    KINESIS_API_KEY: KINESIS_API_KEY
 capability:
   consumes:
   - type: http
-    namespace: kinesis
-    baseUri: http://firehose.us-east-1.amazonaws.com
-    description: Amazon Kinesis Firehose HTTP API.
-    authentication:
-      type: apikey
-      in: header
-      name: Authorization
-      value: '{{KINESIS_TOKEN}}'
+    namespace: amazon-data-firehose
+    baseUri: http://firehose.{region}.amazonaws.com
+    description: Amazon Kinesis Firehose business capability. Self-contained, no shared references.
     resources:
-    - name: x-amz-target-firehose-20150804-createdeliverystr
+    - name: '#X-Amz-Target=Firehose_20150804.CreateDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.CreateDeliveryStream
       operations:
       - name: createdeliverystream
@@ -29,34 +27,44 @@ capability:
         description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
           streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
           status of the del
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-deletedeliverystr
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.DeleteDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.DeleteDeliveryStream
       operations:
       - name: deletedeliverystream
         method: POST
         description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
           You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-describedeliverys
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.DescribeDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.DescribeDeliveryStream
       operations:
       - name: describedeliverystream
@@ -64,17 +72,22 @@ capability:
         description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is
           created, call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and
           therefore ready for data t
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-listdeliverystrea
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.ListDeliveryStreams'
       path: /#X-Amz-Target=Firehose_20150804.ListDeliveryStreams
       operations:
       - name: listdeliverystreams
@@ -82,34 +95,44 @@ capability:
         description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
           might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
           delivery streams re
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-listtagsfordelive
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream
       operations:
       - name: listtagsfordeliverystream
         method: POST
         description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per
           second per account.
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-putrecord
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.PutRecord'
       path: /#X-Amz-Target=Firehose_20150804.PutRecord
       operations:
       - name: putrecord
@@ -117,17 +140,22 @@ capability:
         description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
           data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred
           to as producers.</p> <p>
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-putrecordbatch
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.PutRecordBatch'
       path: /#X-Amz-Target=Firehose_20150804.PutRecordBatch
       operations:
       - name: putrecordbatch
@@ -135,17 +163,22 @@ capability:
         description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
           per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
           Applicati
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-startdeliverystre
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption'
       path: /#X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption
       operations:
       - name: startdeliverystreamencryption
@@ -153,17 +186,22 @@ capability:
         description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
           It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
           to <code>ENABLING</cod
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-stopdeliverystrea
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption'
       path: /#X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption
       operations:
       - name: stopdeliverystreamencryption
@@ -171,17 +209,22 @@ capability:
         description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
           It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
           to <code>DISABLING</c
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-tagdeliverystream
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.TagDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.TagDeliveryStream
       operations:
       - name: tagdeliverystream
@@ -189,17 +232,22 @@ capability:
         description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
           and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced
           with the value that yo
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-untagdeliverystre
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.UntagDeliveryStream'
       path: /#X-Amz-Target=Firehose_20150804.UntagDeliveryStream
       operations:
       - name: untagdeliverystream
@@ -207,17 +255,22 @@ capability:
         description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
           after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
           it.</p> <p>This oper
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
-    - name: x-amz-target-firehose-20150804-updatedestination
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=Firehose_20150804.UpdateDestination'
       path: /#X-Amz-Target=Firehose_20150804.UpdateDestination
       operations:
       - name: updatedestination
@@ -225,171 +278,231 @@ capability:
         description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
           the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
           associated wit
-        inputParameters:
-        - name: X-Amz-Target
-          in: header
-          type: string
-          required: true
         outputRawFormat: json
         outputParameters:
         - name: result
           type: object
           value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.KINESIS_API_KEY}}'
+      placement: header
   exposes:
   - type: rest
+    namespace: amazon-data-firehose-rest
     port: 8080
-    namespace: kinesis-rest
-    description: REST adapter for Amazon Kinesis Firehose.
+    description: REST adapter for Amazon Kinesis Firehose. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
     resources:
-    - path: /#X-Amz-Target=Firehose_20150804.CreateDeliveryStream
-      name: createdeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-createdeliverystream
+      name: x-amz-target-firehose-20150804-createdeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.CreateDeliveryStream.'
       operations:
       - method: POST
         name: createdeliverystream
         description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
           streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
           status of the del
-        call: kinesis.createdeliverystream
+        call: amazon-data-firehose.createdeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.DeleteDeliveryStream
-      name: deletedeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-deletedeliverystream
+      name: x-amz-target-firehose-20150804-deletedeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.DeleteDeliveryStream.'
       operations:
       - method: POST
         name: deletedeliverystream
         description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
           You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
-        call: kinesis.deletedeliverystream
+        call: amazon-data-firehose.deletedeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.DescribeDeliveryStream
-      name: describedeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-describedeliverystream
+      name: x-amz-target-firehose-20150804-describedeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.DescribeDeliveryStream.'
       operations:
       - method: POST
         name: describedeliverystream
         description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is
           created, call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and
           therefore ready for data t
-        call: kinesis.describedeliverystream
+        call: amazon-data-firehose.describedeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.ListDeliveryStreams
-      name: listdeliverystreams
+    - path: /v1/x-amz-target-firehose-20150804-listdeliverystreams
+      name: x-amz-target-firehose-20150804-listdeliverystreams
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.ListDeliveryStreams.'
       operations:
       - method: POST
         name: listdeliverystreams
         description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
           might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
           delivery streams re
-        call: kinesis.listdeliverystreams
+        call: amazon-data-firehose.listdeliverystreams
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream
-      name: listtagsfordeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-listtagsfordeliverystream
+      name: x-amz-target-firehose-20150804-listtagsfordeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.ListTagsForDeliveryStream.'
       operations:
       - method: POST
         name: listtagsfordeliverystream
         description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per
           second per account.
-        call: kinesis.listtagsfordeliverystream
+        call: amazon-data-firehose.listtagsfordeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.PutRecord
-      name: putrecord
+    - path: /v1/x-amz-target-firehose-20150804-putrecord
+      name: x-amz-target-firehose-20150804-putrecord
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.PutRecord.'
       operations:
       - method: POST
         name: putrecord
         description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
           data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred
           to as producers.</p> <p>
-        call: kinesis.putrecord
+        call: amazon-data-firehose.putrecord
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.PutRecordBatch
-      name: putrecordbatch
+    - path: /v1/x-amz-target-firehose-20150804-putrecordbatch
+      name: x-amz-target-firehose-20150804-putrecordbatch
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.PutRecordBatch.'
       operations:
       - method: POST
         name: putrecordbatch
         description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
           per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
           Applicati
-        call: kinesis.putrecordbatch
+        call: amazon-data-firehose.putrecordbatch
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption
-      name: startdeliverystreamencryption
+    - path: /v1/x-amz-target-firehose-20150804-startdeliverystreamencryption
+      name: x-amz-target-firehose-20150804-startdeliverystreamencryption
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.StartDeliveryStreamEncryption.'
       operations:
       - method: POST
         name: startdeliverystreamencryption
         description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
           It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
           to <code>ENABLING</cod
-        call: kinesis.startdeliverystreamencryption
+        call: amazon-data-firehose.startdeliverystreamencryption
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption
-      name: stopdeliverystreamencryption
+    - path: /v1/x-amz-target-firehose-20150804-stopdeliverystreamencryption
+      name: x-amz-target-firehose-20150804-stopdeliverystreamencryption
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.StopDeliveryStreamEncryption.'
       operations:
       - method: POST
         name: stopdeliverystreamencryption
         description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
           It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream
           to <code>DISABLING</c
-        call: kinesis.stopdeliverystreamencryption
+        call: amazon-data-firehose.stopdeliverystreamencryption
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.TagDeliveryStream
-      name: tagdeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-tagdeliverystream
+      name: x-amz-target-firehose-20150804-tagdeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.TagDeliveryStream.'
       operations:
       - method: POST
         name: tagdeliverystream
         description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
           and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced
           with the value that yo
-        call: kinesis.tagdeliverystream
+        call: amazon-data-firehose.tagdeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.UntagDeliveryStream
-      name: untagdeliverystream
+    - path: /v1/x-amz-target-firehose-20150804-untagdeliverystream
+      name: x-amz-target-firehose-20150804-untagdeliverystream
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.UntagDeliveryStream.'
       operations:
       - method: POST
         name: untagdeliverystream
         description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
           after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
           it.</p> <p>This oper
-        call: kinesis.untagdeliverystream
+        call: amazon-data-firehose.untagdeliverystream
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
-    - path: /#X-Amz-Target=Firehose_20150804.UpdateDestination
-      name: updatedestination
+    - path: /v1/x-amz-target-firehose-20150804-updatedestination
+      name: x-amz-target-firehose-20150804-updatedestination
+      description: 'REST surface for #X-Amz-Target=Firehose_20150804.UpdateDestination.'
       operations:
       - method: POST
         name: updatedestination
         description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
           the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
           associated wit
-        call: kinesis.updatedestination
+        call: amazon-data-firehose.updatedestination
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
         outputParameters:
         - type: object
           mapping: $.
   - type: mcp
+    namespace: amazon-data-firehose-mcp
     port: 9090
-    namespace: kinesis-mcp
     transport: http
-    description: MCP adapter for Amazon Kinesis Firehose for AI agent use.
+    description: MCP adapter for Amazon Kinesis Firehose. One tool per consumed operation, routed inline through this capability's
+      consumes block.
     tools:
-    - name: createdeliverystream
+    - name: p-creates-kinesis-data-firehose-delivery
       description: <p>Creates a Kinesis Data Firehose delivery stream.</p> <p>By default, you can create up to 50 delivery
         streams per Amazon Web Services Region.</p> <p>This is an asynchronous operation that immediately returns. The initial
         status of the del
@@ -397,22 +510,28 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.createdeliverystream
+      call: amazon-data-firehose.createdeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: deletedeliverystream
+    - name: p-deletes-delivery-stream-and-its
       description: '<p>Deletes a delivery stream and its data.</p> <p>To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
         You can delete a delivery stream only if it is in one of the following states: <code>ACTIVE</code>, <code>DELETING'
       hints:
-        readOnly: false
+        readOnly: true
         destructive: false
         idempotent: false
-      call: kinesis.deletedeliverystream
+      call: amazon-data-firehose.deletedeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: describedeliverystream
+    - name: p-describes-specified-delivery-stream-and
       description: <p>Describes the specified delivery stream and its status. For example, after your delivery stream is created,
         call <code>DescribeDeliveryStream</code> to see whether the delivery stream is <code>ACTIVE</code> and therefore ready
         for data t
@@ -420,11 +539,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.describedeliverystream
+      call: amazon-data-firehose.describedeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: listdeliverystreams
+    - name: p-lists-your-delivery-streams-alphabetical
       description: <p>Lists your delivery streams in alphabetical order of their names.</p> <p>The number of delivery streams
         might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of
         delivery streams re
@@ -432,22 +554,28 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.listdeliverystreams
+      call: amazon-data-firehose.listdeliverystreams
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: listtagsfordeliverystream
+    - name: lists-tags-specified-delivery-stream
       description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second
         per account.
       hints:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.listtagsfordeliverystream
+      call: amazon-data-firehose.listtagsfordeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: putrecord
+    - name: p-writes-single-data-record-amazon
       description: <p>Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple
         data records into a delivery stream, use <a>PutRecordBatch</a>. Applications using these operations are referred to
         as producers.</p> <p>
@@ -455,11 +583,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.putrecord
+      call: amazon-data-firehose.putrecord
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: putrecordbatch
+    - name: p-writes-multiple-data-records-delivery
       description: <p>Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput
         per producer than when writing single records. To write single data records into a delivery stream, use <a>PutRecord</a>.
         Applicati
@@ -467,11 +598,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.putrecordbatch
+      call: amazon-data-firehose.putrecordbatch
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: startdeliverystreamencryption
+    - name: p-enables-server-side-encryption-sse
       description: <p>Enables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
         It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream to
         <code>ENABLING</cod
@@ -479,11 +613,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.startdeliverystreamencryption
+      call: amazon-data-firehose.startdeliverystreamencryption
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: stopdeliverystreamencryption
+    - name: p-disables-server-side-encryption-sse
       description: <p>Disables server-side encryption (SSE) for the delivery stream. </p> <p>This operation is asynchronous.
         It returns immediately. When you invoke it, Kinesis Data Firehose first sets the encryption status of the stream to
         <code>DISABLING</c
@@ -491,11 +628,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.stopdeliverystreamencryption
+      call: amazon-data-firehose.stopdeliverystreamencryption
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: tagdeliverystream
+    - name: p-adds-updates-tags-specified-delivery
       description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define
         and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with
         the value that yo
@@ -503,11 +643,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.tagdeliverystream
+      call: amazon-data-firehose.tagdeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: untagdeliverystream
+    - name: p-removes-tags-specified-delivery-stream
       description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them
         after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores
         it.</p> <p>This oper
@@ -515,11 +658,14 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.untagdeliverystream
+      call: amazon-data-firehose.untagdeliverystream
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-    - name: updatedestination
+    - name: p-updates-specified-destination-specified-delivery
       description: <p>Updates the specified destination of the specified delivery stream.</p> <p>Use this operation to change
         the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters
         associated wit
@@ -527,11 +673,10 @@ capability:
         readOnly: false
         destructive: false
         idempotent: false
-      call: kinesis.updatedestination
+      call: amazon-data-firehose.updatedestination
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
       outputParameters:
       - type: object
         mapping: $.
-binds:
-- namespace: env
-  keys:
-    KINESIS_TOKEN: KINESIS_TOKEN
