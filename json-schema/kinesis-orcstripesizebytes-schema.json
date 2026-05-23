@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrcStripeSizeBytes",
+  "title": "OrcStripeSizeBytes",
+  "type": "integer",
+  "minimum": 8388608
+}

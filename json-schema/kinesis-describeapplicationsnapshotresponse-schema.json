@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeApplicationSnapshotResponse",
+  "title": "DescribeApplicationSnapshotResponse",
+  "type": "object",
+  "required": [
+    "SnapshotDetails"
+  ],
+  "properties": {
+    "SnapshotDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnapshotDetails"
+        },
+        {
+          "description": "An object containing information about the application snapshot."
+        }
+      ]
+    }
+  }
+}

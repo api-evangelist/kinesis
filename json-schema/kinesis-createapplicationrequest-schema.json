@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateApplicationRequest",
+  "title": "CreateApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "RuntimeEnvironment",
+    "ServiceExecutionRole"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of your application (for example, <code>sample-app</code>)."
+        }
+      ]
+    },
+    "ApplicationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDescription"
+        },
+        {
+          "description": "A summary description of the application."
+        }
+      ]
+    },
+    "RuntimeEnvironment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuntimeEnvironment"
+        },
+        {
+          "description": "The runtime environment for the application."
+        }
+      ]
+    },
+    "ServiceExecutionRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources."
+        }
+      ]
+    },
+    "ApplicationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationConfiguration"
+        },
+        {
+          "description": "Use this parameter to configure the application."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "Use this parameter to configure an Amazon CloudWatch log stream to monitor application configuration errors. "
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Tags"
+        },
+        {
+          "description": "A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an application. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html\">Using Tagging</a>."
+        }
+      ]
+    },
+    "ApplicationMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMode"
+        },
+        {
+          "description": "Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the <code>INTERACTIVE</code> mode."
+        }
+      ]
+    }
+  }
+}

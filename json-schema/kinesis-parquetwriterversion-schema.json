@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ParquetWriterVersion",
+  "title": "ParquetWriterVersion",
+  "type": "string",
+  "enum": [
+    "V1",
+    "V2"
+  ]
+}

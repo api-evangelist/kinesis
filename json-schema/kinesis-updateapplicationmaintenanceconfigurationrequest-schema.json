@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApplicationMaintenanceConfigurationRequest",
+  "title": "UpdateApplicationMaintenanceConfigurationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "ApplicationMaintenanceConfigurationUpdate"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application for which you want to update the maintenance configuration."
+        }
+      ]
+    },
+    "ApplicationMaintenanceConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceConfigurationUpdate"
+        },
+        {
+          "description": "Describes the application maintenance configuration update."
+        }
+      ]
+    }
+  }
+}

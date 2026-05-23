@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationStatus",
+  "title": "ApplicationStatus",
+  "type": "string",
+  "enum": [
+    "DELETING",
+    "STARTING",
+    "STOPPING",
+    "READY",
+    "RUNNING",
+    "UPDATING",
+    "AUTOSCALING",
+    "FORCE_STOPPING",
+    "ROLLING_BACK",
+    "MAINTENANCE",
+    "ROLLED_BACK"
+  ]
+}

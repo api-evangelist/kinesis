@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetSignalingChannelEndpointInput",
+  "title": "GetSignalingChannelEndpointInput",
+  "type": "object",
+  "required": [
+    "ChannelARN"
+  ],
+  "properties": {
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint."
+        }
+      ]
+    },
+    "SingleMasterChannelEndpointConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SingleMasterChannelEndpointConfiguration"
+        },
+        {
+          "description": "A structure containing the endpoint configuration for the <code>SINGLE_MASTER</code> channel type."
+        }
+      ]
+    }
+  }
+}

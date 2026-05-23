@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ZeppelinMonitoringConfigurationDescription",
+  "title": "ZeppelinMonitoringConfigurationDescription",
+  "type": "object",
+  "properties": {
+    "LogLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "Describes the verbosity of the CloudWatch Logs for an application."
+        }
+      ]
+    }
+  },
+  "description": "The monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook."
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeMappedResourceConfigurationOutput",
+  "title": "DescribeMappedResourceConfigurationOutput",
+  "type": "object",
+  "properties": {
+    "MappedResourceConfigurationList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MappedResourceConfigurationList"
+        },
+        {
+          "description": "A structure that encapsulates, or contains, the media storage configuration properties."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token that was used in the <code>NextToken</code>request to fetch the next set of results. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationDetail",
+  "title": "ApplicationDetail",
+  "type": "object",
+  "required": [
+    "ApplicationARN",
+    "ApplicationName",
+    "RuntimeEnvironment",
+    "ApplicationStatus",
+    "ApplicationVersionId"
+  ],
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the application."
+        }
+      ]
+    },
+    "ApplicationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDescription"
+        },
+        {
+          "description": "The description of the application."
+        }
+      ]
+    },
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application."
+        }
+      ]
+    },
+    "RuntimeEnvironment": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RuntimeEnvironment"
+        },
+        {
+          "description": "The runtime environment for the application."
+        }
+      ]
+    },
+    "ServiceExecutionRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "Specifies the IAM role that the application uses to access external resources."
+        }
+      ]
+    },
+    "ApplicationStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationStatus"
+        },
+        {
+          "description": "The status of the application."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "Provides the current application version. Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update the application."
+        }
+      ]
+    },
+    "CreateTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The current timestamp when the application was created."
+        }
+      ]
+    },
+    "LastUpdateTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The current timestamp when the application was last updated."
+        }
+      ]
+    },
+    "ApplicationConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationConfigurationDescription"
+        },
+        {
+          "description": "Describes details about the application code and starting parameters for a Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptionDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptionDescriptions"
+        },
+        {
+          "description": "Describes the application Amazon CloudWatch logging options."
+        }
+      ]
+    },
+    "ApplicationMaintenanceConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceConfigurationDescription"
+        },
+        {
+          "description": "The details of the maintenance configuration for the application."
+        }
+      ]
+    },
+    "ApplicationVersionUpdatedFrom": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The previous application version before the latest application update. <a>RollbackApplication</a> reverts the application to this version."
+        }
+      ]
+    },
+    "ApplicationVersionRolledBackFrom": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "If you reverted the application using <a>RollbackApplication</a>, the application version when <code>RollbackApplication</code> was called."
+        }
+      ]
+    },
+    "ConditionalToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConditionalToken"
+        },
+        {
+          "description": "A value you use to implement strong concurrency for application updates."
+        }
+      ]
+    },
+    "ApplicationVersionRolledBackTo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The version to which you want to roll back the application."
+        }
+      ]
+    },
+    "ApplicationMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMode"
+        },
+        {
+          "description": "To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional."
+        }
+      ]
+    }
+  },
+  "description": "Describes the application, including the application Amazon Resource Name (ARN), status, latest version, and input and output configurations."
+}

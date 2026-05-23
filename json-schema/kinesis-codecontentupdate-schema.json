@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CodeContentUpdate",
+  "title": "CodeContentUpdate",
+  "type": "object",
+  "properties": {
+    "TextContentUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "description": "Describes an update to the text code for an application."
+        }
+      ]
+    },
+    "ZipFileContentUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZipFileContent"
+        },
+        {
+          "description": "Describes an update to the zipped code for an application."
+        }
+      ]
+    },
+    "S3ContentLocationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ContentLocationUpdate"
+        },
+        {
+          "description": "Describes an update to the location of code for an application."
+        }
+      ]
+    }
+  },
+  "description": "Describes an update to the code of an application. Not supported for Apache Zeppelin."
+}

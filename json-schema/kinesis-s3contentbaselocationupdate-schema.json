@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/S3ContentBaseLocationUpdate",
+  "title": "S3ContentBaseLocationUpdate",
+  "type": "object",
+  "properties": {
+    "BucketARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketARN"
+        },
+        {
+          "description": "The updated Amazon Resource Name (ARN) of the S3 bucket."
+        }
+      ]
+    },
+    "BasePathUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BasePath"
+        },
+        {
+          "description": "The updated S3 bucket path."
+        }
+      ]
+    }
+  },
+  "description": "The information required to update the S3 base location that holds the application."
+}

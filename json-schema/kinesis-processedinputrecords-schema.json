@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProcessedInputRecords",
+  "title": "ProcessedInputRecords",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/ProcessedInputRecord"
+  }
+}

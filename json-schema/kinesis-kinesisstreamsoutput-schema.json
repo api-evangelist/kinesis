@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KinesisStreamsOutput",
+  "title": "KinesisStreamsOutput",
+  "type": "object",
+  "required": [
+    "ResourceARN"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the destination Kinesis data stream to write to."
+        }
+      ]
+    }
+  },
+  "description": "When you configure a SQL-based Kinesis Data Analytics application's output, identifies a Kinesis data stream as the destination. You provide the stream Amazon Resource Name (ARN). "
+}

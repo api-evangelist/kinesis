@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UntagResourceRequest",
+  "title": "UntagResourceRequest",
+  "type": "object",
+  "required": [
+    "ResourceARN",
+    "TagKeys"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisAnalyticsARN"
+        },
+        {
+          "description": "The ARN of the Kinesis Data Analytics application from which to remove the tags."
+        }
+      ]
+    },
+    "TagKeys": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKeys"
+        },
+        {
+          "description": "A list of keys of tags to remove from the specified application."
+        }
+      ]
+    }
+  }
+}

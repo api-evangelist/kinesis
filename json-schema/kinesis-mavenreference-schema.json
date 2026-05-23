@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MavenReference",
+  "title": "MavenReference",
+  "type": "object",
+  "required": [
+    "GroupId",
+    "ArtifactId",
+    "Version"
+  ],
+  "properties": {
+    "GroupId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MavenGroupId"
+        },
+        {
+          "description": "The group ID of the Maven reference."
+        }
+      ]
+    },
+    "ArtifactId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MavenArtifactId"
+        },
+        {
+          "description": "The artifact ID of the Maven reference."
+        }
+      ]
+    },
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MavenVersion"
+        },
+        {
+          "description": "The version of the Maven reference."
+        }
+      ]
+    }
+  },
+  "description": "The information required to specify a Maven reference. You can use Maven references to specify dependency JAR files."
+}

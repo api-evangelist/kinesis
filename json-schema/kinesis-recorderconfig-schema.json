@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RecorderConfig",
+  "title": "RecorderConfig",
+  "type": "object",
+  "required": [
+    "MediaSourceConfig"
+  ],
+  "properties": {
+    "MediaSourceConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaSourceConfig"
+        },
+        {
+          "description": "The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. "
+        }
+      ]
+    },
+    "ScheduleConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScheduleConfig"
+        },
+        {
+          "description": "The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode."
+        }
+      ]
+    }
+  },
+  "description": "The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. "
+}

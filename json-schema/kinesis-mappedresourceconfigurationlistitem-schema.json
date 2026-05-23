@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MappedResourceConfigurationListItem",
+  "title": "MappedResourceConfigurationListItem",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Type"
+        },
+        {
+          "description": "The type of the associated resource for the kinesis video stream."
+        }
+      ]
+    },
+    "ARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream."
+        }
+      ]
+    }
+  },
+  "description": "A structure that encapsulates, or contains, the media storage configuration properties."
+}

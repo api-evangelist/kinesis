@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationSnapshotConfigurationDescription",
+  "title": "ApplicationSnapshotConfigurationDescription",
+  "type": "object",
+  "required": [
+    "SnapshotsEnabled"
+  ],
+  "properties": {
+    "SnapshotsEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    }
+  },
+  "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationCodeConfigurationUpdate",
+  "title": "ApplicationCodeConfigurationUpdate",
+  "type": "object",
+  "properties": {
+    "CodeContentTypeUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeContentType"
+        },
+        {
+          "description": "Describes updates to the code content type."
+        }
+      ]
+    },
+    "CodeContentUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeContentUpdate"
+        },
+        {
+          "description": "Describes updates to the code content of an application."
+        }
+      ]
+    }
+  },
+  "description": "Describes code configuration updates for an application. This is supported for a Flink-based Kinesis Data Analytics application or a SQL-based Kinesis Data Analytics application."
+}

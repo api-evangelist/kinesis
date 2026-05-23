@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ReferenceDataSource",
+  "title": "ReferenceDataSource",
+  "type": "object",
+  "required": [
+    "TableName",
+    "ReferenceSchema"
+  ],
+  "properties": {
+    "TableName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InAppTableName"
+        },
+        {
+          "description": "The name of the in-application table to create."
+        }
+      ]
+    },
+    "S3ReferenceDataSource": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ReferenceDataSource"
+        },
+        {
+          "description": "Identifies the S3 bucket and object that contains the reference data. A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. "
+        }
+      ]
+    },
+    "ReferenceSchema": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SourceSchema"
+        },
+        {
+          "description": "Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table."
+}

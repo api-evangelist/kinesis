@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamNameCondition",
+  "title": "StreamNameCondition",
+  "type": "object",
+  "properties": {
+    "ComparisonOperator": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ComparisonOperator"
+        },
+        {
+          "description": "A comparison operator. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix."
+        }
+      ]
+    },
+    "ComparisonValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "A value to compare."
+        }
+      ]
+    }
+  },
+  "description": "Specifies the condition that streams must satisfy to be returned when you list streams (see the <code>ListStreams</code> API). A condition has a comparison operation and a value. Currently, you can specify only the <code>BEGINS_WITH</code> operator, which finds streams whose names start with a given prefix. "
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListTagsForResourceRequest",
+  "title": "ListTagsForResourceRequest",
+  "type": "object",
+  "required": [
+    "ResourceARN"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisAnalyticsARN"
+        },
+        {
+          "description": "The ARN of the application for which to retrieve tags."
+        }
+      ]
+    }
+  }
+}

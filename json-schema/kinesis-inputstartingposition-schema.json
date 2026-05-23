@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputStartingPosition",
+  "title": "InputStartingPosition",
+  "type": "string",
+  "enum": [
+    "NOW",
+    "TRIM_HORIZON",
+    "LAST_STOPPED_POINT"
+  ]
+}

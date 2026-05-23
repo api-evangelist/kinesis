@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputProcessingConfiguration",
+  "title": "InputProcessingConfiguration",
+  "type": "object",
+  "required": [
+    "InputLambdaProcessor"
+  ],
+  "properties": {
+    "InputLambdaProcessor": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputLambdaProcessor"
+        },
+        {
+          "description": "The <a>InputLambdaProcessor</a> that is used to preprocess the records in the stream before being processed by your application code."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is <a href=\"https://docs.aws.amazon.com/lambda/\">Amazon Lambda</a>."
+}

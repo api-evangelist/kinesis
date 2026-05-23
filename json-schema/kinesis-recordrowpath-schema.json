@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RecordRowPath",
+  "title": "RecordRowPath",
+  "type": "string",
+  "pattern": "^(?=^\\$)(?=^\\S+$).*$",
+  "minLength": 1,
+  "maxLength": 65535
+}

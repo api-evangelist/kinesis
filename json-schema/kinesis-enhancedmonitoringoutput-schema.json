@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnhancedMonitoringOutput",
+  "title": "EnhancedMonitoringOutput",
+  "type": "object",
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the Kinesis data stream."
+        }
+      ]
+    },
+    "CurrentShardLevelMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricsNameList"
+        },
+        {
+          "description": "Represents the current state of the metrics that are in the enhanced state before the operation."
+        }
+      ]
+    },
+    "DesiredShardLevelMetrics": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricsNameList"
+        },
+        {
+          "description": "Represents the list of all the metrics that would be in the enhanced state after the operation."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "Represents the output for <a>EnableEnhancedMonitoring</a> and <a>DisableEnhancedMonitoring</a>."
+}

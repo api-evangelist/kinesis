@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointAccessKey",
+  "title": "HttpEndpointAccessKey",
+  "type": "string",
+  "pattern": ".*",
+  "minLength": 0,
+  "maxLength": 4096,
+  "format": "password"
+}

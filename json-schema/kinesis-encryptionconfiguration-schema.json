@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EncryptionConfiguration",
+  "title": "EncryptionConfiguration",
+  "type": "object",
+  "properties": {
+    "NoEncryptionConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NoEncryptionConfig"
+        },
+        {
+          "description": "Specifically override existing encryption information to ensure that no encryption is used."
+        }
+      ]
+    },
+    "KMSEncryptionConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KMSEncryptionConfig"
+        },
+        {
+          "description": "The encryption key."
+        }
+      ]
+    }
+  },
+  "description": "Describes the encryption for a destination in Amazon S3."
+}

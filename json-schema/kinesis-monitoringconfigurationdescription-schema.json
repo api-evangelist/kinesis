@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MonitoringConfigurationDescription",
+  "title": "MonitoringConfigurationDescription",
+  "type": "object",
+  "properties": {
+    "ConfigurationType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationType"
+        },
+        {
+          "description": "Describes whether to use the default CloudWatch logging configuration for an application."
+        }
+      ]
+    },
+    "MetricsLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricsLevel"
+        },
+        {
+          "description": "Describes the granularity of the CloudWatch Logs for an application."
+        }
+      ]
+    },
+    "LogLevel": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "Describes the verbosity of the CloudWatch Logs for an application."
+        }
+      ]
+    }
+  },
+  "description": "Describes configuration parameters for CloudWatch logging for an application."
+}

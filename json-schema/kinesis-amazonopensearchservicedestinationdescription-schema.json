@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AmazonopensearchserviceDestinationDescription",
+  "title": "AmazonopensearchserviceDestinationDescription",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon Web Services credentials. "
+        }
+      ]
+    },
+    "DomainARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceDomainARN"
+        },
+        {
+          "description": "The ARN of the Amazon OpenSearch Service domain."
+        }
+      ]
+    },
+    "ClusterEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceClusterEndpoint"
+        },
+        {
+          "description": "The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this ClusterEndpoint or the DomainARN field to send data to Amazon OpenSearch Service. "
+        }
+      ]
+    },
+    "IndexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceIndexName"
+        },
+        {
+          "description": "The Amazon OpenSearch Service index name."
+        }
+      ]
+    },
+    "TypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceTypeName"
+        },
+        {
+          "description": "The Amazon OpenSearch Service type name. This applies to Elasticsearch 6.x and lower versions. For Elasticsearch 7.x and OpenSearch Service 1.x, there's no value for TypeName. "
+        }
+      ]
+    },
+    "IndexRotationPeriod": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceIndexRotationPeriod"
+        },
+        {
+          "description": "The Amazon OpenSearch Service index rotation period"
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceBufferingHints"
+        },
+        {
+          "description": "The buffering options."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceRetryOptions"
+        },
+        {
+          "description": "The Amazon OpenSearch Service retry options."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceS3BackupMode"
+        },
+        {
+          "description": "The Amazon S3 backup mode."
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "$ref": "#/components/schemas/S3DestinationDescription"
+    },
+    "ProcessingConfiguration": {
+      "$ref": "#/components/schemas/ProcessingConfiguration"
+    },
+    "CloudWatchLoggingOptions": {
+      "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+    },
+    "VpcConfigurationDescription": {
+      "$ref": "#/components/schemas/VpcConfigurationDescription"
+    }
+  },
+  "description": "The destination description in Amazon OpenSearch Service."
+}

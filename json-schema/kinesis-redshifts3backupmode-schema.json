@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RedshiftS3BackupMode",
+  "title": "RedshiftS3BackupMode",
+  "type": "string",
+  "enum": [
+    "Disabled",
+    "Enabled"
+  ]
+}

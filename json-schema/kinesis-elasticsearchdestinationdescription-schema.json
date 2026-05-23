@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ElasticsearchDestinationDescription",
+  "title": "ElasticsearchDestinationDescription",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>."
+        }
+      ]
+    },
+    "DomainARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchDomainARN"
+        },
+        {
+          "description": "<p>The ARN of the Amazon ES domain. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p> <p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code> to send data to Amazon ES.</p>"
+        }
+      ]
+    },
+    "ClusterEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchClusterEndpoint"
+        },
+        {
+          "description": "The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses either this <code>ClusterEndpoint</code> or the <code>DomainARN</code> field to send data to Amazon ES."
+        }
+      ]
+    },
+    "IndexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchIndexName"
+        },
+        {
+          "description": "The Elasticsearch index name."
+        }
+      ]
+    },
+    "TypeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchTypeName"
+        },
+        {
+          "description": "The Elasticsearch type name. This applies to Elasticsearch 6.x and lower versions. For Elasticsearch 7.x and OpenSearch Service 1.x, there's no value for <code>TypeName</code>."
+        }
+      ]
+    },
+    "IndexRotationPeriod": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchIndexRotationPeriod"
+        },
+        {
+          "description": "The Elasticsearch index rotation period"
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchBufferingHints"
+        },
+        {
+          "description": "The buffering options."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchRetryOptions"
+        },
+        {
+          "description": "The Amazon ES retry options."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchS3BackupMode"
+        },
+        {
+          "description": "The Amazon S3 backup mode."
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationDescription"
+        },
+        {
+          "description": "The Amazon S3 destination."
+        }
+      ]
+    },
+    "ProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessingConfiguration"
+        },
+        {
+          "description": "The data processing configuration."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "The Amazon CloudWatch logging options."
+        }
+      ]
+    },
+    "VpcConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfigurationDescription"
+        },
+        {
+          "description": "The details of the VPC of the Amazon ES destination."
+        }
+      ]
+    }
+  },
+  "description": "The destination description in Amazon ES."
+}

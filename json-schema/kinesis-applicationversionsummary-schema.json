@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationVersionSummary",
+  "title": "ApplicationVersionSummary",
+  "type": "object",
+  "required": [
+    "ApplicationVersionId",
+    "ApplicationStatus"
+  ],
+  "properties": {
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The ID of the application version. Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update the application."
+        }
+      ]
+    },
+    "ApplicationStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationStatus"
+        },
+        {
+          "description": "The status of the application."
+        }
+      ]
+    }
+  },
+  "description": "The summary of the application version."
+}

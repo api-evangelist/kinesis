@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MonitoringConfigurationUpdate",
+  "title": "MonitoringConfigurationUpdate",
+  "type": "object",
+  "properties": {
+    "ConfigurationTypeUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationType"
+        },
+        {
+          "description": "Describes updates to whether to use the default CloudWatch logging configuration for an application. You must set this property to <code>CUSTOM</code> in order to set the <code>LogLevel</code> or <code>MetricsLevel</code> parameters."
+        }
+      ]
+    },
+    "MetricsLevelUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MetricsLevel"
+        },
+        {
+          "description": "Describes updates to the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code> level is not recommended for applications with a Parallelism over 64 due to excessive costs."
+        }
+      ]
+    },
+    "LogLevelUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "Describes updates to the verbosity of the CloudWatch Logs for an application."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to configuration parameters for Amazon CloudWatch logging for an application."
+}

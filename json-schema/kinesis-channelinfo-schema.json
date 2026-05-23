@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChannelInfo",
+  "title": "ChannelInfo",
+  "type": "object",
+  "properties": {
+    "ChannelName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelName"
+        },
+        {
+          "description": "The name of the signaling channel."
+        }
+      ]
+    },
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signaling channel."
+        }
+      ]
+    },
+    "ChannelType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelType"
+        },
+        {
+          "description": "The type of the signaling channel."
+        }
+      ]
+    },
+    "ChannelStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "Current status of the signaling channel."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The time at which the signaling channel was created."
+        }
+      ]
+    },
+    "SingleMasterConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SingleMasterConfiguration"
+        },
+        {
+          "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type."
+        }
+      ]
+    },
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The current version of the signaling channel."
+        }
+      ]
+    }
+  },
+  "description": "A structure that encapsulates a signaling channel's metadata and properties."
+}

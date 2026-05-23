@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateSignalingChannelInput",
+  "title": "UpdateSignalingChannelInput",
+  "type": "object",
+  "required": [
+    "ChannelARN",
+    "CurrentVersion"
+  ],
+  "properties": {
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signaling channel that you want to update."
+        }
+      ]
+    },
+    "CurrentVersion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The current version of the signaling channel that you want to update."
+        }
+      ]
+    },
+    "SingleMasterConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SingleMasterConfiguration"
+        },
+        {
+          "description": "The structure containing the configuration for the <code>SINGLE_MASTER</code> type of the signaling channel that you want to update. "
+        }
+      ]
+    }
+  }
+}

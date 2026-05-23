@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CatalogConfigurationUpdate",
+  "title": "CatalogConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "GlueDataCatalogConfigurationUpdate"
+  ],
+  "properties": {
+    "GlueDataCatalogConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GlueDataCatalogConfigurationUpdate"
+        },
+        {
+          "description": "Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook."
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/S3ContentBaseLocation",
+  "title": "S3ContentBaseLocation",
+  "type": "object",
+  "required": [
+    "BucketARN"
+  ],
+  "properties": {
+    "BucketARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the S3 bucket."
+        }
+      ]
+    },
+    "BasePath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BasePath"
+        },
+        {
+          "description": "The base path for the S3 bucket."
+        }
+      ]
+    }
+  },
+  "description": "The S3 bucket that holds the application information."
+}

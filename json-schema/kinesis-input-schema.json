@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Input",
+  "title": "Input",
+  "type": "object",
+  "required": [
+    "NamePrefix",
+    "InputSchema"
+  ],
+  "properties": {
+    "NamePrefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InAppStreamName"
+        },
+        {
+          "description": "The name prefix to use when creating an in-application stream. Suppose that you specify a prefix \"<code>MyInApplicationStream</code>.\" Kinesis Data Analytics then creates one or more (as per the <code>InputParallelism</code> count you specified) in-application streams with the names \"<code>MyInApplicationStream_001</code>,\" \"<code>MyInApplicationStream_002</code>,\" and so on. "
+        }
+      ]
+    },
+    "InputProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputProcessingConfiguration"
+        },
+        {
+          "description": "The <a>InputProcessingConfiguration</a> for the input. An input processor transforms records as they are received from the stream, before the application's SQL code executes. Currently, the only input processing configuration available is <a>InputLambdaProcessor</a>. "
+        }
+      ]
+    },
+    "KinesisStreamsInput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisStreamsInput"
+        },
+        {
+          "description": "If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN). "
+        }
+      ]
+    },
+    "KinesisFirehoseInput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisFirehoseInput"
+        },
+        {
+          "description": "If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN."
+        }
+      ]
+    },
+    "InputParallelism": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputParallelism"
+        },
+        {
+          "description": "Describes the number of in-application streams to create. "
+        }
+      ]
+    },
+    "InputSchema": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SourceSchema"
+        },
+        {
+          "description": "<p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.</p> <p>Also used to describe the format of the reference data source.</p>"
+        }
+      ]
+    }
+  },
+  "description": "When you configure the application input for a SQL-based Kinesis Data Analytics application, you specify the streaming source, the in-application stream name that is created, and the mapping between the two. "
+}

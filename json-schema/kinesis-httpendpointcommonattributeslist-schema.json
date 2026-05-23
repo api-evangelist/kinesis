@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointCommonAttributesList",
+  "title": "HttpEndpointCommonAttributesList",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/HttpEndpointCommonAttribute"
+  },
+  "minItems": 0,
+  "maxItems": 50
+}

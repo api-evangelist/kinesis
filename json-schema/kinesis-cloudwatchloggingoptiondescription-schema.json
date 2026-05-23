@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloudWatchLoggingOptionDescription",
+  "title": "CloudWatchLoggingOptionDescription",
+  "type": "object",
+  "required": [
+    "LogStreamARN"
+  ],
+  "properties": {
+    "CloudWatchLoggingOptionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the CloudWatch logging option description."
+        }
+      ]
+    },
+    "LogStreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogStreamARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the CloudWatch log to receive application messages."
+        }
+      ]
+    },
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "<p>The IAM ARN of the role to use to send application messages. </p> <note> <p>Provided for backward compatibility. Applications created with the current API version have an application-level service execution role rather than a resource-level role.</p> </note>"
+        }
+      ]
+    }
+  },
+  "description": "Describes the Amazon CloudWatch logging option."
+}

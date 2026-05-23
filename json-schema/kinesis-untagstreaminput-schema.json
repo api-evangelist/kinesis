@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UntagStreamInput",
+  "title": "UntagStreamInput",
+  "type": "object",
+  "required": [
+    "TagKeyList"
+  ],
+  "properties": {
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the stream that you want to remove tags from."
+        }
+      ]
+    },
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream that you want to remove tags from."
+        }
+      ]
+    },
+    "TagKeyList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKeyList"
+        },
+        {
+          "description": "A list of the keys of the tags that you want to remove."
+        }
+      ]
+    }
+  }
+}

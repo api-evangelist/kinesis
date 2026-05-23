@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordBatchResponseEntry",
+  "title": "PutRecordBatchResponseEntry",
+  "type": "object",
+  "properties": {
+    "RecordId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PutResponseRecordId"
+        },
+        {
+          "description": "The ID of the record."
+        }
+      ]
+    },
+    "ErrorCode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorCode"
+        },
+        {
+          "description": "The error code for an individual record result."
+        }
+      ]
+    },
+    "ErrorMessage": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorMessage"
+        },
+        {
+          "description": "The error message for an individual record result."
+        }
+      ]
+    }
+  },
+  "description": "Contains the result for an individual record from a <a>PutRecordBatch</a> request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message."
+}

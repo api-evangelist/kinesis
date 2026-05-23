@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Output",
+  "title": "Output",
+  "type": "object",
+  "required": [
+    "Name",
+    "DestinationSchema"
+  ],
+  "properties": {
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InAppStreamName"
+        },
+        {
+          "description": "The name of the in-application stream."
+        }
+      ]
+    },
+    "KinesisStreamsOutput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisStreamsOutput"
+        },
+        {
+          "description": "Identifies a Kinesis data stream as the destination."
+        }
+      ]
+    },
+    "KinesisFirehoseOutput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisFirehoseOutput"
+        },
+        {
+          "description": "Identifies a Kinesis Data Firehose delivery stream as the destination."
+        }
+      ]
+    },
+    "LambdaOutput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaOutput"
+        },
+        {
+          "description": "Identifies an Amazon Lambda function as the destination."
+        }
+      ]
+    },
+    "DestinationSchema": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationSchema"
+        },
+        {
+          "description": "Describes the data format when records are written to the destination. "
+        }
+      ]
+    }
+  },
+  "description": "<p> Describes a SQL-based Kinesis Data Analytics application's output configuration, in which you identify an in-application stream and a destination where you want the in-application stream data to be written. The destination can be a Kinesis data stream or a Kinesis Data Firehose delivery stream. </p> <p/>"
+}

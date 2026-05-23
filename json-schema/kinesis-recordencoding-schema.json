@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RecordEncoding",
+  "title": "RecordEncoding",
+  "type": "string",
+  "pattern": "UTF-8",
+  "minLength": 5,
+  "maxLength": 5
+}

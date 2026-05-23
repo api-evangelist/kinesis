@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SqlApplicationConfiguration",
+  "title": "SqlApplicationConfiguration",
+  "type": "object",
+  "properties": {
+    "Inputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Inputs"
+        },
+        {
+          "description": "The array of <a>Input</a> objects describing the input streams used by the application."
+        }
+      ]
+    },
+    "Outputs": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Outputs"
+        },
+        {
+          "description": "The array of <a>Output</a> objects describing the destination streams used by the application."
+        }
+      ]
+    },
+    "ReferenceDataSources": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReferenceDataSources"
+        },
+        {
+          "description": "The array of <a>ReferenceDataSource</a> objects describing the reference data sources used by the application."
+        }
+      ]
+    }
+  },
+  "description": "Describes the inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application."
+}

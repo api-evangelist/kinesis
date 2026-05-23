@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KinesisStreamsInput",
+  "title": "KinesisStreamsInput",
+  "type": "object",
+  "required": [
+    "ResourceARN"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the input Kinesis data stream to read."
+        }
+      ]
+    }
+  },
+  "description": " Identifies a Kinesis data stream as the streaming source. You provide the stream's Amazon Resource Name (ARN)."
+}

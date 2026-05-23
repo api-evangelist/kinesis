@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AmazonOpenSearchServerlessDestinationDescription",
+  "title": "AmazonOpenSearchServerlessDestinationDescription",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the AWS credentials."
+        }
+      ]
+    },
+    "CollectionEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessCollectionEndpoint"
+        },
+        {
+          "description": "The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service."
+        }
+      ]
+    },
+    "IndexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessIndexName"
+        },
+        {
+          "description": "The Serverless offering for Amazon OpenSearch Service index name."
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessBufferingHints"
+        },
+        {
+          "description": "The buffering options."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessRetryOptions"
+        },
+        {
+          "description": "The Serverless offering for Amazon OpenSearch Service retry options."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessS3BackupMode"
+        },
+        {
+          "description": "The Amazon S3 backup mode."
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "$ref": "#/components/schemas/S3DestinationDescription"
+    },
+    "ProcessingConfiguration": {
+      "$ref": "#/components/schemas/ProcessingConfiguration"
+    },
+    "CloudWatchLoggingOptions": {
+      "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+    },
+    "VpcConfigurationDescription": {
+      "$ref": "#/components/schemas/VpcConfigurationDescription"
+    }
+  },
+  "description": "The destination description in the Serverless offering for Amazon OpenSearch Service."
+}

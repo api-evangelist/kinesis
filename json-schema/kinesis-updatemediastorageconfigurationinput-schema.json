@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateMediaStorageConfigurationInput",
+  "title": "UpdateMediaStorageConfigurationInput",
+  "type": "object",
+  "required": [
+    "ChannelARN",
+    "MediaStorageConfiguration"
+  ],
+  "properties": {
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the channel."
+        }
+      ]
+    },
+    "MediaStorageConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaStorageConfiguration"
+        },
+        {
+          "description": "A structure that encapsulates, or contains, the media storage configuration properties."
+        }
+      ]
+    }
+  }
+}

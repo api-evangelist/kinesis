@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KinesisFirehoseOutputUpdate",
+  "title": "KinesisFirehoseOutputUpdate",
+  "type": "object",
+  "required": [
+    "ResourceARNUpdate"
+  ],
+  "properties": {
+    "ResourceARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the delivery stream to write to. "
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, when updating an output configuration using the <a>UpdateApplication</a> operation, provides information about a Kinesis Data Firehose delivery stream that is configured as the destination."
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteApplicationOutputResponse",
+  "title": "DeleteApplicationOutputResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The application Amazon Resource Name (ARN)."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The current application version ID."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EdgeConfig",
+  "title": "EdgeConfig",
+  "type": "object",
+  "required": [
+    "HubDeviceArn",
+    "RecorderConfig"
+  ],
+  "properties": {
+    "HubDeviceArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HubDeviceArn"
+        },
+        {
+          "description": "The \"<b>Internet of Things (IoT) Thing</b>\" Arn of the stream."
+        }
+      ]
+    },
+    "RecorderConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecorderConfig"
+        },
+        {
+          "description": "The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. "
+        }
+      ]
+    },
+    "UploaderConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UploaderConfig"
+        },
+        {
+          "description": "The uploader configuration contains the <code>ScheduleExpression</code> details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream."
+        }
+      ]
+    },
+    "DeletionConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeletionConfig"
+        },
+        {
+          "description": "The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion."
+        }
+      ]
+    }
+  },
+  "description": "A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise."
+}

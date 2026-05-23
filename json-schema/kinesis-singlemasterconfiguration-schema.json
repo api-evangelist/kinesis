@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SingleMasterConfiguration",
+  "title": "SingleMasterConfiguration",
+  "type": "object",
+  "properties": {
+    "MessageTtlSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MessageTtlSeconds"
+        },
+        {
+          "description": "The period of time a signaling channel retains undelivered messages before they are discarded."
+        }
+      ]
+    }
+  },
+  "description": "A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type."
+}

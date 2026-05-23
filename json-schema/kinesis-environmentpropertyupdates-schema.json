@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnvironmentPropertyUpdates",
+  "title": "EnvironmentPropertyUpdates",
+  "type": "object",
+  "required": [
+    "PropertyGroups"
+  ],
+  "properties": {
+    "PropertyGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyGroups"
+        },
+        {
+          "description": "Describes updates to the execution property groups."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application or a Studio notebook."
+}

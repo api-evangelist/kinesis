@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CodeContentDescription",
+  "title": "CodeContentDescription",
+  "type": "object",
+  "properties": {
+    "TextContent": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "description": "The text-format code"
+        }
+      ]
+    },
+    "CodeMD5": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeMD5"
+        },
+        {
+          "description": "The checksum that can be used to validate zip-format code."
+        }
+      ]
+    },
+    "CodeSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeSize"
+        },
+        {
+          "description": "The size in bytes of the application code. Can be used to validate zip-format code."
+        }
+      ]
+    },
+    "S3ApplicationCodeLocationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ApplicationCodeLocationDescription"
+        },
+        {
+          "description": "The S3 bucket Amazon Resource Name (ARN), file key, and object version of the application code stored in Amazon S3."
+        }
+      ]
+    }
+  },
+  "description": "Describes details about the code of a Kinesis Data Analytics application."
+}

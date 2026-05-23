@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateDestinationInput",
+  "title": "UpdateDestinationInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName",
+    "CurrentDeliveryStreamVersionId",
+    "DestinationId"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream."
+        }
+      ]
+    },
+    "CurrentDeliveryStreamVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamVersionId"
+        },
+        {
+          "description": "Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration."
+        }
+      ]
+    },
+    "DestinationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationId"
+        },
+        {
+          "description": "The ID of the destination."
+        }
+      ]
+    },
+    "S3DestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationUpdate"
+        },
+        {
+          "deprecated": true,
+          "description": "[Deprecated] Describes an update for a destination in Amazon S3."
+        }
+      ]
+    },
+    "ExtendedS3DestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExtendedS3DestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in Amazon S3."
+        }
+      ]
+    },
+    "RedshiftDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftDestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in Amazon Redshift."
+        }
+      ]
+    },
+    "ElasticsearchDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchDestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in Amazon ES."
+        }
+      ]
+    },
+    "AmazonopensearchserviceDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceDestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in Amazon OpenSearch Service."
+        }
+      ]
+    },
+    "SplunkDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SplunkDestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in Splunk."
+        }
+      ]
+    },
+    "HttpEndpointDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointDestinationUpdate"
+        },
+        {
+          "description": "Describes an update to the specified HTTP endpoint destination."
+        }
+      ]
+    },
+    "AmazonOpenSearchServerlessDestinationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessDestinationUpdate"
+        },
+        {
+          "description": "Describes an update for a destination in the Serverless offering for Amazon OpenSearch Service."
+        }
+      ]
+    }
+  }
+}

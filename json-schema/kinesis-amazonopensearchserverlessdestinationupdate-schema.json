@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AmazonOpenSearchServerlessDestinationUpdate",
+  "title": "AmazonOpenSearchServerlessDestinationUpdate",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents."
+        }
+      ]
+    },
+    "CollectionEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessCollectionEndpoint"
+        },
+        {
+          "description": "The endpoint to use when communicating with the collection in the Serverless offering for Amazon OpenSearch Service."
+        }
+      ]
+    },
+    "IndexName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessIndexName"
+        },
+        {
+          "description": "The Serverless offering for Amazon OpenSearch Service index name."
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessBufferingHints"
+        },
+        {
+          "description": "The buffering options. If no value is specified, AmazonopensearchBufferingHints object default values are used."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessRetryOptions"
+        },
+        {
+          "description": "The retry behavior in case Kinesis Data Firehose is unable to deliver documents to the Serverless offering for Amazon OpenSearch Service. The default value is 300 (5 minutes)."
+        }
+      ]
+    },
+    "S3Update": {
+      "$ref": "#/components/schemas/S3DestinationUpdate"
+    },
+    "ProcessingConfiguration": {
+      "$ref": "#/components/schemas/ProcessingConfiguration"
+    },
+    "CloudWatchLoggingOptions": {
+      "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+    }
+  },
+  "description": "Describes an update for a destination in the Serverless offering for Amazon OpenSearch Service."
+}

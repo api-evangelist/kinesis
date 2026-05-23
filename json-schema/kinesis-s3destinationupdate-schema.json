@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/S3DestinationUpdate",
+  "title": "S3DestinationUpdate",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>."
+        }
+      ]
+    },
+    "BucketARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketARN"
+        },
+        {
+          "description": "The ARN of the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>."
+        }
+      ]
+    },
+    "Prefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Prefix"
+        },
+        {
+          "description": "The \"YYYY/MM/DD/HH\" time format prefix is automatically used for delivered Amazon S3 files. You can also specify a custom prefix, as described in <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>."
+        }
+      ]
+    },
+    "ErrorOutputPrefix": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ErrorOutputPrefix"
+        },
+        {
+          "description": "A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. For information about how to specify this prefix, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html\">Custom Prefixes for Amazon S3 Objects</a>."
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BufferingHints"
+        },
+        {
+          "description": "The buffering option. If no value is specified, <code>BufferingHints</code> object default values are used."
+        }
+      ]
+    },
+    "CompressionFormat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CompressionFormat"
+        },
+        {
+          "description": "<p>The compression format. If no value is specified, the default is <code>UNCOMPRESSED</code>.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified for Amazon Redshift destinations because they are not supported by the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket.</p>"
+        }
+      ]
+    },
+    "EncryptionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionConfiguration"
+        },
+        {
+          "description": "The encryption configuration. If no value is specified, the default is no encryption."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "The CloudWatch logging options for your delivery stream."
+        }
+      ]
+    }
+  },
+  "description": "Describes an update for a destination in Amazon S3."
+}

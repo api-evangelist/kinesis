@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OutputUpdate",
+  "title": "OutputUpdate",
+  "type": "object",
+  "required": [
+    "OutputId"
+  ],
+  "properties": {
+    "OutputId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "Identifies the specific output configuration that you want to update."
+        }
+      ]
+    },
+    "NameUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InAppStreamName"
+        },
+        {
+          "description": "If you want to specify a different in-application stream for this output configuration, use this field to specify the new in-application stream name."
+        }
+      ]
+    },
+    "KinesisStreamsOutputUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisStreamsOutputUpdate"
+        },
+        {
+          "description": "Describes a Kinesis data stream as the destination for the output."
+        }
+      ]
+    },
+    "KinesisFirehoseOutputUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisFirehoseOutputUpdate"
+        },
+        {
+          "description": "Describes a Kinesis Data Firehose delivery stream as the destination for the output."
+        }
+      ]
+    },
+    "LambdaOutputUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LambdaOutputUpdate"
+        },
+        {
+          "description": "Describes an Amazon Lambda function as the destination for the output."
+        }
+      ]
+    },
+    "DestinationSchemaUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationSchema"
+        },
+        {
+          "description": "Describes the data format when records are written to the destination. "
+        }
+      ]
+    }
+  },
+  "description": " For a SQL-based Kinesis Data Analytics application, describes updates to the output configuration identified by the <code>OutputId</code>. "
+}

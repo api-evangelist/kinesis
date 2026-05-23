@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OrcFormatVersion",
+  "title": "OrcFormatVersion",
+  "type": "string",
+  "enum": [
+    "V0_11",
+    "V0_12"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteApplicationVpcConfigurationResponse",
+  "title": "DeleteApplicationVpcConfigurationResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The updated version ID of the application."
+        }
+      ]
+    }
+  }
+}

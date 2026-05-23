@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationConfigurationDescription",
+  "title": "ApplicationConfigurationDescription",
+  "type": "object",
+  "properties": {
+    "SqlApplicationConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqlApplicationConfigurationDescription"
+        },
+        {
+          "description": "The details about inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationCodeConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationCodeConfigurationDescription"
+        },
+        {
+          "description": "The details about the application code for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "RunConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RunConfigurationDescription"
+        },
+        {
+          "description": "The details about the starting properties for a Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "FlinkApplicationConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FlinkApplicationConfigurationDescription"
+        },
+        {
+          "description": "The details about a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "EnvironmentPropertyDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnvironmentPropertyDescriptions"
+        },
+        {
+          "description": "Describes execution properties for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationSnapshotConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationSnapshotConfigurationDescription"
+        },
+        {
+          "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "VpcConfigurationDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfigurationDescriptions"
+        },
+        {
+          "description": "The array of descriptions of VPC configurations available to the application."
+        }
+      ]
+    },
+    "ZeppelinApplicationConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZeppelinApplicationConfigurationDescription"
+        },
+        {
+          "description": "The configuration parameters for a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "Describes details about the application code and starting parameters for a Kinesis Data Analytics application."
+}

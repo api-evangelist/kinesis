@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteApplicationRequest",
+  "title": "DeleteApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "CreateTimestamp"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application to delete."
+        }
+      ]
+    },
+    "CreateTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "Use the <code>DescribeApplication</code> operation to get this value."
+        }
+      ]
+    }
+  }
+}

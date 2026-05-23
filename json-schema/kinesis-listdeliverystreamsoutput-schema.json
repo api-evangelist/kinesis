@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListDeliveryStreamsOutput",
+  "title": "ListDeliveryStreamsOutput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamNames",
+    "HasMoreDeliveryStreams"
+  ],
+  "properties": {
+    "DeliveryStreamNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamNameList"
+        },
+        {
+          "description": "The names of the delivery streams."
+        }
+      ]
+    },
+    "HasMoreDeliveryStreams": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Indicates whether there are more delivery streams available to list."
+        }
+      ]
+    }
+  }
+}

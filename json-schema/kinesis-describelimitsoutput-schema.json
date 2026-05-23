@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeLimitsOutput",
+  "title": "DescribeLimitsOutput",
+  "type": "object",
+  "required": [
+    "ShardLimit",
+    "OpenShardCount",
+    "OnDemandStreamCount",
+    "OnDemandStreamCountLimit"
+  ],
+  "properties": {
+    "ShardLimit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardCountObject"
+        },
+        {
+          "description": "The maximum number of shards."
+        }
+      ]
+    },
+    "OpenShardCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardCountObject"
+        },
+        {
+          "description": "The number of open shards."
+        }
+      ]
+    },
+    "OnDemandStreamCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OnDemandStreamCountObject"
+        },
+        {
+          "description": " Indicates the number of data streams with the on-demand capacity mode."
+        }
+      ]
+    },
+    "OnDemandStreamCountLimit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OnDemandStreamCountLimitObject"
+        },
+        {
+          "description": " The maximum number of data streams with the on-demand capacity mode. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSignalingChannelOutput",
+  "title": "CreateSignalingChannelOutput",
+  "type": "object",
+  "properties": {
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the created channel."
+        }
+      ]
+    }
+  }
+}

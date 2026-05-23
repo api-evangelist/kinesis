@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DestinationSchema",
+  "title": "DestinationSchema",
+  "type": "object",
+  "required": [
+    "RecordFormatType"
+  ],
+  "properties": {
+    "RecordFormatType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordFormatType"
+        },
+        {
+          "description": "Specifies the format of the records on the output stream."
+        }
+      ]
+    }
+  },
+  "description": "Describes the data format when records are written to the destination in a SQL-based Kinesis Data Analytics application. "
+}

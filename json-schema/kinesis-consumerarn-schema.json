@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConsumerARN",
+  "title": "ConsumerARN",
+  "type": "string",
+  "pattern": "^(arn):aws.*:kinesis:.*:\\d{12}:.*stream\\/[a-zA-Z0-9_.-]+\\/consumer\\/[a-zA-Z0-9_.-]+:[0-9]+",
+  "minLength": 1,
+  "maxLength": 2048
+}

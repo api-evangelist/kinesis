@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StartDeliveryStreamEncryptionInput",
+  "title": "StartDeliveryStreamEncryptionInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream for which you want to enable server-side encryption (SSE)."
+        }
+      ]
+    },
+    "DeliveryStreamEncryptionConfigurationInput": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamEncryptionConfigurationInput"
+        },
+        {
+          "description": "Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side Encryption (SSE)."
+        }
+      ]
+    }
+  }
+}

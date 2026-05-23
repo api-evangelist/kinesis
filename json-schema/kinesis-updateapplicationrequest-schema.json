@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApplicationRequest",
+  "title": "UpdateApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application to update."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The current application version ID. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    },
+    "ApplicationConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationConfigurationUpdate"
+        },
+        {
+          "description": "Describes application configuration updates."
+        }
+      ]
+    },
+    "ServiceExecutionRoleUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "Describes updates to the service execution role."
+        }
+      ]
+    },
+    "RunConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RunConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to the application's starting parameters."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptionUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptionUpdates"
+        },
+        {
+          "description": "Describes application Amazon CloudWatch logging option updates. You can only update existing CloudWatch logging options with this action. To add a new CloudWatch logging option, use <a>AddApplicationCloudWatchLoggingOption</a>."
+        }
+      ]
+    },
+    "ConditionalToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConditionalToken"
+        },
+        {
+          "description": "A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    }
+  }
+}

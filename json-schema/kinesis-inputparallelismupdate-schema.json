@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputParallelismUpdate",
+  "title": "InputParallelismUpdate",
+  "type": "object",
+  "required": [
+    "CountUpdate"
+  ],
+  "properties": {
+    "CountUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputParallelismCount"
+        },
+        {
+          "description": "The number of in-application streams to create for the specified streaming source."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, provides updates to the parallelism count."
+}

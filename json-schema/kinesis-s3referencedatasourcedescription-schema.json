@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/S3ReferenceDataSourceDescription",
+  "title": "S3ReferenceDataSourceDescription",
+  "type": "object",
+  "required": [
+    "BucketARN",
+    "FileKey"
+  ],
+  "properties": {
+    "BucketARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the S3 bucket."
+        }
+      ]
+    },
+    "FileKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileKey"
+        },
+        {
+          "description": "Amazon S3 object key name."
+        }
+      ]
+    },
+    "ReferenceRoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "<p>The ARN of the IAM role that Kinesis Data Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table. </p> <note> <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> </note>"
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, provides the bucket name and object key name that stores the reference data."
+}

@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DestinationDescription",
+  "title": "DestinationDescription",
+  "type": "object",
+  "required": [
+    "DestinationId"
+  ],
+  "properties": {
+    "DestinationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationId"
+        },
+        {
+          "description": "The ID of the destination."
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationDescription"
+        },
+        {
+          "description": "[Deprecated] The destination in Amazon S3."
+        }
+      ]
+    },
+    "ExtendedS3DestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExtendedS3DestinationDescription"
+        },
+        {
+          "description": "The destination in Amazon S3."
+        }
+      ]
+    },
+    "RedshiftDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftDestinationDescription"
+        },
+        {
+          "description": "The destination in Amazon Redshift."
+        }
+      ]
+    },
+    "ElasticsearchDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ElasticsearchDestinationDescription"
+        },
+        {
+          "description": "The destination in Amazon ES."
+        }
+      ]
+    },
+    "AmazonopensearchserviceDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonopensearchserviceDestinationDescription"
+        },
+        {
+          "description": "The destination in Amazon OpenSearch Service."
+        }
+      ]
+    },
+    "SplunkDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SplunkDestinationDescription"
+        },
+        {
+          "description": "The destination in Splunk."
+        }
+      ]
+    },
+    "HttpEndpointDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointDestinationDescription"
+        },
+        {
+          "description": "Describes the specified HTTP endpoint destination."
+        }
+      ]
+    },
+    "AmazonOpenSearchServerlessDestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AmazonOpenSearchServerlessDestinationDescription"
+        },
+        {
+          "description": "The destination in the Serverless offering for Amazon OpenSearch Service."
+        }
+      ]
+    }
+  },
+  "description": "Describes the destination for a delivery stream."
+}

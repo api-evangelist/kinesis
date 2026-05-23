@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ShardIteratorType",
+  "title": "ShardIteratorType",
+  "type": "string",
+  "enum": [
+    "AT_SEQUENCE_NUMBER",
+    "AFTER_SEQUENCE_NUMBER",
+    "TRIM_HORIZON",
+    "LATEST",
+    "AT_TIMESTAMP"
+  ]
+}

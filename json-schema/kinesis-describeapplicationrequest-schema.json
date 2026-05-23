@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeApplicationRequest",
+  "title": "DescribeApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application."
+        }
+      ]
+    },
+    "IncludeAdditionalDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Displays verbose information about a Kinesis Data Analytics application, including the application's job plan."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointUrl",
+  "title": "HttpEndpointUrl",
+  "type": "string",
+  "pattern": "https://.*",
+  "minLength": 1,
+  "maxLength": 1000,
+  "format": "password"
+}

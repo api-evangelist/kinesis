@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UntagResourceInput",
+  "title": "UntagResourceInput",
+  "type": "object",
+  "required": [
+    "ResourceARN",
+    "TagKeyList"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags."
+        }
+      ]
+    },
+    "TagKeyList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKeyList"
+        },
+        {
+          "description": "A list of the keys of the tags that you want to remove."
+        }
+      ]
+    }
+  }
+}

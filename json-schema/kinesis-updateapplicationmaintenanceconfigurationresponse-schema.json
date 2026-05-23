@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApplicationMaintenanceConfigurationResponse",
+  "title": "UpdateApplicationMaintenanceConfigurationResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the application."
+        }
+      ]
+    },
+    "ApplicationMaintenanceConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceConfigurationDescription"
+        },
+        {
+          "description": "The application maintenance configuration description after the update."
+        }
+      ]
+    }
+  }
+}

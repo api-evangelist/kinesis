@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DiscoverInputSchemaRequest",
+  "title": "DiscoverInputSchemaRequest",
+  "type": "object",
+  "required": [
+    "ServiceExecutionRole"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the streaming source."
+        }
+      ]
+    },
+    "ServiceExecutionRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The ARN of the role that is used to access the streaming source."
+        }
+      ]
+    },
+    "InputStartingPositionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputStartingPositionConfiguration"
+        },
+        {
+          "description": "The point at which you want Kinesis Data Analytics to start reading records from the specified streaming source discovery purposes."
+        }
+      ]
+    },
+    "S3Configuration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Configuration"
+        },
+        {
+          "description": "Specify this parameter to discover a schema from data in an Amazon S3 object."
+        }
+      ]
+    },
+    "InputProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputProcessingConfiguration"
+        },
+        {
+          "description": "The <a>InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records."
+        }
+      ]
+    }
+  }
+}

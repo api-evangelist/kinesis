@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamSummary",
+  "title": "StreamSummary",
+  "type": "object",
+  "required": [
+    "StreamName",
+    "StreamARN",
+    "StreamStatus"
+  ],
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of a stream."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    },
+    "StreamStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamStatus"
+        },
+        {
+          "description": "The status of the stream."
+        }
+      ]
+    },
+    "StreamModeDetails": {
+      "$ref": "#/components/schemas/StreamModeDetails"
+    },
+    "StreamCreationTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp at which the stream was created."
+        }
+      ]
+    }
+  },
+  "description": "The summary of a stream."
+}

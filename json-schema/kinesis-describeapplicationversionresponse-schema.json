@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeApplicationVersionResponse",
+  "title": "DescribeApplicationVersionResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationVersionDetail": {
+      "$ref": "#/components/schemas/ApplicationDetail"
+    }
+  }
+}

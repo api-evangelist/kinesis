@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GlueDataCatalogConfigurationDescription",
+  "title": "GlueDataCatalogConfigurationDescription",
+  "type": "object",
+  "required": [
+    "DatabaseARN"
+  ],
+  "properties": {
+    "DatabaseARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DatabaseARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the database."
+        }
+      ]
+    }
+  },
+  "description": "The configuration of the Glue Data Catalog that you use for Apache Flink SQL queries and table API transforms that you write in an application."
+}

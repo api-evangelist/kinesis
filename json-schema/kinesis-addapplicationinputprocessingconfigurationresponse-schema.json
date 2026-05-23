@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationInputProcessingConfigurationResponse",
+  "title": "AddApplicationInputProcessingConfigurationResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the application."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "Provides the current application version. "
+        }
+      ]
+    },
+    "InputId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The input ID that is associated with the application input. This is the ID that Kinesis Data Analytics assigns to each input configuration that you add to your application."
+        }
+      ]
+    },
+    "InputProcessingConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputProcessingConfigurationDescription"
+        },
+        {
+          "description": "The description of the preprocessor that executes on records in this input before the application's code is run."
+        }
+      ]
+    }
+  }
+}

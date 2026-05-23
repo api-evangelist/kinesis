@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteStreamInput",
+  "title": "DeleteStreamInput",
+  "type": "object",
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream to delete."
+        }
+      ]
+    },
+    "EnforceConsumerDeletion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>, and the stream has registered consumers, the call to <code>DeleteStream</code> fails with a <code>ResourceInUseException</code>. "
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "Represents the input for <a>DeleteStream</a>."
+}

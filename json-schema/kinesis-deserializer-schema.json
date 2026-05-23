@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Deserializer",
+  "title": "Deserializer",
+  "type": "object",
+  "properties": {
+    "OpenXJsonSerDe": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OpenXJsonSerDe"
+        },
+        {
+          "description": "The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe."
+        }
+      ]
+    },
+    "HiveJsonSerDe": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HiveJsonSerDe"
+        },
+        {
+          "description": "The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe."
+        }
+      ]
+    }
+  },
+  "description": "The deserializer you want Kinesis Data Firehose to use for converting the input data from JSON. Kinesis Data Firehose then serializes the data to its final format using the <a>Serializer</a>. Kinesis Data Firehose supports two types of deserializers: the <a href=\"https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-JSON\">Apache Hive JSON SerDe</a> and the <a href=\"https://github.com/rcongiu/Hive-JSON-Serde\">OpenX JSON SerDe</a>."
+}

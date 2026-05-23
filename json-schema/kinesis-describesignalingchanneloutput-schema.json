@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeSignalingChannelOutput",
+  "title": "DescribeSignalingChannelOutput",
+  "type": "object",
+  "properties": {
+    "ChannelInfo": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelInfo"
+        },
+        {
+          "description": "A structure that encapsulates the specified signaling channel's metadata and properties."
+        }
+      ]
+    }
+  }
+}

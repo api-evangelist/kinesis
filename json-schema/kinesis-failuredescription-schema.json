@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FailureDescription",
+  "title": "FailureDescription",
+  "type": "object",
+  "required": [
+    "Type",
+    "Details"
+  ],
+  "properties": {
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamFailureType"
+        },
+        {
+          "description": "The type of error that caused the failure."
+        }
+      ]
+    },
+    "Details": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonEmptyString"
+        },
+        {
+          "description": "A message providing details about the error that caused the failure."
+        }
+      ]
+    }
+  },
+  "description": "Provides details in case one of the following operations fails due to an error related to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>, <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>."
+}

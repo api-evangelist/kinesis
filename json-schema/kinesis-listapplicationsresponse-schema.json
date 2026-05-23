@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListApplicationsResponse",
+  "title": "ListApplicationsResponse",
+  "type": "object",
+  "required": [
+    "ApplicationSummaries"
+  ],
+  "properties": {
+    "ApplicationSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationSummaries"
+        },
+        {
+          "description": "A list of <code>ApplicationSummary</code> objects."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The pagination token for the next set of results, or <code>null</code> if there are no additional results. Pass this token into a subsequent command to retrieve the next set of items For more information about pagination, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>."
+        }
+      ]
+    }
+  }
+}

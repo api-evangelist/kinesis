@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeliveryStreamEncryptionStatus",
+  "title": "DeliveryStreamEncryptionStatus",
+  "type": "string",
+  "enum": [
+    "ENABLED",
+    "ENABLING",
+    "ENABLING_FAILED",
+    "DISABLED",
+    "DISABLING",
+    "DISABLING_FAILED"
+  ]
+}

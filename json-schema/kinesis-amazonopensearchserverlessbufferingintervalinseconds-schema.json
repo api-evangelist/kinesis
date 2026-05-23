@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AmazonOpenSearchServerlessBufferingIntervalInSeconds",
+  "title": "AmazonOpenSearchServerlessBufferingIntervalInSeconds",
+  "type": "integer",
+  "minimum": 60,
+  "maximum": 900
+}

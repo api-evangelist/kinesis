@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagResourceInput",
+  "title": "TagResourceInput",
+  "type": "object",
+  "required": [
+    "ResourceARN",
+    "Tags"
+  ],
+  "properties": {
+    "ResourceARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagList"
+        },
+        {
+          "description": "A list of tags to associate with the specified signaling channel. Each tag is a key-value pair."
+        }
+      ]
+    }
+  }
+}

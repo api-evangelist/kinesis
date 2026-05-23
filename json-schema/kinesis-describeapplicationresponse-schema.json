@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeApplicationResponse",
+  "title": "DescribeApplicationResponse",
+  "type": "object",
+  "required": [
+    "ApplicationDetail"
+  ],
+  "properties": {
+    "ApplicationDetail": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDetail"
+        },
+        {
+          "description": "Provides a description of the application, such as the application's Amazon Resource Name (ARN), status, and latest version."
+        }
+      ]
+    }
+  }
+}

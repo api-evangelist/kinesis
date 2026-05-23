@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloudWatchLoggingOptionUpdate",
+  "title": "CloudWatchLoggingOptionUpdate",
+  "type": "object",
+  "required": [
+    "CloudWatchLoggingOptionId"
+  ],
+  "properties": {
+    "CloudWatchLoggingOptionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the CloudWatch logging option to update"
+        }
+      ]
+    },
+    "LogStreamARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogStreamARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the CloudWatch log to receive application messages."
+        }
+      ]
+    }
+  },
+  "description": "Describes the Amazon CloudWatch logging option updates."
+}

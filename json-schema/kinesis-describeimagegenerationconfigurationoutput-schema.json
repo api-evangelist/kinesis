@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeImageGenerationConfigurationOutput",
+  "title": "DescribeImageGenerationConfigurationOutput",
+  "type": "object",
+  "properties": {
+    "ImageGenerationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImageGenerationConfiguration"
+        },
+        {
+          "description": "The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream."
+        }
+      ]
+    }
+  }
+}

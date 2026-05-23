@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SqlRunConfiguration",
+  "title": "SqlRunConfiguration",
+  "type": "object",
+  "required": [
+    "InputId",
+    "InputStartingPositionConfiguration"
+  ],
+  "properties": {
+    "InputId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The input source ID. You can get this ID by calling the <a>DescribeApplication</a> operation. "
+        }
+      ]
+    },
+    "InputStartingPositionConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputStartingPositionConfiguration"
+        },
+        {
+          "description": "The point at which you want the application to start processing records from the streaming source. "
+        }
+      ]
+    }
+  },
+  "description": "Describes the starting parameters for a SQL-based Kinesis Data Analytics application."
+}

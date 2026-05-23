@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeDeliveryStreamInput",
+  "title": "DescribeDeliveryStreamInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream."
+        }
+      ]
+    },
+    "Limit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DescribeDeliveryStreamInputLimit"
+        },
+        {
+          "description": "The limit on the number of destinations to return. You can have one destination per delivery stream."
+        }
+      ]
+    },
+    "ExclusiveStartDestinationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationId"
+        },
+        {
+          "description": "The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream."
+        }
+      ]
+    }
+  }
+}

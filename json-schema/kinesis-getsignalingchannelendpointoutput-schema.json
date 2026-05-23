@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetSignalingChannelEndpointOutput",
+  "title": "GetSignalingChannelEndpointOutput",
+  "type": "object",
+  "properties": {
+    "ResourceEndpointList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceEndpointList"
+        },
+        {
+          "description": "A list of endpoints for the specified signaling channel."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PropertyGroup",
+  "title": "PropertyGroup",
+  "type": "object",
+  "required": [
+    "PropertyGroupId",
+    "PropertyMap"
+  ],
+  "properties": {
+    "PropertyGroupId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "Describes the key of an application execution property key-value pair."
+        }
+      ]
+    },
+    "PropertyMap": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyMap"
+        },
+        {
+          "description": "Describes the value of an application execution property key-value pair."
+        }
+      ]
+    }
+  },
+  "description": "Property key-value pairs passed into an application."
+}

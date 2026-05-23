@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PropertyMap",
+  "title": "PropertyMap",
+  "type": "object",
+  "minProperties": 1,
+  "maxProperties": 50,
+  "additionalProperties": {
+    "$ref": "#/components/schemas/PropertyValue"
+  }
+}

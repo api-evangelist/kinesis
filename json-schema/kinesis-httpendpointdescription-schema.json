@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointDescription",
+  "title": "HttpEndpointDescription",
+  "type": "object",
+  "properties": {
+    "Url": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointUrl"
+        },
+        {
+          "description": "The URL of the HTTP endpoint selected as the destination."
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointName"
+        },
+        {
+          "description": "The name of the HTTP endpoint selected as the destination."
+        }
+      ]
+    }
+  },
+  "description": "Describes the HTTP endpoint selected as the destination. "
+}

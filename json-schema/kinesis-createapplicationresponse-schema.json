@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateApplicationResponse",
+  "title": "CreateApplicationResponse",
+  "type": "object",
+  "required": [
+    "ApplicationDetail"
+  ],
+  "properties": {
+    "ApplicationDetail": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDetail"
+        },
+        {
+          "description": "In response to your <code>CreateApplication</code> request, Kinesis Data Analytics returns a response with details of the application it created."
+        }
+      ]
+    }
+  }
+}

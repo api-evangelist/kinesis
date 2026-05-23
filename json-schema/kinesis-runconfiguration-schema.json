@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RunConfiguration",
+  "title": "RunConfiguration",
+  "type": "object",
+  "properties": {
+    "FlinkRunConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FlinkRunConfiguration"
+        },
+        {
+          "description": "Describes the starting parameters for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "SqlRunConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqlRunConfigurations"
+        },
+        {
+          "description": "Describes the starting parameters for a SQL-based Kinesis Data Analytics application application."
+        }
+      ]
+    },
+    "ApplicationRestoreConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationRestoreConfiguration"
+        },
+        {
+          "description": "Describes the restore behavior of a restarting application."
+        }
+      ]
+    }
+  },
+  "description": "Describes the starting parameters for an Kinesis Data Analytics application."
+}

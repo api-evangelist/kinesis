@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UntagDeliveryStreamInput",
+  "title": "UntagDeliveryStreamInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName",
+    "TagKeys"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream."
+        }
+      ]
+    },
+    "TagKeys": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKeyList"
+        },
+        {
+          "description": "A list of tag keys. Each corresponding tag is removed from the delivery stream."
+        }
+      ]
+    }
+  }
+}

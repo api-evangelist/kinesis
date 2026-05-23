@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DiscoverInputSchemaResponse",
+  "title": "DiscoverInputSchemaResponse",
+  "type": "object",
+  "properties": {
+    "InputSchema": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SourceSchema"
+        },
+        {
+          "description": "The schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create."
+        }
+      ]
+    },
+    "ParsedInputRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParsedInputRecords"
+        },
+        {
+          "description": "An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row)."
+        }
+      ]
+    },
+    "ProcessedInputRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessedInputRecords"
+        },
+        {
+          "description": "The stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter."
+        }
+      ]
+    },
+    "RawInputRecords": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RawInputRecords"
+        },
+        {
+          "description": "The raw stream data that was sampled to infer the schema."
+        }
+      ]
+    }
+  }
+}

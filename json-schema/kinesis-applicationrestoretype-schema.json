@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationRestoreType",
+  "title": "ApplicationRestoreType",
+  "type": "string",
+  "enum": [
+    "SKIP_RESTORE_FROM_SNAPSHOT",
+    "RESTORE_FROM_LATEST_SNAPSHOT",
+    "RESTORE_FROM_CUSTOM_SNAPSHOT"
+  ]
+}

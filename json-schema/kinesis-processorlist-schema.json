@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProcessorList",
+  "title": "ProcessorList",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Processor"
+  }
+}

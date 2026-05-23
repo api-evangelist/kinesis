@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ConsumerDescription",
+  "title": "ConsumerDescription",
+  "type": "object",
+  "required": [
+    "ConsumerName",
+    "ConsumerARN",
+    "ConsumerStatus",
+    "ConsumerCreationTimestamp",
+    "StreamARN"
+  ],
+  "properties": {
+    "ConsumerName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConsumerName"
+        },
+        {
+          "description": "The name of the consumer is something you choose when you register the consumer."
+        }
+      ]
+    },
+    "ConsumerARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConsumerARN"
+        },
+        {
+          "description": "<p>When you register a consumer, Kinesis Data Streams generates an ARN for it. You need this ARN to be able to call <a>SubscribeToShard</a>.</p> <p>If you delete a consumer and then create a new one with the same name, it won't have the same ARN. That's because consumer ARNs contain the creation timestamp. This is important to keep in mind if you have IAM policies that reference consumer ARNs.</p>"
+        }
+      ]
+    },
+    "ConsumerStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConsumerStatus"
+        },
+        {
+          "description": "A consumer can't read data while in the <code>CREATING</code> or <code>DELETING</code> states."
+        }
+      ]
+    },
+    "ConsumerCreationTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "<p/>"
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream with which you registered the consumer."
+        }
+      ]
+    }
+  },
+  "description": "An object that represents the details of a registered consumer. This type of object is returned by <a>DescribeStreamConsumer</a>."
+}

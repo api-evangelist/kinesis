@@ -1,0 +1,2305 @@
+{
+  "provider": "AWS Kinesis",
+  "providerId": "kinesis",
+  "kind": "json-structure",
+  "description": "Structural overview of the AWS Kinesis API surface; extracted from openapi/.",
+  "schemaCount": 297,
+  "operationCount": 31,
+  "schemas": [
+    {
+      "name": "AddApplicationCloudWatchLoggingOptionResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddApplicationCloudWatchLoggingOptionRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ApplicationName",
+        "CloudWatchLoggingOption"
+      ]
+    },
+    {
+      "name": "ResourceNotFoundException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceInUseException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InvalidArgumentException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ConcurrentModificationException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InvalidRequestException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InvalidApplicationConfigurationException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AddApplicationInputResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddApplicationInputRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "Input"
+      ]
+    },
+    {
+      "name": "CodeValidationException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AddApplicationInputProcessingConfigurationResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "AddApplicationInputProcessingConfigurationRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "InputId",
+        "InputProcessingConfiguration"
+      ]
+    },
+    {
+      "name": "AddApplicationOutputResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddApplicationOutputRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "Output"
+      ]
+    },
+    {
+      "name": "AddApplicationReferenceDataSourceResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddApplicationReferenceDataSourceRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "ReferenceDataSource"
+      ]
+    },
+    {
+      "name": "AddApplicationVpcConfigurationResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AddApplicationVpcConfigurationRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ApplicationName",
+        "VpcConfiguration"
+      ]
+    },
+    {
+      "name": "CreateApplicationResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ApplicationDetail"
+      ]
+    },
+    {
+      "name": "CreateApplicationRequest",
+      "type": "object",
+      "propertyCount": 8,
+      "required": [
+        "ApplicationName",
+        "RuntimeEnvironment",
+        "ServiceExecutionRole"
+      ]
+    },
+    {
+      "name": "LimitExceededException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TooManyTagsException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "UnsupportedOperationException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CreateApplicationPresignedUrlResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "CreateApplicationPresignedUrlRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "UrlType"
+      ]
+    },
+    {
+      "name": "CreateApplicationSnapshotResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CreateApplicationSnapshotRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "SnapshotName"
+      ]
+    },
+    {
+      "name": "DeleteApplicationResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "CreateTimestamp"
+      ]
+    },
+    {
+      "name": "DeleteApplicationCloudWatchLoggingOptionResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationCloudWatchLoggingOptionRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ApplicationName",
+        "CloudWatchLoggingOptionId"
+      ]
+    },
+    {
+      "name": "DeleteApplicationInputProcessingConfigurationResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationInputProcessingConfigurationRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "InputId"
+      ]
+    },
+    {
+      "name": "DeleteApplicationOutputResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationOutputRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "OutputId"
+      ]
+    },
+    {
+      "name": "DeleteApplicationReferenceDataSourceResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationReferenceDataSourceRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId",
+        "ReferenceId"
+      ]
+    },
+    {
+      "name": "DeleteApplicationSnapshotResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationSnapshotRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName",
+        "SnapshotName",
+        "SnapshotCreationTimestamp"
+      ]
+    },
+    {
+      "name": "DeleteApplicationVpcConfigurationResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeleteApplicationVpcConfigurationRequest",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ApplicationName",
+        "VpcConfigurationId"
+      ]
+    },
+    {
+      "name": "DescribeApplicationResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ApplicationDetail"
+      ]
+    },
+    {
+      "name": "DescribeApplicationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "DescribeApplicationSnapshotResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "SnapshotDetails"
+      ]
+    },
+    {
+      "name": "DescribeApplicationSnapshotRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "SnapshotName"
+      ]
+    },
+    {
+      "name": "DescribeApplicationVersionResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "DescribeApplicationVersionRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "ApplicationVersionId"
+      ]
+    },
+    {
+      "name": "DiscoverInputSchemaResponse",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "DiscoverInputSchemaRequest",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "ServiceExecutionRole"
+      ]
+    },
+    {
+      "name": "UnableToDetectSchemaException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceProvisionedThroughputExceededException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ServiceUnavailableException",
+      "type": null,
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ListApplicationSnapshotsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListApplicationSnapshotsRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "ListApplicationVersionsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListApplicationVersionsRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "ListApplicationsResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationSummaries"
+      ]
+    },
+    {
+      "name": "ListApplicationsRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ListTagsForResourceResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ListTagsForResourceRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "RollbackApplicationResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ApplicationDetail"
+      ]
+    },
+    {
+      "name": "RollbackApplicationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "CurrentApplicationVersionId"
+      ]
+    },
+    {
+      "name": "StartApplicationResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StartApplicationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "StopApplicationResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "StopApplicationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "TagResourceResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TagResourceRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN",
+        "Tags"
+      ]
+    },
+    {
+      "name": "UntagResourceResponse",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "UntagResourceRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN",
+        "TagKeys"
+      ]
+    },
+    {
+      "name": "UpdateApplicationResponse",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ApplicationDetail"
+      ]
+    },
+    {
+      "name": "UpdateApplicationRequest",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "ApplicationName"
+      ]
+    },
+    {
+      "name": "UpdateApplicationMaintenanceConfigurationResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "UpdateApplicationMaintenanceConfigurationRequest",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationName",
+        "ApplicationMaintenanceConfigurationUpdate"
+      ]
+    },
+    {
+      "name": "ApplicationName",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationVersionId",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CloudWatchLoggingOption",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "LogStreamARN"
+      ]
+    },
+    {
+      "name": "ConditionalToken",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ResourceARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CloudWatchLoggingOptionDescriptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Id",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InputProcessingConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "InputLambdaProcessor"
+      ]
+    },
+    {
+      "name": "InputProcessingConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "Input",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "NamePrefix",
+        "InputSchema"
+      ]
+    },
+    {
+      "name": "InputDescriptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Output",
+      "type": "object",
+      "propertyCount": 5,
+      "required": [
+        "Name",
+        "DestinationSchema"
+      ]
+    },
+    {
+      "name": "OutputDescriptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ReferenceDataSource",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "TableName",
+        "ReferenceSchema"
+      ]
+    },
+    {
+      "name": "ReferenceDataSourceDescriptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "VpcConfiguration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "SubnetIds",
+        "SecurityGroupIds"
+      ]
+    },
+    {
+      "name": "VpcConfigurationDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "VpcConfigurationId",
+        "VpcId",
+        "SubnetIds",
+        "SecurityGroupIds"
+      ]
+    },
+    {
+      "name": "CodeContent",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CodeContentType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationCodeConfiguration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "CodeContentType"
+      ]
+    },
+    {
+      "name": "CodeContentDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ApplicationCodeConfigurationDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "CodeContentType"
+      ]
+    },
+    {
+      "name": "CodeContentUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ApplicationCodeConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "SqlApplicationConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "FlinkApplicationConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EnvironmentProperties",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "PropertyGroups"
+      ]
+    },
+    {
+      "name": "ApplicationSnapshotConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "SnapshotsEnabled"
+      ]
+    },
+    {
+      "name": "VpcConfigurations",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ZeppelinApplicationConfiguration",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ApplicationConfiguration",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "SqlApplicationConfigurationDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "RunConfigurationDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "FlinkApplicationConfigurationDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "EnvironmentPropertyDescriptions",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ApplicationSnapshotConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "SnapshotsEnabled"
+      ]
+    },
+    {
+      "name": "VpcConfigurationDescriptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ZeppelinApplicationConfigurationDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "MonitoringConfigurationDescription"
+      ]
+    },
+    {
+      "name": "ApplicationConfigurationDescription",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "SqlApplicationConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "FlinkApplicationConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "EnvironmentPropertyUpdates",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "PropertyGroups"
+      ]
+    },
+    {
+      "name": "ApplicationSnapshotConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "SnapshotsEnabledUpdate"
+      ]
+    },
+    {
+      "name": "VpcConfigurationUpdates",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ZeppelinApplicationConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "ApplicationConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "ApplicationDescription",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RuntimeEnvironment",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RoleARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationStatus",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Timestamp",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationMaintenanceConfigurationDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationMaintenanceWindowStartTime",
+        "ApplicationMaintenanceWindowEndTime"
+      ]
+    },
+    {
+      "name": "ApplicationMode",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationDetail",
+      "type": "object",
+      "propertyCount": 17,
+      "required": [
+        "ApplicationARN",
+        "ApplicationName",
+        "RuntimeEnvironment",
+        "ApplicationStatus",
+        "ApplicationVersionId"
+      ]
+    },
+    {
+      "name": "ApplicationMaintenanceWindowStartTime",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationMaintenanceWindowEndTime",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationMaintenanceConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ApplicationMaintenanceWindowStartTimeUpdate"
+      ]
+    },
+    {
+      "name": "ApplicationRestoreType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SnapshotName",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationRestoreConfiguration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationRestoreType"
+      ]
+    },
+    {
+      "name": "BooleanObject",
+      "type": "boolean",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationSummary",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "ApplicationName",
+        "ApplicationARN",
+        "ApplicationStatus",
+        "ApplicationVersionId",
+        "RuntimeEnvironment"
+      ]
+    },
+    {
+      "name": "ApplicationSummaries",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ApplicationVersionSummary",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ApplicationVersionId",
+        "ApplicationStatus"
+      ]
+    },
+    {
+      "name": "ApplicationVersionSummaries",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ArtifactType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "AuthorizedUrl",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BasePath",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "BucketARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordRowDelimiter",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumnDelimiter",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CSVMappingParameters",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "RecordRowDelimiter",
+        "RecordColumnDelimiter"
+      ]
+    },
+    {
+      "name": "GlueDataCatalogConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "DatabaseARN"
+      ]
+    },
+    {
+      "name": "CatalogConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "GlueDataCatalogConfiguration"
+      ]
+    },
+    {
+      "name": "GlueDataCatalogConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "DatabaseARN"
+      ]
+    },
+    {
+      "name": "CatalogConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "GlueDataCatalogConfigurationDescription"
+      ]
+    },
+    {
+      "name": "GlueDataCatalogConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "DatabaseARNUpdate"
+      ]
+    },
+    {
+      "name": "CatalogConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "GlueDataCatalogConfigurationUpdate"
+      ]
+    },
+    {
+      "name": "ConfigurationType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CheckpointInterval",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MinPauseBetweenCheckpoints",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CheckpointConfiguration",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ConfigurationType"
+      ]
+    },
+    {
+      "name": "CheckpointConfigurationDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CheckpointConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "LogStreamARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CloudWatchLoggingOptionDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "LogStreamARN"
+      ]
+    },
+    {
+      "name": "CloudWatchLoggingOptionUpdate",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "CloudWatchLoggingOptionId"
+      ]
+    },
+    {
+      "name": "CloudWatchLoggingOptionUpdates",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CloudWatchLoggingOptions",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TextContent",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ZipFileContent",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "S3ContentLocation",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "BucketARN",
+        "FileKey"
+      ]
+    },
+    {
+      "name": "CodeMD5",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CodeSize",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "S3ApplicationCodeLocationDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "BucketARN",
+        "FileKey"
+      ]
+    },
+    {
+      "name": "S3ContentLocationUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "UrlType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SessionExpirationDurationInSeconds",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Tags",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MavenReference",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "GroupId",
+        "ArtifactId",
+        "Version"
+      ]
+    },
+    {
+      "name": "CustomArtifactConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ArtifactType"
+      ]
+    },
+    {
+      "name": "CustomArtifactConfigurationDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "CustomArtifactsConfigurationDescriptionList",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "CustomArtifactsConfigurationList",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DatabaseARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "S3ContentBaseLocation",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "BucketARN"
+      ]
+    },
+    {
+      "name": "DeployAsApplicationConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "S3ContentLocation"
+      ]
+    },
+    {
+      "name": "S3ContentBaseLocationDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "BucketARN"
+      ]
+    },
+    {
+      "name": "DeployAsApplicationConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "S3ContentLocationDescription"
+      ]
+    },
+    {
+      "name": "S3ContentBaseLocationUpdate",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "DeployAsApplicationConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "SnapshotDetails",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "SnapshotName",
+        "SnapshotStatus",
+        "ApplicationVersionId"
+      ]
+    },
+    {
+      "name": "RecordFormatType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "DestinationSchema",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "RecordFormatType"
+      ]
+    },
+    {
+      "name": "InputStartingPositionConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "S3Configuration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "BucketARN",
+        "FileKey"
+      ]
+    },
+    {
+      "name": "SourceSchema",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "RecordFormat",
+        "RecordColumns"
+      ]
+    },
+    {
+      "name": "ParsedInputRecords",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProcessedInputRecords",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RawInputRecords",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PropertyGroups",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "FileKey",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MonitoringConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "ConfigurationType"
+      ]
+    },
+    {
+      "name": "ParallelismConfiguration",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ConfigurationType"
+      ]
+    },
+    {
+      "name": "MonitoringConfigurationDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ParallelismConfigurationDescription",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "JobPlanDescription",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MonitoringConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ParallelismConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "FlinkRunConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "InAppStreamName",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InAppStreamNames",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InAppTableName",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "KinesisStreamsInput",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisFirehoseInput",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "InputParallelism",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "KinesisStreamsInputDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisFirehoseInputDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "InputDescription",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "InputLambdaProcessor",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "InputLambdaProcessorDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "InputLambdaProcessorUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "InputParallelismCount",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InputParallelismUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "CountUpdate"
+      ]
+    },
+    {
+      "name": "InputProcessingConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "InputLambdaProcessorUpdate"
+      ]
+    },
+    {
+      "name": "RecordFormat",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "RecordFormatType"
+      ]
+    },
+    {
+      "name": "RecordEncoding",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumns",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "InputSchemaUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "InputStartingPosition",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "KinesisStreamsInputUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "KinesisFirehoseInputUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "InputUpdate",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "InputId"
+      ]
+    },
+    {
+      "name": "InputUpdates",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Inputs",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordRowPath",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "JSONMappingParameters",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "RecordRowPath"
+      ]
+    },
+    {
+      "name": "KinesisAnalyticsARN",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "KinesisFirehoseOutput",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisFirehoseOutputDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisFirehoseOutputUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "KinesisStreamsOutput",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisStreamsOutputDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "KinesisStreamsOutputUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "LambdaOutput",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "LambdaOutputDescription",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "ResourceARN"
+      ]
+    },
+    {
+      "name": "LambdaOutputUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "ResourceARNUpdate"
+      ]
+    },
+    {
+      "name": "ListSnapshotsInputLimit",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "NextToken",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SnapshotSummaries",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ListApplicationVersionsInputLimit",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ListApplicationsInputLimit",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "LogLevel",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MappingParameters",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "MavenArtifactId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MavenGroupId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MavenVersion",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "MetricsLevel",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ObjectVersion",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "OutputDescription",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "OutputUpdate",
+      "type": "object",
+      "propertyCount": 6,
+      "required": [
+        "OutputId"
+      ]
+    },
+    {
+      "name": "OutputUpdates",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Outputs",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Parallelism",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ParallelismPerKPU",
+      "type": "integer",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ParsedInputRecordField",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ParsedInputRecord",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ProcessedInputRecord",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PropertyMap",
+      "type": "object",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PropertyGroup",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "PropertyGroupId",
+        "PropertyMap"
+      ]
+    },
+    {
+      "name": "PropertyKey",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "PropertyValue",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RawInputRecord",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumnName",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumnMapping",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumnSqlType",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RecordColumn",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "Name",
+        "SqlType"
+      ]
+    },
+    {
+      "name": "S3ReferenceDataSource",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "S3ReferenceDataSourceDescription",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "BucketARN",
+        "FileKey"
+      ]
+    },
+    {
+      "name": "ReferenceDataSourceDescription",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ReferenceId",
+        "TableName",
+        "S3ReferenceDataSourceDescription"
+      ]
+    },
+    {
+      "name": "S3ReferenceDataSourceUpdate",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "ReferenceDataSourceUpdate",
+      "type": "object",
+      "propertyCount": 4,
+      "required": [
+        "ReferenceId"
+      ]
+    },
+    {
+      "name": "ReferenceDataSourceUpdates",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "ReferenceDataSources",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SqlRunConfigurations",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "RunConfiguration",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "RunConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "SecurityGroupId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SecurityGroupIds",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SnapshotStatus",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SqlRunConfiguration",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "InputId",
+        "InputStartingPositionConfiguration"
+      ]
+    },
+    {
+      "name": "SubnetId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "SubnetIds",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TagKey",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "TagValue",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "Tag",
+      "type": "object",
+      "propertyCount": 2,
+      "required": [
+        "Key"
+      ]
+    },
+    {
+      "name": "TagKeys",
+      "type": "array",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "VpcId",
+      "type": "string",
+      "propertyCount": 0,
+      "required": []
+    },
+    {
+      "name": "VpcConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 3,
+      "required": [
+        "VpcConfigurationId"
+      ]
+    },
+    {
+      "name": "ZeppelinMonitoringConfiguration",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "LogLevel"
+      ]
+    },
+    {
+      "name": "ZeppelinMonitoringConfigurationDescription",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "ZeppelinMonitoringConfigurationUpdate",
+      "type": "object",
+      "propertyCount": 1,
+      "required": [
+        "LogLevelUpdate"
+      ]
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationCloudWatchLoggingOption",
+      "operationId": "AddApplicationCloudWatchLoggingOption",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationInput",
+      "operationId": "AddApplicationInput",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationInputProcessingConfiguration",
+      "operationId": "AddApplicationInputProcessingConfiguration",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationOutput",
+      "operationId": "AddApplicationOutput",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationReferenceDataSource",
+      "operationId": "AddApplicationReferenceDataSource",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationVpcConfiguration",
+      "operationId": "AddApplicationVpcConfiguration",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.CreateApplication",
+      "operationId": "CreateApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.CreateApplicationPresignedUrl",
+      "operationId": "CreateApplicationPresignedUrl",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.CreateApplicationSnapshot",
+      "operationId": "CreateApplicationSnapshot",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplication",
+      "operationId": "DeleteApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationCloudWatchLoggingOption",
+      "operationId": "DeleteApplicationCloudWatchLoggingOption",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationInputProcessingConfiguration",
+      "operationId": "DeleteApplicationInputProcessingConfiguration",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationOutput",
+      "operationId": "DeleteApplicationOutput",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource",
+      "operationId": "DeleteApplicationReferenceDataSource",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationSnapshot",
+      "operationId": "DeleteApplicationSnapshot",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration",
+      "operationId": "DeleteApplicationVpcConfiguration",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DescribeApplication",
+      "operationId": "DescribeApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DescribeApplicationSnapshot",
+      "operationId": "DescribeApplicationSnapshot",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DescribeApplicationVersion",
+      "operationId": "DescribeApplicationVersion",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.DiscoverInputSchema",
+      "operationId": "DiscoverInputSchema",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.ListApplicationSnapshots",
+      "operationId": "ListApplicationSnapshots",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.ListApplicationVersions",
+      "operationId": "ListApplicationVersions",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.ListApplications",
+      "operationId": "ListApplications",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.ListTagsForResource",
+      "operationId": "ListTagsForResource",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.RollbackApplication",
+      "operationId": "RollbackApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.StartApplication",
+      "operationId": "StartApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.StopApplication",
+      "operationId": "StopApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.TagResource",
+      "operationId": "TagResource",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.UntagResource",
+      "operationId": "UntagResource",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.UpdateApplication",
+      "operationId": "UpdateApplication",
+      "summary": null,
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/#X-Amz-Target=KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration",
+      "operationId": "UpdateApplicationMaintenanceConfiguration",
+      "summary": null,
+      "tags": []
+    }
+  ]
+}

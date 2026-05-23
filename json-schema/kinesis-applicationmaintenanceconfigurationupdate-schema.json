@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationMaintenanceConfigurationUpdate",
+  "title": "ApplicationMaintenanceConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "ApplicationMaintenanceWindowStartTimeUpdate"
+  ],
+  "properties": {
+    "ApplicationMaintenanceWindowStartTimeUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceWindowStartTime"
+        },
+        {
+          "description": "The updated start time for the maintenance window."
+        }
+      ]
+    }
+  },
+  "description": "Describes the updated maintenance configuration for the application."
+}

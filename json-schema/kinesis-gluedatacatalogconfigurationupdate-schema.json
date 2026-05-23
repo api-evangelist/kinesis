@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GlueDataCatalogConfigurationUpdate",
+  "title": "GlueDataCatalogConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "DatabaseARNUpdate"
+  ],
+  "properties": {
+    "DatabaseARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DatabaseARN"
+        },
+        {
+          "description": "The updated Amazon Resource Name (ARN) of the database."
+        }
+      ]
+    }
+  },
+  "description": "Updates to the configuration of the Glue Data Catalog that you use for SQL queries that you write in a Kinesis Data Analytics Studio notebook."
+}

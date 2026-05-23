@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateShardCountInput",
+  "title": "UpdateShardCountInput",
+  "type": "object",
+  "required": [
+    "TargetShardCount",
+    "ScalingType"
+  ],
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream."
+        }
+      ]
+    },
+    "TargetShardCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PositiveIntegerObject"
+        },
+        {
+          "description": "<p>The new number of shards. This value has the following default limits. By default, you cannot do the following: </p> <ul> <li> <p>Set this value to more than double your current shard count for a stream.</p> </li> <li> <p>Set this value below half your current shard count for a stream.</p> </li> <li> <p>Set this value to more than 10000 shards in a stream (the default limit for shard count per stream is 10000 per account per region), unless you request a limit increase.</p> </li> <li> <p>Scale a stream with more than 10000 shards down unless you set this value to less than 10000 shards.</p> </li> </ul>"
+        }
+      ]
+    },
+    "ScalingType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ScalingType"
+        },
+        {
+          "description": "The scaling type. Uniform scaling creates shards of equal size."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  }
+}

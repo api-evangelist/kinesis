@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddTagsToStreamInput",
+  "title": "AddTagsToStreamInput",
+  "type": "object",
+  "required": [
+    "Tags"
+  ],
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagMap"
+        },
+        {
+          "description": "A set of up to 10 key-value pairs to use to create the tags."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "Represents the input for <code>AddTagsToStream</code>."
+}

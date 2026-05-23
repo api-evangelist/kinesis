@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataFormatConversionConfiguration",
+  "title": "DataFormatConversionConfiguration",
+  "type": "object",
+  "properties": {
+    "SchemaConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SchemaConfiguration"
+        },
+        {
+          "description": "Specifies the Amazon Web Services Glue Data Catalog table that contains the column information. This parameter is required if <code>Enabled</code> is set to true."
+        }
+      ]
+    },
+    "InputFormatConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputFormatConfiguration"
+        },
+        {
+          "description": "Specifies the deserializer that you want Kinesis Data Firehose to use to convert the format of your data from JSON. This parameter is required if <code>Enabled</code> is set to true."
+        }
+      ]
+    },
+    "OutputFormatConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutputFormatConfiguration"
+        },
+        {
+          "description": "Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data to the Parquet or ORC format. This parameter is required if <code>Enabled</code> is set to true."
+        }
+      ]
+    },
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Defaults to <code>true</code>. Set it to <code>false</code> if you want to disable format conversion while preserving the configuration details."
+        }
+      ]
+    }
+  },
+  "description": "Specifies that you want Kinesis Data Firehose to convert data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the serializer and deserializer that you specify, in addition to the column information from the Amazon Web Services Glue table, to deserialize your input data from JSON and then serialize it to the Parquet or ORC format. For more information, see <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html\">Kinesis Data Firehose Record Format Conversion</a>."
+}

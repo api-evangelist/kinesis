@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnvironmentProperties",
+  "title": "EnvironmentProperties",
+  "type": "object",
+  "required": [
+    "PropertyGroups"
+  ],
+  "properties": {
+    "PropertyGroups": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyGroups"
+        },
+        {
+          "description": "Describes the execution property groups."
+        }
+      ]
+    }
+  },
+  "description": "Describes execution properties for a Flink-based Kinesis Data Analytics application."
+}

@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointDestinationConfiguration",
+  "title": "HttpEndpointDestinationConfiguration",
+  "type": "object",
+  "required": [
+    "EndpointConfiguration",
+    "S3Configuration"
+  ],
+  "properties": {
+    "EndpointConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointConfiguration"
+        },
+        {
+          "description": "The configuration of the HTTP endpoint selected as the destination."
+        }
+      ]
+    },
+    "BufferingHints": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointBufferingHints"
+        },
+        {
+          "description": "The buffering options that can be used before data is delivered to the specified destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if you specify a value for one of them, you must also provide a value for the other. "
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+    },
+    "RequestConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointRequestConfiguration"
+        },
+        {
+          "description": "The configuration of the requeste sent to the HTTP endpoint specified as the destination."
+        }
+      ]
+    },
+    "ProcessingConfiguration": {
+      "$ref": "#/components/schemas/ProcessingConfiguration"
+    },
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "Kinesis Data Firehose uses this IAM role for all the permissions that the delivery stream needs."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointRetryOptions"
+        },
+        {
+          "description": "Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn't receive a valid acknowledgment of receipt from the specified HTTP endpoint destination."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointS3BackupMode"
+        },
+        {
+          "description": "Describes the S3 bucket backup options for the data that Kinesis Data Firehose delivers to the HTTP endpoint destination. You can back up all documents (<code>AllData</code>) or only the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint destination (<code>FailedDataOnly</code>)."
+        }
+      ]
+    },
+    "S3Configuration": {
+      "$ref": "#/components/schemas/S3DestinationConfiguration"
+    }
+  },
+  "description": "Describes the configuration of the HTTP endpoint destination."
+}

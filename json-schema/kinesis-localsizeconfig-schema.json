@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LocalSizeConfig",
+  "title": "LocalSizeConfig",
+  "type": "object",
+  "properties": {
+    "MaxLocalMediaSizeInMB": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxLocalMediaSizeInMB"
+        },
+        {
+          "description": "The overall maximum size of the media that you want to store for a stream on the Edge Agent. "
+        }
+      ]
+    },
+    "StrategyOnFullSize": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StrategyOnFullSize"
+        },
+        {
+          "description": "The strategy to perform when a stream\u2019s <code>MaxLocalMediaSizeInMB</code> limit is reached."
+        }
+      ]
+    }
+  },
+  "description": "The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached."
+}

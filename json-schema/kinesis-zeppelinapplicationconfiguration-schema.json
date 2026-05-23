@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ZeppelinApplicationConfiguration",
+  "title": "ZeppelinApplicationConfiguration",
+  "type": "object",
+  "properties": {
+    "MonitoringConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZeppelinMonitoringConfiguration"
+        },
+        {
+          "description": "The monitoring configuration of a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    },
+    "CatalogConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CatalogConfiguration"
+        },
+        {
+          "description": "The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    },
+    "DeployAsApplicationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeployAsApplicationConfiguration"
+        },
+        {
+          "description": "The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state."
+        }
+      ]
+    },
+    "CustomArtifactsConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CustomArtifactsConfigurationList"
+        },
+        {
+          "description": "Custom artifacts are dependency JARs and user-defined functions (UDF)."
+        }
+      ]
+    }
+  },
+  "description": "The configuration of a Kinesis Data Analytics Studio notebook."
+}

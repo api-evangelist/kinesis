@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeStreamOutput",
+  "title": "DescribeStreamOutput",
+  "type": "object",
+  "required": [
+    "StreamDescription"
+  ],
+  "properties": {
+    "StreamDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamDescription"
+        },
+        {
+          "description": "The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available."
+        }
+      ]
+    }
+  },
+  "description": "Represents the output for <code>DescribeStream</code>."
+}

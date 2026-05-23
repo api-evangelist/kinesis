@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KinesisFirehoseInputUpdate",
+  "title": "KinesisFirehoseInputUpdate",
+  "type": "object",
+  "required": [
+    "ResourceARNUpdate"
+  ],
+  "properties": {
+    "ResourceARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the input delivery stream to read."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, when updating application input configuration, provides information about a Kinesis Data Firehose delivery stream as the streaming source."
+}

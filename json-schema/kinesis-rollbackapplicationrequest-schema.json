@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RollbackApplicationRequest",
+  "title": "RollbackApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "CurrentApplicationVersionId"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The current application version ID. You can retrieve the application version ID using <a>DescribeApplication</a>."
+        }
+      ]
+    }
+  }
+}

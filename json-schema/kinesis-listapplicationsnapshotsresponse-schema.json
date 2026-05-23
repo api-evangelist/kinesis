@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListApplicationSnapshotsResponse",
+  "title": "ListApplicationSnapshotsResponse",
+  "type": "object",
+  "properties": {
+    "SnapshotSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnapshotSummaries"
+        },
+        {
+          "description": "A collection of objects containing information about the application snapshots."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or <code>null</code> if there are no additional results."
+        }
+      ]
+    }
+  }
+}

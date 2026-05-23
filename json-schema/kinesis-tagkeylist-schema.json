@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagKeyList",
+  "title": "TagKeyList",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/TagKey"
+  },
+  "minItems": 1,
+  "maxItems": 50
+}

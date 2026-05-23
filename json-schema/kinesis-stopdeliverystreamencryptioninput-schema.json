@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StopDeliveryStreamEncryptionInput",
+  "title": "StopDeliveryStreamEncryptionInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream for which you want to disable server-side encryption (SSE)."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateDataRetentionOperation",
+  "title": "UpdateDataRetentionOperation",
+  "type": "string",
+  "enum": [
+    "INCREASE_DATA_RETENTION",
+    "DECREASE_DATA_RETENTION"
+  ]
+}

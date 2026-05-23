@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationInputProcessingConfigurationRequest",
+  "title": "AddApplicationInputProcessingConfigurationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "CurrentApplicationVersionId",
+    "InputId",
+    "InputProcessingConfiguration"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application to which you want to add the input processing configuration."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The version of the application to which you want to add the input processing configuration. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned."
+        }
+      ]
+    },
+    "InputId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The ID of the input configuration to add the input processing configuration to. You can get a list of the input IDs for an application using the <a>DescribeApplication</a> operation."
+        }
+      ]
+    },
+    "InputProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputProcessingConfiguration"
+        },
+        {
+          "description": "The <a>InputProcessingConfiguration</a> to add to the application."
+        }
+      ]
+    }
+  }
+}

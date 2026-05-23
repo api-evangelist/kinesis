@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ZeppelinMonitoringConfigurationUpdate",
+  "title": "ZeppelinMonitoringConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "LogLevelUpdate"
+  ],
+  "properties": {
+    "LogLevelUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogLevel"
+        },
+        {
+          "description": "Updates to the logging level for Apache Zeppelin within a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "Updates to the monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook."
+}

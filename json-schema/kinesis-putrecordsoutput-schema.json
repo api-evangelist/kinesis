@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordsOutput",
+  "title": "PutRecordsOutput",
+  "type": "object",
+  "required": [
+    "Records"
+  ],
+  "properties": {
+    "FailedRecordCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PositiveIntegerObject"
+        },
+        {
+          "description": "The number of unsuccessfully processed records in a <code>PutRecords</code> request."
+        }
+      ]
+    },
+    "Records": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PutRecordsResultEntryList"
+        },
+        {
+          "description": "An array of successfully and unsuccessfully processed record results. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to a stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result."
+        }
+      ]
+    },
+    "EncryptionType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EncryptionType"
+        },
+        {
+          "description": "<p>The encryption type used on the records. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records using a customer-managed Amazon Web Services KMS key.</p> </li> </ul>"
+        }
+      ]
+    }
+  },
+  "description": " <code>PutRecords</code> results."
+}

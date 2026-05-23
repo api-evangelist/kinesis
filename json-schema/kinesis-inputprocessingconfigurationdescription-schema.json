@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputProcessingConfigurationDescription",
+  "title": "InputProcessingConfigurationDescription",
+  "type": "object",
+  "properties": {
+    "InputLambdaProcessorDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputLambdaProcessorDescription"
+        },
+        {
+          "description": "Provides configuration information about the associated <a>InputLambdaProcessorDescription</a> "
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, provides the configuration information about an input processor. Currently, the only input processor available is <a href=\"https://docs.aws.amazon.com/lambda/\">Amazon Lambda</a>."
+}

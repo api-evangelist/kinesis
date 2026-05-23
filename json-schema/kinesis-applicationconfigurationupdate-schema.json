@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationConfigurationUpdate",
+  "title": "ApplicationConfigurationUpdate",
+  "type": "object",
+  "properties": {
+    "SqlApplicationConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqlApplicationConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to a SQL-based Kinesis Data Analytics application's configuration."
+        }
+      ]
+    },
+    "ApplicationCodeConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationCodeConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to an application's code configuration."
+        }
+      ]
+    },
+    "FlinkApplicationConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FlinkApplicationConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to a Flink-based Kinesis Data Analytics application's configuration."
+        }
+      ]
+    },
+    "EnvironmentPropertyUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnvironmentPropertyUpdates"
+        },
+        {
+          "description": "Describes updates to the environment properties for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationSnapshotConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationSnapshotConfigurationUpdate"
+        },
+        {
+          "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "VpcConfigurationUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfigurationUpdates"
+        },
+        {
+          "description": "Updates to the array of descriptions of VPC configurations available to the application."
+        }
+      ]
+    },
+    "ZeppelinApplicationConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZeppelinApplicationConfigurationUpdate"
+        },
+        {
+          "description": "Updates to the configuration of a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to an application's configuration."
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MediaSourceConfig",
+  "title": "MediaSourceConfig",
+  "type": "object",
+  "required": [
+    "MediaUriSecretArn",
+    "MediaUriType"
+  ],
+  "properties": {
+    "MediaUriSecretArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaUriSecretArn"
+        },
+        {
+          "description": "The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location."
+        }
+      ]
+    },
+    "MediaUriType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaUriType"
+        },
+        {
+          "description": "<p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>"
+        }
+      ]
+    }
+  },
+  "description": "The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera."
+}

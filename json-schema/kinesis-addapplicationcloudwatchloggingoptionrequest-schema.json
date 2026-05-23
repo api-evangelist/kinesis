@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationCloudWatchLoggingOptionRequest",
+  "title": "AddApplicationCloudWatchLoggingOptionRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "CloudWatchLoggingOption"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The Kinesis Data Analytics application name."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The version ID of the Kinesis Data Analytics application. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can retrieve the application version ID using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    },
+    "CloudWatchLoggingOption": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOption"
+        },
+        {
+          "description": "Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). "
+        }
+      ]
+    },
+    "ConditionalToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConditionalToken"
+        },
+        {
+          "description": "A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    }
+  }
+}

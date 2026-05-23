@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StrategyOnFullSize",
+  "title": "StrategyOnFullSize",
+  "type": "string",
+  "enum": [
+    "DELETE_OLDEST_MEDIA",
+    "DENY_NEW_MEDIA"
+  ]
+}

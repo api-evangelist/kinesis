@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputUpdate",
+  "title": "InputUpdate",
+  "type": "object",
+  "required": [
+    "InputId"
+  ],
+  "properties": {
+    "InputId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "The input ID of the application input to be updated."
+        }
+      ]
+    },
+    "NamePrefixUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InAppStreamName"
+        },
+        {
+          "description": "The name prefix for in-application streams that Kinesis Data Analytics creates for the specific streaming source."
+        }
+      ]
+    },
+    "InputProcessingConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputProcessingConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to an <a>InputProcessingConfiguration</a>."
+        }
+      ]
+    },
+    "KinesisStreamsInputUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisStreamsInputUpdate"
+        },
+        {
+          "description": "If a Kinesis data stream is the streaming source to be updated, provides an updated stream Amazon Resource Name (ARN)."
+        }
+      ]
+    },
+    "KinesisFirehoseInputUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisFirehoseInputUpdate"
+        },
+        {
+          "description": "If a Kinesis Data Firehose delivery stream is the streaming source to be updated, provides an updated stream ARN."
+        }
+      ]
+    },
+    "InputSchemaUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputSchemaUpdate"
+        },
+        {
+          "description": "Describes the data format on the streaming source, and how record elements on the streaming source map to columns of the in-application stream that is created."
+        }
+      ]
+    },
+    "InputParallelismUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputParallelismUpdate"
+        },
+        {
+          "description": "Describes the parallelism updates (the number of in-application streams Kinesis Data Analytics creates for the specific streaming source)."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes updates to a specific input configuration (identified by the <code>InputId</code> of an application). "
+}

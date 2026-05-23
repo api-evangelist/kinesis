@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagStreamInput",
+  "title": "TagStreamInput",
+  "type": "object",
+  "required": [
+    "Tags"
+  ],
+  "properties": {
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to."
+        }
+      ]
+    },
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream that you want to add the tag or tags to."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceTags"
+        },
+        {
+          "description": "A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional)."
+        }
+      ]
+    }
+  }
+}

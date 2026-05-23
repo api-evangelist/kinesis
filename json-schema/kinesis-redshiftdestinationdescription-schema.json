@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RedshiftDestinationDescription",
+  "title": "RedshiftDestinationDescription",
+  "type": "object",
+  "required": [
+    "RoleARN",
+    "ClusterJDBCURL",
+    "CopyCommand",
+    "Username",
+    "S3DestinationDescription"
+  ],
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>."
+        }
+      ]
+    },
+    "ClusterJDBCURL": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterJDBCURL"
+        },
+        {
+          "description": "The database connection string."
+        }
+      ]
+    },
+    "CopyCommand": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CopyCommand"
+        },
+        {
+          "description": "The <code>COPY</code> command."
+        }
+      ]
+    },
+    "Username": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Username"
+        },
+        {
+          "description": "The name of the user."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftRetryOptions"
+        },
+        {
+          "description": "The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes)."
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationDescription"
+        },
+        {
+          "description": "The Amazon S3 destination."
+        }
+      ]
+    },
+    "ProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessingConfiguration"
+        },
+        {
+          "description": "The data processing configuration."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftS3BackupMode"
+        },
+        {
+          "description": "The Amazon S3 backup mode."
+        }
+      ]
+    },
+    "S3BackupDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationDescription"
+        },
+        {
+          "description": "The configuration for backup in Amazon S3."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "The Amazon CloudWatch logging options for your delivery stream."
+        }
+      ]
+    }
+  },
+  "description": "Describes a destination in Amazon Redshift."
+}

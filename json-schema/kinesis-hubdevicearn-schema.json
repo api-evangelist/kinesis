@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HubDeviceArn",
+  "title": "HubDeviceArn",
+  "type": "string",
+  "pattern": "arn:[a-z\\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+",
+  "minLength": 1,
+  "maxLength": 1024
+}

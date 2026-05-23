@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationCloudWatchLoggingOptionResponse",
+  "title": "AddApplicationCloudWatchLoggingOptionResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The application's ARN."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The new version ID of the Kinesis Data Analytics application. Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you change the CloudWatch logging options. "
+        }
+      ]
+    },
+    "CloudWatchLoggingOptionDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptionDescriptions"
+        },
+        {
+          "description": "The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application."
+        }
+      ]
+    }
+  }
+}

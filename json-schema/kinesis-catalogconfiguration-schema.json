@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CatalogConfiguration",
+  "title": "CatalogConfiguration",
+  "type": "object",
+  "required": [
+    "GlueDataCatalogConfiguration"
+  ],
+  "properties": {
+    "GlueDataCatalogConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GlueDataCatalogConfiguration"
+        },
+        {
+          "description": "The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook."
+}

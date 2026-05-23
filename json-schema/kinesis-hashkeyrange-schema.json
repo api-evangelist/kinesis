@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HashKeyRange",
+  "title": "HashKeyRange",
+  "type": "object",
+  "required": [
+    "StartingHashKey",
+    "EndingHashKey"
+  ],
+  "properties": {
+    "StartingHashKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HashKey"
+        },
+        {
+          "description": "The starting hash key of the hash key range."
+        }
+      ]
+    },
+    "EndingHashKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HashKey"
+        },
+        {
+          "description": "The ending hash key of the hash key range."
+        }
+      ]
+    }
+  },
+  "description": "The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers."
+}

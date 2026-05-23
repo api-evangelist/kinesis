@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SqlApplicationConfigurationUpdate",
+  "title": "SqlApplicationConfigurationUpdate",
+  "type": "object",
+  "properties": {
+    "InputUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputUpdates"
+        },
+        {
+          "description": "The array of <a>InputUpdate</a> objects describing the new input streams used by the application."
+        }
+      ]
+    },
+    "OutputUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutputUpdates"
+        },
+        {
+          "description": "The array of <a>OutputUpdate</a> objects describing the new destination streams used by the application."
+        }
+      ]
+    },
+    "ReferenceDataSourceUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReferenceDataSourceUpdates"
+        },
+        {
+          "description": "The array of <a>ReferenceDataSourceUpdate</a> objects describing the new reference data sources used by the application."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to the input streams, destination streams, and reference data sources for a SQL-based Kinesis Data Analytics application."
+}

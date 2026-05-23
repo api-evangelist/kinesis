@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/KinesisStreamsInputUpdate",
+  "title": "KinesisStreamsInputUpdate",
+  "type": "object",
+  "required": [
+    "ResourceARNUpdate"
+  ],
+  "properties": {
+    "ResourceARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the input Kinesis data stream to read."
+        }
+      ]
+    }
+  },
+  "description": "When you update the input configuration for a SQL-based Kinesis Data Analytics application, provides information about a Kinesis stream as the streaming source."
+}

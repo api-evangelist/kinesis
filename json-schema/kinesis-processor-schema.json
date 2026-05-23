@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Processor",
+  "title": "Processor",
+  "type": "object",
+  "required": [
+    "Type"
+  ],
+  "properties": {
+    "Type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessorType"
+        },
+        {
+          "description": "The type of processor."
+        }
+      ]
+    },
+    "Parameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessorParameterList"
+        },
+        {
+          "description": "The processor parameters."
+        }
+      ]
+    }
+  },
+  "description": "Describes a data processor."
+}

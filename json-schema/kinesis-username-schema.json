@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Username",
+  "title": "Username",
+  "type": "string",
+  "pattern": ".*",
+  "minLength": 1,
+  "maxLength": 512,
+  "format": "password"
+}

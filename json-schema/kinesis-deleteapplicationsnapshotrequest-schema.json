@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeleteApplicationSnapshotRequest",
+  "title": "DeleteApplicationSnapshotRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "SnapshotName",
+    "SnapshotCreationTimestamp"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of an existing application."
+        }
+      ]
+    },
+    "SnapshotName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnapshotName"
+        },
+        {
+          "description": "The identifier for the snapshot delete."
+        }
+      ]
+    },
+    "SnapshotCreationTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The creation timestamp of the application snapshot to delete. You can retrieve this value using or ."
+        }
+      ]
+    }
+  }
+}

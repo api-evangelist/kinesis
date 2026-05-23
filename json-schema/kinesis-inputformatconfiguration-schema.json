@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputFormatConfiguration",
+  "title": "InputFormatConfiguration",
+  "type": "object",
+  "properties": {
+    "Deserializer": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Deserializer"
+        },
+        {
+          "description": "Specifies which deserializer to use. You can choose either the Apache Hive JSON SerDe or the OpenX JSON SerDe. If both are non-null, the server rejects the request."
+        }
+      ]
+    }
+  },
+  "description": "Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if <code>Enabled</code> is set to true."
+}

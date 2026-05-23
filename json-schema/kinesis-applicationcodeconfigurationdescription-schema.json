@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationCodeConfigurationDescription",
+  "title": "ApplicationCodeConfigurationDescription",
+  "type": "object",
+  "required": [
+    "CodeContentType"
+  ],
+  "properties": {
+    "CodeContentType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeContentType"
+        },
+        {
+          "description": "Specifies whether the code content is in text or zip format."
+        }
+      ]
+    },
+    "CodeContentDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeContentDescription"
+        },
+        {
+          "description": "Describes details about the location and format of the application code."
+        }
+      ]
+    }
+  },
+  "description": "Describes code configuration for an application."
+}

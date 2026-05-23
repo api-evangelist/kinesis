@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataTableName",
+  "title": "DataTableName",
+  "type": "string",
+  "pattern": ".*",
+  "minLength": 1,
+  "maxLength": 512
+}

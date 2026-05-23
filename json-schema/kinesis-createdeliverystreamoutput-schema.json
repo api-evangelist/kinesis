@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateDeliveryStreamOutput",
+  "title": "CreateDeliveryStreamOutput",
+  "type": "object",
+  "properties": {
+    "DeliveryStreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamARN"
+        },
+        {
+          "description": "The ARN of the delivery stream."
+        }
+      ]
+    }
+  }
+}

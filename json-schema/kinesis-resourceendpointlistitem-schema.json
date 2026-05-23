@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ResourceEndpointListItem",
+  "title": "ResourceEndpointListItem",
+  "type": "object",
+  "properties": {
+    "Protocol": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelProtocol"
+        },
+        {
+          "description": "The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API."
+        }
+      ]
+    },
+    "ResourceEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceEndpoint"
+        },
+        {
+          "description": "The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API."
+        }
+      ]
+    }
+  },
+  "description": "An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API."
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateApplicationResponse",
+  "title": "UpdateApplicationResponse",
+  "type": "object",
+  "required": [
+    "ApplicationDetail"
+  ],
+  "properties": {
+    "ApplicationDetail": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationDetail"
+        },
+        {
+          "description": "Describes application updates."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeployAsApplicationConfiguration",
+  "title": "DeployAsApplicationConfiguration",
+  "type": "object",
+  "required": [
+    "S3ContentLocation"
+  ],
+  "properties": {
+    "S3ContentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ContentBaseLocation"
+        },
+        {
+          "description": "The description of an Amazon S3 object that contains the Amazon Data Analytics application, including the Amazon Resource Name (ARN) of the S3 bucket, the name of the Amazon S3 object that contains the data, and the version number of the Amazon S3 object that contains the data. "
+        }
+      ]
+    }
+  },
+  "description": "The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state."
+}

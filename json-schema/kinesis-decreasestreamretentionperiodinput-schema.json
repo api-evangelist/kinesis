@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DecreaseStreamRetentionPeriodInput",
+  "title": "DecreaseStreamRetentionPeriodInput",
+  "type": "object",
+  "required": [
+    "RetentionPeriodHours"
+  ],
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream to modify."
+        }
+      ]
+    },
+    "RetentionPeriodHours": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RetentionPeriodHours"
+        },
+        {
+          "description": "The new retention period of the stream, in hours. Must be less than the current retention period."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "Represents the input for <a>DecreaseStreamRetentionPeriod</a>."
+}

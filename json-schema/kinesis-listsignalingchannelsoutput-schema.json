@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListSignalingChannelsOutput",
+  "title": "ListSignalingChannelsOutput",
+  "type": "object",
+  "properties": {
+    "ChannelInfoList": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelInfoList"
+        },
+        {
+          "description": "An array of <code>ChannelInfo</code> objects."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request."
+        }
+      ]
+    }
+  }
+}

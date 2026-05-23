@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointConfiguration",
+  "title": "HttpEndpointConfiguration",
+  "type": "object",
+  "required": [
+    "Url"
+  ],
+  "properties": {
+    "Url": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointUrl"
+        },
+        {
+          "description": "<p>The URL of the HTTP endpoint selected as the destination.</p> <important> <p>If you choose an HTTP endpoint as your destination, review and follow the instructions in the <a href=\"https://docs.aws.amazon.com/firehose/latest/dev/httpdeliveryrequestresponse.html\">Appendix - HTTP Endpoint Delivery Request and Response Specifications</a>.</p> </important>"
+        }
+      ]
+    },
+    "Name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointName"
+        },
+        {
+          "description": "The name of the HTTP endpoint selected as the destination."
+        }
+      ]
+    },
+    "AccessKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointAccessKey"
+        },
+        {
+          "description": "The access key required for Kinesis Firehose to authenticate with the HTTP endpoint selected as the destination."
+        }
+      ]
+    }
+  },
+  "description": "Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data."
+}

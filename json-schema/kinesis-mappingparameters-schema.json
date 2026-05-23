@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MappingParameters",
+  "title": "MappingParameters",
+  "type": "object",
+  "properties": {
+    "JSONMappingParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/JSONMappingParameters"
+        },
+        {
+          "description": "Provides additional mapping information when JSON is the record format on the streaming source."
+        }
+      ]
+    },
+    "CSVMappingParameters": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CSVMappingParameters"
+        },
+        {
+          "description": "Provides additional mapping information when the record format uses delimiters (for example, CSV)."
+        }
+      ]
+    }
+  },
+  "description": "When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source."
+}

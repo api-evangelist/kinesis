@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeApplicationVersionRequest",
+  "title": "DescribeApplicationVersionRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "ApplicationVersionId"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application for which you want to get the version description."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The ID of the application version for which you want to get the description."
+        }
+      ]
+    }
+  }
+}

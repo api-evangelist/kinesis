@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeliveryStreamEncryptionConfiguration",
+  "title": "DeliveryStreamEncryptionConfiguration",
+  "type": "object",
+  "properties": {
+    "KeyARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AWSKMSKeyARN"
+        },
+        {
+          "description": "If <code>KeyType</code> is <code>CUSTOMER_MANAGED_CMK</code>, this field contains the ARN of the customer managed CMK. If <code>KeyType</code> is <code>Amazon Web Services_OWNED_CMK</code>, <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain a value for <code>KeyARN</code>."
+        }
+      ]
+    },
+    "KeyType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyType"
+        },
+        {
+          "description": "Indicates the type of customer master key (CMK) that is used for encryption. The default setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys\">Customer Master Keys (CMKs)</a>."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamEncryptionStatus"
+        },
+        {
+          "description": "This is the server-side encryption (SSE) status for the delivery stream. For a full description of the different values of this status, see <a>StartDeliveryStreamEncryption</a> and <a>StopDeliveryStreamEncryption</a>. If this status is <code>ENABLING_FAILED</code> or <code>DISABLING_FAILED</code>, it is the status of the most recent attempt to enable or disable SSE, respectively."
+        }
+      ]
+    },
+    "FailureDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FailureDescription"
+        },
+        {
+          "description": "Provides details in case one of the following operations fails due to an error related to KMS: <a>CreateDeliveryStream</a>, <a>DeleteDeliveryStream</a>, <a>StartDeliveryStreamEncryption</a>, <a>StopDeliveryStreamEncryption</a>."
+        }
+      ]
+    }
+  },
+  "description": "Contains information about the server-side encryption (SSE) status for the delivery stream, the type customer master key (CMK) in use, if any, and the ARN of the CMK. You can get <code>DeliveryStreamEncryptionConfiguration</code> by invoking the <a>DescribeDeliveryStream</a> operation. "
+}

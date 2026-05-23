@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EnvironmentPropertyDescriptions",
+  "title": "EnvironmentPropertyDescriptions",
+  "type": "object",
+  "properties": {
+    "PropertyGroupDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PropertyGroups"
+        },
+        {
+          "description": "Describes the execution property groups."
+        }
+      ]
+    }
+  },
+  "description": "Describes the execution properties for an Apache Flink runtime."
+}

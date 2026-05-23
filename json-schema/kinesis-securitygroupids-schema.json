@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SecurityGroupIds",
+  "title": "SecurityGroupIds",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/SecurityGroupId"
+  },
+  "minItems": 1,
+  "maxItems": 5
+}

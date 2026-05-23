@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationOutputRequest",
+  "title": "AddApplicationOutputRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "CurrentApplicationVersionId",
+    "Output"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application to which you want to add the output configuration."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The version of the application to which you want to add the output configuration. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. "
+        }
+      ]
+    },
+    "Output": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Output"
+        },
+        {
+          "description": "An array of objects, each describing one output configuration. In the output configuration, you specify the name of an in-application stream, a destination (that is, a Kinesis data stream, a Kinesis Data Firehose delivery stream, or an Amazon Lambda function), and record the formation to use when writing to the destination."
+        }
+      ]
+    }
+  }
+}

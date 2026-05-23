@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RetryOptions",
+  "title": "RetryOptions",
+  "type": "object",
+  "properties": {
+    "DurationInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RetryDurationInSeconds"
+        },
+        {
+          "description": "The period of time during which Kinesis Data Firehose retries to deliver data to the specified Amazon S3 prefix."
+        }
+      ]
+    }
+  },
+  "description": " The retry behavior in case Kinesis Data Firehose is unable to deliver data to an Amazon S3 prefix."
+}

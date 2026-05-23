@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordsInput",
+  "title": "PutRecordsInput",
+  "type": "object",
+  "required": [
+    "Records"
+  ],
+  "properties": {
+    "Records": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PutRecordsRequestEntryList"
+        },
+        {
+          "description": "The records associated with the request."
+        }
+      ]
+    },
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The stream name associated with the request."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "A <code>PutRecords</code> request."
+}

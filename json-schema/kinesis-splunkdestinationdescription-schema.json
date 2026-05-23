@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SplunkDestinationDescription",
+  "title": "SplunkDestinationDescription",
+  "type": "object",
+  "properties": {
+    "HECEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HECEndpoint"
+        },
+        {
+          "description": "The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data."
+        }
+      ]
+    },
+    "HECEndpointType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HECEndpointType"
+        },
+        {
+          "description": "This type can be either \"Raw\" or \"Event.\""
+        }
+      ]
+    },
+    "HECToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HECToken"
+        },
+        {
+          "description": "A GUID you obtain from your Splunk cluster when you create a new HEC endpoint."
+        }
+      ]
+    },
+    "HECAcknowledgmentTimeoutInSeconds": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HECAcknowledgmentTimeoutInSeconds"
+        },
+        {
+          "description": "The amount of time that Kinesis Data Firehose waits to receive an acknowledgment from Splunk after it sends it data. At the end of the timeout period, Kinesis Data Firehose either tries to send the data again or considers it an error, based on your retry settings."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SplunkRetryOptions"
+        },
+        {
+          "description": "The retry behavior in case Kinesis Data Firehose is unable to deliver data to Splunk or if it doesn't receive an acknowledgment of receipt from Splunk."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SplunkS3BackupMode"
+        },
+        {
+          "description": "Defines how documents should be delivered to Amazon S3. When set to <code>FailedDocumentsOnly</code>, Kinesis Data Firehose writes any data that could not be indexed to the configured Amazon S3 destination. When set to <code>AllDocuments</code>, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents to Amazon S3. Default value is <code>FailedDocumentsOnly</code>. "
+        }
+      ]
+    },
+    "S3DestinationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationDescription"
+        },
+        {
+          "description": "The Amazon S3 destination.&gt;"
+        }
+      ]
+    },
+    "ProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessingConfiguration"
+        },
+        {
+          "description": "The data processing configuration."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "The Amazon CloudWatch logging options for your delivery stream."
+        }
+      ]
+    }
+  },
+  "description": "Describes a destination in Splunk."
+}

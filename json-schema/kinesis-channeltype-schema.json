@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChannelType",
+  "title": "ChannelType",
+  "type": "string",
+  "enum": [
+    "SINGLE_MASTER",
+    "FULL_MESH"
+  ]
+}

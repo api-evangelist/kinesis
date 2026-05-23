@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordInput",
+  "title": "PutRecordInput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamName",
+    "Record"
+  ],
+  "properties": {
+    "DeliveryStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamName"
+        },
+        {
+          "description": "The name of the delivery stream."
+        }
+      ]
+    },
+    "Record": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Record"
+        },
+        {
+          "description": "The record."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/S3ReferenceDataSourceUpdate",
+  "title": "S3ReferenceDataSourceUpdate",
+  "type": "object",
+  "properties": {
+    "BucketARNUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BucketARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the S3 bucket."
+        }
+      ]
+    },
+    "FileKeyUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FileKey"
+        },
+        {
+          "description": "The object key name."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes the Amazon S3 bucket name and object key name for an in-application reference table. "
+}

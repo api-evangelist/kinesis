@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeStreamSummaryOutput",
+  "title": "DescribeStreamSummaryOutput",
+  "type": "object",
+  "required": [
+    "StreamDescriptionSummary"
+  ],
+  "properties": {
+    "StreamDescriptionSummary": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamDescriptionSummary"
+        },
+        {
+          "description": "A <a>StreamDescriptionSummary</a> containing information about the stream."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScheduleExpression",
+  "title": "ScheduleExpression",
+  "type": "string",
+  "pattern": "[^\\n]{11,100}",
+  "minLength": 11,
+  "maxLength": 100
+}

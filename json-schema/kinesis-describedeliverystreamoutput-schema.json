@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeDeliveryStreamOutput",
+  "title": "DescribeDeliveryStreamOutput",
+  "type": "object",
+  "required": [
+    "DeliveryStreamDescription"
+  ],
+  "properties": {
+    "DeliveryStreamDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeliveryStreamDescription"
+        },
+        {
+          "description": "Information about the delivery stream."
+        }
+      ]
+    }
+  }
+}

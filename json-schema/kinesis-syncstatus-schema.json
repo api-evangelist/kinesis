@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SyncStatus",
+  "title": "SyncStatus",
+  "type": "string",
+  "enum": [
+    "SYNCING",
+    "ACKNOWLEDGED",
+    "IN_SYNC",
+    "SYNC_FAILED",
+    "DELETING",
+    "DELETE_FAILED"
+  ]
+}

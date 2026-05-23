@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CodeContent",
+  "title": "CodeContent",
+  "type": "object",
+  "properties": {
+    "TextContent": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TextContent"
+        },
+        {
+          "description": "The text-format code for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ZipFileContent": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZipFileContent"
+        },
+        {
+          "description": "The zip-format code for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "S3ContentLocation": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ContentLocation"
+        },
+        {
+          "description": "Information about the Amazon S3 bucket that contains the application code."
+        }
+      ]
+    }
+  },
+  "description": "Specifies either the application code, or the location of the application code, for a Flink-based Kinesis Data Analytics application. "
+}

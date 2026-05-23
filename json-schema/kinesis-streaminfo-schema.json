@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamInfo",
+  "title": "StreamInfo",
+  "type": "object",
+  "properties": {
+    "DeviceName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeviceName"
+        },
+        {
+          "description": "The name of the device that is associated with the stream."
+        }
+      ]
+    },
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the stream."
+        }
+      ]
+    },
+    "MediaType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaType"
+        },
+        {
+          "description": "The <code>MediaType</code> of the stream. "
+        }
+      ]
+    },
+    "KmsKeyId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KmsKeyId"
+        },
+        {
+          "description": "The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream."
+        }
+      ]
+    },
+    "Version": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Version"
+        },
+        {
+          "description": "The version of the stream."
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Status"
+        },
+        {
+          "description": "The status of the stream."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "A time stamp that indicates when the stream was created."
+        }
+      ]
+    },
+    "DataRetentionInHours": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataRetentionInHours"
+        },
+        {
+          "description": "How long the stream retains data, in hours."
+        }
+      ]
+    }
+  },
+  "description": "An object describing a Kinesis video stream."
+}

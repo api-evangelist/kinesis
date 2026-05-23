@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamStatus",
+  "title": "StreamStatus",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "DELETING",
+    "ACTIVE",
+    "UPDATING"
+  ]
+}

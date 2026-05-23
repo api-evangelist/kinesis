@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ShardFilterType",
+  "title": "ShardFilterType",
+  "type": "string",
+  "enum": [
+    "AFTER_SHARD_ID",
+    "AT_TRIM_HORIZON",
+    "FROM_TRIM_HORIZON",
+    "AT_LATEST",
+    "AT_TIMESTAMP",
+    "FROM_TIMESTAMP"
+  ]
+}

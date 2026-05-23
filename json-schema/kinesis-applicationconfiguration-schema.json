@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationConfiguration",
+  "title": "ApplicationConfiguration",
+  "type": "object",
+  "properties": {
+    "SqlApplicationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SqlApplicationConfiguration"
+        },
+        {
+          "description": "The creation and update parameters for a SQL-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "FlinkApplicationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FlinkApplicationConfiguration"
+        },
+        {
+          "description": "The creation and update parameters for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "EnvironmentProperties": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EnvironmentProperties"
+        },
+        {
+          "description": "Describes execution properties for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationCodeConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationCodeConfiguration"
+        },
+        {
+          "description": "The code location and type parameters for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "ApplicationSnapshotConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationSnapshotConfiguration"
+        },
+        {
+          "description": "Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application."
+        }
+      ]
+    },
+    "VpcConfigurations": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfigurations"
+        },
+        {
+          "description": "The array of descriptions of VPC configurations available to the application."
+        }
+      ]
+    },
+    "ZeppelinApplicationConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ZeppelinApplicationConfiguration"
+        },
+        {
+          "description": "The configuration parameters for a Kinesis Data Analytics Studio notebook."
+        }
+      ]
+    }
+  },
+  "description": "Specifies the creation parameters for a Kinesis Data Analytics application."
+}

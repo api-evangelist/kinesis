@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SequenceNumberRange",
+  "title": "SequenceNumberRange",
+  "type": "object",
+  "required": [
+    "StartingSequenceNumber"
+  ],
+  "properties": {
+    "StartingSequenceNumber": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SequenceNumber"
+        },
+        {
+          "description": "The starting sequence number for the range."
+        }
+      ]
+    },
+    "EndingSequenceNumber": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SequenceNumber"
+        },
+        {
+          "description": "The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>."
+        }
+      ]
+    }
+  },
+  "description": "The range of possible sequence numbers for the shard."
+}

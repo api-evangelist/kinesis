@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Shard",
+  "title": "Shard",
+  "type": "object",
+  "required": [
+    "ShardId",
+    "HashKeyRange",
+    "SequenceNumberRange"
+  ],
+  "properties": {
+    "ShardId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The unique identifier of the shard within the stream."
+        }
+      ]
+    },
+    "ParentShardId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The shard ID of the shard's parent."
+        }
+      ]
+    },
+    "AdjacentParentShardId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The shard ID of the shard adjacent to the shard's parent."
+        }
+      ]
+    },
+    "HashKeyRange": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HashKeyRange"
+        },
+        {
+          "description": "The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers."
+        }
+      ]
+    },
+    "SequenceNumberRange": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SequenceNumberRange"
+        },
+        {
+          "description": "The range of possible sequence numbers for the shard."
+        }
+      ]
+    }
+  },
+  "description": "A uniquely identified group of data records in a Kinesis data stream."
+}

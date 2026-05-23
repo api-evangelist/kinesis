@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateSignalingChannelInput",
+  "title": "CreateSignalingChannelInput",
+  "type": "object",
+  "required": [
+    "ChannelName"
+  ],
+  "properties": {
+    "ChannelName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelName"
+        },
+        {
+          "description": "A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region."
+        }
+      ]
+    },
+    "ChannelType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelType"
+        },
+        {
+          "description": "A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. "
+        }
+      ]
+    },
+    "SingleMasterConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SingleMasterConfiguration"
+        },
+        {
+          "description": "A structure containing the configuration for the <code>SINGLE_MASTER</code> channel type. "
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagOnCreateList"
+        },
+        {
+          "description": "A set of tags (key-value pairs) that you want to associate with this channel."
+        }
+      ]
+    }
+  }
+}

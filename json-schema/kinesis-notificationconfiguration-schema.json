@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/NotificationConfiguration",
+  "title": "NotificationConfiguration",
+  "type": "object",
+  "required": [
+    "Status",
+    "DestinationConfig"
+  ],
+  "properties": {
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConfigurationStatus"
+        },
+        {
+          "description": "Indicates if a notification configuration is enabled or disabled."
+        }
+      ]
+    },
+    "DestinationConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NotificationDestinationConfig"
+        },
+        {
+          "description": "The destination information required to deliver a notification to a customer."
+        }
+      ]
+    }
+  },
+  "description": "The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream."
+}

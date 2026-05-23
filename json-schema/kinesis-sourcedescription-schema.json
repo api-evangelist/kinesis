@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourceDescription",
+  "title": "SourceDescription",
+  "type": "object",
+  "properties": {
+    "KinesisStreamSourceDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KinesisStreamSourceDescription"
+        },
+        {
+          "description": "The <a>KinesisStreamSourceDescription</a> value for the source Kinesis data stream."
+        }
+      ]
+    }
+  },
+  "description": "Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream."
+}

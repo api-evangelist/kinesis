@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ChildShard",
+  "title": "ChildShard",
+  "type": "object",
+  "required": [
+    "ShardId",
+    "ParentShards",
+    "HashKeyRange"
+  ],
+  "properties": {
+    "ShardId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The shard ID of the existing child shard of the current shard."
+        }
+      ]
+    },
+    "ParentShards": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardIdList"
+        },
+        {
+          "description": "The current shard that is the parent of the existing child shard."
+        }
+      ]
+    },
+    "HashKeyRange": {
+      "$ref": "#/components/schemas/HashKeyRange"
+    }
+  },
+  "description": "Output parameter of the GetRecords API. The existing child shard of the current shard."
+}

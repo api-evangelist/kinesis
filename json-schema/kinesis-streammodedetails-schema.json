@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StreamModeDetails",
+  "title": "StreamModeDetails",
+  "type": "object",
+  "required": [
+    "StreamMode"
+  ],
+  "properties": {
+    "StreamMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamMode"
+        },
+        {
+          "description": " Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. "
+        }
+      ]
+    }
+  },
+  "description": " Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. "
+}

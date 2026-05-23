@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CompressionFormat",
+  "title": "CompressionFormat",
+  "type": "string",
+  "enum": [
+    "UNCOMPRESSED",
+    "GZIP",
+    "ZIP",
+    "Snappy",
+    "HADOOP_SNAPPY"
+  ]
+}

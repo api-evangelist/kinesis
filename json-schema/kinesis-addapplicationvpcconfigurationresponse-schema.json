@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationVpcConfigurationResponse",
+  "title": "AddApplicationVpcConfigurationResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the application."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each time you update the application."
+        }
+      ]
+    },
+    "VpcConfigurationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfigurationDescription"
+        },
+        {
+          "description": "The parameters of the new VPC configuration."
+        }
+      ]
+    }
+  }
+}

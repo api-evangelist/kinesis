@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RollbackApplicationResponse",
+  "title": "RollbackApplicationResponse",
+  "type": "object",
+  "required": [
+    "ApplicationDetail"
+  ],
+  "properties": {
+    "ApplicationDetail": {
+      "$ref": "#/components/schemas/ApplicationDetail"
+    }
+  }
+}

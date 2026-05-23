@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/FlinkApplicationConfigurationUpdate",
+  "title": "FlinkApplicationConfigurationUpdate",
+  "type": "object",
+  "properties": {
+    "CheckpointConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CheckpointConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault tolerance."
+        }
+      ]
+    },
+    "MonitoringConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MonitoringConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to the configuration parameters for Amazon CloudWatch logging for an application."
+        }
+      ]
+    },
+    "ParallelismConfigurationUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ParallelismConfigurationUpdate"
+        },
+        {
+          "description": "Describes updates to the parameters for how an application executes multiple tasks simultaneously."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to the configuration parameters for a Flink-based Kinesis Data Analytics application."
+}

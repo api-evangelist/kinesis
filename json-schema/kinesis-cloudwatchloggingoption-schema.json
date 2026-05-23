@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CloudWatchLoggingOption",
+  "title": "CloudWatchLoggingOption",
+  "type": "object",
+  "required": [
+    "LogStreamARN"
+  ],
+  "properties": {
+    "LogStreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/LogStreamARN"
+        },
+        {
+          "description": "The ARN of the CloudWatch log to receive application messages."
+        }
+      ]
+    }
+  },
+  "description": "Provides a description of Amazon CloudWatch logging options, including the log stream Amazon Resource Name (ARN). "
+}

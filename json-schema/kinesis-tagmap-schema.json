@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TagMap",
+  "title": "TagMap",
+  "type": "object",
+  "minProperties": 1,
+  "maxProperties": 200,
+  "additionalProperties": {
+    "$ref": "#/components/schemas/TagValue"
+  }
+}

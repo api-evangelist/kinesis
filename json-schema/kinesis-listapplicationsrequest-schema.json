@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListApplicationsRequest",
+  "title": "ListApplicationsRequest",
+  "type": "object",
+  "properties": {
+    "Limit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListApplicationsInputLimit"
+        },
+        {
+          "description": "The maximum number of applications to list."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "If a previous command returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see <a href=\"https://docs.aws.amazon.com/cli/latest/userguide/pagination.html\">Using the Amazon Command Line Interface's Pagination Options</a>."
+        }
+      ]
+    }
+  }
+}

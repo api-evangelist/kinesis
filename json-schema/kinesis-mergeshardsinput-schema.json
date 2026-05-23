@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MergeShardsInput",
+  "title": "MergeShardsInput",
+  "type": "object",
+  "required": [
+    "ShardToMerge",
+    "AdjacentShardToMerge"
+  ],
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream for the merge."
+        }
+      ]
+    },
+    "ShardToMerge": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The shard ID of the shard to combine with the adjacent shard for the merge."
+        }
+      ]
+    },
+    "AdjacentShardToMerge": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ShardId"
+        },
+        {
+          "description": "The shard ID of the adjacent shard for the merge."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  },
+  "description": "Represents the input for <code>MergeShards</code>."
+}

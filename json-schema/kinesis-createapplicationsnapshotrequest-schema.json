@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateApplicationSnapshotRequest",
+  "title": "CreateApplicationSnapshotRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "SnapshotName"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of an existing application"
+        }
+      ]
+    },
+    "SnapshotName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SnapshotName"
+        },
+        {
+          "description": "An identifier for the application snapshot."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InputProcessingConfigurationUpdate",
+  "title": "InputProcessingConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "InputLambdaProcessorUpdate"
+  ],
+  "properties": {
+    "InputLambdaProcessorUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/InputLambdaProcessorUpdate"
+        },
+        {
+          "description": "Provides update information for an <a>InputLambdaProcessor</a>."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes updates to an <a>InputProcessingConfiguration</a>."
+}

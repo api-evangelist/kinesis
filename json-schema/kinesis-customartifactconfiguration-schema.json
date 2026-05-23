@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomArtifactConfiguration",
+  "title": "CustomArtifactConfiguration",
+  "type": "object",
+  "required": [
+    "ArtifactType"
+  ],
+  "properties": {
+    "ArtifactType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ArtifactType"
+        },
+        {
+          "description": " <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket."
+        }
+      ]
+    },
+    "S3ContentLocation": {
+      "$ref": "#/components/schemas/S3ContentLocation"
+    },
+    "MavenReference": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MavenReference"
+        },
+        {
+          "description": "The parameters required to fully specify a Maven reference."
+        }
+      ]
+    }
+  },
+  "description": "Specifies dependency JARs, as well as JAR files that contain user-defined functions (UDF)."
+}

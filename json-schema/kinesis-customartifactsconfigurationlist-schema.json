@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CustomArtifactsConfigurationList",
+  "title": "CustomArtifactsConfigurationList",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/CustomArtifactConfiguration"
+  },
+  "maxItems": 50
+}

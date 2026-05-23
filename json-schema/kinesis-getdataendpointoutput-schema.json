@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/GetDataEndpointOutput",
+  "title": "GetDataEndpointOutput",
+  "type": "object",
+  "properties": {
+    "DataEndpoint": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DataEndpoint"
+        },
+        {
+          "description": "The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application."
+        }
+      ]
+    }
+  }
+}

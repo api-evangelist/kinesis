@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProcessingConfiguration",
+  "title": "ProcessingConfiguration",
+  "type": "object",
+  "properties": {
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Enables or disables data processing."
+        }
+      ]
+    },
+    "Processors": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessorList"
+        },
+        {
+          "description": "The data processors."
+        }
+      ]
+    }
+  },
+  "description": "Describes a data processing configuration."
+}

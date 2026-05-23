@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeMediaStorageConfigurationOutput",
+  "title": "DescribeMediaStorageConfigurationOutput",
+  "type": "object",
+  "properties": {
+    "MediaStorageConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaStorageConfiguration"
+        },
+        {
+          "description": "A structure that encapsulates, or contains, the media storage configuration properties."
+        }
+      ]
+    }
+  }
+}

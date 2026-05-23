@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DestinationUri",
+  "title": "DestinationUri",
+  "type": "string",
+  "pattern": "^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$",
+  "minLength": 1,
+  "maxLength": 255
+}

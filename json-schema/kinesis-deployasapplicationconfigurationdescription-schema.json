@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeployAsApplicationConfigurationDescription",
+  "title": "DeployAsApplicationConfigurationDescription",
+  "type": "object",
+  "required": [
+    "S3ContentLocationDescription"
+  ],
+  "properties": {
+    "S3ContentLocationDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3ContentBaseLocationDescription"
+        },
+        {
+          "description": "The location that holds the data required to specify an Amazon Data Analytics application."
+        }
+      ]
+    }
+  },
+  "description": "The configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state."
+}

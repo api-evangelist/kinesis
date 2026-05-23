@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MediaStorageConfiguration",
+  "title": "MediaStorageConfiguration",
+  "type": "object",
+  "required": [
+    "Status"
+  ],
+  "properties": {
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the stream "
+        }
+      ]
+    },
+    "Status": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MediaStorageConfigurationStatus"
+        },
+        {
+          "description": "The status of the media storage configuration."
+        }
+      ]
+    }
+  },
+  "description": "A structure that encapsulates, or contains, the media storage configuration properties."
+}

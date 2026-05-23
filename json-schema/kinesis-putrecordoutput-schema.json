@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordOutput",
+  "title": "PutRecordOutput",
+  "type": "object",
+  "required": [
+    "RecordId"
+  ],
+  "properties": {
+    "RecordId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PutResponseRecordId"
+        },
+        {
+          "description": "The ID of the record."
+        }
+      ]
+    },
+    "Encrypted": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Indicates whether server-side encryption (SSE) was enabled during this operation."
+        }
+      ]
+    }
+  }
+}

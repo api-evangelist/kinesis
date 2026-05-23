@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationOutputResponse",
+  "title": "AddApplicationOutputResponse",
+  "type": "object",
+  "properties": {
+    "ApplicationARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The application Amazon Resource Name (ARN)."
+        }
+      ]
+    },
+    "ApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The updated application version ID. Kinesis Data Analytics increments this ID when the application is updated."
+        }
+      ]
+    },
+    "OutputDescriptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/OutputDescriptions"
+        },
+        {
+          "description": "Describes the application output configuration. For more information, see <a href=\"https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html\">Configuring Application Output</a>. "
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AddApplicationVpcConfigurationRequest",
+  "title": "AddApplicationVpcConfigurationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName",
+    "VpcConfiguration"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of an existing application."
+        }
+      ]
+    },
+    "CurrentApplicationVersionId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationVersionId"
+        },
+        {
+          "description": "The version of the application to which you want to add the VPC configuration. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    },
+    "VpcConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/VpcConfiguration"
+        },
+        {
+          "description": "Description of the VPC to add to the application."
+        }
+      ]
+    },
+    "ConditionalToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConditionalToken"
+        },
+        {
+          "description": "A value you use to implement strong concurrency for application updates. You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>."
+        }
+      ]
+    }
+  }
+}

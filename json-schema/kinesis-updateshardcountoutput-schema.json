@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateShardCountOutput",
+  "title": "UpdateShardCountOutput",
+  "type": "object",
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream."
+        }
+      ]
+    },
+    "CurrentShardCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PositiveIntegerObject"
+        },
+        {
+          "description": "The current number of shards."
+        }
+      ]
+    },
+    "TargetShardCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PositiveIntegerObject"
+        },
+        {
+          "description": "The updated number of shards."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamARN"
+        },
+        {
+          "description": "The ARN of the stream."
+        }
+      ]
+    }
+  }
+}

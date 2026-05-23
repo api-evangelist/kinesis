@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PutRecordBatchOutput",
+  "title": "PutRecordBatchOutput",
+  "type": "object",
+  "required": [
+    "FailedPutCount",
+    "RequestResponses"
+  ],
+  "properties": {
+    "FailedPutCount": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NonNegativeIntegerObject"
+        },
+        {
+          "description": "The number of records that might have failed processing. This number might be greater than 0 even if the <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records that you need to resend."
+        }
+      ]
+    },
+    "Encrypted": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "Indicates whether server-side encryption (SSE) was enabled during this operation."
+        }
+      ]
+    },
+    "RequestResponses": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PutRecordBatchResponseEntryList"
+        },
+        {
+          "description": "The results array. For each record, the index of the response element is the same as the index used in the request array."
+        }
+      ]
+    }
+  }
+}

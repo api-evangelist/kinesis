@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeStreamConsumerOutput",
+  "title": "DescribeStreamConsumerOutput",
+  "type": "object",
+  "required": [
+    "ConsumerDescription"
+  ],
+  "properties": {
+    "ConsumerDescription": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ConsumerDescription"
+        },
+        {
+          "description": "An object that represents the details of the consumer."
+        }
+      ]
+    }
+  }
+}

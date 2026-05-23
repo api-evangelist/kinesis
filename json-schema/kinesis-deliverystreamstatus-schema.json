@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DeliveryStreamStatus",
+  "title": "DeliveryStreamStatus",
+  "type": "string",
+  "enum": [
+    "CREATING",
+    "CREATING_FAILED",
+    "DELETING",
+    "DELETING_FAILED",
+    "ACTIVE"
+  ]
+}

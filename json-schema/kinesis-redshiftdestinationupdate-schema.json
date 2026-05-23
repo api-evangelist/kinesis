@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RedshiftDestinationUpdate",
+  "title": "RedshiftDestinationUpdate",
+  "type": "object",
+  "properties": {
+    "RoleARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RoleARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more information, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>."
+        }
+      ]
+    },
+    "ClusterJDBCURL": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClusterJDBCURL"
+        },
+        {
+          "description": "The database connection string."
+        }
+      ]
+    },
+    "CopyCommand": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CopyCommand"
+        },
+        {
+          "description": "The <code>COPY</code> command."
+        }
+      ]
+    },
+    "Username": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Username"
+        },
+        {
+          "description": "The name of the user."
+        }
+      ]
+    },
+    "Password": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Password"
+        },
+        {
+          "description": "The user password."
+        }
+      ]
+    },
+    "RetryOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftRetryOptions"
+        },
+        {
+          "description": "The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes)."
+        }
+      ]
+    },
+    "S3Update": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationUpdate"
+        },
+        {
+          "description": "<p>The Amazon S3 destination.</p> <p>The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified in <code>RedshiftDestinationUpdate.S3Update</code> because the Amazon Redshift <code>COPY</code> operation that reads from the S3 bucket doesn't support these compression formats.</p>"
+        }
+      ]
+    },
+    "ProcessingConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProcessingConfiguration"
+        },
+        {
+          "description": "The data processing configuration."
+        }
+      ]
+    },
+    "S3BackupMode": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RedshiftS3BackupMode"
+        },
+        {
+          "description": "You can update a delivery stream to enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the delivery stream to disable it. "
+        }
+      ]
+    },
+    "S3BackupUpdate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3DestinationUpdate"
+        },
+        {
+          "description": "The Amazon S3 destination for backup."
+        }
+      ]
+    },
+    "CloudWatchLoggingOptions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CloudWatchLoggingOptions"
+        },
+        {
+          "description": "The Amazon CloudWatch logging options for your delivery stream."
+        }
+      ]
+    }
+  },
+  "description": "Describes an update for a destination in Amazon Redshift."
+}

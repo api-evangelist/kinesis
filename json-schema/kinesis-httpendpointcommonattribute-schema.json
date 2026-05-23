@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointCommonAttribute",
+  "title": "HttpEndpointCommonAttribute",
+  "type": "object",
+  "required": [
+    "AttributeName",
+    "AttributeValue"
+  ],
+  "properties": {
+    "AttributeName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointAttributeName"
+        },
+        {
+          "description": "The name of the HTTP endpoint common attribute."
+        }
+      ]
+    },
+    "AttributeValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointAttributeValue"
+        },
+        {
+          "description": "The value of the HTTP endpoint common attribute."
+        }
+      ]
+    }
+  },
+  "description": "Describes the metadata that's delivered to the specified HTTP endpoint destination."
+}

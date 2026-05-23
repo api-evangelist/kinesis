@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ApplicationMaintenanceConfigurationDescription",
+  "title": "ApplicationMaintenanceConfigurationDescription",
+  "type": "object",
+  "required": [
+    "ApplicationMaintenanceWindowStartTime",
+    "ApplicationMaintenanceWindowEndTime"
+  ],
+  "properties": {
+    "ApplicationMaintenanceWindowStartTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceWindowStartTime"
+        },
+        {
+          "description": "The start time for the maintenance window."
+        }
+      ]
+    },
+    "ApplicationMaintenanceWindowEndTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationMaintenanceWindowEndTime"
+        },
+        {
+          "description": "The end time for the maintenance window."
+        }
+      ]
+    }
+  },
+  "description": "The details of the maintenance configuration for the application."
+}

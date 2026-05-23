@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/HttpEndpointRequestConfiguration",
+  "title": "HttpEndpointRequestConfiguration",
+  "type": "object",
+  "properties": {
+    "ContentEncoding": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ContentEncoding"
+        },
+        {
+          "description": "Kinesis Data Firehose uses the content encoding to compress the body of a request before sending the request to the destination. For more information, see <a href=\"https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding\">Content-Encoding</a> in MDN Web Docs, the official Mozilla documentation."
+        }
+      ]
+    },
+    "CommonAttributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/HttpEndpointCommonAttributesList"
+        },
+        {
+          "description": "Describes the metadata sent to the HTTP endpoint destination."
+        }
+      ]
+    }
+  },
+  "description": "The configuration of the HTTP endpoint request."
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ImageGenerationDestinationConfig",
+  "title": "ImageGenerationDestinationConfig",
+  "type": "object",
+  "required": [
+    "Uri",
+    "DestinationRegion"
+  ],
+  "properties": {
+    "Uri": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationUri"
+        },
+        {
+          "description": "The Uniform Resource Identifier (URI) that identifies where the images will be delivered."
+        }
+      ]
+    },
+    "DestinationRegion": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DestinationRegion"
+        },
+        {
+          "description": "The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located."
+        }
+      ]
+    }
+  },
+  "description": "The structure that contains the information required to deliver images to a customer."
+}

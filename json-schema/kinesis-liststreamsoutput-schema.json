@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListStreamsOutput",
+  "title": "ListStreamsOutput",
+  "type": "object",
+  "required": [
+    "StreamNames",
+    "HasMoreStreams"
+  ],
+  "properties": {
+    "StreamNames": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamNameList"
+        },
+        {
+          "description": "The names of the streams that are associated with the Amazon Web Services account making the <code>ListStreams</code> request."
+        }
+      ]
+    },
+    "HasMoreStreams": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/BooleanObject"
+        },
+        {
+          "description": "If set to <code>true</code>, there are more streams available to list."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p/>"
+        }
+      ]
+    },
+    "StreamSummaries": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamSummaryList"
+        },
+        {
+          "description": "<p/>"
+        }
+      ]
+    }
+  },
+  "description": "Represents the output for <code>ListStreams</code>."
+}

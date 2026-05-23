@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/VpcConfigurationUpdate",
+  "title": "VpcConfigurationUpdate",
+  "type": "object",
+  "required": [
+    "VpcConfigurationId"
+  ],
+  "properties": {
+    "VpcConfigurationId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Id"
+        },
+        {
+          "description": "Describes an update to the ID of the VPC configuration."
+        }
+      ]
+    },
+    "SubnetIdUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SubnetIds"
+        },
+        {
+          "description": "Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Subnet.html\">Subnet</a> IDs used by the VPC configuration."
+        }
+      ]
+    },
+    "SecurityGroupIdUpdates": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SecurityGroupIds"
+        },
+        {
+          "description": "Describes updates to the array of <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html\">SecurityGroup</a> IDs used by the VPC configuration."
+        }
+      ]
+    }
+  },
+  "description": "Describes updates to the VPC configuration used by the application."
+}

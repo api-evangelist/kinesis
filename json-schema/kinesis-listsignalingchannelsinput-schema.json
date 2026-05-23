@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListSignalingChannelsInput",
+  "title": "ListSignalingChannelsInput",
+  "type": "object",
+  "properties": {
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListStreamsInputLimit"
+        },
+        {
+          "description": "The maximum number of channels to return in the response. The default is 500."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request."
+        }
+      ]
+    },
+    "ChannelNameCondition": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelNameCondition"
+        },
+        {
+          "description": "Optional: Returns only the channels that satisfy a specific condition."
+        }
+      ]
+    }
+  }
+}

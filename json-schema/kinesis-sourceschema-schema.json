@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SourceSchema",
+  "title": "SourceSchema",
+  "type": "object",
+  "required": [
+    "RecordFormat",
+    "RecordColumns"
+  ],
+  "properties": {
+    "RecordFormat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordFormat"
+        },
+        {
+          "description": "Specifies the format of the records on the streaming source."
+        }
+      ]
+    },
+    "RecordEncoding": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordEncoding"
+        },
+        {
+          "description": "Specifies the encoding of the records in the streaming source. For example, UTF-8."
+        }
+      ]
+    },
+    "RecordColumns": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordColumns"
+        },
+        {
+          "description": "A list of <code>RecordColumn</code> objects. "
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. "
+}

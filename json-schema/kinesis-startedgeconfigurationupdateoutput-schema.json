@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StartEdgeConfigurationUpdateOutput",
+  "title": "StartEdgeConfigurationUpdateOutput",
+  "type": "object",
+  "properties": {
+    "StreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream from which the edge configuration was updated."
+        }
+      ]
+    },
+    "StreamARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the stream."
+        }
+      ]
+    },
+    "CreationTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp at which a stream\u2019s edge configuration was first created."
+        }
+      ]
+    },
+    "LastUpdatedTime": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The timestamp at which a stream\u2019s edge configuration was last updated."
+        }
+      ]
+    },
+    "SyncStatus": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SyncStatus"
+        },
+        {
+          "description": " The current sync status of the stream's edge configuration. When you invoke this API, the sync status will be set to the <code>SYNCING</code> state. Use the <code>DescribeEdgeConfiguration</code> API to get the latest status of the edge configuration."
+        }
+      ]
+    },
+    "FailedStatusDetails": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/FailedStatusDetails"
+        },
+        {
+          "description": "A description of the generated failure status."
+        }
+      ]
+    },
+    "EdgeConfig": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EdgeConfig"
+        },
+        {
+          "description": "A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise."
+        }
+      ]
+    }
+  }
+}

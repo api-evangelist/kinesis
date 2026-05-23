@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JSONMappingParameters",
+  "title": "JSONMappingParameters",
+  "type": "object",
+  "required": [
+    "RecordRowPath"
+  ],
+  "properties": {
+    "RecordRowPath": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RecordRowPath"
+        },
+        {
+          "description": "The path to the top-level parent that contains the records."
+        }
+      ]
+    }
+  },
+  "description": "For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source."
+}

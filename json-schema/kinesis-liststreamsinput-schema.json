@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ListStreamsInput",
+  "title": "ListStreamsInput",
+  "type": "object",
+  "properties": {
+    "Limit": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ListStreamsInputLimit"
+        },
+        {
+          "description": "The maximum number of streams to list. The default value is 100. If you specify a value greater than 100, at most 100 results are returned."
+        }
+      ]
+    },
+    "ExclusiveStartStreamName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/StreamName"
+        },
+        {
+          "description": "The name of the stream to start the list with."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "<p/>"
+        }
+      ]
+    }
+  },
+  "description": "Represents the input for <code>ListStreams</code>."
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/StartApplicationRequest",
+  "title": "StartApplicationRequest",
+  "type": "object",
+  "required": [
+    "ApplicationName"
+  ],
+  "properties": {
+    "ApplicationName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ApplicationName"
+        },
+        {
+          "description": "The name of the application."
+        }
+      ]
+    },
+    "RunConfiguration": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RunConfiguration"
+        },
+        {
+          "description": "Identifies the run configuration (start parameters) of a Kinesis Data Analytics application."
+        }
+      ]
+    }
+  }
+}

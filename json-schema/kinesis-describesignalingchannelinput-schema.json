@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DescribeSignalingChannelInput",
+  "title": "DescribeSignalingChannelInput",
+  "type": "object",
+  "properties": {
+    "ChannelName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ChannelName"
+        },
+        {
+          "description": "The name of the signaling channel that you want to describe."
+        }
+      ]
+    },
+    "ChannelARN": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceARN"
+        },
+        {
+          "description": "The ARN of the signaling channel that you want to describe."
+        }
+      ]
+    }
+  }
+}
