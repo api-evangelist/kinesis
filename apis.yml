@@ -53,7 +53,7 @@ apis:
     url: https://aws.amazon.com/kinesis/data-streams/customers/
   - type: Integrations
     url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-kinesis-data-streams.yaml
   contact:
   - FN: AWS Support
@@ -83,7 +83,7 @@ apis:
     url: https://aws.amazon.com/kinesis/data-firehose/faqs/
   - type: DeveloperGuide
     url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-data-firehose.yaml
   contact:
   - FN: AWS Support
@@ -116,7 +116,7 @@ apis:
     url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
   - type: Security
     url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-kinesis-data-analytics.yaml
   contact:
   - FN: AWS Support
@@ -185,7 +185,7 @@ apis:
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
     url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-kinesis-video-streams.yaml
   contact:
   - FN: AWS Support
@@ -205,7 +205,7 @@ common:
   url: https://status.aws.amazon.com/
 - type: Support
   url: https://aws.amazon.com/premiumsupport/
-- type: SLA
+- type: ServiceLevelAgreement
   url: https://aws.amazon.com/kinesis/sla/
 - type: GettingStarted
   url: https://aws.amazon.com/kinesis/getting-started/
