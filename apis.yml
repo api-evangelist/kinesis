@@ -191,6 +191,14 @@ apis:
   - FN: AWS Support
     url: https://aws.amazon.com/contact-us/
 common:
+- type: TrustCenter
+  url: security/kinesis-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/kinesis-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/kinesis-domain-security.yml
+- type: Authentication
+  url: authentication/kinesis-authentication.yml
 - type: Website
   url: https://aws.amazon.com/kinesis/
 - type: Documentation

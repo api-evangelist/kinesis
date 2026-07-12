@@ -1,0 +1,20 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/amazon-data-firehose-openapi-original.yml, openapi/amazon-kinesis-data-analytics-openapi-original.yml,
+  openapi/amazon-kinesis-data-streams-openapi-original.yml, openapi/amazon-kinesis-video-streams-openapi-original.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: hmac
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Amazon Signature authorization v4
+  sources:
+  - openapi/amazon-data-firehose-openapi-original.yml
+  - openapi/amazon-kinesis-data-analytics-openapi-original.yml
+  - openapi/amazon-kinesis-data-streams-openapi-original.yml
+  - openapi/amazon-kinesis-video-streams-openapi-original.yml
