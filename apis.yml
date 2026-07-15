@@ -191,6 +191,8 @@ apis:
   - FN: AWS Support
     url: https://aws.amazon.com/contact-us/
 common:
+- type: AgenticAccess
+  url: agentic-access/kinesis-agentic-access.yml
 - type: TrustCenter
   url: security/kinesis-trust-center.yml
 - type: VulnerabilityDisclosure
