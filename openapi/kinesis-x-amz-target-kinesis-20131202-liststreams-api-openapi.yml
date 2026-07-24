@@ -1,0 +1,359 @@
+openapi: 3.0.0
+info:
+  version: 2015-08-04
+  x-release: v4
+  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.ListStreams API'
+  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: firehose
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: https://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: http://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+- url: https://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=Kinesis 20131202.ListStreams'
+paths:
+  /#X-Amz-Target=Kinesis_20131202.ListStreams:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ListStreams
+      description: <p>Lists your Kinesis data streams.</p> <p>The number of streams may be too large to return from a single call to <code>ListStreams</code>. You can limit the number of returned streams using the <code>Limit</code> parameter. If you do not specify a value for the <code>Limit</code> parameter, Kinesis Data Streams uses the default limit, which is currently 100.</p> <p>You can detect if there are more streams available to list by using the <code>HasMoreStreams</code> flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the <code>ListStreams</code> request in the <code>ExclusiveStartStreamName</code> parameter in a subsequent request to <code>ListStreams</code>. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list. </p> <p> <a>ListStreams</a> has a limit of five transactions per second per account.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListStreamsOutput'
+        '480':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+        '481':
+          description: ExpiredNextTokenException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExpiredNextTokenException'
+        '482':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListStreamsInput'
+      parameters:
+      - name: Limit
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - Kinesis_20131202.ListStreams
+      tags:
+      - '#X Amz Target=Kinesis 20131202.ListStreams'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ListStreamsInput:
+      type: object
+      title: ListStreamsInput
+      properties:
+        Limit:
+          allOf:
+          - $ref: '#/components/schemas/ListStreamsInputLimit'
+          - description: The maximum number of streams to list. The default value is 100. If you specify a value greater than 100, at most 100 results are returned.
+        ExclusiveStartStreamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of the stream to start the list with.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p/>
+      description: Represents the input for <code>ListStreams</code>.
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 1048576
+    StreamMode:
+      type: string
+      enum:
+      - PROVISIONED
+      - ON_DEMAND
+    InvalidArgumentException: {}
+    LimitExceededException: {}
+    BooleanObject:
+      type: boolean
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
+    ListStreamsInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    StreamModeDetails:
+      type: object
+      required:
+      - StreamMode
+      properties:
+        StreamMode:
+          allOf:
+          - $ref: '#/components/schemas/StreamMode'
+          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    ListStreamsOutput:
+      type: object
+      required:
+      - StreamNames
+      - HasMoreStreams
+      properties:
+        StreamNames:
+          allOf:
+          - $ref: '#/components/schemas/StreamNameList'
+          - description: The names of the streams that are associated with the Amazon Web Services account making the <code>ListStreams</code> request.
+        HasMoreStreams:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: If set to <code>true</code>, there are more streams available to list.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p/>
+        StreamSummaries:
+          allOf:
+          - $ref: '#/components/schemas/StreamSummaryList'
+          - description: <p/>
+      description: Represents the output for <code>ListStreams</code>.
+    ExpiredNextTokenException: {}
+    StreamSummary:
+      type: object
+      required:
+      - StreamName
+      - StreamARN
+      - StreamStatus
+      properties:
+        StreamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of a stream.
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the stream.
+        StreamStatus:
+          allOf:
+          - $ref: '#/components/schemas/StreamStatus'
+          - description: The status of the stream.
+        StreamModeDetails:
+          $ref: '#/components/schemas/StreamModeDetails'
+        StreamCreationTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamp at which the stream was created.
+      description: The summary of a stream.
+    StreamSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamSummary'
+    StreamStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+      - UPDATING
+    Timestamp:
+      type: string
+      format: date-time
+    StreamNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamName'
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/firehose/
+x-hasEquivalentPaths: true

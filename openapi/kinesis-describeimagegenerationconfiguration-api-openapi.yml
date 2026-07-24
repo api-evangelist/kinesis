@@ -1,0 +1,353 @@
+openapi: 3.0.0
+info:
+  version: 2015-08-04
+  x-release: v4
+  title: Amazon Kinesis Firehose CreateSignalingChannel DescribeImageGenerationConfiguration API
+  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: firehose
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: https://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: http://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+- url: https://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: DescribeImageGenerationConfiguration
+paths:
+  /describeImageGenerationConfiguration:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: DescribeImageGenerationConfiguration
+      description: Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DescribeImageGenerationConfigurationOutput'
+        '480':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '481':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                StreamName:
+                  description: 'The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. '
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
+                StreamARN:
+                  description: The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+                  type: string
+                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+                  minLength: 1
+                  maxLength: 1024
+      tags:
+      - DescribeImageGenerationConfiguration
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
+    DescribeImageGenerationConfigurationOutput:
+      type: object
+      properties:
+        ImageGenerationConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ImageGenerationConfiguration'
+          - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    AccessDeniedException: {}
+    FormatConfigValue:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+
+      minLength: 0
+      maxLength: 256
+    FormatConfig:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties:
+        $ref: '#/components/schemas/FormatConfigValue'
+    InvalidArgumentException: {}
+    ImageGenerationConfiguration:
+      type: object
+      required:
+      - Status
+      - ImageSelectorType
+      - DestinationConfig
+      - SamplingInterval
+      - Format
+      properties:
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationStatus'
+          - description: Indicates whether the <code>ContinuousImageGenerationConfigurations</code> API is enabled or disabled.
+        ImageSelectorType:
+          allOf:
+          - $ref: '#/components/schemas/ImageSelectorType'
+          - description: The origin of the Server or Producer timestamps to use to generate the images.
+        DestinationConfig:
+          allOf:
+          - $ref: '#/components/schemas/ImageGenerationDestinationConfig'
+          - description: The structure that contains the information required to deliver images to a customer.
+        SamplingInterval:
+          allOf:
+          - $ref: '#/components/schemas/SamplingInterval'
+          - description: 'The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 33 ms, because a camera that generates content at 30 FPS would create a frame every 33.3 ms. If the timestamp range is less than the sampling interval, the Image from the <code>StartTimestamp</code> will be returned if available. '
+        Format:
+          allOf:
+          - $ref: '#/components/schemas/Format'
+          - description: The accepted image format.
+        FormatConfig:
+          allOf:
+          - $ref: '#/components/schemas/FormatConfig'
+          - description: The list of a key-value pair structure that contains extra parameters that can be applied when the image is generated. The <code>FormatConfig</code> key is the <code>JPEGQuality</code>, which indicates the JPEG quality key to be used to generate the image. The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression. If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.
+        WidthPixels:
+          allOf:
+          - $ref: '#/components/schemas/WidthPixels'
+          - description: The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>WidthPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
+        HeightPixels:
+          allOf:
+          - $ref: '#/components/schemas/HeightPixels'
+          - description: The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
+      description: The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.
+    ResourceNotFoundException: {}
+    ImageGenerationDestinationConfig:
+      type: object
+      required:
+      - Uri
+      - DestinationRegion
+      properties:
+        Uri:
+          allOf:
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+        DestinationRegion:
+          allOf:
+          - $ref: '#/components/schemas/DestinationRegion'
+          - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
+      description: The structure that contains the information required to deliver images to a customer.
+    WidthPixels:
+      type: integer
+      minimum: 1
+      maximum: 3840
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
+    HeightPixels:
+      type: integer
+      minimum: 1
+      maximum: 2160
+    ClientLimitExceededException: {}
+    ImageSelectorType:
+      type: string
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/firehose/
+x-hasEquivalentPaths: true

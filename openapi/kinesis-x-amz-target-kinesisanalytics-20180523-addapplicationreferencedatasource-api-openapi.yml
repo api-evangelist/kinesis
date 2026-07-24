@@ -1,0 +1,523 @@
+openapi: 3.0.0
+info:
+  version: 2015-08-04
+  x-release: v4
+  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource API'
+  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: firehose
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: https://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: http://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+- url: https://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource'
+paths:
+  /#X-Amz-Target=KinesisAnalytics_20180523.AddApplicationReferenceDataSource:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: AddApplicationReferenceDataSource
+      description: <p>Adds a reference data source to an existing SQL-based Kinesis Data Analytics application.</p> <p>Kinesis Data Analytics reads reference data (that is, an Amazon S3 object) and creates an in-application table within your application. In the request, you provide the source (S3 bucket name and object key name), name of the in-application table to create, and the necessary mapping information that describes how data in an Amazon S3 object maps to columns in the resulting in-application table.</p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddApplicationReferenceDataSourceResponse'
+        '480':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '481':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '482':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '483':
+          description: ConcurrentModificationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConcurrentModificationException'
+        '484':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddApplicationReferenceDataSourceRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - KinesisAnalytics_20180523.AddApplicationReferenceDataSource
+      tags:
+      - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    RecordFormat:
+      type: object
+      required:
+      - RecordFormatType
+      properties:
+        RecordFormatType:
+          allOf:
+          - $ref: '#/components/schemas/RecordFormatType'
+          - description: The type of record format.
+        MappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/MappingParameters'
+          - description: When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+      description: ' For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream. '
+    JSONMappingParameters:
+      type: object
+      required:
+      - RecordRowPath
+      properties:
+        RecordRowPath:
+          allOf:
+          - $ref: '#/components/schemas/RecordRowPath'
+          - description: The path to the top-level parent that contains the records.
+      description: For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+    MappingParameters:
+      type: object
+      properties:
+        JSONMappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/JSONMappingParameters'
+          - description: Provides additional mapping information when JSON is the record format on the streaming source.
+        CSVMappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/CSVMappingParameters'
+          - description: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+      description: When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    RecordColumns:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecordColumn'
+      minItems: 1
+      maxItems: 1000
+    ReferenceDataSource:
+      type: object
+      required:
+      - TableName
+      - ReferenceSchema
+      properties:
+        TableName:
+          allOf:
+          - $ref: '#/components/schemas/InAppTableName'
+          - description: The name of the in-application table to create.
+        S3ReferenceDataSource:
+          allOf:
+          - $ref: '#/components/schemas/S3ReferenceDataSource'
+          - description: 'Identifies the S3 bucket and object that contains the reference data. A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. '
+        ReferenceSchema:
+          allOf:
+          - $ref: '#/components/schemas/SourceSchema'
+          - description: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+      description: For a SQL-based Kinesis Data Analytics application, describes the reference data source by providing the source information (Amazon S3 bucket name and object key name), the resulting in-application table name that is created, and the necessary schema to map the data elements in the Amazon S3 object to the in-application table.
+    AddApplicationReferenceDataSourceResponse:
+      type: object
+      properties:
+        ApplicationARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The application Amazon Resource Name (ARN).
+        ApplicationVersionId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionId'
+          - description: The updated application version ID. Kinesis Data Analytics increments this ID when the application is updated.
+        ReferenceDataSourceDescriptions:
+          allOf:
+          - $ref: '#/components/schemas/ReferenceDataSourceDescriptions'
+          - description: 'Describes reference data sources configured for the application. '
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    ApplicationVersionId:
+      type: integer
+      minimum: 1
+      maximum: 999999999
+    ResourceARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    RecordRowPath:
+      type: string
+      pattern: ^(?=^\$)(?=^\S+$).*$
+      minLength: 1
+      maxLength: 65535
+    RecordColumnName:
+      type: string
+      pattern: '[^-\s<>&]*'
+      minLength: 1
+      maxLength: 256
+    RecordColumnDelimiter:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    BucketARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    RoleARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    InvalidArgumentException: {}
+    S3ReferenceDataSourceDescription:
+      type: object
+      required:
+      - BucketARN
+      - FileKey
+      properties:
+        BucketARN:
+          allOf:
+          - $ref: '#/components/schemas/BucketARN'
+          - description: The Amazon Resource Name (ARN) of the S3 bucket.
+        FileKey:
+          allOf:
+          - $ref: '#/components/schemas/FileKey'
+          - description: Amazon S3 object key name.
+        ReferenceRoleARN:
+          allOf:
+          - $ref: '#/components/schemas/RoleARN'
+          - description: <p>The ARN of the IAM role that Kinesis Data Analytics can assume to read the Amazon S3 object on your behalf to populate the in-application reference table. </p> <note> <p>Provided for backward compatibility. Applications that are created with the current API version have an application-level service execution role rather than a resource-level role.</p> </note>
+      description: For a SQL-based Kinesis Data Analytics application, provides the bucket name and object key name that stores the reference data.
+    ConcurrentModificationException: {}
+    ReferenceDataSourceDescription:
+      type: object
+      required:
+      - ReferenceId
+      - TableName
+      - S3ReferenceDataSourceDescription
+      properties:
+        ReferenceId:
+          allOf:
+          - $ref: '#/components/schemas/Id'
+          - description: The ID of the reference data source. This is the ID that Kinesis Data Analytics assigns when you add the reference data source to your application using the <a>CreateApplication</a> or <a>UpdateApplication</a> operation.
+        TableName:
+          allOf:
+          - $ref: '#/components/schemas/InAppTableName'
+          - description: The in-application table name created by the specific reference data source configuration.
+        S3ReferenceDataSourceDescription:
+          allOf:
+          - $ref: '#/components/schemas/S3ReferenceDataSourceDescription'
+          - description: 'Provides the Amazon S3 bucket name, the object key name that contains the reference data. '
+        ReferenceSchema:
+          allOf:
+          - $ref: '#/components/schemas/SourceSchema'
+          - description: Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+      description: For a SQL-based Kinesis Data Analytics application, describes the reference data source configured for an application.
+    RecordEncoding:
+      type: string
+      pattern: UTF-8
+      minLength: 5
+      maxLength: 5
+    S3ReferenceDataSource:
+      type: object
+      properties:
+        BucketARN:
+          allOf:
+          - $ref: '#/components/schemas/BucketARN'
+          - description: The Amazon Resource Name (ARN) of the S3 bucket.
+        FileKey:
+          allOf:
+          - $ref: '#/components/schemas/FileKey'
+          - description: The object key name containing the reference data.
+      description: <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3 bucket and object that contains the reference data.</p> <p>A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
+    RecordColumnMapping:
+      type: string
+      minLength: 0
+      maxLength: 65535
+    Id:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 50
+    ResourceNotFoundException: {}
+    ResourceInUseException: {}
+    InAppTableName:
+      type: string
+      minLength: 1
+      maxLength: 32
+    RecordFormatType:
+      type: string
+      enum:
+      - JSON
+      - CSV
+    ReferenceDataSourceDescriptions:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReferenceDataSourceDescription'
+    FileKey:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    AddApplicationReferenceDataSourceRequest:
+      type: object
+      required:
+      - ApplicationName
+      - CurrentApplicationVersionId
+      - ReferenceDataSource
+      title: AddApplicationReferenceDataSourceRequest
+      properties:
+        ApplicationName:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationName'
+          - description: The name of an existing application.
+        CurrentApplicationVersionId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionId'
+          - description: The version of the application for which you are adding the reference data source. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned.
+        ReferenceDataSource:
+          allOf:
+          - $ref: '#/components/schemas/ReferenceDataSource'
+          - description: 'The reference data source can be an object in your Amazon S3 bucket. Kinesis Data Analytics reads the object and copies the data into the in-application table that is created. You provide an S3 bucket, object key name, and the resulting in-application table that is created. '
+    InvalidRequestException: {}
+    CSVMappingParameters:
+      type: object
+      required:
+      - RecordRowDelimiter
+      - RecordColumnDelimiter
+      properties:
+        RecordRowDelimiter:
+          allOf:
+          - $ref: '#/components/schemas/RecordRowDelimiter'
+          - description: The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.
+        RecordColumnDelimiter:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnDelimiter'
+          - description: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+      description: '<p>For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the <i>''\n''</i> as the row delimiter and a comma (",") as the column delimiter: </p> <p> <code>"name1", "address1"</code> </p> <p> <code>"name2", "address2"</code> </p>'
+    RecordColumnSqlType:
+      type: string
+      minLength: 1
+      maxLength: 100
+    SourceSchema:
+      type: object
+      required:
+      - RecordFormat
+      - RecordColumns
+      properties:
+        RecordFormat:
+          allOf:
+          - $ref: '#/components/schemas/RecordFormat'
+          - description: Specifies the format of the records on the streaming source.
+        RecordEncoding:
+          allOf:
+          - $ref: '#/components/schemas/RecordEncoding'
+          - description: Specifies the encoding of the records in the streaming source. For example, UTF-8.
+        RecordColumns:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumns'
+          - description: 'A list of <code>RecordColumn</code> objects. '
+      description: 'For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. '
+    RecordRowDelimiter:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    RecordColumn:
+      type: object
+      required:
+      - Name
+      - SqlType
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnName'
+          - description: The name of the column that is created in the in-application input stream or reference table.
+        Mapping:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnMapping'
+          - description: A reference to the data element in the streaming input or the reference data source.
+        SqlType:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnSqlType'
+          - description: The type of column created in the in-application input stream or reference table.
+      description: <p>For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.</p> <p>Also used to describe the format of the reference data source.</p>
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/firehose/
+x-hasEquivalentPaths: true

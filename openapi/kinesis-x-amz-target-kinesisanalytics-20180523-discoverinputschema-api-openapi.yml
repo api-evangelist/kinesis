@@ -1,0 +1,515 @@
+openapi: 3.0.0
+info:
+  version: 2015-08-04
+  x-release: v4
+  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema API'
+  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  x-logo:
+    url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: firehose
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: https://firehose.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Firehose multi-region endpoint
+- url: http://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+- url: https://firehose.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema'
+paths:
+  /#X-Amz-Target=KinesisAnalytics_20180523.DiscoverInputSchema:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: DiscoverInputSchema
+      description: <p>Infers a schema for a SQL-based Kinesis Data Analytics application by evaluating sample records on the specified streaming source (Kinesis data stream or Kinesis Data Firehose delivery stream) or Amazon S3 object. In the response, the operation returns the inferred schema and also the sample records that the operation used to infer the schema.</p> <p> You can use the inferred schema when configuring a streaming source for your application. When you create an application using the Kinesis Data Analytics console, the console uses this operation to infer a schema and show it in the console user interface. </p>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DiscoverInputSchemaResponse'
+        '480':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '481':
+          description: UnableToDetectSchemaException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnableToDetectSchemaException'
+        '482':
+          description: ResourceProvisionedThroughputExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceProvisionedThroughputExceededException'
+        '483':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '484':
+          description: InvalidRequestException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestException'
+        '485':
+          description: UnsupportedOperationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedOperationException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DiscoverInputSchemaRequest'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - KinesisAnalytics_20180523.DiscoverInputSchema
+      tags:
+      - '#X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    RecordFormat:
+      type: object
+      required:
+      - RecordFormatType
+      properties:
+        RecordFormatType:
+          allOf:
+          - $ref: '#/components/schemas/RecordFormatType'
+          - description: The type of record format.
+        MappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/MappingParameters'
+          - description: When you configure application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+      description: ' For a SQL-based Kinesis Data Analytics application, describes the record format and relevant mapping information that should be applied to schematize the records on the stream. '
+    ParsedInputRecordField:
+      type: string
+    JSONMappingParameters:
+      type: object
+      required:
+      - RecordRowPath
+      properties:
+        RecordRowPath:
+          allOf:
+          - $ref: '#/components/schemas/RecordRowPath'
+          - description: The path to the top-level parent that contains the records.
+      description: For a SQL-based Kinesis Data Analytics application, provides additional mapping information when JSON is the record format on the streaming source.
+    MappingParameters:
+      type: object
+      properties:
+        JSONMappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/JSONMappingParameters'
+          - description: Provides additional mapping information when JSON is the record format on the streaming source.
+        CSVMappingParameters:
+          allOf:
+          - $ref: '#/components/schemas/CSVMappingParameters'
+          - description: Provides additional mapping information when the record format uses delimiters (for example, CSV).
+      description: When you configure a SQL-based Kinesis Data Analytics application's input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    RecordColumns:
+      type: array
+      items:
+        $ref: '#/components/schemas/RecordColumn'
+      minItems: 1
+      maxItems: 1000
+    InputStartingPosition:
+      type: string
+      enum:
+      - NOW
+      - TRIM_HORIZON
+      - LAST_STOPPED_POINT
+    S3Configuration:
+      type: object
+      required:
+      - BucketARN
+      - FileKey
+      properties:
+        BucketARN:
+          allOf:
+          - $ref: '#/components/schemas/BucketARN'
+          - description: The ARN of the S3 bucket that contains the data.
+        FileKey:
+          allOf:
+          - $ref: '#/components/schemas/FileKey'
+          - description: The name of the object that contains the data.
+      description: For a SQL-based Kinesis Data Analytics application, provides a description of an Amazon S3 data source, including the Amazon Resource Name (ARN) of the S3 bucket and the name of the Amazon S3 object that contains the data.
+    ResourceARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    RecordRowPath:
+      type: string
+      pattern: ^(?=^\$)(?=^\S+$).*$
+      minLength: 1
+      maxLength: 65535
+    RawInputRecord:
+      type: string
+    RecordColumnName:
+      type: string
+      pattern: '[^-\s<>&]*'
+      minLength: 1
+      maxLength: 256
+    UnsupportedOperationException: {}
+    BucketARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    RecordColumnDelimiter:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    ResourceProvisionedThroughputExceededException: {}
+    RoleARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    InvalidArgumentException: {}
+    RawInputRecords:
+      type: array
+      items:
+        $ref: '#/components/schemas/RawInputRecord'
+    RecordEncoding:
+      type: string
+      pattern: UTF-8
+      minLength: 5
+      maxLength: 5
+    RecordColumnMapping:
+      type: string
+      minLength: 0
+      maxLength: 65535
+    InputStartingPositionConfiguration:
+      type: object
+      properties:
+        InputStartingPosition:
+          allOf:
+          - $ref: '#/components/schemas/InputStartingPosition'
+          - description: <p>The starting position on the stream.</p> <ul> <li> <p> <code>NOW</code> - Start reading just after the most recent record in the stream, and start at the request timestamp that the customer issued.</p> </li> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Data Firehose delivery stream.</p> </li> <li> <p> <code>LAST_STOPPED_POINT</code> - Resume reading from where the application last stopped reading.</p> </li> </ul>
+      description: Describes the point at which the application reads from the streaming source.
+    UnableToDetectSchemaException: {}
+    ParsedInputRecords:
+      type: array
+      items:
+        $ref: '#/components/schemas/ParsedInputRecord'
+    InputProcessingConfiguration:
+      type: object
+      required:
+      - InputLambdaProcessor
+      properties:
+        InputLambdaProcessor:
+          allOf:
+          - $ref: '#/components/schemas/InputLambdaProcessor'
+          - description: The <a>InputLambdaProcessor</a> that is used to preprocess the records in the stream before being processed by your application code.
+      description: For a SQL-based Kinesis Data Analytics application, describes a processor that is used to preprocess the records in the stream before being processed by your application code. Currently, the only input processor available is <a href="https://docs.aws.amazon.com/lambda/">Amazon Lambda</a>.
+    SourceSchema:
+      type: object
+      required:
+      - RecordFormat
+      - RecordColumns
+      properties:
+        RecordFormat:
+          allOf:
+          - $ref: '#/components/schemas/RecordFormat'
+          - description: Specifies the format of the records on the streaming source.
+        RecordEncoding:
+          allOf:
+          - $ref: '#/components/schemas/RecordEncoding'
+          - description: Specifies the encoding of the records in the streaming source. For example, UTF-8.
+        RecordColumns:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumns'
+          - description: 'A list of <code>RecordColumn</code> objects. '
+      description: 'For a SQL-based Kinesis Data Analytics application, describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream. '
+    ParsedInputRecord:
+      type: array
+      items:
+        $ref: '#/components/schemas/ParsedInputRecordField'
+    DiscoverInputSchemaRequest:
+      type: object
+      required:
+      - ServiceExecutionRole
+      title: DiscoverInputSchemaRequest
+      properties:
+        ResourceARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The Amazon Resource Name (ARN) of the streaming source.
+        ServiceExecutionRole:
+          allOf:
+          - $ref: '#/components/schemas/RoleARN'
+          - description: The ARN of the role that is used to access the streaming source.
+        InputStartingPositionConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/InputStartingPositionConfiguration'
+          - description: The point at which you want Kinesis Data Analytics to start reading records from the specified streaming source discovery purposes.
+        S3Configuration:
+          allOf:
+          - $ref: '#/components/schemas/S3Configuration'
+          - description: Specify this parameter to discover a schema from data in an Amazon S3 object.
+        InputProcessingConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/InputProcessingConfiguration'
+          - description: The <a>InputProcessingConfiguration</a> to use to preprocess the records before discovering the schema of the records.
+    FileKey:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    RecordFormatType:
+      type: string
+      enum:
+      - JSON
+      - CSV
+    ProcessedInputRecord:
+      type: string
+    InvalidRequestException: {}
+    ServiceUnavailableException: {}
+    DiscoverInputSchemaResponse:
+      type: object
+      properties:
+        InputSchema:
+          allOf:
+          - $ref: '#/components/schemas/SourceSchema'
+          - description: The schema inferred from the streaming source. It identifies the format of the data in the streaming source and how each data element maps to corresponding columns in the in-application stream that you can create.
+        ParsedInputRecords:
+          allOf:
+          - $ref: '#/components/schemas/ParsedInputRecords'
+          - description: An array of elements, where each element corresponds to a row in a stream record (a stream record can have more than one row).
+        ProcessedInputRecords:
+          allOf:
+          - $ref: '#/components/schemas/ProcessedInputRecords'
+          - description: The stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter.
+        RawInputRecords:
+          allOf:
+          - $ref: '#/components/schemas/RawInputRecords'
+          - description: The raw stream data that was sampled to infer the schema.
+    ProcessedInputRecords:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProcessedInputRecord'
+    CSVMappingParameters:
+      type: object
+      required:
+      - RecordRowDelimiter
+      - RecordColumnDelimiter
+      properties:
+        RecordRowDelimiter:
+          allOf:
+          - $ref: '#/components/schemas/RecordRowDelimiter'
+          - description: The row delimiter. For example, in a CSV format, <i>'\n'</i> is the typical row delimiter.
+        RecordColumnDelimiter:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnDelimiter'
+          - description: The column delimiter. For example, in a CSV format, a comma (",") is the typical column delimiter.
+      description: '<p>For a SQL-based Kinesis Data Analytics application, provides additional mapping information when the record format uses delimiters, such as CSV. For example, the following sample records use CSV format, where the records use the <i>''\n''</i> as the row delimiter and a comma (",") as the column delimiter: </p> <p> <code>"name1", "address1"</code> </p> <p> <code>"name2", "address2"</code> </p>'
+    RecordColumnSqlType:
+      type: string
+      minLength: 1
+      maxLength: 100
+    InputLambdaProcessor:
+      type: object
+      required:
+      - ResourceARN
+      properties:
+        ResourceARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: '<p>The ARN of the Amazon Lambda function that operates on records in the stream.</p> <note> <p>To specify an earlier version of the Lambda function than the latest, include the Lambda function version in the Lambda function ARN. For more information about Lambda ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-lambda">Example ARNs: Amazon Lambda</a> </p> </note>'
+      description: 'An object that contains the Amazon Resource Name (ARN) of the Amazon Lambda function that is used to preprocess records in the stream in a SQL-based Kinesis Data Analytics application. '
+    RecordRowDelimiter:
+      type: string
+      minLength: 1
+      maxLength: 1024
+    RecordColumn:
+      type: object
+      required:
+      - Name
+      - SqlType
+      properties:
+        Name:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnName'
+          - description: The name of the column that is created in the in-application input stream or reference table.
+        Mapping:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnMapping'
+          - description: A reference to the data element in the streaming input or the reference data source.
+        SqlType:
+          allOf:
+          - $ref: '#/components/schemas/RecordColumnSqlType'
+          - description: The type of column created in the in-application input stream or reference table.
+      description: <p>For a SQL-based Kinesis Data Analytics application, describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.</p> <p>Also used to describe the format of the reference data source.</p>
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/firehose/
+x-hasEquivalentPaths: true
