@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 2015-08-04
+  version: "1.0.0"
   x-release: v4
   title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.PutRecords API'
   description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
@@ -23,7 +23,6 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
-      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
