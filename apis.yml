@@ -1806,7 +1806,8 @@ apis:
     The UpdateNotificationConfiguration API from AWS Kinesis — 1 operation(s) for updatenotificationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - UpdateNotificationConfiguration
   properties:
   - type: OpenAPI
@@ -2513,7 +2514,8 @@ apis:
     for #x amz target=firehose 20150804.startdeliverystreamencryption.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=Firehose 20150804.StartDeliveryStreamEncryption'
   properties:
   - type: OpenAPI
@@ -4862,7 +4864,8 @@ apis:
     — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationcloudwatchloggingoption.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption'
   properties:
   - type: OpenAPI
@@ -5008,7 +5011,8 @@ apis:
     Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationinputprocessingconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration'
   properties:
   - type: OpenAPI
@@ -5154,7 +5158,8 @@ apis:
     — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationreferencedatasource.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource'
   properties:
   - type: OpenAPI
@@ -5227,7 +5232,8 @@ apis:
     1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationvpcconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration'
   properties:
   - type: OpenAPI
@@ -5370,7 +5376,8 @@ apis:
     operation(s) for #x amz target=kinesisanalytics 20180523.createapplicationpresignedurl.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl'
   properties:
   - type: OpenAPI
@@ -5442,7 +5449,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.createapplicationsnapshot.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot'
   properties:
   - type: OpenAPI
@@ -5587,7 +5595,8 @@ apis:
     Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationcloudwatchloggingoption.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption'
   properties:
   - type: OpenAPI
@@ -5662,7 +5671,8 @@ apis:
     AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationinputprocessingconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration'
   properties:
   - type: OpenAPI
@@ -5734,7 +5744,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.deleteapplicationoutput.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationOutput'
   properties:
   - type: OpenAPI
@@ -5808,7 +5819,8 @@ apis:
     — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationreferencedatasource.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource'
   properties:
   - type: OpenAPI
@@ -5880,7 +5892,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.deleteapplicationsnapshot.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationSnapshot'
   properties:
   - type: OpenAPI
@@ -5954,7 +5967,8 @@ apis:
     — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationvpcconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration'
   properties:
   - type: OpenAPI
@@ -6098,7 +6112,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.describeapplicationsnapshot.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot'
   properties:
   - type: OpenAPI
@@ -6170,7 +6185,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.describeapplicationversion.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplicationVersion'
   properties:
   - type: OpenAPI
@@ -6385,7 +6401,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.listapplicationsnapshots.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots'
   properties:
   - type: OpenAPI
@@ -6457,7 +6474,8 @@ apis:
     for #x amz target=kinesisanalytics 20180523.listapplicationversions.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.ListApplicationVersions'
   properties:
   - type: OpenAPI
@@ -7030,7 +7048,8 @@ apis:
     Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.updateapplicationmaintenanceconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration'
   properties:
   - type: OpenAPI
