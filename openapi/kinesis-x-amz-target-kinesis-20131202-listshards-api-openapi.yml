@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.ListShards API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListShards API'
+  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -17,12 +17,13 @@ info:
     name: Apache 2.0 License
     url: http://www.apache.org/licenses/
   x-providerName: amazonaws.com
-  x-serviceName: firehose
+  x-serviceName: kinesis
   x-origin:
   - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesis-2013-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -30,7 +31,7 @@ info:
   - cloud
   x-preferred: true
 servers:
-- url: http://firehose.{region}.amazonaws.com
+- url: http://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -59,8 +60,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: https://firehose.{region}.amazonaws.com
+  description: The Kinesis multi-region endpoint
+- url: https://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -89,8 +90,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: http://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis multi-region endpoint
+- url: http://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -98,8 +99,8 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
-- url: https://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
+- url: https://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -107,7 +108,7 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
 security:
 - hmac: []
 tags:
@@ -185,67 +186,13 @@ paths:
       tags:
       - '#X Amz Target=Kinesis 20131202.ListShards'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ShardFilterType:
+    ResourceNotFoundException: {}
+    ShardId:
       type: string
-      enum:
-      - AFTER_SHARD_ID
-      - AT_TRIM_HORIZON
-      - FROM_TRIM_HORIZON
-      - AT_LATEST
-      - AT_TIMESTAMP
-      - FROM_TIMESTAMP
-    ShardList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Shard'
-    ListShardsInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     SequenceNumberRange:
       type: object
       required:
@@ -260,25 +207,32 @@ components:
           - $ref: '#/components/schemas/SequenceNumber'
           - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
       description: The range of possible sequence numbers for the shard.
+    ShardFilterType:
+      type: string
+      enum:
+      - AFTER_SHARD_ID
+      - AT_TRIM_HORIZON
+      - FROM_TRIM_HORIZON
+      - AT_LATEST
+      - AT_TIMESTAMP
+      - FROM_TIMESTAMP
+    ExpiredNextTokenException: {}
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    AccessDeniedException: {}
     NextToken:
       type: string
       minLength: 1
       maxLength: 1048576
-    SequenceNumber:
-      type: string
-      pattern: 0|([1-9]\d{0,128})
-    ListShardsOutput:
-      type: object
-      properties:
-        Shards:
-          allOf:
-          - $ref: '#/components/schemas/ShardList'
-          - description: An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: <p>When the number of shards in the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of shards in the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to list the next set of shards. For more information about the use of this pagination token when calling the <code>ListShards</code> operation, see <a>ListShardsInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListShards</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
-    AccessDeniedException: {}
+    ResourceInUseException: {}
+    ListShardsInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    InvalidArgumentException: {}
     ShardFilter:
       type: object
       required:
@@ -297,18 +251,68 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is a Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only be used if <code>FROM_TIMESTAMP</code> or <code>AT_TIMESTAMP</code> shard types are specified.
       description: The request parameter used to filter out the response of the <code>ListShards</code> API.
-    InvalidArgumentException: {}
-    HashKey:
-      type: string
-      pattern: 0|([1-9]\d{0,38})
+    ListShardsOutput:
+      type: object
+      properties:
+        Shards:
+          allOf:
+          - $ref: '#/components/schemas/ShardList'
+          - description: An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard's parent, and the shard that's adjacent to the shard's parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p>When the number of shards in the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of shards in the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to list the next set of shards. For more information about the use of this pagination token when calling the <code>ListShards</code> operation, see <a>ListShardsInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListShards</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
     LimitExceededException: {}
-    StreamARN:
+    Timestamp:
       type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
-      minLength: 1
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
+      format: date-time
+    Shard:
+      type: object
+      required:
+      - ShardId
+      - HashKeyRange
+      - SequenceNumberRange
+      properties:
+        ShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The unique identifier of the shard within the stream.
+        ParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard's parent.
+        AdjacentParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard adjacent to the shard's parent.
+        HashKeyRange:
+          allOf:
+          - $ref: '#/components/schemas/HashKeyRange'
+          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+        SequenceNumberRange:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumberRange'
+          - description: The range of possible sequence numbers for the shard.
+      description: A uniquely identified group of data records in a Kinesis data stream.
+    HashKeyRange:
+      type: object
+      required:
+      - StartingHashKey
+      - EndingHashKey
+      properties:
+        StartingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The starting hash key of the hash key range.
+        EndingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The ending hash key of the hash key range.
+      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+    ShardList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Shard'
     ListShardsInput:
       type: object
       title: ListShardsInput
@@ -341,63 +345,60 @@ components:
           allOf:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
-    StreamName:
+    StreamARN:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
-      maxLength: 128
-    ExpiredNextTokenException: {}
-    HashKeyRange:
-      type: object
-      required:
-      - StartingHashKey
-      - EndingHashKey
-      properties:
-        StartingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The starting hash key of the hash key range.
-        EndingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The ending hash key of the hash key range.
-      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-    Timestamp:
+      maxLength: 2048
+    SequenceNumber:
       type: string
-      format: date-time
-    ShardId:
+      pattern: 0|([1-9]\d{0,128})
+    HashKey:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    Shard:
-      type: object
-      required:
-      - ShardId
-      - HashKeyRange
-      - SequenceNumberRange
-      properties:
-        ShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The unique identifier of the shard within the stream.
-        ParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard's parent.
-        AdjacentParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard adjacent to the shard's parent.
-        HashKeyRange:
-          allOf:
-          - $ref: '#/components/schemas/HashKeyRange'
-          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-        SequenceNumberRange:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumberRange'
-          - description: The range of possible sequence numbers for the shard.
-      description: A uniquely identified group of data records in a Kinesis data stream.
+      pattern: 0|([1-9]\d{0,38})
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
@@ -407,5 +408,5 @@ components:
       x-amazon-apigateway-authtype: awsSigv4
 externalDocs:
   description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/firehose/
+  url: https://docs.aws.amazon.com/kinesis/
 x-hasEquivalentPaths: true

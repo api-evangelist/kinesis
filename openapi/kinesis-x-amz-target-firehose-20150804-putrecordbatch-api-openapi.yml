@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2015-08-04
   x-release: v4
-  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Firehose 20150804.PutRecordBatch API'
+  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose 20150804.PutRecordBatch API'
   description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -23,6 +23,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -173,50 +174,19 @@ paths:
       tags:
       - '#X Amz Target=Firehose 20150804.PutRecordBatch'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    DeliveryStreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 64
+    ResourceNotFoundException: {}
+    Data:
+      type: string
+      minLength: 0
+      maxLength: 1024000
+    ErrorMessage:
+      type: string
     PutRecordBatchResponseEntry:
       type: object
       properties:
@@ -233,23 +203,13 @@ components:
           - $ref: '#/components/schemas/ErrorMessage'
           - description: The error message for an individual record result.
       description: Contains the result for an individual record from a <a>PutRecordBatch</a> request. If the record is successfully added to your delivery stream, it receives a record ID. If the record fails to be added to your delivery stream, the result includes an error code and an error message.
-    InvalidKMSResourceException: {}
-    PutRecordBatchRequestEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Record'
-      minItems: 1
-      maxItems: 500
+    InvalidArgumentException: {}
     PutRecordBatchResponseEntryList:
       type: array
       items:
         $ref: '#/components/schemas/PutRecordBatchResponseEntry'
       minItems: 1
       maxItems: 500
-    NonNegativeIntegerObject:
-      type: integer
-      minimum: 0
-    InvalidArgumentException: {}
     PutRecordBatchInput:
       type: object
       required:
@@ -265,8 +225,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/PutRecordBatchRequestEntryList'
           - description: One or more records.
-    BooleanObject:
-      type: boolean
     Record:
       type: object
       required:
@@ -277,22 +235,9 @@ components:
           - $ref: '#/components/schemas/Data'
           - description: The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KiB.
       description: The unit of data in a delivery stream.
-    ResourceNotFoundException: {}
-    Data:
-      type: string
-      minLength: 0
-      maxLength: 1024000
-    PutResponseRecordId:
-      type: string
-      minLength: 1
-    ServiceUnavailableException: {}
-    ErrorMessage:
-      type: string
-    DeliveryStreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 64
+    NonNegativeIntegerObject:
+      type: integer
+      minimum: 0
     PutRecordBatchOutput:
       type: object
       required:
@@ -311,8 +256,64 @@ components:
           allOf:
           - $ref: '#/components/schemas/PutRecordBatchResponseEntryList'
           - description: The results array. For each record, the index of the response element is the same as the index used in the request array.
+    PutRecordBatchRequestEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Record'
+      minItems: 1
+      maxItems: 500
+    ServiceUnavailableException: {}
     ErrorCode:
       type: string
+    InvalidKMSResourceException: {}
+    PutResponseRecordId:
+      type: string
+      minLength: 1
+    BooleanObject:
+      type: boolean
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

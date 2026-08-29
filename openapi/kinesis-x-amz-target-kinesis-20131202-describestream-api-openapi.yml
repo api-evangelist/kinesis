@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.DescribeStream API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DescribeStream API'
+  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -17,12 +17,13 @@ info:
     name: Apache 2.0 License
     url: http://www.apache.org/licenses/
   x-providerName: amazonaws.com
-  x-serviceName: firehose
+  x-serviceName: kinesis
   x-origin:
   - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesis-2013-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -30,7 +31,7 @@ info:
   - cloud
   x-preferred: true
 servers:
-- url: http://firehose.{region}.amazonaws.com
+- url: http://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -59,8 +60,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: https://firehose.{region}.amazonaws.com
+  description: The Kinesis multi-region endpoint
+- url: https://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -89,8 +90,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: http://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis multi-region endpoint
+- url: http://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -98,8 +99,8 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
-- url: https://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
+- url: https://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -107,7 +108,7 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
 security:
 - hmac: []
 tags:
@@ -185,54 +186,69 @@ paths:
       tags:
       - '#X Amz Target=Kinesis 20131202.DescribeStream'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ShardList:
+    ResourceNotFoundException: {}
+    ShardId:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    MetricsName:
+      type: string
+      enum:
+      - IncomingBytes
+      - IncomingRecords
+      - OutgoingBytes
+      - OutgoingRecords
+      - WriteProvisionedThroughputExceeded
+      - ReadProvisionedThroughputExceeded
+      - IteratorAgeMilliseconds
+      - ALL
+    EnhancedMonitoringList:
       type: array
       items:
-        $ref: '#/components/schemas/Shard'
+        $ref: '#/components/schemas/EnhancedMetrics'
+    SequenceNumberRange:
+      type: object
+      required:
+      - StartingSequenceNumber
+      properties:
+        StartingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The starting sequence number for the range.
+        EndingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
+      description: The range of possible sequence numbers for the shard.
+    DescribeStreamOutput:
+      type: object
+      required:
+      - StreamDescription
+      properties:
+        StreamDescription:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
+      description: Represents the output for <code>DescribeStream</code>.
+    MetricsNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricsName'
+      minItems: 1
+      maxItems: 7
+    KeyId:
+      type: string
+      minLength: 1
+      maxLength: 2048
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    RetentionPeriodHours:
+      type: integer
     DescribeStreamInput:
       type: object
       title: DescribeStreamInput
@@ -254,54 +270,81 @@ components:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
       description: Represents the input for <code>DescribeStream</code>.
-    SequenceNumberRange:
+    AccessDeniedException: {}
+    DescribeStreamInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    StreamStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+      - UPDATING
+    InvalidArgumentException: {}
+    StreamModeDetails:
       type: object
       required:
-      - StartingSequenceNumber
+      - StreamMode
       properties:
-        StartingSequenceNumber:
+        StreamMode:
           allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The starting sequence number for the range.
-        EndingSequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
-      description: The range of possible sequence numbers for the shard.
-    KeyId:
+          - $ref: '#/components/schemas/StreamMode'
+          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+    LimitExceededException: {}
+    Timestamp:
       type: string
-      minLength: 1
-      maxLength: 2048
+      format: date-time
     StreamMode:
       type: string
       enum:
       - PROVISIONED
       - ON_DEMAND
-    SequenceNumber:
-      type: string
-      pattern: 0|([1-9]\d{0,128})
-    DescribeStreamInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    AccessDeniedException: {}
-    InvalidArgumentException: {}
-    HashKey:
-      type: string
-      pattern: 0|([1-9]\d{0,38})
-    BooleanObject:
-      type: boolean
-    LimitExceededException: {}
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
-      minLength: 1
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    EnhancedMonitoringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EnhancedMetrics'
+    Shard:
+      type: object
+      required:
+      - ShardId
+      - HashKeyRange
+      - SequenceNumberRange
+      properties:
+        ShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The unique identifier of the shard within the stream.
+        ParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard's parent.
+        AdjacentParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard adjacent to the shard's parent.
+        HashKeyRange:
+          allOf:
+          - $ref: '#/components/schemas/HashKeyRange'
+          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+        SequenceNumberRange:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumberRange'
+          - description: The range of possible sequence numbers for the shard.
+      description: A uniquely identified group of data records in a Kinesis data stream.
+    HashKeyRange:
+      type: object
+      required:
+      - StartingHashKey
+      - EndingHashKey
+      properties:
+        StartingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The starting hash key of the hash key range.
+        EndingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The ending hash key of the hash key range.
+      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
     StreamDescription:
       type: object
       required:
@@ -359,18 +402,20 @@ components:
           - $ref: '#/components/schemas/KeyId'
           - description: '<p>The GUID for the customer-managed Amazon Web Services KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p> <ul> <li> <p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code> </p> </li> <li> <p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code> </p> </li> <li> <p>Alias name example: <code>alias/MyAliasName</code> </p> </li> <li> <p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code> </p> </li> </ul>'
       description: Represents the output for <a>DescribeStream</a>.
-    StreamModeDetails:
-      type: object
-      required:
-      - StreamMode
-      properties:
-        StreamMode:
-          allOf:
-          - $ref: '#/components/schemas/StreamMode'
-          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-    RetentionPeriodHours:
-      type: integer
+    ShardList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Shard'
+    EncryptionType:
+      type: string
+      enum:
+      - NONE
+      - KMS
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
     EnhancedMetrics:
       type: object
       properties:
@@ -379,101 +424,57 @@ components:
           - $ref: '#/components/schemas/MetricsNameList'
           - description: <p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
       description: Represents enhanced metrics types.
-    MetricsNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MetricsName'
-      minItems: 1
-      maxItems: 7
-    StreamName:
+    SequenceNumber:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    MetricsName:
+      pattern: 0|([1-9]\d{0,128})
+    BooleanObject:
+      type: boolean
+    HashKey:
       type: string
-      enum:
-      - IncomingBytes
-      - IncomingRecords
-      - OutgoingBytes
-      - OutgoingRecords
-      - WriteProvisionedThroughputExceeded
-      - ReadProvisionedThroughputExceeded
-      - IteratorAgeMilliseconds
-      - ALL
-    EncryptionType:
-      type: string
-      enum:
-      - NONE
-      - KMS
-    StreamStatus:
-      type: string
-      enum:
-      - CREATING
-      - DELETING
-      - ACTIVE
-      - UPDATING
-    HashKeyRange:
-      type: object
-      required:
-      - StartingHashKey
-      - EndingHashKey
-      properties:
-        StartingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The starting hash key of the hash key range.
-        EndingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The ending hash key of the hash key range.
-      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-    Timestamp:
-      type: string
-      format: date-time
-    ShardId:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    DescribeStreamOutput:
-      type: object
-      required:
-      - StreamDescription
-      properties:
-        StreamDescription:
-          allOf:
-          - $ref: '#/components/schemas/StreamDescription'
-          - description: The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
-      description: Represents the output for <code>DescribeStream</code>.
-    Shard:
-      type: object
-      required:
-      - ShardId
-      - HashKeyRange
-      - SequenceNumberRange
-      properties:
-        ShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The unique identifier of the shard within the stream.
-        ParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard's parent.
-        AdjacentParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard adjacent to the shard's parent.
-        HashKeyRange:
-          allOf:
-          - $ref: '#/components/schemas/HashKeyRange'
-          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-        SequenceNumberRange:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumberRange'
-          - description: The range of possible sequence numbers for the shard.
-      description: A uniquely identified group of data records in a Kinesis data stream.
+      pattern: 0|([1-9]\d{0,38})
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
@@ -483,5 +484,5 @@ components:
       x-amazon-apigateway-authtype: awsSigv4
 externalDocs:
   description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/firehose/
+  url: https://docs.aws.amazon.com/kinesis/
 x-hasEquivalentPaths: true

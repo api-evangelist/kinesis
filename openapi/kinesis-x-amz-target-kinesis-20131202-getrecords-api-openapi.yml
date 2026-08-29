@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.GetRecords API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.GetRecords API'
+  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -17,12 +17,13 @@ info:
     name: Apache 2.0 License
     url: http://www.apache.org/licenses/
   x-providerName: amazonaws.com
-  x-serviceName: firehose
+  x-serviceName: kinesis
   x-origin:
   - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesis-2013-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -30,7 +31,7 @@ info:
   - cloud
   x-preferred: true
 servers:
-- url: http://firehose.{region}.amazonaws.com
+- url: http://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -59,8 +60,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: https://firehose.{region}.amazonaws.com
+  description: The Kinesis multi-region endpoint
+- url: https://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -89,8 +90,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: http://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis multi-region endpoint
+- url: http://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -98,8 +99,8 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
-- url: https://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
+- url: https://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -107,7 +108,7 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
 security:
 - hmac: []
 tags:
@@ -215,50 +216,22 @@ paths:
       tags:
       - '#X Amz Target=Kinesis 20131202.GetRecords'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    KMSOptInRequired: {}
+    ResourceNotFoundException: {}
+    ShardId:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    ShardIterator:
+      type: string
+      minLength: 1
+      maxLength: 512
+    Data:
+      type: string
+      minLength: 0
+      maxLength: 1048576
     ChildShard:
       type: object
       required:
@@ -277,81 +250,45 @@ components:
         HashKeyRange:
           $ref: '#/components/schemas/HashKeyRange'
       description: Output parameter of the GetRecords API. The existing child shard of the current shard.
-    ShardIterator:
-      type: string
-      minLength: 1
-      maxLength: 512
-    ShardIdList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ShardId'
-    KMSThrottlingException: {}
     ChildShardList:
       type: array
       items:
         $ref: '#/components/schemas/ChildShard'
-    GetRecordsOutput:
-      type: object
-      required:
-      - Records
-      properties:
-        Records:
-          allOf:
-          - $ref: '#/components/schemas/RecordList'
-          - description: The data records retrieved from the shard.
-        NextShardIterator:
-          allOf:
-          - $ref: '#/components/schemas/ShardIterator'
-          - description: 'The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator does not return any more data. '
-        MillisBehindLatest:
-          allOf:
-          - $ref: '#/components/schemas/MillisBehindLatest'
-          - description: The number of milliseconds the <a>GetRecords</a> response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
-        ChildShards:
-          allOf:
-          - $ref: '#/components/schemas/ChildShardList'
-          - description: The list of the current shard's child shards, returned in the <code>GetRecords</code> API's response only when the end of the current shard is reached.
-      description: Represents the output for <a>GetRecords</a>.
-    SequenceNumber:
-      type: string
-      pattern: 0|([1-9]\d{0,128})
-    GetRecordsInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    KMSOptInRequired: {}
-    AccessDeniedException: {}
+    ShardIdList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ShardId'
     ProvisionedThroughputExceededException: {}
+    AccessDeniedException: {}
     RecordList:
       type: array
       items:
         $ref: '#/components/schemas/Record'
     InvalidArgumentException: {}
-    MillisBehindLatest:
-      type: integer
-      minimum: 0
-    HashKey:
+    PartitionKey:
       type: string
-      pattern: 0|([1-9]\d{0,38})
-    GetRecordsInput:
+      minLength: 1
+      maxLength: 256
+    KMSNotFoundException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    KMSDisabledException: {}
+    HashKeyRange:
       type: object
       required:
-      - ShardIterator
-      title: GetRecordsInput
+      - StartingHashKey
+      - EndingHashKey
       properties:
-        ShardIterator:
+        StartingHashKey:
           allOf:
-          - $ref: '#/components/schemas/ShardIterator'
-          - description: The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
-        Limit:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The starting hash key of the hash key range.
+        EndingHashKey:
           allOf:
-          - $ref: '#/components/schemas/GetRecordsInputLimit'
-          - description: The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>. The default value is 10,000.
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the stream.
-      description: Represents the input for <a>GetRecords</a>.
+          - $ref: '#/components/schemas/HashKey'
+          - description: The ending hash key of the hash key range.
+      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
     Record:
       type: object
       required:
@@ -380,53 +317,117 @@ components:
           - $ref: '#/components/schemas/EncryptionType'
           - description: '<p>The encryption type used on the record. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records in the stream.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records in the stream using a customer-managed Amazon Web Services KMS key.</p> </li> </ul>'
       description: The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.
+    GetRecordsInput:
+      type: object
+      required:
+      - ShardIterator
+      title: GetRecordsInput
+      properties:
+        ShardIterator:
+          allOf:
+          - $ref: '#/components/schemas/ShardIterator'
+          - description: The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.
+        Limit:
+          allOf:
+          - $ref: '#/components/schemas/GetRecordsInputLimit'
+          - description: The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, <a>GetRecords</a> throws <code>InvalidArgumentException</code>. The default value is 10,000.
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the stream.
+      description: Represents the input for <a>GetRecords</a>.
+    GetRecordsInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
     KMSInvalidStateException: {}
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
-      minLength: 1
-      maxLength: 2048
-    ResourceNotFoundException: {}
-    KMSNotFoundException: {}
-    KMSAccessDeniedException: {}
-    KMSDisabledException: {}
-    Data:
-      type: string
-      minLength: 0
-      maxLength: 1048576
     EncryptionType:
       type: string
       enum:
       - NONE
       - KMS
-    HashKeyRange:
+    ExpiredIteratorException: {}
+    MillisBehindLatest:
+      type: integer
+      minimum: 0
+    GetRecordsOutput:
       type: object
       required:
-      - StartingHashKey
-      - EndingHashKey
+      - Records
       properties:
-        StartingHashKey:
+        Records:
           allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The starting hash key of the hash key range.
-        EndingHashKey:
+          - $ref: '#/components/schemas/RecordList'
+          - description: The data records retrieved from the shard.
+        NextShardIterator:
           allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The ending hash key of the hash key range.
-      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-    Timestamp:
+          - $ref: '#/components/schemas/ShardIterator'
+          - description: 'The next position in the shard from which to start sequentially reading data records. If set to <code>null</code>, the shard has been closed and the requested iterator does not return any more data. '
+        MillisBehindLatest:
+          allOf:
+          - $ref: '#/components/schemas/MillisBehindLatest'
+          - description: The number of milliseconds the <a>GetRecords</a> response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.
+        ChildShards:
+          allOf:
+          - $ref: '#/components/schemas/ChildShardList'
+          - description: The list of the current shard's child shards, returned in the <code>GetRecords</code> API's response only when the end of the current shard is reached.
+      description: Represents the output for <a>GetRecords</a>.
+    KMSAccessDeniedException: {}
+    StreamARN:
       type: string
-      format: date-time
-    ShardId:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
-      maxLength: 128
-    ExpiredIteratorException: {}
-    PartitionKey:
+      maxLength: 2048
+    SequenceNumber:
       type: string
-      minLength: 1
-      maxLength: 256
+      pattern: 0|([1-9]\d{0,128})
+    KMSThrottlingException: {}
+    HashKey:
+      type: string
+      pattern: 0|([1-9]\d{0,38})
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
@@ -436,5 +437,5 @@ components:
       x-amazon-apigateway-authtype: awsSigv4
 externalDocs:
   description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/firehose/
+  url: https://docs.aws.amazon.com/kinesis/
 x-hasEquivalentPaths: true

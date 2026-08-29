@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Firehose CreateSignalingChannel StartEdgeConfigurationUpdate API
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: Amazon Kinesis Video Streams Start Edge Configuration Update API
+  description: <p/>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -17,12 +17,13 @@ info:
     name: Apache 2.0 License
     url: http://www.apache.org/licenses/
   x-providerName: amazonaws.com
-  x-serviceName: firehose
+  x-serviceName: kinesisvideo
   x-origin:
   - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesisvideo-2017-09-30.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -30,7 +31,7 @@ info:
   - cloud
   x-preferred: true
 servers:
-- url: http://firehose.{region}.amazonaws.com
+- url: http://kinesisvideo.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -59,8 +60,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: https://firehose.{region}.amazonaws.com
+  description: The Kinesis Video multi-region endpoint
+- url: https://kinesisvideo.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -89,8 +90,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: http://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis Video multi-region endpoint
+- url: http://kinesisvideo.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -98,8 +99,8 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
-- url: https://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis Video endpoint for China (Beijing) and China (Ningxia)
+- url: https://kinesisvideo.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -107,7 +108,7 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+  description: The Kinesis Video endpoint for China (Beijing) and China (Ningxia)
 security:
 - hmac: []
 tags:
@@ -213,103 +214,7 @@ paths:
       tags:
       - StartEdgeConfigurationUpdate
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    MaxLocalMediaSizeInMB:
-      type: integer
-      minimum: 64
-      maximum: 2000000
-    UploaderConfig:
-      type: object
-      required:
-      - ScheduleConfig
-      properties:
-        ScheduleConfig:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleConfig'
-          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.
-      description: 'The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. '
-    SyncStatus:
-      type: string
-      enum:
-      - SYNCING
-      - ACKNOWLEDGED
-      - IN_SYNC
-      - SYNC_FAILED
-      - DELETING
-      - DELETE_FAILED
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    MediaUriType:
-      type: string
-      enum:
-      - RTSP_URI
-      - FILE_URI
-    LocalSizeConfig:
-      type: object
-      properties:
-        MaxLocalMediaSizeInMB:
-          allOf:
-          - $ref: '#/components/schemas/MaxLocalMediaSizeInMB'
-          - description: 'The overall maximum size of the media that you want to store for a stream on the Edge Agent. '
-        StrategyOnFullSize:
-          allOf:
-          - $ref: '#/components/schemas/StrategyOnFullSize'
-          - description: The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.
-      description: The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.
-    EdgeRetentionInHours:
-      type: integer
-      minimum: 1
-      maximum: 720
-    DeleteAfterUpload:
-      type: boolean
-    AccessDeniedException: {}
-    NoDataRetentionException: {}
     StartEdgeConfigurationUpdateOutput:
       type: object
       properties:
@@ -341,7 +246,158 @@ components:
           allOf:
           - $ref: '#/components/schemas/EdgeConfig'
           - description: A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+    ResourceNotFoundException: {}
+    HubDeviceArn:
+      type: string
+      pattern: arn:[a-z\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+
+      minLength: 1
+      maxLength: 1024
+    ScheduleConfig:
+      type: object
+      required:
+      - ScheduleExpression
+      - DurationInSeconds
+      properties:
+        ScheduleExpression:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleExpression'
+          - description: <p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p> <p>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"> <i>Cron Trigger Tutorial</i> </a> page to understand the valid expressions and its use.</p>
+        DurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/DurationInSeconds'
+          - description: The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.
+      description: <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p> <p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
+    MediaSourceConfig:
+      type: object
+      required:
+      - MediaUriSecretArn
+      - MediaUriType
+      properties:
+        MediaUriSecretArn:
+          allOf:
+          - $ref: '#/components/schemas/MediaUriSecretArn'
+          - description: The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.
+        MediaUriType:
+          allOf:
+          - $ref: '#/components/schemas/MediaUriType'
+          - description: <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>
+      description: The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    SyncStatus:
+      type: string
+      enum:
+      - SYNCING
+      - ACKNOWLEDGED
+      - IN_SYNC
+      - SYNC_FAILED
+      - DELETING
+      - DELETE_FAILED
+    AccessDeniedException: {}
+    ResourceInUseException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
     InvalidArgumentException: {}
+    ClientLimitExceededException: {}
+    FailedStatusDetails:
+      type: string
+    MediaUriSecretArn:
+      type: string
+      pattern: arn:[a-z\d-]+:secretsmanager:[a-z0-9-]+:[0-9]+:secret:[a-zA-Z0-9_.-]+
+      minLength: 20
+      maxLength: 2048
+      format: password
+    MaxLocalMediaSizeInMB:
+      type: integer
+      minimum: 64
+      maximum: 2000000
+    ScheduleExpression:
+      type: string
+      pattern: '[^\n]{11,100}'
+      minLength: 11
+      maxLength: 100
+    Timestamp:
+      type: string
+      format: date-time
+    DurationInSeconds:
+      type: integer
+      minimum: 60
+      maximum: 3600
+    EdgeRetentionInHours:
+      type: integer
+      minimum: 1
+      maximum: 720
+    MediaUriType:
+      type: string
+      enum:
+      - RTSP_URI
+      - FILE_URI
+    NoDataRetentionException: {}
+    DeletionConfig:
+      type: object
+      properties:
+        EdgeRetentionInHours:
+          allOf:
+          - $ref: '#/components/schemas/EdgeRetentionInHours'
+          - description: The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.
+        LocalSizeConfig:
+          allOf:
+          - $ref: '#/components/schemas/LocalSizeConfig'
+          - description: The value of the local size required in order to delete the edge configuration.
+        DeleteAfterUpload:
+          allOf:
+          - $ref: '#/components/schemas/DeleteAfterUpload'
+          - description: <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p> <p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+      description: The configuration details required to delete the connection of the stream from the Edge Agent.
+    LocalSizeConfig:
+      type: object
+      properties:
+        MaxLocalMediaSizeInMB:
+          allOf:
+          - $ref: '#/components/schemas/MaxLocalMediaSizeInMB'
+          - description: 'The overall maximum size of the media that you want to store for a stream on the Edge Agent. '
+        StrategyOnFullSize:
+          allOf:
+          - $ref: '#/components/schemas/StrategyOnFullSize'
+          - description: The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.
+      description: The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.
+    StrategyOnFullSize:
+      type: string
+      enum:
+      - DELETE_OLDEST_MEDIA
+      - DENY_NEW_MEDIA
+    DeleteAfterUpload:
+      type: boolean
+    UploaderConfig:
+      type: object
+      required:
+      - ScheduleConfig
+      properties:
+        ScheduleConfig:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleConfig'
+          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.
+      description: 'The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. '
+    RecorderConfig:
+      type: object
+      required:
+      - MediaSourceConfig
+      properties:
+        MediaSourceConfig:
+          allOf:
+          - $ref: '#/components/schemas/MediaSourceConfig'
+          - description: 'The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. '
+        ScheduleConfig:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleConfig'
+          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.
+      description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. '
     EdgeConfig:
       type: object
       required:
@@ -365,104 +421,49 @@ components:
           - $ref: '#/components/schemas/DeletionConfig'
           - description: The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.
       description: A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
-    HubDeviceArn:
-      type: string
-      pattern: arn:[a-z\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+
-      minLength: 1
-      maxLength: 1024
-    FailedStatusDetails:
-      type: string
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
-    RecorderConfig:
-      type: object
-      required:
-      - MediaSourceConfig
-      properties:
-        MediaSourceConfig:
-          allOf:
-          - $ref: '#/components/schemas/MediaSourceConfig'
-          - description: 'The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. '
-        ScheduleConfig:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleConfig'
-          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.
-      description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. '
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    DeletionConfig:
-      type: object
-      properties:
-        EdgeRetentionInHours:
-          allOf:
-          - $ref: '#/components/schemas/EdgeRetentionInHours'
-          - description: The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.
-        LocalSizeConfig:
-          allOf:
-          - $ref: '#/components/schemas/LocalSizeConfig'
-          - description: The value of the local size required in order to delete the edge configuration.
-        DeleteAfterUpload:
-          allOf:
-          - $ref: '#/components/schemas/DeleteAfterUpload'
-          - description: <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p> <p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
-      description: The configuration details required to delete the connection of the stream from the Edge Agent.
-    StrategyOnFullSize:
-      type: string
-      enum:
-      - DELETE_OLDEST_MEDIA
-      - DENY_NEW_MEDIA
-    MediaSourceConfig:
-      type: object
-      required:
-      - MediaUriSecretArn
-      - MediaUriType
-      properties:
-        MediaUriSecretArn:
-          allOf:
-          - $ref: '#/components/schemas/MediaUriSecretArn'
-          - description: The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.
-        MediaUriType:
-          allOf:
-          - $ref: '#/components/schemas/MediaUriType'
-          - description: <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>
-      description: The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.
-    ClientLimitExceededException: {}
-    ScheduleConfig:
-      type: object
-      required:
-      - ScheduleExpression
-      - DurationInSeconds
-      properties:
-        ScheduleExpression:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleExpression'
-          - description: <p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p> <p>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"> <i>Cron Trigger Tutorial</i> </a> page to understand the valid expressions and its use.</p>
-        DurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/DurationInSeconds'
-          - description: The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.
-      description: <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p> <p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
-    ScheduleExpression:
-      type: string
-      pattern: '[^\n]{11,100}'
-      minLength: 11
-      maxLength: 100
-    Timestamp:
-      type: string
-      format: date-time
-    MediaUriSecretArn:
-      type: string
-      pattern: arn:[a-z\d-]+:secretsmanager:[a-z0-9-]+:[0-9]+:secret:[a-zA-Z0-9_.-]+
-      minLength: 20
-      maxLength: 2048
-      format: password
-    DurationInSeconds:
-      type: integer
-      minimum: 60
-      maximum: 3600
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
@@ -472,5 +473,4 @@ components:
       x-amazon-apigateway-authtype: awsSigv4
 externalDocs:
   description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/firehose/
-x-hasEquivalentPaths: true
+  url: https://docs.aws.amazon.com/kinesisvideo/

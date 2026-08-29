@@ -1,9 +1,9 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis Firehose CreateSignalingChannel #X Amz Target=Kinesis 20131202.PutRecords API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.PutRecords API'
+  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -17,12 +17,13 @@ info:
     name: Apache 2.0 License
     url: http://www.apache.org/licenses/
   x-providerName: amazonaws.com
-  x-serviceName: firehose
+  x-serviceName: kinesis
   x-origin:
   - contentType: application/json
-    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/firehose-2015-08-04.normal.json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/kinesis-2013-12-02.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -30,7 +31,7 @@ info:
   - cloud
   x-preferred: true
 servers:
-- url: http://firehose.{region}.amazonaws.com
+- url: http://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -59,8 +60,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: https://firehose.{region}.amazonaws.com
+  description: The Kinesis multi-region endpoint
+- url: https://kinesis.{region}.amazonaws.com
   variables:
     region:
       description: The AWS region
@@ -89,8 +90,8 @@ servers:
       - sa-east-1
       - me-south-1
       default: us-east-1
-  description: The Firehose multi-region endpoint
-- url: http://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis multi-region endpoint
+- url: http://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -98,8 +99,8 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
-- url: https://firehose.{region}.amazonaws.com.cn
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
+- url: https://kinesis.{region}.amazonaws.com.cn
   variables:
     region:
       description: The AWS region
@@ -107,7 +108,7 @@ servers:
       - cn-north-1
       - cn-northwest-1
       default: cn-north-1
-  description: The Firehose endpoint for China (Beijing) and China (Ningxia)
+  description: The Kinesis endpoint for China (Beijing) and China (Ningxia)
 security:
 - hmac: []
 tags:
@@ -209,50 +210,34 @@ paths:
       tags:
       - '#X Amz Target=Kinesis 20131202.PutRecords'
 components:
-  parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    KMSOptInRequired: {}
+    ResourceNotFoundException: {}
+    ShardId:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    Data:
+      type: string
+      minLength: 0
+      maxLength: 1048576
+    PutRecordsRequestEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PutRecordsRequestEntry'
+      minItems: 1
+      maxItems: 500
+    ErrorMessage:
+      type: string
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    ProvisionedThroughputExceededException: {}
+    AccessDeniedException: {}
+    InvalidArgumentException: {}
     PutRecordsInput:
       type: object
       required:
@@ -272,87 +257,12 @@ components:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
       description: A <code>PutRecords</code> request.
-    PutRecordsResultEntry:
-      type: object
-      properties:
-        SequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The sequence number for an individual record result.
-        ShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID for an individual record result.
-        ErrorCode:
-          allOf:
-          - $ref: '#/components/schemas/ErrorCode'
-          - description: The error code for an individual record result. <code>ErrorCodes</code> can be either <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.
-        ErrorMessage:
-          allOf:
-          - $ref: '#/components/schemas/ErrorMessage'
-          - description: The error message for an individual record result. An <code>ErrorCode</code> value of <code>ProvisionedThroughputExceededException</code> has an error message that includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of <code>InternalFailure</code> has the error message <code>"Internal Service Failure"</code>.
-      description: Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.
-    PutRecordsRequestEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PutRecordsRequestEntry'
-      minItems: 1
-      maxItems: 500
-    KMSThrottlingException: {}
-    SequenceNumber:
+    PartitionKey:
       type: string
-      pattern: 0|([1-9]\d{0,128})
-    KMSOptInRequired: {}
-    AccessDeniedException: {}
-    ProvisionedThroughputExceededException: {}
-    PutRecordsResultEntryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/PutRecordsResultEntry'
-      minItems: 1
-      maxItems: 500
-    PutRecordsRequestEntry:
-      type: object
-      required:
-      - Data
-      - PartitionKey
-      properties:
-        Data:
-          allOf:
-          - $ref: '#/components/schemas/Data'
-          - description: The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
-        ExplicitHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
-        PartitionKey:
-          allOf:
-          - $ref: '#/components/schemas/PartitionKey'
-          - description: Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
-      description: Represents the output for <code>PutRecords</code>.
-    InvalidArgumentException: {}
-    HashKey:
-      type: string
-      pattern: 0|([1-9]\d{0,38})
-    KMSInvalidStateException: {}
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
-      maxLength: 2048
-    ResourceNotFoundException: {}
+      maxLength: 256
     KMSNotFoundException: {}
-    KMSAccessDeniedException: {}
     KMSDisabledException: {}
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    Data:
-      type: string
-      minLength: 0
-      maxLength: 1048576
     PositiveIntegerObject:
       type: integer
       minimum: 1
@@ -374,24 +284,115 @@ components:
           - $ref: '#/components/schemas/EncryptionType'
           - description: '<p>The encryption type used on the records. This parameter can be one of the following values:</p> <ul> <li> <p> <code>NONE</code>: Do not encrypt the records.</p> </li> <li> <p> <code>KMS</code>: Use server-side encryption on the records using a customer-managed Amazon Web Services KMS key.</p> </li> </ul>'
       description: ' <code>PutRecords</code> results.'
+    KMSInvalidStateException: {}
+    ErrorCode:
+      type: string
     EncryptionType:
       type: string
       enum:
       - NONE
       - KMS
-    ErrorMessage:
+    StreamARN:
       type: string
-    ShardId:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
-      maxLength: 128
-    PartitionKey:
+      maxLength: 2048
+    KMSAccessDeniedException: {}
+    SequenceNumber:
       type: string
-      minLength: 1
-      maxLength: 256
-    ErrorCode:
+      pattern: 0|([1-9]\d{0,128})
+    PutRecordsResultEntry:
+      type: object
+      properties:
+        SequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The sequence number for an individual record result.
+        ShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID for an individual record result.
+        ErrorCode:
+          allOf:
+          - $ref: '#/components/schemas/ErrorCode'
+          - description: The error code for an individual record result. <code>ErrorCodes</code> can be either <code>ProvisionedThroughputExceededException</code> or <code>InternalFailure</code>.
+        ErrorMessage:
+          allOf:
+          - $ref: '#/components/schemas/ErrorMessage'
+          - description: The error message for an individual record result. An <code>ErrorCode</code> value of <code>ProvisionedThroughputExceededException</code> has an error message that includes the account ID, stream name, and shard ID. An <code>ErrorCode</code> value of <code>InternalFailure</code> has the error message <code>"Internal Service Failure"</code>.
+      description: Represents the result of an individual record from a <code>PutRecords</code> request. A record that is successfully added to a stream includes <code>SequenceNumber</code> and <code>ShardId</code> in the result. A record that fails to be added to the stream includes <code>ErrorCode</code> and <code>ErrorMessage</code> in the result.
+    KMSThrottlingException: {}
+    PutRecordsResultEntryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/PutRecordsResultEntry'
+      minItems: 1
+      maxItems: 500
+    HashKey:
       type: string
+      pattern: 0|([1-9]\d{0,38})
+    PutRecordsRequestEntry:
+      type: object
+      required:
+      - Data
+      - PartitionKey
+      properties:
+        Data:
+          allOf:
+          - $ref: '#/components/schemas/Data'
+          - description: The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MiB).
+        ExplicitHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.
+        PartitionKey:
+          allOf:
+          - $ref: '#/components/schemas/PartitionKey'
+          - description: Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.
+      description: Represents the output for <code>PutRecords</code>.
+  parameters:
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
@@ -401,5 +402,5 @@ components:
       x-amazon-apigateway-authtype: awsSigv4
 externalDocs:
   description: Amazon Web Services documentation
-  url: https://docs.aws.amazon.com/firehose/
+  url: https://docs.aws.amazon.com/kinesis/
 x-hasEquivalentPaths: true
