@@ -6,6 +6,18 @@ description: Amazon Kinesis is a family of fully managed AWS services for collec
   Kinesis Data Analytics) for stateful stream processing, and Kinesis Video Streams for ingest and playback of media from
   connected devices.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -7115,6 +7127,9 @@ apis:
     url: >-
       https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 common:
+- type: CapabilityMap
+  url: capabilities/kinesis-capability-edges.yml
+  name: AWS Kinesis Business Capability Map
 - type: AgenticAccess
   url: agentic-access/kinesis-agentic-access.yml
 - type: TrustCenter
