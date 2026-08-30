@@ -1818,7 +1818,8 @@ apis:
     The UpdateNotificationConfiguration API from AWS Kinesis — 1 operation(s) for updatenotificationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
-  tags: []
+  tags:
+  - UpdateNotificationConfiguration
   tags_raw:
   - UpdateNotificationConfiguration
   properties:
