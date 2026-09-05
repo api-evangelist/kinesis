@@ -1,0 +1,36 @@
+slug: kinesis
+provider: AWS Kinesis
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: '#X Amz Target=Firehose 20150804.CreateDeliveryStream'
+  spec_file: kinesis-x-amz-target-firehose-20150804-createdeliverystream-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: CreateDeliveryStream; "delivers real-time streaming data to destinations such as Amazon Simple
+    Storage Service (Amazon S3)"
+  reason: Provisioning a managed cloud streaming-delivery pipeline resource — cloud infrastructure management;
+    could alternatively be seen as data architecture, hence moderate confidence.
+- tag: '#X Amz Target=Kinesis 20131202.UpdateStreamMode'
+  spec_file: kinesis-x-amz-target-kinesis-20131202-updatestreammode-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: POST /#X-Amz-Target=Kinesis_20131202.UpdateStreamMode  UpdateStreamMode; schemas StreamARN,
+    StreamMode, StreamModeDetails
+  reason: Operation reconfigures a managed cloud data-streaming resource (on-demand vs provisioned capacity
+    mode). This is cloud infrastructure/platform management, not a business capability of the buyer; closest
+    honest mapping is IT Infrastructure Management.
