@@ -1,10 +1,10 @@
 aid: kinesis
 name: AWS Kinesis
-description: Amazon Kinesis is a family of fully managed AWS services for collecting, processing, and analyzing real-time
-  streaming data. The family includes Kinesis Data Streams for scalable record ingestion, Amazon Data Firehose (formerly Kinesis
-  Data Firehose) for delivery to data lakes and analytics destinations, Amazon Managed Service for Apache Flink (formerly
-  Kinesis Data Analytics) for stateful stream processing, and Kinesis Video Streams for ingest and playback of media from
-  connected devices.
+description: Amazon Kinesis is a family of fully managed AWS services for collecting, processing, and
+  analyzing real-time streaming data. The family includes Kinesis Data Streams for scalable record ingestion,
+  Amazon Data Firehose (formerly Kinesis Data Firehose) for delivery to data lakes and analytics destinations,
+  Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics) for stateful stream processing,
+  and Kinesis Video Streams for ingest and playback of media from connected devices.
 type: Index
 deliveryModel:
   model: saas
@@ -44,15 +44,14 @@ tags:
 - Video
 url: https://raw.githubusercontent.com/api-evangelist/kinesis/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: kinesis:managed-flink-api
   name: Amazon Managed Service for Apache Flink API
-  description: >-
-    Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics for Apache Flink)
-    is a fully managed service for processing and analyzing streaming data using Apache Flink. Developers
-    build streaming applications in Java, Python, SQL, or Scala, and the service handles infrastructure
+  description: Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics for Apache
+    Flink) is a fully managed service for processing and analyzing streaming data using Apache Flink.
+    Developers build streaming applications in Java, Python, SQL, or Scala, and the service handles infrastructure
     provisioning, scaling, state management, and high availability for stateful stream processing.
   humanURL: https://aws.amazon.com/managed-service-apache-flink/
   baseURL: https://kinesisanalytics.{region}.amazonaws.com
@@ -77,8 +76,7 @@ apis:
     url: https://aws.amazon.com/contact-us/
 - aid: kinesis:kinesis-createsignalingchannel-api
   name: AWS Kinesis CreateSignalingChannel API
-  description: >-
-    The CreateSignalingChannel API from AWS Kinesis — 1 operation(s) for createsignalingchannel.
+  description: The CreateSignalingChannel API from AWS Kinesis — 1 operation(s) for createsignalingchannel.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -143,8 +141,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-createstream-api
   name: AWS Kinesis CreateStream API
   description: The CreateStream API from AWS Kinesis — 1 operation(s) for createstream.
@@ -212,12 +209,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-deletesignalingchannel-api
   name: AWS Kinesis DeleteSignalingChannel API
-  description: >-
-    The DeleteSignalingChannel API from AWS Kinesis — 1 operation(s) for deletesignalingchannel.
+  description: The DeleteSignalingChannel API from AWS Kinesis — 1 operation(s) for deletesignalingchannel.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -282,8 +277,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-deletestream-api
   name: AWS Kinesis DeleteStream API
   description: The DeleteStream API from AWS Kinesis — 1 operation(s) for deletestream.
@@ -351,12 +345,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describeedgeconfiguration-api
   name: AWS Kinesis DescribeEdgeConfiguration API
-  description: >-
-    The DescribeEdgeConfiguration API from AWS Kinesis — 1 operation(s) for describeedgeconfiguration.
+  description: The DescribeEdgeConfiguration API from AWS Kinesis — 1 operation(s) for describeedgeconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -421,12 +413,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describeimagegenerationconfiguration-api
   name: AWS Kinesis DescribeImageGenerationConfiguration API
-  description: >-
-    The DescribeImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for describeimagegenerationconfiguration.
+  description: The DescribeImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for describeimagegenerationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -491,12 +481,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describemappedresourceconfiguration-api
   name: AWS Kinesis DescribeMappedResourceConfiguration API
-  description: >-
-    The DescribeMappedResourceConfiguration API from AWS Kinesis — 1 operation(s) for describemappedresourceconfiguration.
+  description: The DescribeMappedResourceConfiguration API from AWS Kinesis — 1 operation(s) for describemappedresourceconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -561,12 +549,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describemediastorageconfiguration-api
   name: AWS Kinesis DescribeMediaStorageConfiguration API
-  description: >-
-    The DescribeMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for describemediastorageconfiguration.
+  description: The DescribeMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for describemediastorageconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -631,12 +617,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describenotificationconfiguration-api
   name: AWS Kinesis DescribeNotificationConfiguration API
-  description: >-
-    The DescribeNotificationConfiguration API from AWS Kinesis — 1 operation(s) for describenotificationconfiguration.
+  description: The DescribeNotificationConfiguration API from AWS Kinesis — 1 operation(s) for describenotificationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -701,12 +685,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describesignalingchannel-api
   name: AWS Kinesis DescribeSignalingChannel API
-  description: >-
-    The DescribeSignalingChannel API from AWS Kinesis — 1 operation(s) for describesignalingchannel.
+  description: The DescribeSignalingChannel API from AWS Kinesis — 1 operation(s) for describesignalingchannel.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -771,8 +753,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-describestream-api
   name: AWS Kinesis DescribeStream API
   description: The DescribeStream API from AWS Kinesis — 1 operation(s) for describestream.
@@ -840,8 +821,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-getdataendpoint-api
   name: AWS Kinesis GetDataEndpoint API
   description: The GetDataEndpoint API from AWS Kinesis — 1 operation(s) for getdataendpoint.
@@ -909,12 +889,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-getsignalingchannelendpoint-api
   name: AWS Kinesis GetSignalingChannelEndpoint API
-  description: >-
-    The GetSignalingChannelEndpoint API from AWS Kinesis — 1 operation(s) for getsignalingchannelendpoint.
+  description: The GetSignalingChannelEndpoint API from AWS Kinesis — 1 operation(s) for getsignalingchannelendpoint.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -979,12 +957,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-listsignalingchannels-api
   name: AWS Kinesis ListSignalingChannels API
-  description: >-
-    The ListSignalingChannels API from AWS Kinesis — 1 operation(s) for listsignalingchannels.
+  description: The ListSignalingChannels API from AWS Kinesis — 1 operation(s) for listsignalingchannels.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -1049,8 +1025,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-liststreams-api
   name: AWS Kinesis ListStreams API
   description: The ListStreams API from AWS Kinesis — 1 operation(s) for liststreams.
@@ -1118,8 +1093,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-listtagsforresource-api
   name: AWS Kinesis ListTagsForResource API
   description: The ListTagsForResource API from AWS Kinesis — 1 operation(s) for listtagsforresource.
@@ -1187,8 +1161,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-listtagsforstream-api
   name: AWS Kinesis ListTagsForStream API
   description: The ListTagsForStream API from AWS Kinesis — 1 operation(s) for listtagsforstream.
@@ -1256,12 +1229,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-startedgeconfigurationupdate-api
   name: AWS Kinesis StartEdgeConfigurationUpdate API
-  description: >-
-    The StartEdgeConfigurationUpdate API from AWS Kinesis — 1 operation(s) for startedgeconfigurationupdate.
+  description: The StartEdgeConfigurationUpdate API from AWS Kinesis — 1 operation(s) for startedgeconfigurationupdate.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -1326,8 +1297,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-tagresource-api
   name: AWS Kinesis TagResource API
   description: The TagResource API from AWS Kinesis — 1 operation(s) for tagresource.
@@ -1395,8 +1365,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-tagstream-api
   name: AWS Kinesis TagStream API
   description: The TagStream API from AWS Kinesis — 1 operation(s) for tagstream.
@@ -1464,8 +1433,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-untagresource-api
   name: AWS Kinesis UntagResource API
   description: The UntagResource API from AWS Kinesis — 1 operation(s) for untagresource.
@@ -1533,8 +1501,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-untagstream-api
   name: AWS Kinesis UntagStream API
   description: The UntagStream API from AWS Kinesis — 1 operation(s) for untagstream.
@@ -1602,8 +1569,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updatedataretention-api
   name: AWS Kinesis UpdateDataRetention API
   description: The UpdateDataRetention API from AWS Kinesis — 1 operation(s) for updatedataretention.
@@ -1671,12 +1637,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updateimagegenerationconfiguration-api
   name: AWS Kinesis UpdateImageGenerationConfiguration API
-  description: >-
-    The UpdateImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for updateimagegenerationconfiguration.
+  description: The UpdateImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for updateimagegenerationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -1741,12 +1705,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updatemediastorageconfiguration-api
   name: AWS Kinesis UpdateMediaStorageConfiguration API
-  description: >-
-    The UpdateMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for updatemediastorageconfiguration.
+  description: The UpdateMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for updatemediastorageconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -1811,12 +1773,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updatenotificationconfiguration-api
   name: AWS Kinesis UpdateNotificationConfiguration API
-  description: >-
-    The UpdateNotificationConfiguration API from AWS Kinesis — 1 operation(s) for updatenotificationconfiguration.
+  description: The UpdateNotificationConfiguration API from AWS Kinesis — 1 operation(s) for updatenotificationconfiguration.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -1882,12 +1842,10 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updatesignalingchannel-api
   name: AWS Kinesis UpdateSignalingChannel API
-  description: >-
-    The UpdateSignalingChannel API from AWS Kinesis — 1 operation(s) for updatesignalingchannel.
+  description: The UpdateSignalingChannel API from AWS Kinesis — 1 operation(s) for updatesignalingchannel.
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -1952,8 +1910,7 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-updatestream-api
   name: AWS Kinesis UpdateStream API
   description: The UpdateStream API from AWS Kinesis — 1 operation(s) for updatestream.
@@ -2021,13 +1978,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-createdeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.CreateDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.CreateDeliveryStream API from AWS Kinesis — 1 operation(s) for
-    #x amz target=firehose 20150804.createdeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.CreateDeliveryStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.createdeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2092,13 +2047,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-deletedeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.DeleteDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.DeleteDeliveryStream API from AWS Kinesis — 1 operation(s) for
-    #x amz target=firehose 20150804.deletedeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.DeleteDeliveryStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.deletedeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2163,13 +2116,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-describedeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.DescribeDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.DescribeDeliveryStream API from AWS Kinesis — 1 operation(s) for
-    #x amz target=firehose 20150804.describedeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.DescribeDeliveryStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.describedeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2234,13 +2185,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-listdeliverystreams-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.ListDeliveryStreams API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.ListDeliveryStreams API from AWS Kinesis — 1 operation(s) for
-    #x amz target=firehose 20150804.listdeliverystreams.
+  description: 'The #X Amz Target=Firehose 20150804.ListDeliveryStreams API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.listdeliverystreams.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2305,13 +2254,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-listtagsfordeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.ListTagsForDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.ListTagsForDeliveryStream API from AWS Kinesis — 1 operation(s)
-    for #x amz target=firehose 20150804.listtagsfordeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.ListTagsForDeliveryStream API from AWS Kinesis — 1
+    operation(s) for #x amz target=firehose 20150804.listtagsfordeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2376,13 +2323,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-putrecord-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.PutRecord API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.PutRecord API from AWS Kinesis — 1 operation(s) for #x amz target=firehose
-    20150804.putrecord.
+  description: 'The #X Amz Target=Firehose 20150804.PutRecord API from AWS Kinesis — 1 operation(s) for
+    #x amz target=firehose 20150804.putrecord.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2447,13 +2392,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-putrecordbatch-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.PutRecordBatch API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.PutRecordBatch API from AWS Kinesis — 1 operation(s) for #x amz
-    target=firehose 20150804.putrecordbatch.
+  description: 'The #X Amz Target=Firehose 20150804.PutRecordBatch API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.putrecordbatch.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2518,13 +2461,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-startdeliverystreamencryption-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.StartDeliveryStreamEncryption API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.StartDeliveryStreamEncryption API from AWS Kinesis — 1 operation(s)
-    for #x amz target=firehose 20150804.startdeliverystreamencryption.
+  description: 'The #X Amz Target=Firehose 20150804.StartDeliveryStreamEncryption API from AWS Kinesis
+    — 1 operation(s) for #x amz target=firehose 20150804.startdeliverystreamencryption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -2532,8 +2473,7 @@ apis:
   - '#X Amz Target=Firehose 20150804.StartDeliveryStreamEncryption'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-firehose-20150804-startdeliverystreamencryption-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-firehose-20150804-startdeliverystreamencryption-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -2591,21 +2531,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-stopdeliverystreamencryption-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.StopDeliveryStreamEncryption API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.StopDeliveryStreamEncryption API from AWS Kinesis — 1 operation(s)
-    for #x amz target=firehose 20150804.stopdeliverystreamencryption.
+  description: 'The #X Amz Target=Firehose 20150804.StopDeliveryStreamEncryption API from AWS Kinesis
+    — 1 operation(s) for #x amz target=firehose 20150804.stopdeliverystreamencryption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=Firehose 20150804.StopDeliveryStreamEncryption'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-firehose-20150804-stopdeliverystreamencryption-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-firehose-20150804-stopdeliverystreamencryption-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -2663,13 +2600,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-tagdeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.TagDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.TagDeliveryStream API from AWS Kinesis — 1 operation(s) for #x
-    amz target=firehose 20150804.tagdeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.TagDeliveryStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.tagdeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2734,13 +2669,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-untagdeliverystream-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.UntagDeliveryStream API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.UntagDeliveryStream API from AWS Kinesis — 1 operation(s) for
-    #x amz target=firehose 20150804.untagdeliverystream.
+  description: 'The #X Amz Target=Firehose 20150804.UntagDeliveryStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.untagdeliverystream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2805,13 +2738,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-firehose-20150804-updatedestination-api
   name: 'AWS Kinesis #X Amz Target=Firehose 20150804.UpdateDestination API'
-  description: >-
-    The #X Amz Target=Firehose 20150804.UpdateDestination API from AWS Kinesis — 1 operation(s) for #x
-    amz target=firehose 20150804.updatedestination.
+  description: 'The #X Amz Target=Firehose 20150804.UpdateDestination API from AWS Kinesis — 1 operation(s)
+    for #x amz target=firehose 20150804.updatedestination.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2876,13 +2807,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-addtagstostream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.AddTagsToStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.AddTagsToStream API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.addtagstostream.
+  description: 'The #X Amz Target=Kinesis 20131202.AddTagsToStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.addtagstostream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -2947,13 +2876,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-createstream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.CreateStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.CreateStream API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.createstream.
+  description: 'The #X Amz Target=Kinesis 20131202.CreateStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.createstream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3018,21 +2945,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-decreasestreamretentionperiod-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DecreaseStreamRetentionPeriod API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DecreaseStreamRetentionPeriod API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesis 20131202.decreasestreamretentionperiod.
+  description: 'The #X Amz Target=Kinesis 20131202.DecreaseStreamRetentionPeriod API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesis 20131202.decreasestreamretentionperiod.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=Kinesis 20131202.DecreaseStreamRetentionPeriod'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesis-20131202-decreasestreamretentionperiod-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesis-20131202-decreasestreamretentionperiod-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -3090,13 +3014,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-deletestream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DeleteStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DeleteStream API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.deletestream.
+  description: 'The #X Amz Target=Kinesis 20131202.DeleteStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.deletestream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3161,13 +3083,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-deregisterstreamconsumer-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DeregisterStreamConsumer API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DeregisterStreamConsumer API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesis 20131202.deregisterstreamconsumer.
+  description: 'The #X Amz Target=Kinesis 20131202.DeregisterStreamConsumer API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.deregisterstreamconsumer.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3232,13 +3152,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-describelimits-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DescribeLimits API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DescribeLimits API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.describelimits.
+  description: 'The #X Amz Target=Kinesis 20131202.DescribeLimits API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.describelimits.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3303,13 +3221,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-describestream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DescribeStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DescribeStream API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.describestream.
+  description: 'The #X Amz Target=Kinesis 20131202.DescribeStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.describestream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3374,13 +3290,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-describestreamconsumer-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DescribeStreamConsumer API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DescribeStreamConsumer API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.describestreamconsumer.
+  description: 'The #X Amz Target=Kinesis 20131202.DescribeStreamConsumer API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.describestreamconsumer.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3445,13 +3359,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-describestreamsummary-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DescribeStreamSummary API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DescribeStreamSummary API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.describestreamsummary.
+  description: 'The #X Amz Target=Kinesis 20131202.DescribeStreamSummary API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.describestreamsummary.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3516,13 +3428,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-disableenhancedmonitoring-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.DisableEnhancedMonitoring API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.DisableEnhancedMonitoring API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesis 20131202.disableenhancedmonitoring.
+  description: 'The #X Amz Target=Kinesis 20131202.DisableEnhancedMonitoring API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesis 20131202.disableenhancedmonitoring.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3587,13 +3497,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-enableenhancedmonitoring-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.EnableEnhancedMonitoring API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.EnableEnhancedMonitoring API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesis 20131202.enableenhancedmonitoring.
+  description: 'The #X Amz Target=Kinesis 20131202.EnableEnhancedMonitoring API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.enableenhancedmonitoring.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3658,13 +3566,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-getrecords-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.GetRecords API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.GetRecords API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.getrecords.
+  description: 'The #X Amz Target=Kinesis 20131202.GetRecords API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.getrecords.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3729,13 +3635,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-getsharditerator-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.GetShardIterator API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.GetShardIterator API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.getsharditerator.
+  description: 'The #X Amz Target=Kinesis 20131202.GetShardIterator API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.getsharditerator.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3800,21 +3704,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-increasestreamretentionperiod-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesis 20131202.increasestreamretentionperiod.
+  description: 'The #X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesis 20131202.increasestreamretentionperiod.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesis-20131202-increasestreamretentionperiod-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesis-20131202-increasestreamretentionperiod-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -3872,13 +3773,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-listshards-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.ListShards API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.ListShards API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.listshards.
+  description: 'The #X Amz Target=Kinesis 20131202.ListShards API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.listshards.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -3943,13 +3842,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-liststreamconsumers-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.ListStreamConsumers API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.ListStreamConsumers API from AWS Kinesis — 1 operation(s) for #x
-    amz target=kinesis 20131202.liststreamconsumers.
+  description: 'The #X Amz Target=Kinesis 20131202.ListStreamConsumers API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.liststreamconsumers.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4014,13 +3911,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-liststreams-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.ListStreams API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.ListStreams API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.liststreams.
+  description: 'The #X Amz Target=Kinesis 20131202.ListStreams API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.liststreams.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4085,13 +3980,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-listtagsforstream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.ListTagsForStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.ListTagsForStream API from AWS Kinesis — 1 operation(s) for #x
-    amz target=kinesis 20131202.listtagsforstream.
+  description: 'The #X Amz Target=Kinesis 20131202.ListTagsForStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.listtagsforstream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4156,13 +4049,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-mergeshards-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.MergeShards API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.MergeShards API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.mergeshards.
+  description: 'The #X Amz Target=Kinesis 20131202.MergeShards API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.mergeshards.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4227,13 +4118,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-putrecord-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.PutRecord API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.PutRecord API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.putrecord.
+  description: 'The #X Amz Target=Kinesis 20131202.PutRecord API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.putrecord.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4298,13 +4187,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-putrecords-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.PutRecords API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.PutRecords API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.putrecords.
+  description: 'The #X Amz Target=Kinesis 20131202.PutRecords API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.putrecords.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4369,13 +4256,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-registerstreamconsumer-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.RegisterStreamConsumer API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.RegisterStreamConsumer API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.registerstreamconsumer.
+  description: 'The #X Amz Target=Kinesis 20131202.RegisterStreamConsumer API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.registerstreamconsumer.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4440,13 +4325,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-removetagsfromstream-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.RemoveTagsFromStream API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.RemoveTagsFromStream API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.removetagsfromstream.
+  description: 'The #X Amz Target=Kinesis 20131202.RemoveTagsFromStream API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.removetagsfromstream.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4511,13 +4394,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-splitshard-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.SplitShard API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.SplitShard API from AWS Kinesis — 1 operation(s) for #x amz target=kinesis
-    20131202.splitshard.
+  description: 'The #X Amz Target=Kinesis 20131202.SplitShard API from AWS Kinesis — 1 operation(s) for
+    #x amz target=kinesis 20131202.splitshard.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4582,13 +4463,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-startstreamencryption-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.StartStreamEncryption API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.StartStreamEncryption API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.startstreamencryption.
+  description: 'The #X Amz Target=Kinesis 20131202.StartStreamEncryption API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.startstreamencryption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4653,13 +4532,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-stopstreamencryption-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.StopStreamEncryption API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.StopStreamEncryption API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesis 20131202.stopstreamencryption.
+  description: 'The #X Amz Target=Kinesis 20131202.StopStreamEncryption API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.stopstreamencryption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4724,13 +4601,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-updateshardcount-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.UpdateShardCount API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.UpdateShardCount API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.updateshardcount.
+  description: 'The #X Amz Target=Kinesis 20131202.UpdateShardCount API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.updateshardcount.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4795,13 +4670,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesis-20131202-updatestreammode-api
   name: 'AWS Kinesis #X Amz Target=Kinesis 20131202.UpdateStreamMode API'
-  description: >-
-    The #X Amz Target=Kinesis 20131202.UpdateStreamMode API from AWS Kinesis — 1 operation(s) for #x amz
-    target=kinesis 20131202.updatestreammode.
+  description: 'The #X Amz Target=Kinesis 20131202.UpdateStreamMode API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesis 20131202.updatestreammode.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -4866,15 +4739,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationcloudwatchloggingoption-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption API from AWS Kinesis
-    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationcloudwatchloggingoption.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationcloudwatchloggingoption-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption API
+    from AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationcloudwatchloggingoption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -4882,8 +4751,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationCloudWatchLoggingOption'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationcloudwatchloggingoption-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationcloudwatchloggingoption-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -4941,21 +4809,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinput-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationInput API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationInput API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.addapplicationinput.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationInput API from AWS Kinesis —
+    1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationinput.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationInput'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinput-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinput-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5013,15 +4878,12 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinputprocessingconfiguration-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration API from AWS
-    Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationinputprocessingconfiguration.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinputprocessingconfiguration-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration
+    API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration
+    API from AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationinputprocessingconfiguration.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5029,8 +4891,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationInputProcessingConfiguration'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinputprocessingconfiguration-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationinputprocessingconfiguration-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5088,21 +4949,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationoutput-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationOutput API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationOutput API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.addapplicationoutput.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationOutput API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationoutput.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationOutput'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationoutput-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationoutput-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5160,15 +5018,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationreferencedatasource-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource API from AWS Kinesis
-    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationreferencedatasource.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationreferencedatasource-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource API from
+    AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationreferencedatasource.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5176,8 +5030,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationReferenceDataSource'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationreferencedatasource-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationreferencedatasource-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5235,14 +5088,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationvpcconfiguration-api
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationvpcconfiguration-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration API from AWS Kinesis —
-    1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationvpcconfiguration.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration API from AWS
+    Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.addapplicationvpcconfiguration.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5250,8 +5100,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationvpcconfiguration-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-addapplicationvpcconfiguration-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5309,13 +5158,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-createapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.CreateApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.CreateApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.createapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.CreateApplication API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesisanalytics 20180523.createapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -5380,13 +5227,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationpresignedurl-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl API from AWS Kinesis — 1
-    operation(s) for #x amz target=kinesisanalytics 20180523.createapplicationpresignedurl.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl API from AWS
+    Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.createapplicationpresignedurl.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5394,8 +5239,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationpresignedurl-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationpresignedurl-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5453,13 +5297,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationsnapshot-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.createapplicationsnapshot.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.createapplicationsnapshot.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5467,8 +5309,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationsnapshot-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-createapplicationsnapshot-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5526,13 +5367,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.deleteapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplication API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -5597,15 +5436,12 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationcloudwatchloggingoption-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption API from AWS
-    Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationcloudwatchloggingoption.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationcloudwatchloggingoption-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption
+    API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption API
+    from AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationcloudwatchloggingoption.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5613,8 +5449,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationCloudWatchLoggingOption'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationcloudwatchloggingoption-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationcloudwatchloggingoption-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5672,16 +5507,12 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationinputprocessingconfiguration-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration
-    API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration API from
-    AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationinputprocessingconfiguration.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationinputprocessingconfiguration-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration
+    API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration
+    API from AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationinputprocessingconfiguration.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5689,8 +5520,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationInputProcessingConfiguration'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationinputprocessingconfiguration-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationinputprocessingconfiguration-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5748,13 +5578,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationoutput-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationOutput API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationOutput API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.deleteapplicationoutput.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationOutput API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationoutput.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5762,8 +5590,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationOutput'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationoutput-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationoutput-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5821,15 +5648,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationreferencedatasource-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource API from AWS Kinesis
-    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationreferencedatasource.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationreferencedatasource-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource API from
+    AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationreferencedatasource.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5837,8 +5660,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationreferencedatasource-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationreferencedatasource-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5896,13 +5718,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationsnapshot-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationSnapshot API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationSnapshot API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.deleteapplicationsnapshot.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationSnapshot API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationsnapshot.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5910,8 +5730,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationSnapshot'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationsnapshot-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationsnapshot-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -5969,15 +5788,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationvpcconfiguration-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration API from AWS Kinesis
-    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationvpcconfiguration.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationvpcconfiguration-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration API from
+    AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.deleteapplicationvpcconfiguration.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -5985,8 +5800,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationvpcconfiguration-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-deleteapplicationvpcconfiguration-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6044,21 +5858,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-describeapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DescribeApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DescribeApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.describeapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DescribeApplication API from AWS Kinesis —
+    1 operation(s) for #x amz target=kinesisanalytics 20180523.describeapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplication'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplication-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplication-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6116,13 +5927,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationsnapshot-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.describeapplicationsnapshot.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.describeapplicationsnapshot.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -6130,8 +5939,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationsnapshot-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationsnapshot-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6189,13 +5997,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationversion-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationVersion API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationVersion API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.describeapplicationversion.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationVersion API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.describeapplicationversion.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -6203,8 +6009,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplicationVersion'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationversion-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-describeapplicationversion-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6262,21 +6067,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-discoverinputschema-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.discoverinputschema.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema API from AWS Kinesis —
+    1 operation(s) for #x amz target=kinesisanalytics 20180523.discoverinputschema.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.DiscoverInputSchema'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-discoverinputschema-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-discoverinputschema-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6334,13 +6136,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-listapplications-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.ListApplications API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.ListApplications API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.listapplications.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.ListApplications API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesisanalytics 20180523.listapplications.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -6405,13 +6205,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationsnapshots-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.listapplicationsnapshots.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.listapplicationsnapshots.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -6419,8 +6217,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationsnapshots-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationsnapshots-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6478,13 +6275,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationversions-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.ListApplicationVersions API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.ListApplicationVersions API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.listapplicationversions.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.ListApplicationVersions API from AWS Kinesis
+    — 1 operation(s) for #x amz target=kinesisanalytics 20180523.listapplicationversions.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -6492,8 +6287,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.ListApplicationVersions'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationversions-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listapplicationversions-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6551,21 +6345,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-listtagsforresource-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.ListTagsForResource API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.ListTagsForResource API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.listtagsforresource.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.ListTagsForResource API from AWS Kinesis —
+    1 operation(s) for #x amz target=kinesisanalytics 20180523.listtagsforresource.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.ListTagsForResource'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listtagsforresource-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-listtagsforresource-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6623,21 +6414,18 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-rollbackapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.RollbackApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.RollbackApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.rollbackapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.RollbackApplication API from AWS Kinesis —
+    1 operation(s) for #x amz target=kinesisanalytics 20180523.rollbackapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
   - '#X Amz Target=KinesisAnalytics 20180523.RollbackApplication'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-rollbackapplication-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-rollbackapplication-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -6695,13 +6483,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-startapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.StartApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.StartApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.startapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.StartApplication API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesisanalytics 20180523.startapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -6766,13 +6552,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-stopapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.StopApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.StopApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.stopapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.StopApplication API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesisanalytics 20180523.stopapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -6837,13 +6621,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-tagresource-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.TagResource API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.TagResource API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesisanalytics 20180523.tagresource.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.TagResource API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesisanalytics 20180523.tagresource.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -6908,13 +6690,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-untagresource-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.UntagResource API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.UntagResource API from AWS Kinesis — 1 operation(s) for
-    #x amz target=kinesisanalytics 20180523.untagresource.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.UntagResource API from AWS Kinesis — 1 operation(s)
+    for #x amz target=kinesisanalytics 20180523.untagresource.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -6979,13 +6759,11 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-updateapplication-api
   name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.UpdateApplication API'
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.UpdateApplication API from AWS Kinesis — 1 operation(s)
-    for #x amz target=kinesisanalytics 20180523.updateapplication.
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.UpdateApplication API from AWS Kinesis — 1
+    operation(s) for #x amz target=kinesisanalytics 20180523.updateapplication.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags:
@@ -7050,15 +6828,12 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: >-
-    kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-updateapplicationmaintenanceconfiguration-api
-  name: >-
-    AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration API
-  description: >-
-    The #X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration API from AWS
-    Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.updateapplicationmaintenanceconfiguration.
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-x-amz-target-kinesisanalytics-20180523-updateapplicationmaintenanceconfiguration-api
+  name: 'AWS Kinesis #X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration
+    API'
+  description: 'The #X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration
+    API from AWS Kinesis — 1 operation(s) for #x amz target=kinesisanalytics 20180523.updateapplicationmaintenanceconfiguration.'
   humanURL: https://aws.amazon.com/kinesis/data-streams/
   baseURL: https://kinesis.{region}.amazonaws.com
   tags: []
@@ -7066,8 +6841,7 @@ apis:
   - '#X Amz Target=KinesisAnalytics 20180523.UpdateApplicationMaintenanceConfiguration'
   properties:
   - type: OpenAPI
-    url: >-
-      openapi/kinesis-x-amz-target-kinesisanalytics-20180523-updateapplicationmaintenanceconfiguration-api-openapi.yml
+    url: openapi/kinesis-x-amz-target-kinesisanalytics-20180523-updateapplicationmaintenanceconfiguration-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -7125,8 +6899,623 @@ apis:
   - type: Resources
     url: https://aws.amazon.com/kinesis/video-streams/resources/
   - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Account API
+  description: Operations for describing and updating account-level settings and limits.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-account-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Consumers API
+  description: Operations for registering, describing, listing, and deregistering enhanced fan-out consumers.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Consumers
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-consumers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Encryption API
+  description: Operations for starting and stopping server-side encryption on a stream.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Encryption
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-encryption-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Monitoring API
+  description: Operations for enabling and disabling enhanced shard-level monitoring.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Monitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-monitoring-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Policies API
+  description: Operations for managing resource-based policies on streams.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-policies-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Records API
+  description: Operations for putting and getting data records to and from a stream.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Records
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-records-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Shards API
+  description: Operations for listing, splitting, merging, and managing shards within a stream.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Shards
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-shards-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- name: Amazon Kinesis Streams API
+  description: Operations for creating, describing, listing, and managing Kinesis data streams.
+  humanURL: https://aws.amazon.com/kinesis/data-streams/
+  baseURL: https://kinesis.amazonaws.com
+  tags:
+  - Streams
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-kinesis-streams-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: AsyncAPI
+    url: asyncapi/amazon-kinesis-streams-asyncapi.yml
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-record-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-kinesis-context.jsonld
+  - type: OpenAPI (Third-Party)
+    url: https://api.apis.guru/v2/specs/amazonaws.com/kinesis/2013-12-02/openapi.yaml
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html
+  - type: JSONSchema
+    url: json-schema/amazon-kinesis-stream-schema.json
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/data-firehose/features/
+  - type: FAQ
+    url: https://aws.amazon.com/firehose/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html
+  - type: Pricing
+    url: https://aws.amazon.com/managed-service-apache-flink/pricing/
+  - type: GettingStarted
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/managed-flink/latest/java/what-is.html
+  - type: Features
+    url: https://aws.amazon.com/managed-service-apache-flink/features/
+  - type: FAQ
+    url: https://aws.amazon.com/managed-service-apache-flink/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Streams_Archived_Media.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 common:
 - type: CapabilityMap
   url: capabilities/kinesis-capability-edges.yml
@@ -7170,3 +7559,5 @@ maintainers:
   email: kin@apievangelist.com
 x-parent: aws
 x-relationship: product
+x-aliases:
+- Amazon Kinesis
