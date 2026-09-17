@@ -75,982 +75,6 @@ apis:
   contact:
   - FN: AWS Support
     url: https://aws.amazon.com/contact-us/
-- aid: kinesis:kinesis-createsignalingchannel-api
-  name: AWS Kinesis CreateSignalingChannel API
-  description: >-
-    The CreateSignalingChannel API from AWS Kinesis — 1 operation(s) for createsignalingchannel.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - CreateSignalingChannel
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-createsignalingchannel-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-createstream-api
-  name: AWS Kinesis CreateStream API
-  description: The CreateStream API from AWS Kinesis — 1 operation(s) for createstream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - CreateStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-createstream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-deletesignalingchannel-api
-  name: AWS Kinesis DeleteSignalingChannel API
-  description: >-
-    The DeleteSignalingChannel API from AWS Kinesis — 1 operation(s) for deletesignalingchannel.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DeleteSignalingChannel
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-deletesignalingchannel-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-deletestream-api
-  name: AWS Kinesis DeleteStream API
-  description: The DeleteStream API from AWS Kinesis — 1 operation(s) for deletestream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DeleteStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-deletestream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describeedgeconfiguration-api
-  name: AWS Kinesis DescribeEdgeConfiguration API
-  description: >-
-    The DescribeEdgeConfiguration API from AWS Kinesis — 1 operation(s) for describeedgeconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeEdgeConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describeedgeconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describeimagegenerationconfiguration-api
-  name: AWS Kinesis DescribeImageGenerationConfiguration API
-  description: >-
-    The DescribeImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for describeimagegenerationconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeImageGenerationConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describeimagegenerationconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describemappedresourceconfiguration-api
-  name: AWS Kinesis DescribeMappedResourceConfiguration API
-  description: >-
-    The DescribeMappedResourceConfiguration API from AWS Kinesis — 1 operation(s) for describemappedresourceconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeMappedResourceConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describemappedresourceconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describemediastorageconfiguration-api
-  name: AWS Kinesis DescribeMediaStorageConfiguration API
-  description: >-
-    The DescribeMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for describemediastorageconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeMediaStorageConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describemediastorageconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describenotificationconfiguration-api
-  name: AWS Kinesis DescribeNotificationConfiguration API
-  description: >-
-    The DescribeNotificationConfiguration API from AWS Kinesis — 1 operation(s) for describenotificationconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeNotificationConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describenotificationconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describesignalingchannel-api
-  name: AWS Kinesis DescribeSignalingChannel API
-  description: >-
-    The DescribeSignalingChannel API from AWS Kinesis — 1 operation(s) for describesignalingchannel.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeSignalingChannel
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describesignalingchannel-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-describestream-api
-  name: AWS Kinesis DescribeStream API
-  description: The DescribeStream API from AWS Kinesis — 1 operation(s) for describestream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - DescribeStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-describestream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-getdataendpoint-api
-  name: AWS Kinesis GetDataEndpoint API
-  description: The GetDataEndpoint API from AWS Kinesis — 1 operation(s) for getdataendpoint.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - GetDataEndpoint
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-getdataendpoint-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-getsignalingchannelendpoint-api
-  name: AWS Kinesis GetSignalingChannelEndpoint API
-  description: >-
-    The GetSignalingChannelEndpoint API from AWS Kinesis — 1 operation(s) for getsignalingchannelendpoint.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - GetSignalingChannelEndpoint
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-getsignalingchannelendpoint-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-listsignalingchannels-api
-  name: AWS Kinesis ListSignalingChannels API
-  description: >-
-    The ListSignalingChannels API from AWS Kinesis — 1 operation(s) for listsignalingchannels.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - ListSignalingChannels
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-listsignalingchannels-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 - aid: kinesis:kinesis-liststreams-api
   name: AWS Kinesis ListStreams API
   description: The ListStreams API from AWS Kinesis — 1 operation(s) for liststreams.
@@ -1061,909 +85,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/kinesis-liststreams-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-listtagsforresource-api
-  name: AWS Kinesis ListTagsForResource API
-  description: The ListTagsForResource API from AWS Kinesis — 1 operation(s) for listtagsforresource.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - ListTagsForResource
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-listtagsforresource-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-listtagsforstream-api
-  name: AWS Kinesis ListTagsForStream API
-  description: The ListTagsForStream API from AWS Kinesis — 1 operation(s) for listtagsforstream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - ListTagsForStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-listtagsforstream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-startedgeconfigurationupdate-api
-  name: AWS Kinesis StartEdgeConfigurationUpdate API
-  description: >-
-    The StartEdgeConfigurationUpdate API from AWS Kinesis — 1 operation(s) for startedgeconfigurationupdate.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - StartEdgeConfigurationUpdate
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-startedgeconfigurationupdate-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-tagresource-api
-  name: AWS Kinesis TagResource API
-  description: The TagResource API from AWS Kinesis — 1 operation(s) for tagresource.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - TagResource
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-tagresource-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-tagstream-api
-  name: AWS Kinesis TagStream API
-  description: The TagStream API from AWS Kinesis — 1 operation(s) for tagstream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - TagStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-tagstream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-untagresource-api
-  name: AWS Kinesis UntagResource API
-  description: The UntagResource API from AWS Kinesis — 1 operation(s) for untagresource.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UntagResource
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-untagresource-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-untagstream-api
-  name: AWS Kinesis UntagStream API
-  description: The UntagStream API from AWS Kinesis — 1 operation(s) for untagstream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UntagStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-untagstream-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updatedataretention-api
-  name: AWS Kinesis UpdateDataRetention API
-  description: The UpdateDataRetention API from AWS Kinesis — 1 operation(s) for updatedataretention.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UpdateDataRetention
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updatedataretention-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updateimagegenerationconfiguration-api
-  name: AWS Kinesis UpdateImageGenerationConfiguration API
-  description: >-
-    The UpdateImageGenerationConfiguration API from AWS Kinesis — 1 operation(s) for updateimagegenerationconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UpdateImageGenerationConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updateimagegenerationconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updatemediastorageconfiguration-api
-  name: AWS Kinesis UpdateMediaStorageConfiguration API
-  description: >-
-    The UpdateMediaStorageConfiguration API from AWS Kinesis — 1 operation(s) for updatemediastorageconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UpdateMediaStorageConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updatemediastorageconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updatenotificationconfiguration-api
-  name: AWS Kinesis UpdateNotificationConfiguration API
-  description: >-
-    The UpdateNotificationConfiguration API from AWS Kinesis — 1 operation(s) for updatenotificationconfiguration.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags: []
-  tags_raw:
-  - UpdateNotificationConfiguration
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updatenotificationconfiguration-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updatesignalingchannel-api
-  name: AWS Kinesis UpdateSignalingChannel API
-  description: >-
-    The UpdateSignalingChannel API from AWS Kinesis — 1 operation(s) for updatesignalingchannel.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UpdateSignalingChannel
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updatesignalingchannel-api-openapi.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
-  - type: Security
-    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/data-streams/customers/
-  - type: Integrations
-    url: https://aws.amazon.com/kinesis/data-streams/integrations/
-  - type: Documentation
-    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
-  - type: Documentation
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
-  - type: Pricing
-    url: https://aws.amazon.com/kinesis/video-streams/pricing/
-  - type: GettingStarted
-    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
-  - type: FAQ
-    url: https://aws.amazon.com/kinesis/video-streams/faqs/
-  - type: DeveloperGuide
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
-  - type: Security
-    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
-  - type: Customers
-    url: https://aws.amazon.com/kinesis/video-streams/customers/
-  - type: Features
-    url: https://aws.amazon.com/kinesis/video-streams/features/
-  - type: Resources
-    url: https://aws.amazon.com/kinesis/video-streams/resources/
-  - type: WebRTCGuide
-    url: >-
-      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
-- aid: kinesis:kinesis-updatestream-api
-  name: AWS Kinesis UpdateStream API
-  description: The UpdateStream API from AWS Kinesis — 1 operation(s) for updatestream.
-  humanURL: https://aws.amazon.com/kinesis/data-streams/
-  baseURL: https://kinesis.{region}.amazonaws.com
-  tags:
-  - UpdateStream
-  properties:
-  - type: OpenAPI
-    url: openapi/kinesis-updatestream-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
@@ -7068,6 +5189,1895 @@ apis:
   - type: OpenAPI
     url: >-
       openapi/kinesis-x-amz-target-kinesisanalytics-20180523-updateapplicationmaintenanceconfiguration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-create-signaling-channel-api
+  name: AWS Kinesis Create Signaling Channel API
+  description: >-
+    The Create Signaling Channel API from AWS Kinesis — 1 operation(s) for create signaling channel.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Create Signaling Channel
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-create-signaling-channel-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-create-stream-api
+  name: AWS Kinesis Create Stream API
+  description: The Create Stream API from AWS Kinesis — 1 operation(s) for create stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Create Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-create-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-delete-signaling-channel-api
+  name: AWS Kinesis Delete Signaling Channel API
+  description: >-
+    The Delete Signaling Channel API from AWS Kinesis — 1 operation(s) for delete signaling channel.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Delete Signaling Channel
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-delete-signaling-channel-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-delete-stream-api
+  name: AWS Kinesis Delete Stream API
+  description: The Delete Stream API from AWS Kinesis — 1 operation(s) for delete stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Delete Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-delete-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-edge-configuration-api
+  name: AWS Kinesis Describe Edge Configuration API
+  description: >-
+    The Describe Edge Configuration API from AWS Kinesis — 1 operation(s) for describe edge configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Edge Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-edge-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-image-generation-configuration-api
+  name: AWS Kinesis Describe Image Generation Configuration API
+  description: >-
+    The Describe Image Generation Configuration API from AWS Kinesis — 1 operation(s) for describe image
+    generation configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Image Generation Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-image-generation-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-mapped-resource-configuration-api
+  name: AWS Kinesis Describe Mapped Resource Configuration API
+  description: >-
+    The Describe Mapped Resource Configuration API from AWS Kinesis — 1 operation(s) for describe mapped
+    resource configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Mapped Resource Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-mapped-resource-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-media-storage-configuration-api
+  name: AWS Kinesis Describe Media Storage Configuration API
+  description: >-
+    The Describe Media Storage Configuration API from AWS Kinesis — 1 operation(s) for describe media
+    storage configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Media Storage Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-media-storage-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-notification-configuration-api
+  name: AWS Kinesis Describe Notification Configuration API
+  description: >-
+    The Describe Notification Configuration API from AWS Kinesis — 1 operation(s) for describe notification
+    configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Notification Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-notification-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-signaling-channel-api
+  name: AWS Kinesis Describe Signaling Channel API
+  description: >-
+    The Describe Signaling Channel API from AWS Kinesis — 1 operation(s) for describe signaling channel.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Signaling Channel
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-signaling-channel-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-describe-stream-api
+  name: AWS Kinesis Describe Stream API
+  description: The Describe Stream API from AWS Kinesis — 1 operation(s) for describe stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Describe Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-describe-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-get-data-endpoint-api
+  name: AWS Kinesis Get Data Endpoint API
+  description: The Get Data Endpoint API from AWS Kinesis — 1 operation(s) for get data endpoint.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Get Data Endpoint
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-get-data-endpoint-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-get-signaling-channel-endpoint-api
+  name: AWS Kinesis Get Signaling Channel Endpoint API
+  description: >-
+    The Get Signaling Channel Endpoint API from AWS Kinesis — 1 operation(s) for get signaling channel
+    endpoint.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Get Signaling Channel Endpoint
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-get-signaling-channel-endpoint-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-list-signaling-channels-api
+  name: AWS Kinesis List Signaling Channels API
+  description: >-
+    The List Signaling Channels API from AWS Kinesis — 1 operation(s) for list signaling channels.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - List Signaling Channels
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-list-signaling-channels-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-list-tags-for-resource-api
+  name: AWS Kinesis List Tags For Resource API
+  description: >-
+    The List Tags For Resource API from AWS Kinesis — 1 operation(s) for list tags for resource.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - List Tags For Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-list-tags-for-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-list-tags-for-stream-api
+  name: AWS Kinesis List Tags For Stream API
+  description: The List Tags For Stream API from AWS Kinesis — 1 operation(s) for list tags for stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - List Tags For Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-list-tags-for-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-start-edge-configuration-update-api
+  name: AWS Kinesis Start Edge Configuration Update API
+  description: >-
+    The Start Edge Configuration Update API from AWS Kinesis — 1 operation(s) for start edge configuration
+    update.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Start Edge Configuration Update
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-start-edge-configuration-update-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-tag-resource-api
+  name: AWS Kinesis Tag Resource API
+  description: The Tag Resource API from AWS Kinesis — 1 operation(s) for tag resource.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Tag Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-tag-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-tag-stream-api
+  name: AWS Kinesis Tag Stream API
+  description: The Tag Stream API from AWS Kinesis — 1 operation(s) for tag stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Tag Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-tag-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-untag-resource-api
+  name: AWS Kinesis Untag Resource API
+  description: The Untag Resource API from AWS Kinesis — 1 operation(s) for untag resource.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Untag Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-untag-resource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-untag-stream-api
+  name: AWS Kinesis Untag Stream API
+  description: The Untag Stream API from AWS Kinesis — 1 operation(s) for untag stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Untag Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-untag-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-data-retention-api
+  name: AWS Kinesis Update Data Retention API
+  description: >-
+    The Update Data Retention API from AWS Kinesis — 1 operation(s) for update data retention.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Update Data Retention
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-data-retention-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-image-generation-configuration-api
+  name: AWS Kinesis Update Image Generation Configuration API
+  description: >-
+    The Update Image Generation Configuration API from AWS Kinesis — 1 operation(s) for update image generation
+    configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Update Image Generation Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-image-generation-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-media-storage-configuration-api
+  name: AWS Kinesis Update Media Storage Configuration API
+  description: >-
+    The Update Media Storage Configuration API from AWS Kinesis — 1 operation(s) for update media storage
+    configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Update Media Storage Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-media-storage-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-notification-configuration-api
+  name: AWS Kinesis update Notification Configuration API
+  description: >-
+    The update Notification Configuration API from AWS Kinesis — 1 operation(s) for update notification
+    configuration.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - update Notification Configuration
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-notification-configuration-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-signaling-channel-api
+  name: AWS Kinesis Update Signaling Channel API
+  description: >-
+    The Update Signaling Channel API from AWS Kinesis — 1 operation(s) for update signaling channel.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Update Signaling Channel
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-signaling-channel-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+  - type: Security
+    url: https://docs.aws.amazon.com/streams/latest/dev/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/data-streams/customers/
+  - type: Integrations
+    url: https://aws.amazon.com/kinesis/data-streams/integrations/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/firehose/latest/APIReference/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-firehose/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-firehose/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-firehose/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/data-analytics/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/data-analytics/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/data-analytics/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html
+  - type: Documentation
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html
+  - type: Pricing
+    url: https://aws.amazon.com/kinesis/video-streams/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/kinesis/video-streams/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/kinesis/video-streams/faqs/
+  - type: DeveloperGuide
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html
+  - type: Security
+    url: https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html
+  - type: Customers
+    url: https://aws.amazon.com/kinesis/video-streams/customers/
+  - type: Features
+    url: https://aws.amazon.com/kinesis/video-streams/features/
+  - type: Resources
+    url: https://aws.amazon.com/kinesis/video-streams/resources/
+  - type: WebRTCGuide
+    url: >-
+      https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
+- aid: kinesis:kinesis-update-stream-api
+  name: AWS Kinesis Update Stream API
+  description: The Update Stream API from AWS Kinesis — 1 operation(s) for update stream.
+  humanURL: https://aws.amazon.com/managed-service-apache-flink/
+  baseURL: https://kinesisanalytics.{region}.amazonaws.com
+  tags:
+  - Update Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/kinesis-update-stream-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/kinesis/latest/APIReference/
   - type: Pricing
