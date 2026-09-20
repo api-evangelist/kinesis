@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
 published: true
 note: 'Regional price table is rendered by placeholder tokens; numeric prices appear only in the pricing
   examples (US East N. Virginia): $0.11 per KPU-hour, $0.10 per GB/month running storage, $0.023/GB-month
