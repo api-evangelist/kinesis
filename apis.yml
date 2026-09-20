@@ -7138,6 +7138,8 @@ apis:
     url: >-
       https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 common:
+- type: Plans
+  url: plans/kinesis-plans-pricing.yml
 - type: CapabilityMap
   url: capabilities/kinesis-capability-edges.yml
   name: AWS Kinesis Business Capability Map

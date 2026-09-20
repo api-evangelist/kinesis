@@ -1,284 +1,41 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: AWS Kinesis
-providerId: kinesis
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: true
-tags:
-  - Streaming
-  - Real-Time
-  - AWS
-  - Big Data
-  - Analytics
-description: Amazon Kinesis prices on a pure pay-as-you-go model with three Data Streams capacity modes
-  (On-Demand Standard, On-Demand Advantage, Provisioned) plus a separate per-GB ingestion price for Amazon
-  Data Firehose. Prices below are US-East-1 list rates and exclude AWS data-transfer / S3 / KMS costs.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://aws.amazon.com/managed-service-apache-flink/pricing/
 sources:
-  - https://aws.amazon.com/kinesis/data-streams/pricing/
-  - https://aws.amazon.com/kinesis/data-firehose/pricing/
+- https://aws.amazon.com/managed-service-apache-flink/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+published: true
+note: 'Regional price table is rendered by placeholder tokens; numeric prices appear only in the pricing
+  examples (US East N. Virginia): $0.11 per KPU-hour, $0.10 per GB/month running storage, $0.023/GB-month
+  durable backups. Billed in one-second increments; additional KPU per streaming application, two additional
+  KPUs per Studio application.'
+plan_count: 3
+currency: USD
 plans:
-  - id: kinesis-data-streams-on-demand-standard
-    name: Kinesis Data Streams - On-Demand Standard
-    type: usage-based
-    description: Per-stream-hour plus per-GB in/out, no shard sizing required.
-    entries:
-      - label: Stream hour
-        name: kds_ondemand_stream_hour
-        type: metered
-        metric: stream-hour
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.040'
-        userMultiplied: false
-      - label: Data ingested (Data-In)
-        name: kds_ondemand_data_in
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.08'
-        userMultiplied: false
-      - label: Data retrieved (Data-Out)
-        name: kds_ondemand_data_out
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.040'
-        userMultiplied: false
-    elements:
-      - name: Auto-scales to 200 MB/s write / 400 MB/s read (most regions)
-      - name: Up to 10 GB/s write / 20 GB/s read in US-East-1, US-West-2, EU-West-1
-      - name: Up to 20 registered Enhanced Fan-Out consumers per stream
-  - id: kinesis-data-streams-on-demand-advantage
-    name: Kinesis Data Streams - On-Demand Advantage
-    type: usage-based
-    description: Lower per-GB rates with a 25 MB/s minimum commitment; Enhanced Fan-Out included.
-    entries:
-      - label: Data ingested (Data-In)
-        name: kds_advantage_data_in
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.032'
-        userMultiplied: false
-      - label: Data retrieved (Data-Out)
-        name: kds_advantage_data_out
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.016'
-        userMultiplied: false
-    elements:
-      - name: 25 MB/s ingestion + retrieval minimum commitment
-      - name: Enhanced Fan-Out included at no extra charge
-      - name: Up to 50 registered Enhanced Fan-Out consumers per stream
-      - name: No per-stream-hour charge
-  - id: kinesis-data-streams-provisioned
-    name: Kinesis Data Streams - Provisioned
-    type: usage-based
-    description: Pay per shard-hour and per million PUT payload units (25 KB chunks).
-    entries:
-      - label: Shard hour
-        name: kds_shard_hour
-        type: metered
-        metric: shard-hour
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.015'
-        userMultiplied: false
-      - label: PUT payload units (per 25 KB chunk)
-        name: kds_put_payload_unit
-        type: metered
-        metric: payload-unit
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1000000
-        price: '0.014'
-        userMultiplied: false
-      - label: Extended Data Retention (up to 7 days)
-        name: kds_extended_retention
-        type: metered
-        metric: shard-hour
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.020'
-        userMultiplied: false
-      - label: Long-Term Retention storage (>7 days)
-        name: kds_long_term_storage
-        type: metered
-        metric: GB-month
-        limit: -1
-        timeFrame: month
-        geo: US-East-1
-        unit: 1
-        price: '0.023'
-        userMultiplied: false
-      - label: Long-Term Retention retrieval (GetRecords)
-        name: kds_long_term_retrieval
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.021'
-        userMultiplied: false
-      - label: Enhanced Fan-Out consumer-shard hour
-        name: kds_efo_consumer_shard_hour
-        type: metered
-        metric: consumer-shard-hour
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.015'
-        userMultiplied: false
-      - label: Enhanced Fan-Out data retrieval
-        name: kds_efo_data_retrieval
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.013'
-        userMultiplied: false
-    elements:
-      - name: 1 MB/s or 1000 records/s write per shard
-      - name: 2 MB/s or 5 GetRecords/s read per shard
-      - name: 24-hour default retention free
-  - id: kinesis-data-firehose
-    name: Amazon Data Firehose
-    type: usage-based
-    description: Per-GB ingestion priced by source; format conversion and dynamic partitioning are add-ons.
-    entries:
-      - label: Direct PUT / KDS source ingestion (first 500 TB/mo)
-        name: firehose_directput
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: month
-        geo: US-East-1
-        unit: 1
-        price: '0.029'
-        userMultiplied: false
-      - label: MSK source ingestion (first 500 TB/mo)
-        name: firehose_msk
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: month
-        geo: US-East-1
-        unit: 1
-        price: '0.055'
-        userMultiplied: false
-      - label: Vended logs ingestion (first 500 TB/mo)
-        name: firehose_vendedlogs
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: month
-        geo: US-East-1
-        unit: 1
-        price: '0.13'
-        userMultiplied: false
-      - label: Format conversion (JSON to Parquet/ORC)
-        name: firehose_format_conversion
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.018'
-        userMultiplied: false
-      - label: Dynamic partitioning processing
-        name: firehose_dynpart
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.020'
-        userMultiplied: false
-      - label: Dynamic partitioning S3 objects
-        name: firehose_dynpart_objects
-        type: metered
-        metric: object
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1000
-        price: '0.005'
-        userMultiplied: false
-      - label: VPC delivery
-        name: firehose_vpc_data
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.01'
-        userMultiplied: false
-      - label: VPC delivery per-AZ-hour
-        name: firehose_vpc_az_hour
-        type: metered
-        metric: AZ-hour
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.01'
-        userMultiplied: false
-      - label: Snowflake delivery
-        name: firehose_snowflake
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.071'
-        userMultiplied: false
-      - label: Apache Iceberg tables delivery
-        name: firehose_iceberg
-        type: metered
-        metric: GB
-        limit: -1
-        timeFrame: usage
-        geo: US-East-1
-        unit: 1
-        price: '0.045'
-        userMultiplied: false
-    elements:
-      - name: Direct PUT, KDS, MSK, and Vended Logs sources
-      - name: 5 KB ingestion increment for Direct PUT/KDS sources
-      - name: No setup fees or upfront commitments
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Kinesis Processing Unit (KPU)
+  price_text: $0.11 per KPU-hour
+  price: 0.11
+  currency: USD
+  period: per-use
+  unit: KPU-hour
+  included_quota: A single KPU comprises 1 vCPU compute and 4 GB of memory; price in U.S. East (N. Virginia)
+    Region
+- name: Running Application Storage
+  price_text: $0.10 per GB/month
+  price: 0.1
+  currency: USD
+  period: month
+  unit: GB-month
+  included_quota: 50 GB of running application storage allocated per KPU
+- name: Durable Application Backups
+  price_text: $0.023/GB-month
+  price: 0.023
+  currency: USD
+  period: month
+  unit: GB-month
