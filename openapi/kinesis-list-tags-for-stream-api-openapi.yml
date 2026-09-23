@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Describe Stream API
-  description: <p/>
+  title: Amazon Kinesis Video Streams List Tags For Stream API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DescribeStream
+- name: List Tags For Stream
 paths:
-  /describeStream:
+  /listTagsForStream:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,39 +124,48 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: DescribeStream
-      description: 'Returns the most current information about the specified stream. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>. '
+      operationId: ListTagsForStream
+      description: 'Returns a list of tags associated with the specified stream.
+
+
+        In the request, you must specify either the StreamName or the StreamARN.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DescribeStreamOutput'
+                $ref: '#/components/schemas/ListTagsForStreamOutput'
         '480':
-          description: InvalidArgumentException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidArgumentException'
-        '481':
-          description: ResourceNotFoundException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
-        '482':
           description: ClientLimitExceededException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ClientLimitExceededException'
+        '481':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
           description: NotAuthorizedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorizedException'
+        '484':
+          description: InvalidResourceFormatException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidResourceFormatException'
       parameters: []
       requestBody:
         required: true
@@ -165,137 +174,71 @@ paths:
             schema:
               type: object
               properties:
-                StreamName:
-                  description: The name of the stream.
+                NextToken:
+                  description: If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
                   type: string
-                  pattern: '[a-zA-Z0-9_.-]+'
-                  minLength: 1
-                  maxLength: 256
+                  pattern: '[a-zA-Z0-9+/=]*'
+                  minLength: 0
+                  maxLength: 512
                 StreamARN:
-                  description: The Amazon Resource Name (ARN) of the stream.
+                  description: The Amazon Resource Name (ARN) of the stream that you want to list tags for.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
+                StreamName:
+                  description: The name of the stream that you want to list tags for.
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
       tags:
-      - DescribeStream
+      - List Tags For Stream
+      summary: List tags for stream
+      x-summary-source: derived
 components:
   schemas:
-    DataRetentionInHours:
-      type: integer
-      minimum: 0
-    ResourceNotFoundException: {}
-    DescribeStreamOutput:
-      type: object
-      properties:
-        StreamInfo:
-          allOf:
-          - $ref: '#/components/schemas/StreamInfo'
-          - description: An object that describes the stream.
-    KmsKeyId:
+    TagValue:
       type: string
-      pattern: .+
-      minLength: 1
-      maxLength: 2048
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
       maxLength: 256
-    Version:
-      type: string
-      pattern: '[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 64
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    InvalidArgumentException: {}
-    NotAuthorizedException: {}
-    ClientLimitExceededException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    StreamInfo:
+    ResourceTags:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    ListTagsForStreamOutput:
       type: object
       properties:
-        DeviceName:
+        NextToken:
           allOf:
-          - $ref: '#/components/schemas/DeviceName'
-          - description: The name of the device that is associated with the stream.
-        StreamName:
+          - $ref: '#/components/schemas/NextToken'
+          - description: If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
+        Tags:
           allOf:
-          - $ref: '#/components/schemas/StreamName'
-          - description: The name of the stream.
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/ResourceARN'
-          - description: The Amazon Resource Name (ARN) of the stream.
-        MediaType:
-          allOf:
-          - $ref: '#/components/schemas/MediaType'
-          - description: 'The <code>MediaType</code> of the stream. '
-        KmsKeyId:
-          allOf:
-          - $ref: '#/components/schemas/KmsKeyId'
-          - description: The ID of the Key Management Service (KMS) key that Kinesis Video Streams uses to encrypt data on the stream.
-        Version:
-          allOf:
-          - $ref: '#/components/schemas/Version'
-          - description: The version of the stream.
-        Status:
-          allOf:
-          - $ref: '#/components/schemas/Status'
-          - description: The status of the stream.
-        CreationTime:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: A time stamp that indicates when the stream was created.
-        DataRetentionInHours:
-          allOf:
-          - $ref: '#/components/schemas/DataRetentionInHours'
-          - description: How long the stream retains data, in hours.
-      description: An object describing a Kinesis video stream.
-    Status:
+          - $ref: '#/components/schemas/ResourceTags'
+          - description: A map of tag keys and values associated with the specified stream.
+    ResourceNotFoundException: {}
+    NextToken:
       type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-    MediaType:
-      type: string
-      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
-      minLength: 1
-      maxLength: 128
-    DeviceName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
+    NotAuthorizedException: {}
+    InvalidResourceFormatException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -312,8 +255,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

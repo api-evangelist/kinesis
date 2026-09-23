@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DescribeStream API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,25 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DescribeStream
-      description: <p>Describes the specified Kinesis data stream.</p> <note> <p>This API has been revised. It's highly recommended that you use the <a>DescribeStreamSummary</a> API to get a summarized description of the specified Kinesis data stream and the <a>ListShards</a> API to list the shards in a specified data stream and obtain information about each shard. </p> </note> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note> <p>The information returned includes the stream name, Amazon Resource Name (ARN), creation time, enhanced metric configuration, and shard map. The shard map is an array of shard objects. For each shard object, there is the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. Every record ingested in the stream is identified by a sequence number, which is assigned when the record is put into the stream.</p> <p>You can limit the number of shards returned by each call. For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-retrieve-shards.html">Retrieving Shards from a Stream</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p> <p>There are no guarantees about the chronological order shards returned. To process shards in chronological order, use the ID of the parent shard to track the lineage to the oldest shard.</p> <p>This operation has a limit of 10 transactions per second per account.</p>
+      description: 'Describes the specified Kinesis data stream.
+
+
+        This API has been revised. It''s highly recommended that you use the DescribeStreamSummary API to get a summarized description of the specified Kinesis data stream and the ListShards API to list the shards in a specified data stream and obtain information about each shard.
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.
+
+
+        The information returned includes the stream name, Amazon Resource Name (ARN), creation time, enhanced metric configuration, and shard map. The shard map is an array of shard objects. For each shard object, there is the hash key and sequence number ranges that the shard spans, and the IDs of any earlier shards that played in a role in creating the shard. Every record ingested in the stream is identified by a sequence number, which is assigned when the record is put into the stream.
+
+
+        You can limit the number of shards returned by each call. For more information, see Retrieving Shards from a Stream in the Amazon Kinesis Data Streams Developer Guide.
+
+
+        There are no guarantees about the chronological order shards returned. To process shards in chronological order, use the ID of the parent shard to track the lineage to the oldest shard.
+
+
+        This operation has a limit of 10 transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -185,14 +205,10 @@ paths:
           - Kinesis_20131202.DescribeStream
       tags:
       - '#X Amz Target=Kinesis 20131202.DescribeStream'
+      summary: Describe stream
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    ShardId:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
     MetricsName:
       type: string
       enum:
@@ -204,147 +220,17 @@ components:
       - ReadProvisionedThroughputExceeded
       - IteratorAgeMilliseconds
       - ALL
-    EnhancedMonitoringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EnhancedMetrics'
-    SequenceNumberRange:
-      type: object
-      required:
-      - StartingSequenceNumber
-      properties:
-        StartingSequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The starting sequence number for the range.
-        EndingSequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
-      description: The range of possible sequence numbers for the shard.
-    DescribeStreamOutput:
-      type: object
-      required:
-      - StreamDescription
-      properties:
-        StreamDescription:
-          allOf:
-          - $ref: '#/components/schemas/StreamDescription'
-          - description: The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
-      description: Represents the output for <code>DescribeStream</code>.
-    MetricsNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MetricsName'
-      minItems: 1
-      maxItems: 7
+    SequenceNumber:
+      type: string
+      pattern: 0|([1-9]\d{0,128})
     KeyId:
       type: string
       minLength: 1
       maxLength: 2048
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    RetentionPeriodHours:
-      type: integer
-    DescribeStreamInput:
-      type: object
-      title: DescribeStreamInput
-      properties:
-        StreamName:
-          allOf:
-          - $ref: '#/components/schemas/StreamName'
-          - description: The name of the stream to describe.
-        Limit:
-          allOf:
-          - $ref: '#/components/schemas/DescribeStreamInputLimit'
-          - description: The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 results are returned.
-        ExclusiveStartShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: <p>The shard ID of the shard to start with.</p> <p>Specify this parameter to indicate that you want to describe the stream starting with the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p> <p>If you don't specify this parameter, the default behavior for <code>DescribeStream</code> is to describe the stream starting with the first shard in the stream.</p>
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the stream.
-      description: Represents the input for <code>DescribeStream</code>.
-    AccessDeniedException: {}
-    DescribeStreamInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    StreamStatus:
-      type: string
-      enum:
-      - CREATING
-      - DELETING
-      - ACTIVE
-      - UPDATING
-    InvalidArgumentException: {}
-    StreamModeDetails:
-      type: object
-      required:
-      - StreamMode
-      properties:
-        StreamMode:
-          allOf:
-          - $ref: '#/components/schemas/StreamMode'
-          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-    LimitExceededException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    StreamMode:
-      type: string
-      enum:
-      - PROVISIONED
-      - ON_DEMAND
-    Shard:
-      type: object
-      required:
-      - ShardId
-      - HashKeyRange
-      - SequenceNumberRange
-      properties:
-        ShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The unique identifier of the shard within the stream.
-        ParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard's parent.
-        AdjacentParentShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The shard ID of the shard adjacent to the shard's parent.
-        HashKeyRange:
-          allOf:
-          - $ref: '#/components/schemas/HashKeyRange'
-          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-        SequenceNumberRange:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumberRange'
-          - description: The range of possible sequence numbers for the shard.
-      description: A uniquely identified group of data records in a Kinesis data stream.
-    HashKeyRange:
-      type: object
-      required:
-      - StartingHashKey
-      - EndingHashKey
-      properties:
-        StartingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The starting hash key of the hash key range.
-        EndingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The ending hash key of the hash key range.
-      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+    EnhancedMonitoringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnhancedMetrics'
     StreamDescription:
       type: object
       required:
@@ -406,16 +292,12 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Shard'
-    EncryptionType:
+    ShardId:
       type: string
-      enum:
-      - NONE
-      - KMS
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
-      maxLength: 2048
+      maxLength: 128
+    AccessDeniedException: {}
     EnhancedMetrics:
       type: object
       properties:
@@ -424,15 +306,161 @@ components:
           - $ref: '#/components/schemas/MetricsNameList'
           - description: <p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
       description: Represents enhanced metrics types.
-    SequenceNumber:
-      type: string
-      pattern: 0|([1-9]\d{0,128})
-    BooleanObject:
-      type: boolean
+    RetentionPeriodHours:
+      type: integer
     HashKey:
       type: string
       pattern: 0|([1-9]\d{0,38})
+    InvalidArgumentException: {}
+    DescribeStreamOutput:
+      type: object
+      required:
+      - StreamDescription
+      properties:
+        StreamDescription:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescription'
+          - description: The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
+      description: Represents the output for <code>DescribeStream</code>.
+    StreamStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+      - UPDATING
+    EncryptionType:
+      type: string
+      enum:
+      - NONE
+      - KMS
+    Shard:
+      type: object
+      required:
+      - ShardId
+      - HashKeyRange
+      - SequenceNumberRange
+      properties:
+        ShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The unique identifier of the shard within the stream.
+        ParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard's parent.
+        AdjacentParentShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The shard ID of the shard adjacent to the shard's parent.
+        HashKeyRange:
+          allOf:
+          - $ref: '#/components/schemas/HashKeyRange'
+          - description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+        SequenceNumberRange:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumberRange'
+          - description: The range of possible sequence numbers for the shard.
+      description: A uniquely identified group of data records in a Kinesis data stream.
+    ResourceNotFoundException: {}
+    MetricsNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricsName'
+      minItems: 1
+      maxItems: 7
+    StreamMode:
+      type: string
+      enum:
+      - PROVISIONED
+      - ON_DEMAND
+    DescribeStreamInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    StreamModeDetails:
+      type: object
+      required:
+      - StreamMode
+      properties:
+        StreamMode:
+          allOf:
+          - $ref: '#/components/schemas/StreamMode'
+          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+    Timestamp:
+      type: string
+      format: date-time
+    LimitExceededException: {}
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    HashKeyRange:
+      type: object
+      required:
+      - StartingHashKey
+      - EndingHashKey
+      properties:
+        StartingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The starting hash key of the hash key range.
+        EndingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The ending hash key of the hash key range.
+      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+    BooleanObject:
+      type: boolean
+    SequenceNumberRange:
+      type: object
+      required:
+      - StartingSequenceNumber
+      properties:
+        StartingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The starting sequence number for the range.
+        EndingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
+      description: The range of possible sequence numbers for the shard.
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
+    DescribeStreamInput:
+      type: object
+      title: DescribeStreamInput
+      properties:
+        StreamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of the stream to describe.
+        Limit:
+          allOf:
+          - $ref: '#/components/schemas/DescribeStreamInputLimit'
+          - description: The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 results are returned.
+        ExclusiveStartShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: <p>The shard ID of the shard to start with.</p> <p>Specify this parameter to indicate that you want to describe the stream starting with the shard whose ID immediately follows <code>ExclusiveStartShardId</code>.</p> <p>If you don't specify this parameter, the default behavior for <code>DescribeStream</code> is to describe the stream starting with the first shard in the stream.</p>
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the stream.
+      description: Represents the input for <code>DescribeStream</code>.
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -445,8 +473,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -463,14 +491,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

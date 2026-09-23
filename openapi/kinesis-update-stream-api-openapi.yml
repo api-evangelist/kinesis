@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Tag Stream API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Update Stream API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: TagStream
+- name: Update Stream
 paths:
-  /tagStream:
+  /updateStream:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,15 +124,24 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: TagStream
-      description: <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p> <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p> <p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p> <p>A Kinesis video stream can support up to 50 tags.</p>
+      operationId: UpdateStream
+      description: 'Updates stream metadata, such as the device name and media type.
+
+
+        You must provide the stream name or the Amazon Resource Name (ARN) of the stream.
+
+
+        To make sure that you have the latest version of the stream before updating it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the DescribeStream API.
+
+
+        UpdateStream is an asynchronous operation, and takes time to complete.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TagStreamOutput'
+                $ref: '#/components/schemas/UpdateStreamOutput'
         '480':
           description: ClientLimitExceededException
           content:
@@ -152,23 +161,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '484':
           description: NotAuthorizedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/NotAuthorizedException'
-        '484':
-          description: InvalidResourceFormatException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidResourceFormatException'
         '485':
-          description: TagsPerResourceExceededLimitException
+          description: VersionMismatchException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TagsPerResourceExceededLimitException'
+                $ref: '#/components/schemas/VersionMismatchException'
       parameters: []
       requestBody:
         required: true
@@ -177,72 +186,56 @@ paths:
             schema:
               type: object
               required:
-              - Tags
+              - CurrentVersion
               properties:
-                StreamARN:
-                  description: The Amazon Resource Name (ARN) of the resource that you want to add the tag or tags to.
-                  type: string
-                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-                  minLength: 1
-                  maxLength: 1024
                 StreamName:
-                  description: The name of the stream that you want to add the tag or tags to.
+                  description: <p>The name of the stream whose metadata you want to update.</p> <p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
                   type: string
                   pattern: '[a-zA-Z0-9_.-]+'
                   minLength: 1
                   maxLength: 256
-                Tags:
-                  description: A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).
-                  type: object
-                  minProperties: 1
-                  maxProperties: 50
-                  additionalProperties:
-                    $ref: '#/components/schemas/TagValue'
+                StreamARN:
+                  description: The ARN of the stream whose metadata you want to update.
+                  type: string
+                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+                  minLength: 1
+                  maxLength: 1024
+                CurrentVersion:
+                  description: The version of the stream whose metadata you want to update.
+                  type: string
+                  pattern: '[a-zA-Z0-9]+'
+                  minLength: 1
+                  maxLength: 64
+                DeviceName:
+                  description: <p>The name of the device that is writing to the stream. </p> <note> <p> In the current implementation, Kinesis Video Streams does not use this name. </p> </note>
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 128
+                MediaType:
+                  description: <p>The stream's media type. Use <code>MediaType</code> to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a>.</p> <p>To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify <code>video/h264</code> as the <code>MediaType</code>.</p>
+                  type: string
+                  pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
+                  minLength: 1
+                  maxLength: 128
       tags:
-      - TagStream
+      - Update Stream
+      summary: Update stream
+      x-summary-source: derived
 components:
   schemas:
-    TagsPerResourceExceededLimitException: {}
-    ResourceNotFoundException: {}
-    InvalidResourceFormatException: {}
-    TagStreamOutput:
+    ResourceInUseException: {}
+    UpdateStreamOutput:
       type: object
       properties: {}
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
     NotAuthorizedException: {}
+    VersionMismatchException: {}
+    InvalidArgumentException: {}
     ClientLimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -253,8 +246,32 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

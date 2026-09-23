@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -180,22 +180,30 @@ paths:
           - KinesisAnalytics_20180523.DeleteApplicationVpcConfiguration
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationVpcConfiguration'
+      summary: Delete application vpc configuration
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    ConcurrentModificationException: {}
     ResourceInUseException: {}
+    ConcurrentModificationException: {}
+    InvalidApplicationConfigurationException: {}
     ResourceARN:
       type: string
       pattern: arn:.*
       minLength: 1
       maxLength: 2048
-    InvalidArgumentException: {}
     ApplicationName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
+    Id:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 50
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
     DeleteApplicationVpcConfigurationRequest:
       type: object
       required:
@@ -219,12 +227,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/ConditionalToken'
           - description: A value you use to implement strong concurrency for application updates. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.
-    InvalidApplicationConfigurationException: {}
     ConditionalToken:
       type: string
       pattern: '[a-zA-Z0-9-_+/=]+'
       minLength: 1
       maxLength: 512
+    ApplicationVersionId:
+      type: integer
+      minimum: 1
+      maximum: 999999999
     DeleteApplicationVpcConfigurationResponse:
       type: object
       properties:
@@ -236,16 +247,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/ApplicationVersionId'
           - description: The updated version ID of the application.
-    ApplicationVersionId:
-      type: integer
-      minimum: 1
-      maximum: 999999999
-    Id:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 50
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -258,8 +266,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -276,14 +284,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

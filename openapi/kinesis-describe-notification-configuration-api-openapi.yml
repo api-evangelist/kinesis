@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Delete Signaling Channel API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Describe Notification…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DeleteSignalingChannel
+- name: Describe Notification Configuration
 paths:
-  /deleteSignalingChannel:
+  /describeNotificationConfiguration:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,15 +124,15 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: DeleteSignalingChannel
-      description: Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.
+      operationId: DescribeNotificationConfiguration
+      description: Gets the NotificationConfiguration for a given Kinesis video stream.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteSignalingChannelOutput'
+                $ref: '#/components/schemas/DescribeNotificationConfigurationOutput'
         '480':
           description: InvalidArgumentException
           content:
@@ -157,18 +157,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
-        '484':
-          description: VersionMismatchException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionMismatchException'
-        '485':
-          description: ResourceInUseException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceInUseException'
       parameters: []
       requestBody:
         required: true
@@ -176,43 +164,25 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-              - ChannelARN
               properties:
-                ChannelARN:
-                  description: The Amazon Resource Name (ARN) of the signaling channel that you want to delete.
+                StreamName:
+                  description: The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
+                StreamARN:
+                  description: The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                CurrentVersion:
-                  description: The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.
-                  type: string
-                  pattern: '[a-zA-Z0-9]+'
-                  minLength: 1
-                  maxLength: 64
       tags:
-      - DeleteSignalingChannel
+      - Describe Notification Configuration
+      summary: Describe notification configuration
+      x-summary-source: derived
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -221,6 +191,18 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -237,15 +219,58 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
     AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
-    VersionMismatchException: {}
-    InvalidArgumentException: {}
-    DeleteSignalingChannelOutput:
+    DescribeNotificationConfigurationOutput:
       type: object
-      properties: {}
+      properties:
+        NotificationConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/NotificationConfiguration'
+          - description: The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    ResourceNotFoundException: {}
+    NotificationConfiguration:
+      type: object
+      required:
+      - Status
+      - DestinationConfig
+      properties:
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/ConfigurationStatus'
+          - description: Indicates if a notification configuration is enabled or disabled.
+        DestinationConfig:
+          allOf:
+          - $ref: '#/components/schemas/NotificationDestinationConfig'
+          - description: The destination information required to deliver a notification to a customer.
+      description: The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
+    InvalidArgumentException: {}
+    NotificationDestinationConfig:
+      type: object
+      required:
+      - Uri
+      properties:
+        Uri:
+          allOf:
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+      description: The structure that contains the information required to deliver a notification to a customer.
     ClientLimitExceededException: {}
   securitySchemes:
     hmac:

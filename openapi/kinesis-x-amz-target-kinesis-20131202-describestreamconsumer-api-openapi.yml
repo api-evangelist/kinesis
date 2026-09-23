@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DescribeStreamConsumer API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DescribeStreamConsumer
-      description: <p>To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as they don't conflict with each other. If you don't know the name or ARN of the consumer that you want to describe, you can use the <a>ListStreamConsumers</a> operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream.</p> <p>This operation has a limit of 20 transactions per second per stream.</p>
+      description: 'To get the description of a registered consumer, provide the ARN of the consumer. Alternatively, you can provide the ARN of the data stream and the name you gave the consumer when you registered it. You may also provide all three parameters, as long as they don''t conflict with each other. If you don''t know the name or ARN of the consumer that you want to describe, you can use the ListStreamConsumers operation to get a list of the descriptions of all the consumers that are currently registered with a given data stream.
+
+
+        This operation has a limit of 20 transactions per second per stream.'
       responses:
         '200':
           description: Success
@@ -167,23 +172,62 @@ paths:
           - Kinesis_20131202.DescribeStreamConsumer
       tags:
       - '#X Amz Target=Kinesis 20131202.DescribeStreamConsumer'
+      summary: Describe stream consumer
+      x-summary-source: derived
 components:
   schemas:
-    Timestamp:
-      type: string
-      format: date-time
-    ResourceNotFoundException: {}
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
-      minLength: 1
-      maxLength: 2048
+    DescribeStreamConsumerOutput:
+      type: object
+      required:
+      - ConsumerDescription
+      properties:
+        ConsumerDescription:
+          allOf:
+          - $ref: '#/components/schemas/ConsumerDescription'
+          - description: An object that represents the details of the consumer.
+    DescribeStreamConsumerInput:
+      type: object
+      title: DescribeStreamConsumerInput
+      properties:
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.
+        ConsumerName:
+          allOf:
+          - $ref: '#/components/schemas/ConsumerName'
+          - description: The name that you gave to the consumer.
+        ConsumerARN:
+          allOf:
+          - $ref: '#/components/schemas/ConsumerARN'
+          - description: The ARN returned by Kinesis Data Streams when you registered the consumer.
     ConsumerName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
+    ConsumerStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+    Timestamp:
+      type: string
+      format: date-time
+    ResourceNotFoundException: {}
+    ConsumerARN:
+      type: string
+      pattern: ^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+
+      minLength: 1
+      maxLength: 2048
     InvalidArgumentException: {}
+    LimitExceededException: {}
     ConsumerDescription:
       type: object
       required:
@@ -214,58 +258,9 @@ components:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream with which you registered the consumer.
       description: An object that represents the details of a registered consumer. This type of object is returned by <a>DescribeStreamConsumer</a>.
-    ConsumerStatus:
-      type: string
-      enum:
-      - CREATING
-      - DELETING
-      - ACTIVE
-    DescribeStreamConsumerInput:
-      type: object
-      title: DescribeStreamConsumerInput
-      properties:
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the Kinesis data stream that the consumer is registered with. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.
-        ConsumerName:
-          allOf:
-          - $ref: '#/components/schemas/ConsumerName'
-          - description: The name that you gave to the consumer.
-        ConsumerARN:
-          allOf:
-          - $ref: '#/components/schemas/ConsumerARN'
-          - description: The ARN returned by Kinesis Data Streams when you registered the consumer.
-    DescribeStreamConsumerOutput:
-      type: object
-      required:
-      - ConsumerDescription
-      properties:
-        ConsumerDescription:
-          allOf:
-          - $ref: '#/components/schemas/ConsumerDescription'
-          - description: An object that represents the details of the consumer.
-    ConsumerARN:
-      type: string
-      pattern: ^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+
-      minLength: 1
-      maxLength: 2048
-    LimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -276,8 +271,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -290,6 +291,12 @@ components:
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

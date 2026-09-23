@@ -3,7 +3,7 @@ info:
   version: 2017-09-30
   x-release: v4
   title: Amazon Kinesis Video Streams Create Stream API
-  description: <p/>
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,7 +112,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: CreateStream
+- name: Create Stream
 paths:
   /createStream:
     parameters:
@@ -125,7 +125,19 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateStream
-      description: <p>Creates a new Kinesis video stream. </p> <p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p> <p> <code>CreateStream</code> is an asynchronous operation.</p> <p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p> <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
+      description: 'Creates a new Kinesis video stream.
+
+
+        When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream''s metadata, Kinesis Video Streams updates the version.
+
+
+        CreateStream is an asynchronous operation.
+
+
+        For information about how the service works, see How it Works.
+
+
+        You must have permissions for the KinesisVideo:CreateStream action.'
       responses:
         '200':
           description: Success
@@ -221,11 +233,28 @@ paths:
                   additionalProperties:
                     $ref: '#/components/schemas/TagValue'
       tags:
-      - CreateStream
+      - Create Stream
+      summary: Create stream
+      x-summary-source: derived
 components:
   schemas:
-    TagsPerResourceExceededLimitException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
+    ResourceInUseException: {}
+    InvalidDeviceException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    AccountStreamLimitExceededException: {}
     DeviceStreamLimitExceededException: {}
+    TagsPerResourceExceededLimitException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
     CreateStreamOutput:
       type: object
       properties:
@@ -233,40 +262,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the stream.
-    ResourceInUseException: {}
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    InvalidDeviceException: {}
-    AccountStreamLimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -279,6 +275,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -287,6 +295,12 @@ components:
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

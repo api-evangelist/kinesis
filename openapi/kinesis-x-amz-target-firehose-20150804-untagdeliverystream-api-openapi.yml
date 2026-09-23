@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2015-08-04
   x-release: v4
-  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose 20150804.UntagDeliveryStream API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose…'
+  description: 'Amazon Kinesis Data Firehose API Reference
+
+    Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UntagDeliveryStream
-      description: <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you can't recover them after this operation successfully completes.</p> <p>If you specify a tag that doesn't exist, the operation ignores it.</p> <p>This operation has a limit of five transactions per second per account. </p>
+      description: 'Removes tags from the specified delivery stream. Removed tags are deleted, and you can''t recover them after this operation successfully completes.
+
+
+        If you specify a tag that doesn''t exist, the operation ignores it.
+
+
+        This operation has a limit of five transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -173,14 +181,16 @@ paths:
           - Firehose_20150804.UntagDeliveryStream
       tags:
       - '#X Amz Target=Firehose 20150804.UntagDeliveryStream'
+      summary: Untag delivery stream
+      x-summary-source: derived
 components:
   schemas:
-    DeliveryStreamName:
+    LimitExceededException: {}
+    TagKey:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
+      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
       minLength: 1
-      maxLength: 64
-    ResourceNotFoundException: {}
+      maxLength: 128
     ResourceInUseException: {}
     TagKeyList:
       type: array
@@ -188,7 +198,9 @@ components:
         $ref: '#/components/schemas/TagKey'
       minItems: 1
       maxItems: 50
-    InvalidArgumentException: {}
+    UntagDeliveryStreamOutput:
+      type: object
+      properties: {}
     UntagDeliveryStreamInput:
       type: object
       required:
@@ -204,34 +216,14 @@ components:
           allOf:
           - $ref: '#/components/schemas/TagKeyList'
           - description: A list of tag keys. Each corresponding tag is removed from the delivery stream.
-    TagKey:
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    DeliveryStreamName:
       type: string
-      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
+      pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
-      maxLength: 128
-    UntagDeliveryStreamOutput:
-      type: object
-      properties: {}
-    LimitExceededException: {}
+      maxLength: 64
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -250,8 +242,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

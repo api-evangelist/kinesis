@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Update Image Generation Configuration API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Update Image Generation…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,7 +112,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: UpdateImageGenerationConfiguration
+- name: Update Image Generation Configuration
 paths:
   /updateImageGenerationConfiguration:
     parameters:
@@ -125,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: UpdateImageGenerationConfiguration
-      description: Updates the <code>StreamInfo</code> and <code>ImageProcessingConfiguration</code> fields.
+      description: Updates the StreamInfo and ImageProcessingConfiguration fields.
       responses:
         '200':
           description: Success
@@ -226,39 +226,13 @@ paths:
                       - $ref: '#/components/schemas/HeightPixels'
                       - description: The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
       tags:
-      - UpdateImageGenerationConfiguration
+      - Update Image Generation Configuration
+      summary: Update image generation configuration
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    Format:
-      type: string
-      enum:
-      - JPEG
-      - PNG
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
-    FormatConfig:
-      type: object
-      minProperties: 1
-      maxProperties: 1
-      additionalProperties:
-        $ref: '#/components/schemas/FormatConfigValue'
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    FormatConfigValue:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+
-      minLength: 0
-      maxLength: 256
-    AccessDeniedException: {}
+    NoDataRetentionException: {}
     ResourceInUseException: {}
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
     ImageGenerationDestinationConfig:
       type: object
       required:
@@ -274,34 +248,68 @@ components:
           - $ref: '#/components/schemas/DestinationRegion'
           - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
       description: The structure that contains the information required to deliver images to a customer.
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
+    UpdateImageGenerationConfigurationOutput:
+      type: object
+      properties: {}
     ConfigurationStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
+    FormatConfigValue:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+
+      minLength: 0
+      maxLength: 256
+    AccessDeniedException: {}
     HeightPixels:
       type: integer
       minimum: 1
       maximum: 2160
-    ImageSelectorType:
-      type: string
-      enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
     WidthPixels:
       type: integer
       minimum: 1
       maximum: 3840
-    NoDataRetentionException: {}
-    UpdateImageGenerationConfigurationOutput:
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
+    ClientLimitExceededException: {}
+    FormatConfig:
       type: object
-      properties: {}
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties:
+        $ref: '#/components/schemas/FormatConfigValue'
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
     DestinationUri:
       type: string
       pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
       minLength: 1
       maxLength: 255
+    ImageSelectorType:
+      type: string
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -314,8 +322,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -332,14 +340,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

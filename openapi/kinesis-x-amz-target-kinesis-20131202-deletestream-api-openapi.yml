@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DeleteStream API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DeleteStream…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,25 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DeleteStream
-      description: <p>Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it receives the exception <code>ResourceNotFoundException</code>.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note> <p>If the stream is in the <code>ACTIVE</code> state, you can delete it. After a <code>DeleteStream</code> request, the specified stream is in the <code>DELETING</code> state until Kinesis Data Streams completes the deletion.</p> <p> <b>Note:</b> Kinesis Data Streams might continue to accept data read and write operations, such as <a>PutRecord</a>, <a>PutRecords</a>, and <a>GetRecords</a>, on a stream in the <code>DELETING</code> state until the stream deletion is complete.</p> <p>When you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.</p> <p>You can use the <a>DescribeStreamSummary</a> operation to check the state of the stream, which is returned in <code>StreamStatus</code>.</p> <p> <a>DeleteStream</a> has a limit of five transactions per second per account.</p>
+      description: 'Deletes a Kinesis data stream and all its shards and data. You must shut down any applications that are operating on the stream before you delete the stream. If an application attempts to operate on a deleted stream, it receives the exception ResourceNotFoundException.
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.
+
+
+        If the stream is in the ACTIVE state, you can delete it. After a DeleteStream request, the specified stream is in the DELETING state until Kinesis Data Streams completes the deletion.
+
+
+        Note: Kinesis Data Streams might continue to accept data read and write operations, such as PutRecord, PutRecords, and GetRecords, on a stream in the DELETING state until the stream deletion is complete.
+
+
+        When you delete a stream, any shards in that stream are also deleted, and any tags are dissociated from the stream.
+
+
+        You can use the DescribeStreamSummary operation to check the state of the stream, which is returned in StreamStatus.
+
+
+        DeleteStream has a limit of five transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -175,16 +195,47 @@ paths:
           - Kinesis_20131202.DeleteStream
       tags:
       - '#X Amz Target=Kinesis 20131202.DeleteStream'
+      summary: Delete stream
+      x-summary-source: derived
 components:
+  schemas:
+    DeleteStreamInput:
+      type: object
+      title: DeleteStreamInput
+      properties:
+        StreamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of the stream to delete.
+        EnforceConsumerDeletion:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: 'If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>, and the stream has registered consumers, the call to <code>DeleteStream</code> fails with a <code>ResourceInUseException</code>. '
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the stream.
+      description: Represents the input for <a>DeleteStream</a>.
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    ResourceInUseException: {}
+    AccessDeniedException: {}
+    BooleanObject:
+      type: boolean
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    LimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -195,8 +246,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -219,41 +270,12 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    DeleteStreamInput:
-      type: object
-      title: DeleteStreamInput
-      properties:
-        StreamName:
-          allOf:
-          - $ref: '#/components/schemas/StreamName'
-          - description: The name of the stream to delete.
-        EnforceConsumerDeletion:
-          allOf:
-          - $ref: '#/components/schemas/BooleanObject'
-          - description: 'If this parameter is unset (<code>null</code>) or if you set it to <code>false</code>, and the stream has registered consumers, the call to <code>DeleteStream</code> fails with a <code>ResourceInUseException</code>. '
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the stream.
-      description: Represents the input for <a>DeleteStream</a>.
-    ResourceInUseException: {}
-    StreamARN:
-      type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
-      minLength: 1
-      maxLength: 2048
-    InvalidArgumentException: {}
-    BooleanObject:
-      type: boolean
-    LimitExceededException: {}
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

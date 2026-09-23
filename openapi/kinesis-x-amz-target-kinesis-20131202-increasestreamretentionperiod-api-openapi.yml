@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: IncreaseStreamRetentionPeriod
-      description: <p>Increases the Kinesis data stream's retention period, which is the length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours (365 days).</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note> <p>If you choose a longer stream retention period, this operation increases the time period during which records that have not yet expired are accessible. However, it does not make previous, expired data (older than the stream's previous retention period) accessible after the operation has been called. For example, if a stream's retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours remains inaccessible to consumer applications.</p>
+      description: 'Increases the Kinesis data stream''s retention period, which is the length of time data records are accessible after they are added to the stream. The maximum value of a stream''s retention period is 8760 hours (365 days).
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.
+
+
+        If you choose a longer stream retention period, this operation increases the time period during which records that have not yet expired are accessible. However, it does not make previous, expired data (older than the stream''s previous retention period) accessible after the operation has been called. For example, if a stream''s retention period is set to 24 hours and is increased to 168 hours, any data that is older than 24 hours remains inaccessible to consumer applications.'
       responses:
         '200':
           description: Success
@@ -175,19 +183,23 @@ paths:
           - Kinesis_20131202.IncreaseStreamRetentionPeriod
       tags:
       - '#X Amz Target=Kinesis 20131202.IncreaseStreamRetentionPeriod'
+      summary: Increase stream retention period
+      x-summary-source: derived
 components:
   schemas:
-    RetentionPeriodHours:
-      type: integer
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     ResourceInUseException: {}
     StreamARN:
       type: string
       pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
       maxLength: 2048
-    InvalidArgumentException: {}
+    AccessDeniedException: {}
+    ResourceNotFoundException: {}
     IncreaseStreamRetentionPeriodInput:
       type: object
       required:
@@ -207,27 +219,13 @@ components:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
       description: Represents the input for <a>IncreaseStreamRetentionPeriod</a>.
+    RetentionPeriodHours:
+      type: integer
+    InvalidArgumentException: {}
     LimitExceededException: {}
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -238,8 +236,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -252,6 +256,12 @@ components:
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

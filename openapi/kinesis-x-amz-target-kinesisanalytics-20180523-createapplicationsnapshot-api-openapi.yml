@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -192,28 +192,12 @@ paths:
           - KinesisAnalytics_20180523.CreateApplicationSnapshot
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationSnapshot'
+      summary: Create application snapshot
+      x-summary-source: derived
 components:
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -224,19 +208,54 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
       required: false
   schemas:
+    ResourceInUseException: {}
+    InvalidApplicationConfigurationException: {}
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    UnsupportedOperationException: {}
+    InvalidArgumentException: {}
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    LimitExceededException: {}
+    SnapshotName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
     CreateApplicationSnapshotRequest:
       type: object
       required:
@@ -252,26 +271,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/SnapshotName'
           - description: An identifier for the application snapshot.
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
     CreateApplicationSnapshotResponse:
       type: object
       properties: {}
-    InvalidApplicationConfigurationException: {}
-    InvalidArgumentException: {}
-    SnapshotName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    UnsupportedOperationException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    InvalidRequestException: {}
-    LimitExceededException: {}
   securitySchemes:
     hmac:
       type: apiKey

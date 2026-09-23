@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListTagsForStream API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListTagsForStream
-      description: <p>Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions per second per account.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note>
+      description: 'Lists the tags for the specified Kinesis data stream. This operation has a limit of five transactions per second per account.
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.'
       responses:
         '200':
           description: Success
@@ -173,49 +178,10 @@ paths:
           - Kinesis_20131202.ListTagsForStream
       tags:
       - '#X Amz Target=Kinesis 20131202.ListTagsForStream'
+      summary: List tags for stream
+      x-summary-source: derived
 components:
   schemas:
-    ListTagsForStreamOutput:
-      type: object
-      required:
-      - Tags
-      - HasMoreTags
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/TagList'
-          - description: 'A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. '
-        HasMoreTags:
-          allOf:
-          - $ref: '#/components/schemas/BooleanObject'
-          - description: If set to <code>true</code>, more tags are available. To request additional tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned.
-      description: Represents the output for <code>ListTagsForStream</code>.
-    ResourceNotFoundException: {}
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    TagList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Tag'
-      minItems: 0
-      maxItems: 200
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: 'A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: 'An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
-      description: Metadata assigned to the stream, consisting of a key-value pair.
     ListTagsForStreamInput:
       type: object
       title: ListTagsForStreamInput
@@ -237,15 +203,60 @@ components:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
       description: Represents the input for <code>ListTagsForStream</code>.
-    AccessDeniedException: {}
+    TagList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+      minItems: 0
+      maxItems: 200
     TagValue:
       type: string
       minLength: 0
       maxLength: 256
+    AccessDeniedException: {}
     InvalidArgumentException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: 'A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: 'An optional string, typically used to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
+      description: Metadata assigned to the stream, consisting of a key-value pair.
+    ListTagsForStreamOutput:
+      type: object
+      required:
+      - Tags
+      - HasMoreTags
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/TagList'
+          - description: 'A list of tags associated with <code>StreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>. '
+        HasMoreTags:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: If set to <code>true</code>, more tags are available. To request additional tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned.
+      description: Represents the output for <code>ListTagsForStream</code>.
+    ResourceNotFoundException: {}
+    ListTagsForStreamInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 50
     LimitExceededException: {}
     TagKey:
       type: string
+      minLength: 1
+      maxLength: 128
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
     StreamARN:
@@ -253,13 +264,15 @@ components:
       pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
       maxLength: 2048
-    ListTagsForStreamInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 50
     BooleanObject:
       type: boolean
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -272,8 +285,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -290,14 +303,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

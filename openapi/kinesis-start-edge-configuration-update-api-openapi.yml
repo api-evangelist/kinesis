@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Start Edge Configuration Update API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Start Edge Configuration…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,7 +112,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: StartEdgeConfigurationUpdate
+- name: Start Edge Configuration Update
 paths:
   /startEdgeConfigurationUpdate:
     parameters:
@@ -125,7 +125,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: StartEdgeConfigurationUpdate
-      description: '<p>An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged, and synced with the Edge Agent. </p> <p>If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again. If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.</p>'
+      description: 'An asynchronous API that updates a stream’s existing edge configuration. The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary and depends on the connectivity of the Hub Device. The SyncStatus will be updated as the edge configuration is acknowledged, and synced with the Edge Agent.
+
+
+        If this API is invoked for the first time, a new edge configuration will be created for the stream, and the sync status will be set to SYNCING. You will have to wait for the sync status to reach a terminal state such as: IN_SYNC, or SYNC_FAILED, before using this API again. If you invoke this API during the syncing process, a ResourceInUseException will be thrown. The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes, the status will transition into the SYNC_FAILED state.'
       responses:
         '200':
           description: Success
@@ -212,9 +215,186 @@ paths:
                       - $ref: '#/components/schemas/DeletionConfig'
                       - description: The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.
       tags:
-      - StartEdgeConfigurationUpdate
+      - Start Edge Configuration Update
+      summary: Start edge configuration update
+      x-summary-source: derived
 components:
   schemas:
+    NoDataRetentionException: {}
+    ResourceInUseException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    DeletionConfig:
+      type: object
+      properties:
+        EdgeRetentionInHours:
+          allOf:
+          - $ref: '#/components/schemas/EdgeRetentionInHours'
+          - description: The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.
+        LocalSizeConfig:
+          allOf:
+          - $ref: '#/components/schemas/LocalSizeConfig'
+          - description: The value of the local size required in order to delete the edge configuration.
+        DeleteAfterUpload:
+          allOf:
+          - $ref: '#/components/schemas/DeleteAfterUpload'
+          - description: <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p> <p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
+      description: The configuration details required to delete the connection of the stream from the Edge Agent.
+    EdgeConfig:
+      type: object
+      required:
+      - HubDeviceArn
+      - RecorderConfig
+      properties:
+        HubDeviceArn:
+          allOf:
+          - $ref: '#/components/schemas/HubDeviceArn'
+          - description: The "<b>Internet of Things (IoT) Thing</b>" Arn of the stream.
+        RecorderConfig:
+          allOf:
+          - $ref: '#/components/schemas/RecorderConfig'
+          - description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. '
+        UploaderConfig:
+          allOf:
+          - $ref: '#/components/schemas/UploaderConfig'
+          - description: The uploader configuration contains the <code>ScheduleExpression</code> details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.
+        DeletionConfig:
+          allOf:
+          - $ref: '#/components/schemas/DeletionConfig'
+          - description: The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.
+      description: A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
+    MediaUriSecretArn:
+      type: string
+      pattern: arn:[a-z\d-]+:secretsmanager:[a-z0-9-]+:[0-9]+:secret:[a-zA-Z0-9_.-]+
+      minLength: 20
+      maxLength: 2048
+      format: password
+    DeleteAfterUpload:
+      type: boolean
+    AccessDeniedException: {}
+    SyncStatus:
+      type: string
+      enum:
+      - SYNCING
+      - ACKNOWLEDGED
+      - IN_SYNC
+      - SYNC_FAILED
+      - DELETING
+      - DELETE_FAILED
+    InvalidArgumentException: {}
+    ScheduleExpression:
+      type: string
+      pattern: '[^\n]{11,100}'
+      minLength: 11
+      maxLength: 100
+    MediaSourceConfig:
+      type: object
+      required:
+      - MediaUriSecretArn
+      - MediaUriType
+      properties:
+        MediaUriSecretArn:
+          allOf:
+          - $ref: '#/components/schemas/MediaUriSecretArn'
+          - description: The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.
+        MediaUriType:
+          allOf:
+          - $ref: '#/components/schemas/MediaUriType'
+          - description: <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>
+      description: The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.
+    ResourceNotFoundException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    RecorderConfig:
+      type: object
+      required:
+      - MediaSourceConfig
+      properties:
+        MediaSourceConfig:
+          allOf:
+          - $ref: '#/components/schemas/MediaSourceConfig'
+          - description: 'The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. '
+        ScheduleConfig:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleConfig'
+          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.
+      description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. '
+    LocalSizeConfig:
+      type: object
+      properties:
+        MaxLocalMediaSizeInMB:
+          allOf:
+          - $ref: '#/components/schemas/MaxLocalMediaSizeInMB'
+          - description: 'The overall maximum size of the media that you want to store for a stream on the Edge Agent. '
+        StrategyOnFullSize:
+          allOf:
+          - $ref: '#/components/schemas/StrategyOnFullSize'
+          - description: The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.
+      description: The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.
+    UploaderConfig:
+      type: object
+      required:
+      - ScheduleConfig
+      properties:
+        ScheduleConfig:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleConfig'
+          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.
+      description: 'The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. '
+    ClientLimitExceededException: {}
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    StrategyOnFullSize:
+      type: string
+      enum:
+      - DELETE_OLDEST_MEDIA
+      - DENY_NEW_MEDIA
+    MediaUriType:
+      type: string
+      enum:
+      - RTSP_URI
+      - FILE_URI
+    HubDeviceArn:
+      type: string
+      pattern: arn:[a-z\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+
+      minLength: 1
+      maxLength: 1024
+    MaxLocalMediaSizeInMB:
+      type: integer
+      minimum: 64
+      maximum: 2000000
+    FailedStatusDetails:
+      type: string
+    DurationInSeconds:
+      type: integer
+      minimum: 60
+      maximum: 3600
+    EdgeRetentionInHours:
+      type: integer
+      minimum: 1
+      maximum: 720
+    ScheduleConfig:
+      type: object
+      required:
+      - ScheduleExpression
+      - DurationInSeconds
+      properties:
+        ScheduleExpression:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleExpression'
+          - description: <p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p> <p>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"> <i>Cron Trigger Tutorial</i> </a> page to understand the valid expressions and its use.</p>
+        DurationInSeconds:
+          allOf:
+          - $ref: '#/components/schemas/DurationInSeconds'
+          - description: The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.
+      description: <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p> <p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
     StartEdgeConfigurationUpdateOutput:
       type: object
       properties:
@@ -246,182 +426,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/EdgeConfig'
           - description: A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
-    ResourceNotFoundException: {}
-    HubDeviceArn:
-      type: string
-      pattern: arn:[a-z\d-]+:iot:[a-z0-9-]+:[0-9]+:thing/[a-zA-Z0-9_.-]+
-      minLength: 1
-      maxLength: 1024
-    ScheduleConfig:
-      type: object
-      required:
-      - ScheduleExpression
-      - DurationInSeconds
-      properties:
-        ScheduleExpression:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleExpression'
-          - description: <p>The Quartz cron expression that takes care of scheduling jobs to record from the camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided for the <code>RecorderConfig</code>, then the Edge Agent will always be set to recording mode.</p> <p>For more information about Quartz, refer to the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html"> <i>Cron Trigger Tutorial</i> </a> page to understand the valid expressions and its use.</p>
-        DurationInSeconds:
-          allOf:
-          - $ref: '#/components/schemas/DurationInSeconds'
-          - description: The total duration to record the media. If the <code>ScheduleExpression</code> attribute is provided, then the <code>DurationInSeconds</code> attribute should also be specified.
-      description: <p>This API enables you to specify the duration that the camera, or local media file, should record onto the Edge Agent. The <code>ScheduleConfig</code> consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> attributes. </p> <p>If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be set to recording mode.</p>
-    MediaSourceConfig:
-      type: object
-      required:
-      - MediaUriSecretArn
-      - MediaUriType
-      properties:
-        MediaUriSecretArn:
-          allOf:
-          - $ref: '#/components/schemas/MediaUriSecretArn'
-          - description: The AWS Secrets Manager ARN for the username and password of the camera, or a local media file location.
-        MediaUriType:
-          allOf:
-          - $ref: '#/components/schemas/MediaUriType'
-          - description: <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream local media files.</p> <note> <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p> </note>
-      description: The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files that are streamed to the camera.
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    SyncStatus:
-      type: string
-      enum:
-      - SYNCING
-      - ACKNOWLEDGED
-      - IN_SYNC
-      - SYNC_FAILED
-      - DELETING
-      - DELETE_FAILED
-    AccessDeniedException: {}
-    ResourceInUseException: {}
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    FailedStatusDetails:
-      type: string
-    MediaUriSecretArn:
-      type: string
-      pattern: arn:[a-z\d-]+:secretsmanager:[a-z0-9-]+:[0-9]+:secret:[a-zA-Z0-9_.-]+
-      minLength: 20
-      maxLength: 2048
-      format: password
-    MaxLocalMediaSizeInMB:
-      type: integer
-      minimum: 64
-      maximum: 2000000
-    ScheduleExpression:
-      type: string
-      pattern: '[^\n]{11,100}'
-      minLength: 11
-      maxLength: 100
-    Timestamp:
-      type: string
-      format: date-time
-    DurationInSeconds:
-      type: integer
-      minimum: 60
-      maximum: 3600
-    EdgeRetentionInHours:
-      type: integer
-      minimum: 1
-      maximum: 720
-    MediaUriType:
-      type: string
-      enum:
-      - RTSP_URI
-      - FILE_URI
-    NoDataRetentionException: {}
-    DeletionConfig:
-      type: object
-      properties:
-        EdgeRetentionInHours:
-          allOf:
-          - $ref: '#/components/schemas/EdgeRetentionInHours'
-          - description: The number of hours that you want to retain the data in the stream on the Edge Agent. The default value of the retention time is 720 hours, which translates to 30 days.
-        LocalSizeConfig:
-          allOf:
-          - $ref: '#/components/schemas/LocalSizeConfig'
-          - description: The value of the local size required in order to delete the edge configuration.
-        DeleteAfterUpload:
-          allOf:
-          - $ref: '#/components/schemas/DeleteAfterUpload'
-          - description: <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to the Kinesis Video Stream cloud. The media files can be deleted if any of the deletion configuration values are set to <code>true</code>, such as when the limit for the <code>EdgeRetentionInHours</code>, or the <code>MaxLocalMediaSizeInMB</code>, has been reached. </p> <p>Since the default value is set to <code>true</code>, configure the uploader schedule such that the media files are not being deleted before they are initially uploaded to AWS cloud.</p>
-      description: The configuration details required to delete the connection of the stream from the Edge Agent.
-    LocalSizeConfig:
-      type: object
-      properties:
-        MaxLocalMediaSizeInMB:
-          allOf:
-          - $ref: '#/components/schemas/MaxLocalMediaSizeInMB'
-          - description: 'The overall maximum size of the media that you want to store for a stream on the Edge Agent. '
-        StrategyOnFullSize:
-          allOf:
-          - $ref: '#/components/schemas/StrategyOnFullSize'
-          - description: The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.
-      description: The configuration details that include the maximum size of the media (<code>MaxLocalMediaSizeInMB</code>) that you want to store for a stream on the Edge Agent, as well as the strategy that should be used (<code>StrategyOnFullSize</code>) when a stream's maximum size has been reached.
-    StrategyOnFullSize:
-      type: string
-      enum:
-      - DELETE_OLDEST_MEDIA
-      - DENY_NEW_MEDIA
-    DeleteAfterUpload:
-      type: boolean
-    UploaderConfig:
-      type: object
-      required:
-      - ScheduleConfig
-      properties:
-        ScheduleConfig:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleConfig'
-          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code>details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in recording mode.
-      description: 'The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> is not provided, then the Edge Agent will always be in upload mode. '
-    RecorderConfig:
-      type: object
-      required:
-      - MediaSourceConfig
-      properties:
-        MediaSourceConfig:
-          allOf:
-          - $ref: '#/components/schemas/MediaSourceConfig'
-          - description: 'The configuration details that consist of the credentials required (<code>MediaUriSecretArn</code> and <code>MediaUriType</code>) to access the media files streamed to the camera. '
-        ScheduleConfig:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleConfig'
-          - description: The configuration that consists of the <code>ScheduleExpression</code> and the <code>DurationInMinutes</code> details that specify the scheduling to record from a camera, or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code> attribute is not provided, then the Edge Agent will always be set to recording mode.
-      description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details that are used as credentials to accesss the local media files streamed on the camera. '
-    EdgeConfig:
-      type: object
-      required:
-      - HubDeviceArn
-      - RecorderConfig
-      properties:
-        HubDeviceArn:
-          allOf:
-          - $ref: '#/components/schemas/HubDeviceArn'
-          - description: The "<b>Internet of Things (IoT) Thing</b>" Arn of the stream.
-        RecorderConfig:
-          allOf:
-          - $ref: '#/components/schemas/RecorderConfig'
-          - description: 'The recorder configuration consists of the local <code>MediaSourceConfig</code> details, that are used as credentials to access the local media files streamed on the camera. '
-        UploaderConfig:
-          allOf:
-          - $ref: '#/components/schemas/UploaderConfig'
-          - description: The uploader configuration contains the <code>ScheduleExpression</code> details that are used to schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.
-        DeletionConfig:
-          allOf:
-          - $ref: '#/components/schemas/DeletionConfig'
-          - description: The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration (<code>LocalSizeConfig</code>) details that are used to make the deletion.
-      description: A description of the stream's edge configuration that will be used to sync with the Edge Agent IoT Greengrass component. The Edge Agent component will run on an IoT Hub Device setup at your premise.
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -434,8 +445,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -452,14 +463,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams List Tags For Stream API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Create Signaling Channel API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: ListTagsForStream
+- name: Create Signaling Channel
 paths:
-  /listTagsForStream:
+  /createSignalingChannel:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,45 +124,54 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: ListTagsForStream
-      description: <p>Returns a list of tags associated with the specified stream.</p> <p>In the request, you must specify either the <code>StreamName</code> or the <code>StreamARN</code>. </p>
+      operationId: CreateSignalingChannel
+      description: 'Creates a signaling channel.
+
+
+        CreateSignalingChannel is an asynchronous operation.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListTagsForStreamOutput'
+                $ref: '#/components/schemas/CreateSignalingChannelOutput'
         '480':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '481':
           description: InvalidArgumentException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidArgumentException'
+        '481':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
         '482':
-          description: ResourceNotFoundException
+          description: AccountChannelLimitExceededException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceNotFoundException'
+                $ref: '#/components/schemas/AccountChannelLimitExceededException'
         '483':
-          description: NotAuthorizedException
+          description: ResourceInUseException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotAuthorizedException'
+                $ref: '#/components/schemas/ResourceInUseException'
         '484':
-          description: InvalidResourceFormatException
+          description: AccessDeniedException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvalidResourceFormatException'
+                $ref: '#/components/schemas/AccessDeniedException'
+        '485':
+          description: TagsPerResourceExceededLimitException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TagsPerResourceExceededLimitException'
       parameters: []
       requestBody:
         required: true
@@ -170,76 +179,98 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+              - ChannelName
               properties:
-                NextToken:
-                  description: If you specify this parameter and the result of a <code>ListTagsForStream</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags.
-                  type: string
-                  pattern: '[a-zA-Z0-9+/=]*'
-                  minLength: 0
-                  maxLength: 512
-                StreamARN:
-                  description: The Amazon Resource Name (ARN) of the stream that you want to list tags for.
-                  type: string
-                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-                  minLength: 1
-                  maxLength: 1024
-                StreamName:
-                  description: The name of the stream that you want to list tags for.
+                ChannelName:
+                  description: A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.
                   type: string
                   pattern: '[a-zA-Z0-9_.-]+'
                   minLength: 1
                   maxLength: 256
+                ChannelType:
+                  description: 'A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. '
+                  type: string
+                  enum:
+                  - SINGLE_MASTER
+                  - FULL_MESH
+                SingleMasterConfiguration:
+                  description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
+                  type: object
+                  properties:
+                    MessageTtlSeconds:
+                      allOf:
+                      - $ref: '#/components/schemas/MessageTtlSeconds'
+                      - description: The period of time a signaling channel retains undelivered messages before they are discarded.
+                Tags:
+                  description: A set of tags (key-value pairs) that you want to associate with this channel.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+                  minItems: 0
+                  maxItems: 50
       tags:
-      - ListTagsForStream
+      - Create Signaling Channel
+      summary: Create signaling channel
+      x-summary-source: derived
 components:
   schemas:
-    ListTagsForStreamOutput:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If you specify this parameter and the result of a <code>ListTags</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags.
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/ResourceTags'
-          - description: A map of tag keys and values associated with the specified stream.
-    ResourceNotFoundException: {}
-    ResourceTags:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    InvalidResourceFormatException: {}
+    ResourceInUseException: {}
+    AccountChannelLimitExceededException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    TagsPerResourceExceededLimitException: {}
     TagValue:
       type: string
       pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
       minLength: 0
       maxLength: 256
+    AccessDeniedException: {}
     InvalidArgumentException: {}
-    NotAuthorizedException: {}
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: The key of the tag that is associated with the specified signaling channel.
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: The value of the tag that is associated with the specified signaling channel.
+      description: A key and value pair that is associated with the specified signaling channel.
     ClientLimitExceededException: {}
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    CreateSignalingChannelOutput:
+      type: object
+      properties:
+        ChannelARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The Amazon Resource Name (ARN) of the created channel.
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -258,6 +289,12 @@ components:
       required: false
     X-Amz-Date:
       name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

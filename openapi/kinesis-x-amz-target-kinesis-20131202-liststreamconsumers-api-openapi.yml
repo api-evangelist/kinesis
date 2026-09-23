@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListStreamConsumers API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListStreamConsumers
-      description: <p>Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides information about each consumer.</p> <p>This operation has a limit of 5 transactions per second per stream.</p>
+      description: 'Lists the consumers registered to receive data from a stream using enhanced fan-out, and provides information about each consumer.
+
+
+        This operation has a limit of 5 transactions per second per stream.'
       responses:
         '200':
           description: Success
@@ -191,58 +196,11 @@ paths:
           - Kinesis_20131202.ListStreamConsumers
       tags:
       - '#X Amz Target=Kinesis 20131202.ListStreamConsumers'
+      summary: List stream consumers
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    ListStreamConsumersInput:
-      type: object
-      required:
-      - StreamARN
-      title: ListStreamConsumersInput
-      properties:
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the Kinesis data stream for which you want to list the registered consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: <p>When the number of consumers that are registered with the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered consumers.</p> <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you specify <code>NextToken</code> because the latter unambiguously identifies the stream.</p> <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is less than the number of consumers that the operation returns if you don't specify <code>MaxResults</code>, the response will contain a new <code>NextToken</code> value. You can use the new <code>NextToken</code> value in a subsequent call to the <code>ListStreamConsumers</code> operation to list the next set of consumers.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/ListStreamConsumersInputLimit'
-          - description: 'The maximum number of consumers that you want a single call of <code>ListStreamConsumers</code> to return. The default value is 100. If you specify a value greater than 100, at most 100 results are returned. '
-        StreamCreationTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: <p>Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for. </p> <p>You can't specify this parameter if you specify the NextToken parameter. </p>
-    ExpiredNextTokenException: {}
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 1048576
     ResourceInUseException: {}
-    ConsumerName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    InvalidArgumentException: {}
-    ConsumerStatus:
-      type: string
-      enum:
-      - CREATING
-      - DELETING
-      - ACTIVE
-    ConsumerARN:
-      type: string
-      pattern: ^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+
-      minLength: 1
-      maxLength: 2048
-    LimitExceededException: {}
-    Timestamp:
-      type: string
-      format: date-time
     Consumer:
       type: object
       required:
@@ -272,6 +230,54 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Consumer'
+    ConsumerARN:
+      type: string
+      pattern: ^(arn):aws.*:kinesis:.*:\d{12}:.*stream\/[a-zA-Z0-9_.-]+\/consumer\/[a-zA-Z0-9_.-]+:[0-9]+
+      minLength: 1
+      maxLength: 2048
+    InvalidArgumentException: {}
+    ExpiredNextTokenException: {}
+    ConsumerStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+    ResourceNotFoundException: {}
+    ListStreamConsumersInput:
+      type: object
+      required:
+      - StreamARN
+      title: ListStreamConsumersInput
+      properties:
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the Kinesis data stream for which you want to list the registered consumers. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams">Amazon Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: <p>When the number of consumers that are registered with the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of consumers that are registered with the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered consumers.</p> <p>Don't specify <code>StreamName</code> or <code>StreamCreationTimestamp</code> if you specify <code>NextToken</code> because the latter unambiguously identifies the stream.</p> <p>You can optionally specify a value for the <code>MaxResults</code> parameter when you specify <code>NextToken</code>. If you specify a <code>MaxResults</code> value that is less than the number of consumers that the operation returns if you don't specify <code>MaxResults</code>, the response will contain a new <code>NextToken</code> value. You can use the new <code>NextToken</code> value in a subsequent call to the <code>ListStreamConsumers</code> operation to list the next set of consumers.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/ListStreamConsumersInputLimit'
+          - description: 'The maximum number of consumers that you want a single call of <code>ListStreamConsumers</code> to return. The default value is 100. If you specify a value greater than 100, at most 100 results are returned. '
+        StreamCreationTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: <p>Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the consumers for. </p> <p>You can't specify this parameter if you specify the NextToken parameter. </p>
+    ListStreamConsumersInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    Timestamp:
+      type: string
+      format: date-time
+    LimitExceededException: {}
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 1048576
     ListStreamConsumersOutput:
       type: object
       properties:
@@ -283,16 +289,23 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: <p>When the number of consumers that are registered with the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of registered consumers, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListStreamConsumers</code> to list the next set of registered consumers. For more information about the use of this pagination token when calling the <code>ListStreamConsumers</code> operation, see <a>ListStreamConsumersInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListStreamConsumers</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListStreamConsumers</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
-    ListStreamConsumersInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
+    ConsumerName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     StreamARN:
       type: string
       pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
       maxLength: 2048
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -305,8 +318,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -323,14 +336,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

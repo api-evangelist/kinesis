@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Untag Stream API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Get Signaling Channel Endpoint…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: UntagStream
+- name: Get Signaling Channel Endpoint
 paths:
-  /untagStream:
+  /getSignalingChannelEndpoint:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,27 +124,33 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: UntagStream
-      description: <p>Removes one or more tags from a stream. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.</p> <p>In the request, you must provide the <code>StreamName</code> or <code>StreamARN</code>.</p>
+      operationId: GetSignalingChannelEndpoint
+      description: 'Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the SingleMasterChannelEndpointConfiguration input parameter, which consists of the Protocols and Role properties.
+
+
+        Protocols is used to determine the communication mechanism. For example, if you specify WSS as the protocol, this API produces a secure websocket endpoint. If you specify HTTPS as the protocol, this API generates an HTTPS endpoint.
+
+
+        Role determines the messaging permissions. A MASTER role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A VIEWER role results in this API generating an endpoint that a client can use to communicate only with a MASTER.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UntagStreamOutput'
+                $ref: '#/components/schemas/GetSignalingChannelEndpointOutput'
         '480':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '481':
           description: InvalidArgumentException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidArgumentException'
+        '481':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
         '482':
           description: ResourceNotFoundException
           content:
@@ -152,17 +158,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
-          description: NotAuthorizedException
+          description: ResourceInUseException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotAuthorizedException'
+                $ref: '#/components/schemas/ResourceInUseException'
         '484':
-          description: InvalidResourceFormatException
+          description: AccessDeniedException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InvalidResourceFormatException'
+                $ref: '#/components/schemas/AccessDeniedException'
       parameters: []
       requestBody:
         required: true
@@ -171,45 +177,88 @@ paths:
             schema:
               type: object
               required:
-              - TagKeyList
+              - ChannelARN
               properties:
-                StreamARN:
-                  description: The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+                ChannelARN:
+                  description: The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                StreamName:
-                  description: The name of the stream that you want to remove tags from.
-                  type: string
-                  pattern: '[a-zA-Z0-9_.-]+'
-                  minLength: 1
-                  maxLength: 256
-                TagKeyList:
-                  description: A list of the keys of the tags that you want to remove.
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/TagKey'
-                  minItems: 1
-                  maxItems: 50
+                SingleMasterChannelEndpointConfiguration:
+                  description: 'An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code> channel type. '
+                  type: object
+                  properties:
+                    Protocols:
+                      allOf:
+                      - $ref: '#/components/schemas/ListOfProtocols'
+                      - description: This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint.
+                    Role:
+                      allOf:
+                      - $ref: '#/components/schemas/ChannelRole'
+                      - description: 'This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. '
       tags:
-      - UntagStream
+      - Get Signaling Channel Endpoint
+      summary: Get signaling channel endpoint
+      x-summary-source: derived
 components:
+  schemas:
+    ResourceInUseException: {}
+    ResourceEndpointListItem:
+      type: object
+      properties:
+        Protocol:
+          allOf:
+          - $ref: '#/components/schemas/ChannelProtocol'
+          - description: The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+        ResourceEndpoint:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpoint'
+          - description: The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+      description: An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+    ResourceEndpoint:
+      type: string
+    ListOfProtocols:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChannelProtocol'
+      minItems: 1
+      maxItems: 5
+    GetSignalingChannelEndpointOutput:
+      type: object
+      properties:
+        ResourceEndpointList:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpointList'
+          - description: A list of endpoints for the specified signaling channel.
+    AccessDeniedException: {}
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
+    ResourceEndpointList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ResourceEndpointListItem'
+    ClientLimitExceededException: {}
+    ChannelProtocol:
+      type: string
+      enum:
+      - WSS
+      - HTTPS
+      - WEBRTC
+    ChannelRole:
+      type: string
+      enum:
+      - MASTER
+      - VIEWER
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -232,26 +281,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    ResourceNotFoundException: {}
-    InvalidResourceFormatException: {}
-    InvalidArgumentException: {}
-    NotAuthorizedException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ClientLimitExceededException: {}
-    UntagStreamOutput:
-      type: object
-      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

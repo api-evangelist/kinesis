@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.StopApplication API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -126,7 +126,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: StopApplication
-      description: <p>Stops the application from processing data. You can stop an application only if it is in the running status, unless you set the <code>Force</code> parameter to <code>true</code>.</p> <p>You can use the <a>DescribeApplication</a> operation to find the application status. </p> <p>Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code> is set to <code>true</code>.</p>
+      description: 'Stops the application from processing data. You can stop an application only if it is in the running status, unless you set the Force parameter to true.
+
+
+        You can use the DescribeApplication operation to find the application status.
+
+
+        Kinesis Data Analytics takes a snapshot when the application is stopped, unless Force is set to true.'
       responses:
         '200':
           description: Success
@@ -186,26 +192,41 @@ paths:
           - KinesisAnalytics_20180523.StopApplication
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.StopApplication'
+      summary: Stop application
+      x-summary-source: derived
 components:
+  schemas:
+    ResourceInUseException: {}
+    StopApplicationResponse:
+      type: object
+      properties: {}
+    ConcurrentModificationException: {}
+    BooleanObject:
+      type: boolean
+    InvalidApplicationConfigurationException: {}
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    StopApplicationRequest:
+      type: object
+      required:
+      - ApplicationName
+      title: StopApplicationRequest
+      properties:
+        ApplicationName:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationName'
+          - description: The name of the running application to stop.
+        Force:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code> to <code>true</code>, Kinesis Data Analytics stops the application without taking a snapshot. </p> <note> <p>Force-stopping your application may lead to data loss or duplication. To prevent data loss or duplicate processing of data during application restarts, we recommend you to take frequent snapshots of your application.</p> </note> <p>You can only force stop a Flink-based Kinesis Data Analytics application. You can't force stop a SQL-based Kinesis Data Analytics application.</p> <p>The application must be in the <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or <code>RUNNING</code> status. </p>
+    InvalidArgumentException: {}
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -224,43 +245,30 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    StopApplicationRequest:
-      type: object
-      required:
-      - ApplicationName
-      title: StopApplicationRequest
-      properties:
-        ApplicationName:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationName'
-          - description: The name of the running application to stop.
-        Force:
-          allOf:
-          - $ref: '#/components/schemas/BooleanObject'
-          - description: <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code> to <code>true</code>, Kinesis Data Analytics stops the application without taking a snapshot. </p> <note> <p>Force-stopping your application may lead to data loss or duplication. To prevent data loss or duplicate processing of data during application restarts, we recommend you to take frequent snapshots of your application.</p> </note> <p>You can only force stop a Flink-based Kinesis Data Analytics application. You can't force stop a SQL-based Kinesis Data Analytics application.</p> <p>The application must be in the <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or <code>RUNNING</code> status. </p>
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
-    InvalidApplicationConfigurationException: {}
-    InvalidArgumentException: {}
-    ConcurrentModificationException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    InvalidRequestException: {}
-    BooleanObject:
-      type: boolean
-    StopApplicationResponse:
-      type: object
-      properties: {}
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

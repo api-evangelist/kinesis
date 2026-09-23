@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.StartApplication API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -180,29 +180,12 @@ paths:
           - KinesisAnalytics_20180523.StartApplication
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.StartApplication'
+      summary: Start application
+      x-summary-source: derived
 components:
   schemas:
-    InputStartingPositionConfiguration:
-      type: object
-      properties:
-        InputStartingPosition:
-          allOf:
-          - $ref: '#/components/schemas/InputStartingPosition'
-          - description: <p>The starting position on the stream.</p> <ul> <li> <p> <code>NOW</code> - Start reading just after the most recent record in the stream, and start at the request timestamp that the customer issued.</p> </li> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Data Firehose delivery stream.</p> </li> <li> <p> <code>LAST_STOPPED_POINT</code> - Resume reading from where the application last stopped reading.</p> </li> </ul>
-      description: Describes the point at which the application reads from the streaming source.
-    ResourceNotFoundException: {}
-    SqlRunConfigurations:
-      type: array
-      items:
-        $ref: '#/components/schemas/SqlRunConfiguration'
-    InvalidRequestException: {}
     ResourceInUseException: {}
-    InvalidArgumentException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
+    InvalidApplicationConfigurationException: {}
     SqlRunConfiguration:
       type: object
       required:
@@ -218,6 +201,48 @@ components:
           - $ref: '#/components/schemas/InputStartingPositionConfiguration'
           - description: 'The point at which you want the application to start processing records from the streaming source. '
       description: Describes the starting parameters for a SQL-based Kinesis Data Analytics application.
+    ApplicationRestoreConfiguration:
+      type: object
+      required:
+      - ApplicationRestoreType
+      properties:
+        ApplicationRestoreType:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationRestoreType'
+          - description: Specifies how the application should be restored.
+        SnapshotName:
+          allOf:
+          - $ref: '#/components/schemas/SnapshotName'
+          - description: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if <code>RESTORE_FROM_CUSTOM_SNAPSHOT</code> is specified for the <code>ApplicationRestoreType</code>.
+      description: Specifies the method and snapshot to use when restarting an application using previously saved application state.
+    FlinkRunConfiguration:
+      type: object
+      properties:
+        AllowNonRestoredState:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: <p>When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. This will happen if the program is updated between snapshots to remove stateful parameters, and state data in the snapshot no longer corresponds to valid application data. For more information, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/savepoints.html#allowing-non-restored-state"> Allowing Non-Restored State</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink documentation</a>.</p> <note> <p>This value defaults to <code>false</code>. If you update your application without specifying this parameter, <code>AllowNonRestoredState</code> will be set to <code>false</code>, even if it was previously set to <code>true</code>.</p> </note>
+      description: Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    SqlRunConfigurations:
+      type: array
+      items:
+        $ref: '#/components/schemas/SqlRunConfiguration'
+    Id:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 50
+    InvalidArgumentException: {}
+    SnapshotName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
     RunConfiguration:
       type: object
       properties:
@@ -234,54 +259,14 @@ components:
           - $ref: '#/components/schemas/ApplicationRestoreConfiguration'
           - description: Describes the restore behavior of a restarting application.
       description: Describes the starting parameters for an Kinesis Data Analytics application.
-    Id:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 50
-    StartApplicationResponse:
-      type: object
-      properties: {}
-    InputStartingPosition:
-      type: string
-      enum:
-      - NOW
-      - TRIM_HORIZON
-      - LAST_STOPPED_POINT
-    SnapshotName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    ApplicationRestoreConfiguration:
-      type: object
-      required:
-      - ApplicationRestoreType
-      properties:
-        ApplicationRestoreType:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationRestoreType'
-          - description: Specifies how the application should be restored.
-        SnapshotName:
-          allOf:
-          - $ref: '#/components/schemas/SnapshotName'
-          - description: The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if <code>RESTORE_FROM_CUSTOM_SNAPSHOT</code> is specified for the <code>ApplicationRestoreType</code>.
-      description: Specifies the method and snapshot to use when restarting an application using previously saved application state.
-    InvalidApplicationConfigurationException: {}
-    FlinkRunConfiguration:
+    InputStartingPositionConfiguration:
       type: object
       properties:
-        AllowNonRestoredState:
+        InputStartingPosition:
           allOf:
-          - $ref: '#/components/schemas/BooleanObject'
-          - description: <p>When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. This will happen if the program is updated between snapshots to remove stateful parameters, and state data in the snapshot no longer corresponds to valid application data. For more information, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/savepoints.html#allowing-non-restored-state"> Allowing Non-Restored State</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink documentation</a>.</p> <note> <p>This value defaults to <code>false</code>. If you update your application without specifying this parameter, <code>AllowNonRestoredState</code> will be set to <code>false</code>, even if it was previously set to <code>true</code>.</p> </note>
-      description: Describes the starting parameters for a Flink-based Kinesis Data Analytics application.
-    ApplicationRestoreType:
-      type: string
-      enum:
-      - SKIP_RESTORE_FROM_SNAPSHOT
-      - RESTORE_FROM_LATEST_SNAPSHOT
-      - RESTORE_FROM_CUSTOM_SNAPSHOT
+          - $ref: '#/components/schemas/InputStartingPosition'
+          - description: <p>The starting position on the stream.</p> <ul> <li> <p> <code>NOW</code> - Start reading just after the most recent record in the stream, and start at the request timestamp that the customer issued.</p> </li> <li> <p> <code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Data Firehose delivery stream.</p> </li> <li> <p> <code>LAST_STOPPED_POINT</code> - Resume reading from where the application last stopped reading.</p> </li> </ul>
+      description: Describes the point at which the application reads from the streaming source.
     StartApplicationRequest:
       type: object
       required:
@@ -296,9 +281,32 @@ components:
           allOf:
           - $ref: '#/components/schemas/RunConfiguration'
           - description: Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.
+    ResourceNotFoundException: {}
+    InputStartingPosition:
+      type: string
+      enum:
+      - NOW
+      - TRIM_HORIZON
+      - LAST_STOPPED_POINT
+    StartApplicationResponse:
+      type: object
+      properties: {}
     BooleanObject:
       type: boolean
+    ApplicationRestoreType:
+      type: string
+      enum:
+      - SKIP_RESTORE_FROM_SNAPSHOT
+      - RESTORE_FROM_LATEST_SNAPSHOT
+      - RESTORE_FROM_CUSTOM_SNAPSHOT
+    InvalidRequestException: {}
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -311,8 +319,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -329,14 +337,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.DeleteApplication API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -186,11 +186,18 @@ paths:
           - KinesisAnalytics_20180523.DeleteApplication
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplication'
+      summary: Delete application
+      x-summary-source: derived
 components:
   schemas:
+    ResourceInUseException: {}
     Timestamp:
       type: string
       format: date-time
+    ConcurrentModificationException: {}
+    InvalidApplicationConfigurationException: {}
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
     DeleteApplicationRequest:
       type: object
       required:
@@ -206,39 +213,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/Timestamp'
           - description: Use the <code>DescribeApplication</code> operation to get this value.
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
-    InvalidApplicationConfigurationException: {}
+    DeleteApplicationResponse:
+      type: object
+      properties: {}
     InvalidArgumentException: {}
-    ConcurrentModificationException: {}
     ApplicationName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
-    InvalidRequestException: {}
-    DeleteApplicationResponse:
-      type: object
-      properties: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -257,8 +241,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

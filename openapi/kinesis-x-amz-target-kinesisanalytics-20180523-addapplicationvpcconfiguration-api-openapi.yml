@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -126,7 +126,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: AddApplicationVpcConfiguration
-      description: <p>Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store and access resources securely.</p> <p>Note the following about VPC configurations for Kinesis Data Analytics applications:</p> <ul> <li> <p>VPC configurations are not supported for SQL applications.</p> </li> <li> <p>When a VPC is added to a Kinesis Data Analytics application, the application can no longer be accessed from the Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.</p> </li> </ul>
+      description: 'Adds a Virtual Private Cloud (VPC) configuration to the application. Applications can use VPCs to store and access resources securely.
+
+
+        Note the following about VPC configurations for Kinesis Data Analytics applications:
+
+
+        VPC configurations are not supported for SQL applications.
+
+
+        When a VPC is added to a Kinesis Data Analytics application, the application can no longer be accessed from the Internet directly. To enable Internet access to the application, add an Internet gateway to your VPC.'
       responses:
         '200':
           description: Success
@@ -180,32 +189,15 @@ paths:
           - KinesisAnalytics_20180523.AddApplicationVpcConfiguration
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.AddApplicationVpcConfiguration'
+      summary: Add application vpc configuration
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    ConcurrentModificationException: {}
-    SecurityGroupIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/SecurityGroupId'
-      minItems: 1
-      maxItems: 5
+    VpcId:
+      type: string
     ResourceInUseException: {}
-    ResourceARN:
-      type: string
-      pattern: arn:.*
-      minLength: 1
-      maxLength: 2048
-    InvalidArgumentException: {}
-    SubnetId:
-      type: string
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    SecurityGroupId:
-      type: string
+    ConcurrentModificationException: {}
+    InvalidApplicationConfigurationException: {}
     AddApplicationVpcConfigurationResponse:
       type: object
       properties:
@@ -221,47 +213,23 @@ components:
           allOf:
           - $ref: '#/components/schemas/VpcConfigurationDescription'
           - description: The parameters of the new VPC configuration.
-    AddApplicationVpcConfigurationRequest:
-      type: object
-      required:
-      - ApplicationName
-      - VpcConfiguration
-      title: AddApplicationVpcConfigurationRequest
-      properties:
-        ApplicationName:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationName'
-          - description: The name of an existing application.
-        CurrentApplicationVersionId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationVersionId'
-          - description: The version of the application to which you want to add the VPC configuration. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.
-        VpcConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/VpcConfiguration'
-          - description: Description of the VPC to add to the application.
-        ConditionalToken:
-          allOf:
-          - $ref: '#/components/schemas/ConditionalToken'
-          - description: A value you use to implement strong concurrency for application updates. You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.
-    InvalidApplicationConfigurationException: {}
-    ConditionalToken:
+    ResourceARN:
       type: string
-      pattern: '[a-zA-Z0-9-_+/=]+'
+      pattern: arn:.*
       minLength: 1
-      maxLength: 512
-    VpcId:
+      maxLength: 2048
+    SubnetId:
       type: string
-    SubnetIds:
-      type: array
-      items:
-        $ref: '#/components/schemas/SubnetId'
-      minItems: 1
-      maxItems: 16
-    ApplicationVersionId:
-      type: integer
-      minimum: 1
-      maximum: 999999999
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    Id:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 50
     VpcConfigurationDescription:
       type: object
       required:
@@ -287,11 +255,6 @@ components:
           - $ref: '#/components/schemas/SecurityGroupIds'
           - description: The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.
       description: Describes the parameters of a VPC used by the application.
-    Id:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 50
     VpcConfiguration:
       type: object
       required:
@@ -307,7 +270,61 @@ components:
           - $ref: '#/components/schemas/SecurityGroupIds'
           - description: The array of <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.
       description: Describes the parameters of a VPC used by the application.
+    InvalidArgumentException: {}
+    AddApplicationVpcConfigurationRequest:
+      type: object
+      required:
+      - ApplicationName
+      - VpcConfiguration
+      title: AddApplicationVpcConfigurationRequest
+      properties:
+        ApplicationName:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationName'
+          - description: The name of an existing application.
+        CurrentApplicationVersionId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionId'
+          - description: The version of the application to which you want to add the VPC configuration. You must provide the <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>. You can use the <a>DescribeApplication</a> operation to get the current application version. If the version specified is not the current version, the <code>ConcurrentModificationException</code> is returned. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.
+        VpcConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/VpcConfiguration'
+          - description: Description of the VPC to add to the application.
+        ConditionalToken:
+          allOf:
+          - $ref: '#/components/schemas/ConditionalToken'
+          - description: A value you use to implement strong concurrency for application updates. You must provide the <code>ApplicationVersionID</code> or the <code>ConditionalToken</code>. You get the application's current <code>ConditionalToken</code> using <a>DescribeApplication</a>. For better concurrency support, use the <code>ConditionalToken</code> parameter instead of <code>CurrentApplicationVersionId</code>.
+    ResourceNotFoundException: {}
+    ConditionalToken:
+      type: string
+      pattern: '[a-zA-Z0-9-_+/=]+'
+      minLength: 1
+      maxLength: 512
+    ApplicationVersionId:
+      type: integer
+      minimum: 1
+      maximum: 999999999
+    SecurityGroupIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/SecurityGroupId'
+      minItems: 1
+      maxItems: 5
+    SubnetIds:
+      type: array
+      items:
+        $ref: '#/components/schemas/SubnetId'
+      minItems: 1
+      maxItems: 16
+    SecurityGroupId:
+      type: string
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -320,8 +337,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -338,14 +355,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

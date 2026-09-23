@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Describe Image Generation Configuration API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Describe Image Generation…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,7 +112,7 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DescribeImageGenerationConfiguration
+- name: Describe Image Generation Configuration
 paths:
   /describeImageGenerationConfiguration:
     parameters:
@@ -125,7 +125,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DescribeImageGenerationConfiguration
-      description: Gets the <code>ImageGenerationConfiguration</code> for a given Kinesis video stream.
+      description: Gets the ImageGenerationConfiguration for a given Kinesis video stream.
       responses:
         '200':
           description: Success
@@ -178,38 +178,11 @@ paths:
                   minLength: 1
                   maxLength: 1024
       tags:
-      - DescribeImageGenerationConfiguration
+      - Describe Image Generation Configuration
+      summary: Describe image generation configuration
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    Format:
-      type: string
-      enum:
-      - JPEG
-      - PNG
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
-    FormatConfig:
-      type: object
-      minProperties: 1
-      maxProperties: 1
-      additionalProperties:
-        $ref: '#/components/schemas/FormatConfigValue'
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    FormatConfigValue:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+
-      minLength: 0
-      maxLength: 256
-    AccessDeniedException: {}
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
     ImageGenerationDestinationConfig:
       type: object
       required:
@@ -225,29 +198,65 @@ components:
           - $ref: '#/components/schemas/DestinationRegion'
           - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
       description: The structure that contains the information required to deliver images to a customer.
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
     ConfigurationStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
+    FormatConfigValue:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+
+      minLength: 0
+      maxLength: 256
+    AccessDeniedException: {}
     HeightPixels:
       type: integer
       minimum: 1
       maximum: 2160
-    ImageSelectorType:
-      type: string
-      enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
     WidthPixels:
       type: integer
       minimum: 1
       maximum: 3840
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
+    ClientLimitExceededException: {}
+    FormatConfig:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties:
+        $ref: '#/components/schemas/FormatConfigValue'
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
     DestinationUri:
       type: string
       pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
       minLength: 1
       maxLength: 255
+    DescribeImageGenerationConfigurationOutput:
+      type: object
+      properties:
+        ImageGenerationConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ImageGenerationConfiguration'
+          - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
+    ImageSelectorType:
+      type: string
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
     ImageGenerationConfiguration:
       type: object
       required:
@@ -290,14 +299,13 @@ components:
           - $ref: '#/components/schemas/HeightPixels'
           - description: The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
       description: The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.
-    DescribeImageGenerationConfigurationOutput:
-      type: object
-      properties:
-        ImageGenerationConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/ImageGenerationConfiguration'
-          - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -310,8 +318,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -328,14 +336,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -126,7 +126,10 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DeleteApplicationReferenceDataSource
-      description: <p>Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application's configuration.</p> <p>If the application is running, Kinesis Data Analytics immediately removes the in-application table that you created using the <a>AddApplicationReferenceDataSource</a> operation. </p>
+      description: 'Deletes a reference data source configuration from the specified SQL-based Kinesis Data Analytics application''s configuration.
+
+
+        If the application is running, Kinesis Data Analytics immediately removes the in-application table that you created using the AddApplicationReferenceDataSource operation.'
       responses:
         '200':
           description: Success
@@ -180,70 +183,12 @@ paths:
           - KinesisAnalytics_20180523.DeleteApplicationReferenceDataSource
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.DeleteApplicationReferenceDataSource'
+      summary: Delete application reference data source
+      x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ResourceNotFoundException: {}
     ResourceInUseException: {}
-    DeleteApplicationReferenceDataSourceResponse:
-      type: object
-      properties:
-        ApplicationARN:
-          allOf:
-          - $ref: '#/components/schemas/ResourceARN'
-          - description: The application Amazon Resource Name (ARN).
-        ApplicationVersionId:
-          allOf:
-          - $ref: '#/components/schemas/ApplicationVersionId'
-          - description: The updated version ID of the application.
-    ResourceARN:
-      type: string
-      pattern: arn:.*
-      minLength: 1
-      maxLength: 2048
-    InvalidArgumentException: {}
+    ConcurrentModificationException: {}
     DeleteApplicationReferenceDataSourceRequest:
       type: object
       required:
@@ -264,22 +209,82 @@ components:
           allOf:
           - $ref: '#/components/schemas/Id'
           - description: 'The ID of the reference data source. When you add a reference data source to your application using the <a>AddApplicationReferenceDataSource</a>, Kinesis Data Analytics assigns an ID. You can use the <a>DescribeApplication</a> operation to get the reference ID. '
-    ApplicationVersionId:
-      type: integer
-      minimum: 1
-      maximum: 999999999
-    ConcurrentModificationException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    InvalidRequestException: {}
     Id:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 50
+    ApplicationVersionId:
+      type: integer
+      minimum: 1
+      maximum: 999999999
+    InvalidRequestException: {}
+    ResourceNotFoundException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
+    DeleteApplicationReferenceDataSourceResponse:
+      type: object
+      properties:
+        ApplicationARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The application Amazon Resource Name (ARN).
+        ApplicationVersionId:
+          allOf:
+          - $ref: '#/components/schemas/ApplicationVersionId'
+          - description: The updated version ID of the application.
+    InvalidArgumentException: {}
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

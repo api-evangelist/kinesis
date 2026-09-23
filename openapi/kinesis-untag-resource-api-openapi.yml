@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Delete Stream API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Untag Resource API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: DeleteStream
+- name: Untag Resource
 paths:
-  /deleteStream:
+  /UntagResource:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,27 +124,27 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: DeleteStream
-      description: <p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>
+      operationId: UntagResource
+      description: Removes one or more tags from a signaling channel. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeleteStreamOutput'
+                $ref: '#/components/schemas/UntagResourceOutput'
         '480':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '481':
           description: InvalidArgumentException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidArgumentException'
+        '481':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
         '482':
           description: ResourceNotFoundException
           content:
@@ -152,23 +152,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
-          description: NotAuthorizedException
+          description: AccessDeniedException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/NotAuthorizedException'
-        '484':
-          description: VersionMismatchException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/VersionMismatchException'
-        '485':
-          description: ResourceInUseException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceInUseException'
+                $ref: '#/components/schemas/AccessDeniedException'
       parameters: []
       requestBody:
         required: true
@@ -177,42 +165,41 @@ paths:
             schema:
               type: object
               required:
-              - StreamARN
+              - ResourceARN
+              - TagKeyList
               properties:
-                StreamARN:
-                  description: 'The Amazon Resource Name (ARN) of the stream that you want to delete. '
+                ResourceARN:
+                  description: The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                CurrentVersion:
-                  description: '<p>Optional: The version of the stream that you want to delete. </p> <p>Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the <code>DescribeStream</code> API.</p> <p>If not specified, only the <code>CreationTime</code> is checked before deleting the stream.</p>'
-                  type: string
-                  pattern: '[a-zA-Z0-9]+'
-                  minLength: 1
-                  maxLength: 64
+                TagKeyList:
+                  description: A list of the keys of the tags that you want to remove.
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/TagKey'
+                  minItems: 1
+                  maxItems: 50
       tags:
-      - DeleteStream
+      - Untag Resource
+      summary: Untag resource
+      x-summary-source: derived
 components:
+  schemas:
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    AccessDeniedException: {}
+    UntagResourceOutput:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -221,6 +208,18 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -237,16 +236,12 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    ResourceNotFoundException: {}
-    ResourceInUseException: {}
-    VersionMismatchException: {}
-    DeleteStreamOutput:
-      type: object
-      properties: {}
-    InvalidArgumentException: {}
-    NotAuthorizedException: {}
-    ClientLimitExceededException: {}
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

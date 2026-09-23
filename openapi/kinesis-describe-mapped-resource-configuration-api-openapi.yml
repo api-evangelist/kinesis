@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Untag Resource API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Describe Mapped Resource…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: UntagResource
+- name: Describe Mapped Resource Configuration
 paths:
-  /UntagResource:
+  /describeMappedResourceConfiguration:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,85 +124,137 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: UntagResource
-      description: Removes one or more tags from a signaling channel. In the request, specify only a tag key or keys; don't specify the value. If you specify a tag key that does not exist, it's ignored.
+      operationId: DescribeMappedResourceConfiguration
+      description: 'Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.
+
+
+        Returns the most current information about the stream. The streamName or streamARN should be provided in the input.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UntagResourceOutput'
+                $ref: '#/components/schemas/DescribeMappedResourceConfigurationOutput'
         '480':
-          description: InvalidArgumentException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidArgumentException'
-        '481':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '482':
           description: ResourceNotFoundException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
-        '483':
+        '481':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '482':
           description: AccessDeniedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
-      parameters: []
+        '483':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
+      parameters:
+      - name: MaxResults
+        in: query
+        schema:
+          type: string
+        description: Pagination limit
+        required: false
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+        required: false
       requestBody:
         required: true
         content:
           application/json:
             schema:
               type: object
-              required:
-              - ResourceARN
-              - TagKeyList
               properties:
-                ResourceARN:
-                  description: The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.
+                StreamName:
+                  description: The name of the stream.
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
+                StreamARN:
+                  description: The Amazon Resource Name (ARN) of the stream.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                TagKeyList:
-                  description: A list of the keys of the tags that you want to remove.
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/TagKey'
-                  minItems: 1
-                  maxItems: 50
+                MaxResults:
+                  description: The maximum number of results to return in the response.
+                  type: integer
+                  minimum: 1
+                  maximum: 1
+                NextToken:
+                  description: The token to provide in your next request, to get another batch of results.
+                  type: string
+                  pattern: '[a-zA-Z0-9+/=]*'
+                  minLength: 0
+                  maxLength: 512
       tags:
-      - UntagResource
+      - Describe Mapped Resource Configuration
+      summary: Describe mapped resource configuration
+      x-summary-source: derived
 components:
+  schemas:
+    Type:
+      type: string
+    MappedResourceConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappedResourceConfigurationListItem'
+      minItems: 0
+      maxItems: 1
+    AccessDeniedException: {}
+    ResourceNotFoundException: {}
+    MappedResourceConfigurationListItem:
+      type: object
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/Type'
+          - description: The type of the associated resource for the kinesis video stream.
+        ARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
+      description: A structure that encapsulates, or contains, the media storage configuration properties.
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    InvalidArgumentException: {}
+    DescribeMappedResourceConfigurationOutput:
+      type: object
+      properties:
+        MappedResourceConfigurationList:
+          allOf:
+          - $ref: '#/components/schemas/MappedResourceConfigurationList'
+          - description: A structure that encapsulates, or contains, the media storage configuration properties.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: 'The token that was used in the <code>NextToken</code>request to fetch the next set of results. '
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -211,6 +263,18 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -227,19 +291,12 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    InvalidArgumentException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ClientLimitExceededException: {}
-    UntagResourceOutput:
-      type: object
-      properties: {}
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

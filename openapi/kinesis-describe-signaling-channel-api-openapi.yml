@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams List Signaling Channels API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Describe Signaling Channel API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: ListSignalingChannels
+- name: Describe Signaling Channel
 paths:
-  /listSignalingChannels:
+  /describeSignalingChannel:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,15 +124,15 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: ListSignalingChannels
-      description: Returns an array of <code>ChannelInfo</code> objects. Each object describes a signaling channel. To retrieve only those channels that satisfy a specific condition, you can specify a <code>ChannelNameCondition</code>.
+      operationId: DescribeSignalingChannel
+      description: Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListSignalingChannelsOutput'
+                $ref: '#/components/schemas/DescribeSignalingChannelOutput'
         '480':
           description: InvalidArgumentException
           content:
@@ -146,24 +146,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClientLimitExceededException'
         '482':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '483':
           description: AccessDeniedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
-      parameters:
-      - name: MaxResults
-        in: query
-        schema:
-          type: string
-        description: Pagination limit
-        required: false
-      - name: NextToken
-        in: query
-        schema:
-          type: string
-        description: Pagination token
-        required: false
+      parameters: []
       requestBody:
         required: true
         content:
@@ -171,85 +165,77 @@ paths:
             schema:
               type: object
               properties:
-                MaxResults:
-                  description: The maximum number of channels to return in the response. The default is 500.
-                  type: integer
-                  minimum: 1
-                  maximum: 10000
-                NextToken:
-                  description: If you specify this parameter, when the result of a <code>ListSignalingChannels</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of channels, provide this token in your next request.
+                ChannelName:
+                  description: The name of the signaling channel that you want to describe.
                   type: string
-                  pattern: '[a-zA-Z0-9+/=]*'
-                  minLength: 0
-                  maxLength: 512
-                ChannelNameCondition:
-                  description: An optional input parameter for the <code>ListSignalingChannels</code> API. When this parameter is specified while invoking <code>ListSignalingChannels</code>, the API returns only the channels that satisfy a condition specified in <code>ChannelNameCondition</code>.
-                  type: object
-                  properties:
-                    ComparisonOperator:
-                      allOf:
-                      - $ref: '#/components/schemas/ComparisonOperator'
-                      - description: A comparison operator. Currently, you can only specify the <code>BEGINS_WITH</code> operator, which finds signaling channels whose names begin with a given prefix.
-                    ComparisonValue:
-                      allOf:
-                      - $ref: '#/components/schemas/ChannelName'
-                      - description: A value to compare.
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
+                ChannelARN:
+                  description: The ARN of the signaling channel that you want to describe.
+                  type: string
+                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+                  minLength: 1
+                  maxLength: 1024
       tags:
-      - ListSignalingChannels
+      - Describe Signaling Channel
+      summary: Describe signaling channel
+      x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ChannelInfoList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ChannelInfo'
     Version:
       type: string
       pattern: '[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 64
+    ChannelType:
+      type: string
+      enum:
+      - SINGLE_MASTER
+      - FULL_MESH
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    ChannelName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    SingleMasterConfiguration:
+      type: object
+      properties:
+        MessageTtlSeconds:
+          allOf:
+          - $ref: '#/components/schemas/MessageTtlSeconds'
+          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
+      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
+    AccessDeniedException: {}
+    DescribeSignalingChannelOutput:
+      type: object
+      properties:
+        ChannelInfo:
+          allOf:
+          - $ref: '#/components/schemas/ChannelInfo'
+          - description: A structure that encapsulates the specified signaling channel's metadata and properties.
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    ClientLimitExceededException: {}
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    Status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
     ChannelInfo:
       type: object
       properties:
@@ -282,66 +268,49 @@ components:
           - $ref: '#/components/schemas/Version'
           - description: The current version of the signaling channel.
       description: A structure that encapsulates a signaling channel's metadata and properties.
-    AccessDeniedException: {}
-    ChannelName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    SingleMasterConfiguration:
-      type: object
-      properties:
-        MessageTtlSeconds:
-          allOf:
-          - $ref: '#/components/schemas/MessageTtlSeconds'
-          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
-      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    ChannelType:
-      type: string
-      enum:
-      - SINGLE_MASTER
-      - FULL_MESH
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    Status:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-    ListSignalingChannelsOutput:
-      type: object
-      properties:
-        ChannelInfoList:
-          allOf:
-          - $ref: '#/components/schemas/ChannelInfoList'
-          - description: An array of <code>ChannelInfo</code> objects.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
-    ComparisonOperator:
-      type: string
-      enum:
-      - BEGINS_WITH
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

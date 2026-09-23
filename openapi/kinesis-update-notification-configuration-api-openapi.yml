@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Get Signaling Channel Endpoint API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Update Notification…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: GetSignalingChannelEndpoint
+- name: update Notification Configuration
 paths:
-  /getSignalingChannelEndpoint:
+  /updateNotificationConfiguration:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,15 +124,15 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: GetSignalingChannelEndpoint
-      description: <p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>
+      operationId: UpdateNotificationConfiguration
+      description: Updates the notification information for a stream.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetSignalingChannelEndpointOutput'
+                $ref: '#/components/schemas/UpdateNotificationConfigurationOutput'
         '480':
           description: InvalidArgumentException
           content:
@@ -152,17 +152,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
-          description: ResourceInUseException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResourceInUseException'
-        '484':
           description: AccessDeniedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '485':
+          description: NoDataRetentionException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoDataRetentionException'
       parameters: []
       requestBody:
         required: true
@@ -170,99 +176,75 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-              - ChannelARN
               properties:
-                ChannelARN:
-                  description: The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.
+                StreamName:
+                  description: The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+                  type: string
+                  pattern: '[a-zA-Z0-9_.-]+'
+                  minLength: 1
+                  maxLength: 256
+                StreamARN:
+                  description: The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                SingleMasterChannelEndpointConfiguration:
-                  description: 'An object that contains the endpoint configuration for the <code>SINGLE_MASTER</code> channel type. '
+                NotificationConfiguration:
+                  description: The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.
                   type: object
                   properties:
-                    Protocols:
+                    Status:
                       allOf:
-                      - $ref: '#/components/schemas/ListOfProtocols'
-                      - description: This property is used to determine the nature of communication over this <code>SINGLE_MASTER</code> signaling channel. If <code>WSS</code> is specified, this API returns a websocket endpoint. If <code>HTTPS</code> is specified, this API returns an <code>HTTPS</code> endpoint.
-                    Role:
+                      - $ref: '#/components/schemas/ConfigurationStatus'
+                      - description: Indicates if a notification configuration is enabled or disabled.
+                    DestinationConfig:
                       allOf:
-                      - $ref: '#/components/schemas/ChannelRole'
-                      - description: 'This property is used to determine messaging permissions in this <code>SINGLE_MASTER</code> signaling channel. If <code>MASTER</code> is specified, this API returns an endpoint that a client can use to receive offers from and send answers to any of the viewers on this signaling channel. If <code>VIEWER</code> is specified, this API returns an endpoint that a client can use only to send offers to another <code>MASTER</code> client on this signaling channel. '
+                      - $ref: '#/components/schemas/NotificationDestinationConfig'
+                      - description: The destination information required to deliver a notification to a customer.
       tags:
-      - GetSignalingChannelEndpoint
+      - update Notification Configuration
+      summary: Update notification configuration
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    GetSignalingChannelEndpointOutput:
-      type: object
-      properties:
-        ResourceEndpointList:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpointList'
-          - description: A list of endpoints for the specified signaling channel.
-    ResourceEndpointList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ResourceEndpointListItem'
-    ListOfProtocols:
-      type: array
-      items:
-        $ref: '#/components/schemas/ChannelProtocol'
-      minItems: 1
-      maxItems: 5
-    AccessDeniedException: {}
+    NoDataRetentionException: {}
     ResourceInUseException: {}
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    ChannelProtocol:
+    AccessDeniedException: {}
+    ConfigurationStatus:
       type: string
       enum:
-      - WSS
-      - HTTPS
-      - WEBRTC
-    ResourceEndpoint:
-      type: string
-    ChannelRole:
-      type: string
-      enum:
-      - MASTER
-      - VIEWER
-    ResourceEndpointListItem:
+      - ENABLED
+      - DISABLED
+    ResourceNotFoundException: {}
+    UpdateNotificationConfigurationOutput:
       type: object
+      properties: {}
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
+    InvalidArgumentException: {}
+    NotificationDestinationConfig:
+      type: object
+      required:
+      - Uri
       properties:
-        Protocol:
+        Uri:
           allOf:
-          - $ref: '#/components/schemas/ChannelProtocol'
-          - description: The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-        ResourceEndpoint:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpoint'
-          - description: The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-      description: An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+      description: The structure that contains the information required to deliver a notification to a customer.
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -279,8 +261,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

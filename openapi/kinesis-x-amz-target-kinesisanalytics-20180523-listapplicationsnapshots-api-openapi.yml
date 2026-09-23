@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -162,59 +162,10 @@ paths:
           - KinesisAnalytics_20180523.ListApplicationSnapshots
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.ListApplicationSnapshots'
+      summary: List application snapshots
+      x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    UnsupportedOperationException: {}
-    SnapshotStatus:
-      type: string
-      enum:
-      - CREATING
-      - READY
-      - DELETING
-      - FAILED
     SnapshotDetails:
       type: object
       required:
@@ -239,16 +190,33 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The timestamp of the application snapshot.
       description: Provides details about a snapshot of application state.
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 512
-    InvalidArgumentException: {}
     ApplicationName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
+    ListApplicationSnapshotsResponse:
+      type: object
+      properties:
+        SnapshotSummaries:
+          allOf:
+          - $ref: '#/components/schemas/SnapshotSummaries'
+          - description: A collection of objects containing information about the application snapshots.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: The token for the next set of results, or <code>null</code> if there are no additional results.
+    InvalidArgumentException: {}
+    SnapshotName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    SnapshotSummaries:
+      type: array
+      items:
+        $ref: '#/components/schemas/SnapshotDetails'
+    UnsupportedOperationException: {}
     ListApplicationSnapshotsRequest:
       type: object
       required:
@@ -267,25 +235,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: 'Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more output available. Set it to the value of the previous call''s <code>NextToken</code> response to indicate where the output should continue from. '
-    ListApplicationSnapshotsResponse:
-      type: object
-      properties:
-        SnapshotSummaries:
-          allOf:
-          - $ref: '#/components/schemas/SnapshotSummaries'
-          - description: A collection of objects containing information about the application snapshots.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: The token for the next set of results, or <code>null</code> if there are no additional results.
     Timestamp:
       type: string
       format: date-time
-    SnapshotName:
+    NextToken:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
-      maxLength: 256
+      maxLength: 512
     ListSnapshotsInputLimit:
       type: integer
       minimum: 1
@@ -294,10 +250,56 @@ components:
       type: integer
       minimum: 1
       maximum: 999999999
-    SnapshotSummaries:
-      type: array
-      items:
-        $ref: '#/components/schemas/SnapshotDetails'
+    SnapshotStatus:
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - DELETING
+      - FAILED
+  parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

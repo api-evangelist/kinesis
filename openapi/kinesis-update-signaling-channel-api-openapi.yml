@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams List Tags For Resource API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Update Signaling Channel API
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: ListTagsForResource
+- name: Update Signaling Channel
 paths:
-  /ListTagsForResource:
+  /updateSignalingChannel:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,15 +124,18 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: ListTagsForResource
-      description: Returns a list of tags associated with the specified signaling channel.
+      operationId: UpdateSignalingChannel
+      description: 'Updates the existing signaling channel. This is an asynchronous operation and takes time to complete.
+
+
+        If the MessageTtlSeconds value is updated (either increased or reduced), it only applies to new messages sent via this channel after it''s been updated. Existing messages are still expired as per the previous MessageTtlSeconds value.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListTagsForResourceOutput'
+                $ref: '#/components/schemas/UpdateSignalingChannelOutput'
         '480':
           description: InvalidArgumentException
           content:
@@ -152,11 +155,23 @@ paths:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
         '483':
+          description: ResourceInUseException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceInUseException'
+        '484':
           description: AccessDeniedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
+        '485':
+          description: VersionMismatchException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionMismatchException'
       parameters: []
       requestBody:
         required: true
@@ -165,38 +180,51 @@ paths:
             schema:
               type: object
               required:
-              - ResourceARN
+              - ChannelARN
+              - CurrentVersion
               properties:
-                NextToken:
-                  description: 'If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. '
-                  type: string
-                  pattern: '[a-zA-Z0-9+/=]*'
-                  minLength: 0
-                  maxLength: 512
-                ResourceARN:
-                  description: The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.
+                ChannelARN:
+                  description: The Amazon Resource Name (ARN) of the signaling channel that you want to update.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
+                CurrentVersion:
+                  description: The current version of the signaling channel that you want to update.
+                  type: string
+                  pattern: '[a-zA-Z0-9]+'
+                  minLength: 1
+                  maxLength: 64
+                SingleMasterConfiguration:
+                  description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
+                  type: object
+                  properties:
+                    MessageTtlSeconds:
+                      allOf:
+                      - $ref: '#/components/schemas/MessageTtlSeconds'
+                      - description: The period of time a signaling channel retains undelivered messages before they are discarded.
       tags:
-      - ListTagsForResource
+      - Update Signaling Channel
+      summary: Update signaling channel
+      x-summary-source: derived
 components:
+  schemas:
+    ResourceInUseException: {}
+    AccessDeniedException: {}
+    UpdateSignalingChannelOutput:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    VersionMismatchException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -207,14 +235,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -225,38 +259,12 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    ResourceTags:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    ListTagsForResourceOutput:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: 'If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. '
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/ResourceTags'
-          - description: A map of tag keys and values associated with the specified signaling channel.
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

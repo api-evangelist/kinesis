@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -126,7 +126,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: CreateApplicationPresignedUrl
-      description: <p>Creates and returns a URL that you can use to connect to an application's extension.</p> <p>The IAM role or user used to call this API defines the permissions to access the extension. After the presigned URL is created, no additional permission is required to access this URL. IAM authorization policies for this API are also enforced for every HTTP request that attempts to connect to the extension. </p> <p>You control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code> parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p> <note> <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes to be valid. If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p> </note>
+      description: 'Creates and returns a URL that you can use to connect to an application''s extension.
+
+
+        The IAM role or user used to call this API defines the permissions to access the extension. After the presigned URL is created, no additional permission is required to access this URL. IAM authorization policies for this API are also enforced for every HTTP request that attempts to connect to the extension.
+
+
+        You control the amount of time that the URL will be valid using the SessionExpirationDurationInSeconds parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.
+
+
+        The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes to be valid. If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.'
       responses:
         '200':
           description: Success
@@ -168,12 +177,17 @@ paths:
           - KinesisAnalytics_20180523.CreateApplicationPresignedUrl
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.CreateApplicationPresignedUrl'
+      summary: Create application presigned url
+      x-summary-source: derived
 components:
   schemas:
-    AuthorizedUrl:
+    UrlType:
       type: string
-      minLength: 1
-      maxLength: 2048
+      enum:
+      - FLINK_DASHBOARD_URL
+      - ZEPPELIN_UI_URL
+    ResourceInUseException: {}
+    ResourceNotFoundException: {}
     CreateApplicationPresignedUrlRequest:
       type: object
       required:
@@ -197,7 +211,16 @@ components:
       type: integer
       minimum: 1800
       maximum: 43200
-    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    AuthorizedUrl:
+      type: string
+      minLength: 1
+      maxLength: 2048
     CreateApplicationPresignedUrlResponse:
       type: object
       properties:
@@ -205,31 +228,7 @@ components:
           allOf:
           - $ref: '#/components/schemas/AuthorizedUrl'
           - description: The URL of the extension.
-    ResourceInUseException: {}
-    UrlType:
-      type: string
-      enum:
-      - FLINK_DASHBOARD_URL
-      - ZEPPELIN_UI_URL
-    InvalidArgumentException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -238,6 +237,12 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -256,6 +261,12 @@ components:
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.ListTagsForResource API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -126,7 +126,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListTagsForResource
-      description: Retrieves the list of key-value tags assigned to the application. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.
+      description: Retrieves the list of key-value tags assigned to the application. For more information, see Using Tagging.
       responses:
         '200':
           description: Success
@@ -168,8 +168,18 @@ paths:
           - KinesisAnalytics_20180523.ListTagsForResource
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.ListTagsForResource'
+      summary: List tags for resource
+      x-summary-source: derived
 components:
   schemas:
+    TagValue:
+      type: string
+      minLength: 0
+      maxLength: 256
+    TagKey:
+      type: string
+      minLength: 1
+      maxLength: 128
     Tag:
       type: object
       required:
@@ -184,29 +194,7 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value of the key-value tag. The value is optional.
       description: A key-value pair (the value is optional) that you can define and assign to Amazon resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Note that the maximum number of application tags includes system tags. The maximum number of user-defined application tags is 50. For more information, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.
-    ListTagsForResourceResponse:
-      type: object
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/Tags'
-          - description: The key-value tags assigned to the application.
-    ResourceNotFoundException: {}
-    TagValue:
-      type: string
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    KinesisAnalyticsARN:
-      type: string
-      pattern: arn:.*
-      minLength: 1
-      maxLength: 2048
     ConcurrentModificationException: {}
-    TagKey:
-      type: string
-      minLength: 1
-      maxLength: 128
     Tags:
       type: array
       items:
@@ -223,25 +211,21 @@ components:
           allOf:
           - $ref: '#/components/schemas/KinesisAnalyticsARN'
           - description: The ARN of the application for which to retrieve tags.
+    ResourceNotFoundException: {}
+    ListTagsForResourceResponse:
+      type: object
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The key-value tags assigned to the application.
+    InvalidArgumentException: {}
+    KinesisAnalyticsARN:
+      type: string
+      pattern: arn:.*
+      minLength: 1
+      maxLength: 2048
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -260,8 +244,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

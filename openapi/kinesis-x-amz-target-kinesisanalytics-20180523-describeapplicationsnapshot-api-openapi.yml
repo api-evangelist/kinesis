@@ -2,7 +2,7 @@ openapi: 3.2.0
 info:
   version: 2018-05-23
   x-release: v4
-  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot API'
+  title: 'Amazon Kinesis Analytics #X Amz Target=KinesisAnalytics…'
   description: Amazon Kinesis Data Analytics is a fully managed service that you can use to process and analyze streaming data using Java, SQL, or Scala. The service enables you to quickly author and run Java, SQL, or Scala code against streaming sources to perform time series analytics, feed real-time dashboards, and create real-time metrics.
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
@@ -168,20 +168,59 @@ paths:
           - KinesisAnalytics_20180523.DescribeApplicationSnapshot
       tags:
       - '#X Amz Target=KinesisAnalytics 20180523.DescribeApplicationSnapshot'
+      summary: Describe application snapshot
+      x-summary-source: derived
 components:
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    Timestamp:
-      type: string
-      format: date-time
-    DescribeApplicationSnapshotResponse:
-      type: object
-      required:
-      - SnapshotDetails
-      properties:
-        SnapshotDetails:
-          allOf:
-          - $ref: '#/components/schemas/SnapshotDetails'
-          - description: An object containing information about the application snapshot.
+    ApplicationVersionId:
+      type: integer
+      minimum: 1
+      maximum: 999999999
+    ResourceNotFoundException: {}
+    UnsupportedOperationException: {}
     SnapshotDetails:
       type: object
       required:
@@ -206,30 +245,6 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The timestamp of the application snapshot.
       description: Provides details about a snapshot of application state.
-    ResourceNotFoundException: {}
-    InvalidArgumentException: {}
-    SnapshotName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    ApplicationVersionId:
-      type: integer
-      minimum: 1
-      maximum: 999999999
-    UnsupportedOperationException: {}
-    ApplicationName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    SnapshotStatus:
-      type: string
-      enum:
-      - CREATING
-      - READY
-      - DELETING
-      - FAILED
     DescribeApplicationSnapshotRequest:
       type: object
       required:
@@ -245,49 +260,36 @@ components:
           allOf:
           - $ref: '#/components/schemas/SnapshotName'
           - description: The identifier of an application snapshot. You can retrieve this value using .
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+    InvalidArgumentException: {}
+    ApplicationName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    Timestamp:
+      type: string
+      format: date-time
+    SnapshotStatus:
+      type: string
+      enum:
+      - CREATING
+      - READY
+      - DELETING
+      - FAILED
+    SnapshotName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    DescribeApplicationSnapshotResponse:
+      type: object
+      required:
+      - SnapshotDetails
+      properties:
+        SnapshotDetails:
+          allOf:
+          - $ref: '#/components/schemas/SnapshotDetails'
+          - description: An object containing information about the application snapshot.
   securitySchemes:
     hmac:
       type: apiKey

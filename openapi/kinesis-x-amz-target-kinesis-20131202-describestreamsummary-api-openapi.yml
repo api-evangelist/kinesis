@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.DescribeStreamSummary API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: DescribeStreamSummary
-      description: <p>Provides a summarized description of the specified Kinesis data stream without the shard list.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note> <p>The information returned includes the stream name, Amazon Resource Name (ARN), status, record retention period, approximate creation time, monitoring, encryption details, and open shard count. </p> <p> <a>DescribeStreamSummary</a> has a limit of 20 transactions per second per account.</p>
+      description: 'Provides a summarized description of the specified Kinesis data stream without the shard list.
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.
+
+
+        The information returned includes the stream name, Amazon Resource Name (ARN), status, record retention period, approximate creation time, monitoring, encryption details, and open shard count.
+
+
+        DescribeStreamSummary has a limit of 20 transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -173,21 +184,10 @@ paths:
           - Kinesis_20131202.DescribeStreamSummary
       tags:
       - '#X Amz Target=Kinesis 20131202.DescribeStreamSummary'
+      summary: Describe stream summary
+      x-summary-source: derived
 components:
   schemas:
-    DescribeStreamSummaryInput:
-      type: object
-      title: DescribeStreamSummaryInput
-      properties:
-        StreamName:
-          allOf:
-          - $ref: '#/components/schemas/StreamName'
-          - description: The name of the stream to describe.
-        StreamARN:
-          allOf:
-          - $ref: '#/components/schemas/StreamARN'
-          - description: The ARN of the stream.
-    ResourceNotFoundException: {}
     MetricsName:
       type: string
       enum:
@@ -199,36 +199,14 @@ components:
       - ReadProvisionedThroughputExceeded
       - IteratorAgeMilliseconds
       - ALL
-    EnhancedMonitoringList:
-      type: array
-      items:
-        $ref: '#/components/schemas/EnhancedMetrics'
-    MetricsNameList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MetricsName'
-      minItems: 1
-      maxItems: 7
     KeyId:
       type: string
       minLength: 1
       maxLength: 2048
-    DescribeStreamSummaryOutput:
-      type: object
-      required:
-      - StreamDescriptionSummary
-      properties:
-        StreamDescriptionSummary:
-          allOf:
-          - $ref: '#/components/schemas/StreamDescriptionSummary'
-          - description: A <a>StreamDescriptionSummary</a> containing information about the stream.
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    RetentionPeriodHours:
-      type: integer
+    EnhancedMonitoringList:
+      type: array
+      items:
+        $ref: '#/components/schemas/EnhancedMetrics'
     StreamDescriptionSummary:
       type: object
       required:
@@ -285,7 +263,39 @@ components:
           - $ref: '#/components/schemas/ConsumerCountObject'
           - description: The number of enhanced fan-out consumers registered with the stream.
       description: 'Represents the output for <a>DescribeStreamSummary</a> '
+    DescribeStreamSummaryOutput:
+      type: object
+      required:
+      - StreamDescriptionSummary
+      properties:
+        StreamDescriptionSummary:
+          allOf:
+          - $ref: '#/components/schemas/StreamDescriptionSummary'
+          - description: A <a>StreamDescriptionSummary</a> containing information about the stream.
     AccessDeniedException: {}
+    EnhancedMetrics:
+      type: object
+      properties:
+        ShardLevelMetrics:
+          allOf:
+          - $ref: '#/components/schemas/MetricsNameList'
+          - description: <p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
+      description: Represents enhanced metrics types.
+    RetentionPeriodHours:
+      type: integer
+    DescribeStreamSummaryInput:
+      type: object
+      title: DescribeStreamSummaryInput
+      properties:
+        StreamName:
+          allOf:
+          - $ref: '#/components/schemas/StreamName'
+          - description: The name of the stream to describe.
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/StreamARN'
+          - description: The ARN of the stream.
+    InvalidArgumentException: {}
     StreamStatus:
       type: string
       enum:
@@ -293,7 +303,27 @@ components:
       - DELETING
       - ACTIVE
       - UPDATING
-    InvalidArgumentException: {}
+    ShardCountObject:
+      type: integer
+      minimum: 0
+      maximum: 1000000
+    EncryptionType:
+      type: string
+      enum:
+      - NONE
+      - KMS
+    ResourceNotFoundException: {}
+    MetricsNameList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MetricsName'
+      minItems: 1
+      maxItems: 7
+    StreamMode:
+      type: string
+      enum:
+      - PROVISIONED
+      - ON_DEMAND
     StreamModeDetails:
       type: object
       required:
@@ -304,42 +334,31 @@ components:
           - $ref: '#/components/schemas/StreamMode'
           - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
       description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-    LimitExceededException: {}
     Timestamp:
       type: string
       format: date-time
-    StreamMode:
+    LimitExceededException: {}
+    StreamName:
       type: string
-      enum:
-      - PROVISIONED
-      - ON_DEMAND
-    ShardCountObject:
-      type: integer
-      minimum: 0
-      maximum: 1000000
-    ConsumerCountObject:
-      type: integer
-      minimum: 0
-      maximum: 1000000
-    EncryptionType:
-      type: string
-      enum:
-      - NONE
-      - KMS
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     StreamARN:
       type: string
       pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
       maxLength: 2048
-    EnhancedMetrics:
-      type: object
-      properties:
-        ShardLevelMetrics:
-          allOf:
-          - $ref: '#/components/schemas/MetricsNameList'
-          - description: <p>List of shard-level metrics.</p> <p>The following are the valid shard-level metrics. The value "<code>ALL</code>" enhances every metric.</p> <ul> <li> <p> <code>IncomingBytes</code> </p> </li> <li> <p> <code>IncomingRecords</code> </p> </li> <li> <p> <code>OutgoingBytes</code> </p> </li> <li> <p> <code>OutgoingRecords</code> </p> </li> <li> <p> <code>WriteProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>ReadProvisionedThroughputExceeded</code> </p> </li> <li> <p> <code>IteratorAgeMilliseconds</code> </p> </li> <li> <p> <code>ALL</code> </p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/kinesis/latest/dev/monitoring-with-cloudwatch.html">Monitoring the Amazon Kinesis Data Streams Service with Amazon CloudWatch</a> in the <i>Amazon Kinesis Data Streams Developer Guide</i>.</p>
-      description: Represents enhanced metrics types.
+    ConsumerCountObject:
+      type: integer
+      minimum: 0
+      maximum: 1000000
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -352,8 +371,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -370,14 +389,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

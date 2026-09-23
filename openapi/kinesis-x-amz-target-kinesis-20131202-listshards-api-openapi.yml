@@ -3,7 +3,9 @@ info:
   version: 2013-12-02
   x-release: v4
   title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListShards API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListShards
-      description: <p>Lists the shards in a stream and provides information about each shard. This operation has a limit of 1000 transactions per second per data stream.</p> <note> <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input parameter rather than the <code>StreamName</code> input parameter.</p> </note> <p>This action does not list expired shards. For information about expired shards, see <a href="https://docs.aws.amazon.com/streams/latest/dev/kinesis-using-sdk-java-after-resharding.html#kinesis-using-sdk-java-resharding-data-routing">Data Routing, Data Persistence, and Shard State after a Reshard</a>. </p> <important> <p>This API is a new operation that is used by the Amazon Kinesis Client Library (KCL). If you have a fine-grained IAM policy that only allows specific operations, you must update your policy to allow calls to this API. For more information, see <a href="https://docs.aws.amazon.com/streams/latest/dev/controlling-access.html">Controlling Access to Amazon Kinesis Data Streams Resources Using IAM</a>.</p> </important>
+      description: 'Lists the shards in a stream and provides information about each shard. This operation has a limit of 1000 transactions per second per data stream.
+
+
+        When invoking this API, it is recommended you use the StreamARN input parameter rather than the StreamName input parameter.
+
+
+        This action does not list expired shards. For information about expired shards, see Data Routing, Data Persistence, and Shard State after a Reshard.
+
+
+        This API is a new operation that is used by the Amazon Kinesis Client Library (KCL). If you have a fine-grained IAM policy that only allows specific operations, you must update your policy to allow calls to this API. For more information, see Controlling Access to Amazon Kinesis Data Streams Resources Using IAM.'
       responses:
         '200':
           description: Success
@@ -185,28 +196,11 @@ paths:
           - Kinesis_20131202.ListShards
       tags:
       - '#X Amz Target=Kinesis 20131202.ListShards'
+      summary: List shards
+      x-summary-source: derived
 components:
   schemas:
-    ResourceNotFoundException: {}
-    ShardId:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    SequenceNumberRange:
-      type: object
-      required:
-      - StartingSequenceNumber
-      properties:
-        StartingSequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The starting sequence number for the range.
-        EndingSequenceNumber:
-          allOf:
-          - $ref: '#/components/schemas/SequenceNumber'
-          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
-      description: The range of possible sequence numbers for the shard.
+    ResourceInUseException: {}
     ShardFilterType:
       type: string
       enum:
@@ -216,41 +210,19 @@ components:
       - AT_LATEST
       - AT_TIMESTAMP
       - FROM_TIMESTAMP
-    ExpiredNextTokenException: {}
-    StreamName:
+    SequenceNumber:
+      type: string
+      pattern: 0|([1-9]\d{0,128})
+    ShardList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Shard'
+    ShardId:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 128
     AccessDeniedException: {}
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 1048576
-    ResourceInUseException: {}
-    ListShardsInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    InvalidArgumentException: {}
-    ShardFilter:
-      type: object
-      required:
-      - Type
-      properties:
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/ShardFilterType'
-          - description: '<p>The shard type specified in the <code>ShardFilter</code> parameter. This is a required property of the <code>ShardFilter</code> parameter.</p> <p>You can specify the following valid values: </p> <ul> <li> <p> <code>AFTER_SHARD_ID</code> - the response includes all the shards, starting with the shard whose ID immediately follows the <code>ShardId</code> that you provided. </p> </li> <li> <p> <code>AT_TRIM_HORIZON</code> - the response includes all the shards that were open at <code>TRIM_HORIZON</code>.</p> </li> <li> <p> <code>FROM_TRIM_HORIZON</code> - (default), the response includes all the shards within the retention period of the data stream (trim to tip).</p> </li> <li> <p> <code>AT_LATEST</code> - the response includes only the currently open shards of the data stream.</p> </li> <li> <p> <code>AT_TIMESTAMP</code> - the response includes all shards whose start timestamp is less than or equal to the given timestamp and end timestamp is greater than or equal to the given timestamp or still open. </p> </li> <li> <p> <code>FROM_TIMESTAMP</code> - the response incldues all closed shards whose end timestamp is greater than or equal to the given timestamp and also all open shards. Corrected to <code>TRIM_HORIZON</code> of the data stream if <code>FROM_TIMESTAMP</code> is less than the <code>TRIM_HORIZON</code> value.</p> </li> </ul>'
-        ShardId:
-          allOf:
-          - $ref: '#/components/schemas/ShardId'
-          - description: The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code> parameter. This property can only be used if the <code>AFTER_SHARD_ID</code> shard type is specified.
-        Timestamp:
-          allOf:
-          - $ref: '#/components/schemas/Timestamp'
-          - description: The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is a Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only be used if <code>FROM_TIMESTAMP</code> or <code>AT_TIMESTAMP</code> shard types are specified.
-      description: The request parameter used to filter out the response of the <code>ListShards</code> API.
     ListShardsOutput:
       type: object
       properties:
@@ -262,10 +234,15 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: <p>When the number of shards in the data stream is greater than the default value for the <code>MaxResults</code> parameter, or if you explicitly specify a value for <code>MaxResults</code> that is less than the number of shards in the data stream, the response includes a pagination token named <code>NextToken</code>. You can specify this <code>NextToken</code> value in a subsequent call to <code>ListShards</code> to list the next set of shards. For more information about the use of this pagination token when calling the <code>ListShards</code> operation, see <a>ListShardsInput$NextToken</a>.</p> <important> <p>Tokens expire after 300 seconds. When you obtain a value for <code>NextToken</code> in the response to a call to <code>ListShards</code>, you have 300 seconds to use that value. If you specify an expired token in a call to <code>ListShards</code>, you get <code>ExpiredNextTokenException</code>.</p> </important>
-    LimitExceededException: {}
-    Timestamp:
+    HashKey:
       type: string
-      format: date-time
+      pattern: 0|([1-9]\d{0,38})
+    InvalidArgumentException: {}
+    ListShardsInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
+    ExpiredNextTokenException: {}
     Shard:
       type: object
       required:
@@ -294,25 +271,15 @@ components:
           - $ref: '#/components/schemas/SequenceNumberRange'
           - description: The range of possible sequence numbers for the shard.
       description: A uniquely identified group of data records in a Kinesis data stream.
-    HashKeyRange:
-      type: object
-      required:
-      - StartingHashKey
-      - EndingHashKey
-      properties:
-        StartingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The starting hash key of the hash key range.
-        EndingHashKey:
-          allOf:
-          - $ref: '#/components/schemas/HashKey'
-          - description: The ending hash key of the hash key range.
-      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
-    ShardList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Shard'
+    ResourceNotFoundException: {}
+    Timestamp:
+      type: string
+      format: date-time
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 1048576
+    LimitExceededException: {}
     ListShardsInput:
       type: object
       title: ListShardsInput
@@ -345,18 +312,70 @@ components:
           allOf:
           - $ref: '#/components/schemas/StreamARN'
           - description: The ARN of the stream.
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
+    HashKeyRange:
+      type: object
+      required:
+      - StartingHashKey
+      - EndingHashKey
+      properties:
+        StartingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The starting hash key of the hash key range.
+        EndingHashKey:
+          allOf:
+          - $ref: '#/components/schemas/HashKey'
+          - description: The ending hash key of the hash key range.
+      description: The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.
+    ShardFilter:
+      type: object
+      required:
+      - Type
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/ShardFilterType'
+          - description: '<p>The shard type specified in the <code>ShardFilter</code> parameter. This is a required property of the <code>ShardFilter</code> parameter.</p> <p>You can specify the following valid values: </p> <ul> <li> <p> <code>AFTER_SHARD_ID</code> - the response includes all the shards, starting with the shard whose ID immediately follows the <code>ShardId</code> that you provided. </p> </li> <li> <p> <code>AT_TRIM_HORIZON</code> - the response includes all the shards that were open at <code>TRIM_HORIZON</code>.</p> </li> <li> <p> <code>FROM_TRIM_HORIZON</code> - (default), the response includes all the shards within the retention period of the data stream (trim to tip).</p> </li> <li> <p> <code>AT_LATEST</code> - the response includes only the currently open shards of the data stream.</p> </li> <li> <p> <code>AT_TIMESTAMP</code> - the response includes all shards whose start timestamp is less than or equal to the given timestamp and end timestamp is greater than or equal to the given timestamp or still open. </p> </li> <li> <p> <code>FROM_TIMESTAMP</code> - the response incldues all closed shards whose end timestamp is greater than or equal to the given timestamp and also all open shards. Corrected to <code>TRIM_HORIZON</code> of the data stream if <code>FROM_TIMESTAMP</code> is less than the <code>TRIM_HORIZON</code> value.</p> </li> </ul>'
+        ShardId:
+          allOf:
+          - $ref: '#/components/schemas/ShardId'
+          - description: The exclusive start <code>shardID</code> speified in the <code>ShardFilter</code> parameter. This property can only be used if the <code>AFTER_SHARD_ID</code> shard type is specified.
+        Timestamp:
+          allOf:
+          - $ref: '#/components/schemas/Timestamp'
+          - description: The timestamps specified in the <code>ShardFilter</code> parameter. A timestamp is a Unix epoch date with precision in milliseconds. For example, 2016-04-04T19:58:46.480-00:00 or 1459799926.480. This property can only be used if <code>FROM_TIMESTAMP</code> or <code>AT_TIMESTAMP</code> shard types are specified.
+      description: The request parameter used to filter out the response of the <code>ListShards</code> API.
     StreamARN:
       type: string
       pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
       maxLength: 2048
-    SequenceNumber:
-      type: string
-      pattern: 0|([1-9]\d{0,128})
-    HashKey:
-      type: string
-      pattern: 0|([1-9]\d{0,38})
+    SequenceNumberRange:
+      type: object
+      required:
+      - StartingSequenceNumber
+      properties:
+        StartingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The starting sequence number for the range.
+        EndingSequenceNumber:
+          allOf:
+          - $ref: '#/components/schemas/SequenceNumber'
+          - description: The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of <code>null</code>.
+      description: The range of possible sequence numbers for the shard.
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -369,8 +388,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -387,14 +406,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

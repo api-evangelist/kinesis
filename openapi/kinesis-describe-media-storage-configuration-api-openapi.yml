@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Update Notification Configuration API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Describe Media Storage…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: UpdateNotificationConfiguration
+- name: Describe Media Storage Configuration
 paths:
-  /updateNotificationConfiguration:
+  /describeMediaStorageConfiguration:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,51 +124,39 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: UpdateNotificationConfiguration
-      description: Updates the notification information for a stream.
+      operationId: DescribeMediaStorageConfiguration
+      description: Returns the most current information about the channel. Specify the ChannelName or ChannelARN in the input.
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/UpdateNotificationConfigurationOutput'
+                $ref: '#/components/schemas/DescribeMediaStorageConfigurationOutput'
         '480':
-          description: InvalidArgumentException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidArgumentException'
-        '481':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '482':
           description: ResourceNotFoundException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceNotFoundException'
-        '483':
+        '481':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '482':
           description: AccessDeniedException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
-        '484':
-          description: ResourceInUseException
+        '483':
+          description: ClientLimitExceededException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ResourceInUseException'
-        '485':
-          description: NoDataRetentionException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoDataRetentionException'
+                $ref: '#/components/schemas/ClientLimitExceededException'
       parameters: []
       requestBody:
         required: true
@@ -177,46 +165,24 @@ paths:
             schema:
               type: object
               properties:
-                StreamName:
-                  description: The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+                ChannelName:
+                  description: The name of the channel.
                   type: string
                   pattern: '[a-zA-Z0-9_.-]+'
                   minLength: 1
                   maxLength: 256
-                StreamARN:
-                  description: The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.
+                ChannelARN:
+                  description: The Amazon Resource Name (ARN) of the channel.
                   type: string
                   pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
                   maxLength: 1024
-                NotificationConfiguration:
-                  description: The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.
-                  type: object
-                  properties:
-                    Status:
-                      allOf:
-                      - $ref: '#/components/schemas/ConfigurationStatus'
-                      - description: Indicates if a notification configuration is enabled or disabled.
-                    DestinationConfig:
-                      allOf:
-                      - $ref: '#/components/schemas/NotificationDestinationConfig'
-                      - description: The destination information required to deliver a notification to a customer.
       tags:
-      - UpdateNotificationConfiguration
+      - Describe Media Storage Configuration
+      summary: Describe media storage configuration
+      x-summary-source: derived
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -225,6 +191,12 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -247,36 +219,48 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    MediaStorageConfiguration:
+      type: object
+      required:
+      - Status
+      properties:
+        StreamARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: 'The Amazon Resource Name (ARN) of the stream '
+        Status:
+          allOf:
+          - $ref: '#/components/schemas/MediaStorageConfigurationStatus'
+          - description: The status of the media storage configuration.
+      description: A structure that encapsulates, or contains, the media storage configuration properties.
     AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    DestinationUri:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
-      minLength: 1
-      maxLength: 255
-    ResourceInUseException: {}
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    ConfigurationStatus:
+    MediaStorageConfigurationStatus:
       type: string
       enum:
       - ENABLED
       - DISABLED
-    NotificationDestinationConfig:
+    ResourceNotFoundException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
+    DescribeMediaStorageConfigurationOutput:
       type: object
-      required:
-      - Uri
       properties:
-        Uri:
+        MediaStorageConfiguration:
           allOf:
-          - $ref: '#/components/schemas/DestinationUri'
-          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
-      description: The structure that contains the information required to deliver a notification to a customer.
-    UpdateNotificationConfigurationOutput:
-      type: object
-      properties: {}
-    NoDataRetentionException: {}
+          - $ref: '#/components/schemas/MediaStorageConfiguration'
+          - description: A structure that encapsulates, or contains, the media storage configuration properties.
   securitySchemes:
     hmac:
       type: apiKey

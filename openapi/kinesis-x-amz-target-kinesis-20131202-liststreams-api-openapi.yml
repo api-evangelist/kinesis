@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2013-12-02
   x-release: v4
-  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListStreams API'
-  description: <fullname>Amazon Kinesis Data Streams Service API Reference</fullname> <p>Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.</p>
+  title: 'Amazon Kinesis #X Amz Target=Kinesis 20131202.ListStreams…'
+  description: 'Amazon Kinesis Data Streams Service API Reference
+
+    Amazon Kinesis Data Streams is a managed service that scales elastically for real-time processing of streaming big data.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,16 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListStreams
-      description: <p>Lists your Kinesis data streams.</p> <p>The number of streams may be too large to return from a single call to <code>ListStreams</code>. You can limit the number of returned streams using the <code>Limit</code> parameter. If you do not specify a value for the <code>Limit</code> parameter, Kinesis Data Streams uses the default limit, which is currently 100.</p> <p>You can detect if there are more streams available to list by using the <code>HasMoreStreams</code> flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the <code>ListStreams</code> request in the <code>ExclusiveStartStreamName</code> parameter in a subsequent request to <code>ListStreams</code>. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list. </p> <p> <a>ListStreams</a> has a limit of five transactions per second per account.</p>
+      description: 'Lists your Kinesis data streams.
+
+
+        The number of streams may be too large to return from a single call to ListStreams. You can limit the number of returned streams using the Limit parameter. If you do not specify a value for the Limit parameter, Kinesis Data Streams uses the default limit, which is currently 100.
+
+
+        You can detect if there are more streams available to list by using the HasMoreStreams flag from the returned output. If there are more streams available, you can request more streams by using the name of the last stream returned by the ListStreams request in the ExclusiveStartStreamName parameter in a subsequent request to ListStreams. The group of stream names returned by the subsequent request is then added to the list. You can continue this process until all the stream names have been collected in the list.
+
+
+        ListStreams has a limit of five transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -179,53 +190,14 @@ paths:
           - Kinesis_20131202.ListStreams
       tags:
       - '#X Amz Target=Kinesis 20131202.ListStreams'
+      summary: List streams
+      x-summary-source: derived
 components:
   schemas:
     StreamNameList:
       type: array
       items:
         $ref: '#/components/schemas/StreamName'
-    StreamSummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/StreamSummary'
-    ExpiredNextTokenException: {}
-    StreamName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 1048576
-    StreamStatus:
-      type: string
-      enum:
-      - CREATING
-      - DELETING
-      - ACTIVE
-      - UPDATING
-    InvalidArgumentException: {}
-    StreamModeDetails:
-      type: object
-      required:
-      - StreamMode
-      properties:
-        StreamMode:
-          allOf:
-          - $ref: '#/components/schemas/StreamMode'
-          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
-    LimitExceededException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    StreamMode:
-      type: string
-      enum:
-      - PROVISIONED
-      - ON_DEMAND
     ListStreamsInput:
       type: object
       title: ListStreamsInput
@@ -243,6 +215,30 @@ components:
           - $ref: '#/components/schemas/NextToken'
           - description: <p/>
       description: Represents the input for <code>ListStreams</code>.
+    InvalidArgumentException: {}
+    ExpiredNextTokenException: {}
+    StreamStatus:
+      type: string
+      enum:
+      - CREATING
+      - DELETING
+      - ACTIVE
+      - UPDATING
+    StreamMode:
+      type: string
+      enum:
+      - PROVISIONED
+      - ON_DEMAND
+    StreamModeDetails:
+      type: object
+      required:
+      - StreamMode
+      properties:
+        StreamMode:
+          allOf:
+          - $ref: '#/components/schemas/StreamMode'
+          - description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
+      description: ' Specifies the capacity mode to which you want to set your data stream. Currently, in Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. '
     StreamSummary:
       type: object
       required:
@@ -269,17 +265,19 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The timestamp at which the stream was created.
       description: The summary of a stream.
-    StreamARN:
+    LimitExceededException: {}
+    NextToken:
       type: string
-      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
       minLength: 1
-      maxLength: 2048
-    ListStreamsInputLimit:
-      type: integer
-      minimum: 1
-      maximum: 10000
-    BooleanObject:
-      type: boolean
+      maxLength: 1048576
+    Timestamp:
+      type: string
+      format: date-time
+    StreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     ListStreamsOutput:
       type: object
       required:
@@ -303,7 +301,28 @@ components:
           - $ref: '#/components/schemas/StreamSummaryList'
           - description: <p/>
       description: Represents the output for <code>ListStreams</code>.
+    StreamARN:
+      type: string
+      pattern: arn:aws.*:kinesis:.*:\d{12}:stream/\S+
+      minLength: 1
+      maxLength: 2048
+    BooleanObject:
+      type: boolean
+    StreamSummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamSummary'
+    ListStreamsInputLimit:
+      type: integer
+      minimum: 1
+      maximum: 10000
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -316,8 +335,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -334,14 +353,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

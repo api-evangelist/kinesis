@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2015-08-04
   x-release: v4
-  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose 20150804.ListTagsForDeliveryStream API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose…'
+  description: 'Amazon Kinesis Data Firehose API Reference
+
+    Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,7 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListTagsForDeliveryStream
-      description: 'Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account. '
+      description: Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account.
       responses:
         '200':
           description: Success
@@ -167,18 +169,68 @@ paths:
           - Firehose_20150804.ListTagsForDeliveryStream
       tags:
       - '#X Amz Target=Firehose 20150804.ListTagsForDeliveryStream'
+      summary: List tags for delivery stream
+      x-summary-source: derived
 components:
   schemas:
+    ListTagsForDeliveryStreamOutput:
+      type: object
+      required:
+      - Tags
+      - HasMoreTags
+      properties:
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/ListTagsForDeliveryStreamOutputTagList'
+          - description: A list of tags associated with <code>DeliveryStreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>.
+        HasMoreTags:
+          allOf:
+          - $ref: '#/components/schemas/BooleanObject'
+          - description: If this is <code>true</code> in the response, more tags are available. To list the remaining tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned and call <code>ListTagsForDeliveryStream</code> again.
+    ListTagsForDeliveryStreamOutputTagList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+      minItems: 0
+      maxItems: 50
     DeliveryStreamName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 64
+    TagValue:
+      type: string
+      pattern: ^[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
+      minLength: 0
+      maxLength: 256
     ListTagsForDeliveryStreamInputLimit:
       type: integer
       minimum: 1
       maximum: 50
+    InvalidArgumentException: {}
+    Tag:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/TagKey'
+          - description: 'A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
+        Value:
+          allOf:
+          - $ref: '#/components/schemas/TagValue'
+          - description: 'An optional string, which you can use to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
+      description: Metadata that you can assign to a delivery stream, consisting of a key-value pair.
     ResourceNotFoundException: {}
+    LimitExceededException: {}
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
+      minLength: 1
+      maxLength: 128
+    BooleanObject:
+      type: boolean
     ListTagsForDeliveryStreamInput:
       type: object
       required:
@@ -197,55 +249,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/ListTagsForDeliveryStreamInputLimit'
           - description: 'The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, <code>HasMoreTags</code> is set to <code>true</code> in the response. To list additional tags, set <code>ExclusiveStartTagKey</code> to the last key in the response. '
-    Tag:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: 'A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: 'An optional string, which you can use to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
-      description: Metadata that you can assign to a delivery stream, consisting of a key-value pair.
-    TagValue:
-      type: string
-      pattern: ^[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    ListTagsForDeliveryStreamOutput:
-      type: object
-      required:
-      - Tags
-      - HasMoreTags
-      properties:
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/ListTagsForDeliveryStreamOutputTagList'
-          - description: A list of tags associated with <code>DeliveryStreamName</code>, starting with the first tag after <code>ExclusiveStartTagKey</code> and up to the specified <code>Limit</code>.
-        HasMoreTags:
-          allOf:
-          - $ref: '#/components/schemas/BooleanObject'
-          - description: If this is <code>true</code> in the response, more tags are available. To list the remaining tags, set <code>ExclusiveStartTagKey</code> to the key of the last tag returned and call <code>ListTagsForDeliveryStream</code> again.
-    LimitExceededException: {}
-    TagKey:
-      type: string
-      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
-      minLength: 1
-      maxLength: 128
-    ListTagsForDeliveryStreamOutputTagList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Tag'
-      minItems: 0
-      maxItems: 50
-    BooleanObject:
-      type: boolean
   parameters:
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
       in: header
@@ -258,8 +268,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -276,14 +286,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

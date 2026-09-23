@@ -2,8 +2,8 @@ openapi: 3.2.0
 info:
   version: 2017-09-30
   x-release: v4
-  title: Amazon Kinesis Video Streams Create Signaling Channel API
-  description: <p/>
+  title: Amazon Kinesis Video Streams Update Media Storage…
+  description: ''
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -112,9 +112,9 @@ servers:
 security:
 - hmac: []
 tags:
-- name: CreateSignalingChannel
+- name: Update Media Storage Configuration
 paths:
-  /createSignalingChannel:
+  /updateMediaStorageConfiguration:
     parameters:
     - $ref: '#/components/parameters/X-Amz-Content-Sha256'
     - $ref: '#/components/parameters/X-Amz-Date'
@@ -124,39 +124,45 @@ paths:
     - $ref: '#/components/parameters/X-Amz-Signature'
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
-      operationId: CreateSignalingChannel
-      description: <p>Creates a signaling channel. </p> <p> <code>CreateSignalingChannel</code> is an asynchronous operation.</p>
+      operationId: UpdateMediaStorageConfiguration
+      description: 'Associates a SignalingChannel to a stream to store the media. There are two signaling modes that can specified :
+
+
+        If the StorageStatus is disabled, no data will be stored, and the StreamARN parameter will not be needed.
+
+
+        If the StorageStatus is enabled, the data will be stored in the StreamARN provided.'
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CreateSignalingChannelOutput'
+                $ref: '#/components/schemas/UpdateMediaStorageConfigurationOutput'
         '480':
-          description: InvalidArgumentException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvalidArgumentException'
-        '481':
-          description: ClientLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ClientLimitExceededException'
-        '482':
-          description: AccountChannelLimitExceededException
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AccountChannelLimitExceededException'
-        '483':
           description: ResourceInUseException
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ResourceInUseException'
+        '481':
+          description: InvalidArgumentException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidArgumentException'
+        '482':
+          description: ClientLimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClientLimitExceededException'
+        '483':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
         '484':
           description: AccessDeniedException
           content:
@@ -164,11 +170,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccessDeniedException'
         '485':
-          description: TagsPerResourceExceededLimitException
+          description: NoDataRetentionException
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TagsPerResourceExceededLimitException'
+                $ref: '#/components/schemas/NoDataRetentionException'
       parameters: []
       requestBody:
         required: true
@@ -177,59 +183,61 @@ paths:
             schema:
               type: object
               required:
-              - ChannelName
+              - ChannelARN
+              - MediaStorageConfiguration
               properties:
-                ChannelName:
-                  description: A name for the signaling channel that you are creating. It must be unique for each Amazon Web Services account and Amazon Web Services Region.
+                ChannelARN:
+                  description: The Amazon Resource Name (ARN) of the channel.
                   type: string
-                  pattern: '[a-zA-Z0-9_.-]+'
+                  pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
                   minLength: 1
-                  maxLength: 256
-                ChannelType:
-                  description: 'A type of the signaling channel that you are creating. Currently, <code>SINGLE_MASTER</code> is the only supported channel type. '
-                  type: string
-                  enum:
-                  - SINGLE_MASTER
-                  - FULL_MESH
-                SingleMasterConfiguration:
-                  description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
+                  maxLength: 1024
+                MediaStorageConfiguration:
+                  description: A structure that encapsulates, or contains, the media storage configuration properties.
                   type: object
                   properties:
-                    MessageTtlSeconds:
+                    StreamARN:
                       allOf:
-                      - $ref: '#/components/schemas/MessageTtlSeconds'
-                      - description: The period of time a signaling channel retains undelivered messages before they are discarded.
-                Tags:
-                  description: A set of tags (key-value pairs) that you want to associate with this channel.
-                  type: array
-                  items:
-                    $ref: '#/components/schemas/Tag'
-                  minItems: 0
-                  maxItems: 50
+                      - $ref: '#/components/schemas/ResourceARN'
+                      - description: 'The Amazon Resource Name (ARN) of the stream '
+                    Status:
+                      allOf:
+                      - $ref: '#/components/schemas/MediaStorageConfigurationStatus'
+                      - description: The status of the media storage configuration.
       tags:
-      - CreateSignalingChannel
+      - Update Media Storage Configuration
+      summary: Update media storage configuration
+      x-summary-source: derived
 components:
+  schemas:
+    NoDataRetentionException: {}
+    ResourceInUseException: {}
+    UpdateMediaStorageConfigurationOutput:
+      type: object
+      properties: {}
+    AccessDeniedException: {}
+    MediaStorageConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    ResourceNotFoundException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
   parameters:
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -246,60 +254,24 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    AccountChannelLimitExceededException: {}
-    CreateSignalingChannelOutput:
-      type: object
-      properties:
-        ChannelARN:
-          allOf:
-          - $ref: '#/components/schemas/ResourceARN'
-          - description: The Amazon Resource Name (ARN) of the created channel.
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/TagKey'
-          - description: The key of the tag that is associated with the specified signaling channel.
-        Value:
-          allOf:
-          - $ref: '#/components/schemas/TagValue'
-          - description: The value of the tag that is associated with the specified signaling channel.
-      description: A key and value pair that is associated with the specified signaling channel.
-    TagsPerResourceExceededLimitException: {}
-    AccessDeniedException: {}
-    ResourceInUseException: {}
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

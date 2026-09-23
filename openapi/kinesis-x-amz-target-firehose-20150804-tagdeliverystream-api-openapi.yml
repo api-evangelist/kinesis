@@ -2,8 +2,10 @@ openapi: 3.2.0
 info:
   version: 2015-08-04
   x-release: v4
-  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose 20150804.TagDeliveryStream API'
-  description: <fullname>Amazon Kinesis Data Firehose API Reference</fullname> <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.</p>
+  title: 'Amazon Kinesis Firehose #X Amz Target=Firehose…'
+  description: 'Amazon Kinesis Data Firehose API Reference
+
+    Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon OpenSearch Service, Amazon Redshift, Splunk, and various other supportd destinations.'
   x-logo:
     url: https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.png
     backgroundColor: '#FFFFFF'
@@ -125,7 +127,13 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: TagDeliveryStream
-      description: <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User Guide</i>. </p> <p>Each delivery stream can have up to 50 tags. </p> <p>This operation has a limit of five transactions per second per account. </p>
+      description: 'Adds or updates tags for the specified delivery stream. A tag is a key-value pair that you can define and assign to Amazon Web Services resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the Amazon Web Services Billing and Cost Management User Guide.
+
+
+        Each delivery stream can have up to 50 tags.
+
+
+        This operation has a limit of five transactions per second per account.'
       responses:
         '200':
           description: Success
@@ -173,13 +181,20 @@ paths:
           - Firehose_20150804.TagDeliveryStream
       tags:
       - '#X Amz Target=Firehose 20150804.TagDeliveryStream'
+      summary: Tag delivery stream
+      x-summary-source: derived
 components:
   schemas:
-    DeliveryStreamName:
+    TagValue:
       type: string
-      pattern: '[a-zA-Z0-9_.-]+'
+      pattern: ^[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
+      minLength: 0
+      maxLength: 256
+    TagKey:
+      type: string
+      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
       minLength: 1
-      maxLength: 64
+      maxLength: 128
     Tag:
       type: object
       required:
@@ -194,28 +209,7 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: 'An optional string, which you can use to describe or define the tag. Maximum length: 256 characters. Valid characters: Unicode letters, digits, white space, _ . / = + - % @'
       description: Metadata that you can assign to a delivery stream, consisting of a key-value pair.
-    ResourceNotFoundException: {}
     ResourceInUseException: {}
-    TagValue:
-      type: string
-      pattern: ^[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
-      minLength: 0
-      maxLength: 256
-    TagDeliveryStreamInputTagList:
-      type: array
-      items:
-        $ref: '#/components/schemas/Tag'
-      minItems: 1
-      maxItems: 50
-    InvalidArgumentException: {}
-    TagDeliveryStreamOutput:
-      type: object
-      properties: {}
-    TagKey:
-      type: string
-      pattern: ^(?!aws:)[\p{L}\p{Z}\p{N}_.:\/=+\-@%]*$
-      minLength: 1
-      maxLength: 128
     TagDeliveryStreamInput:
       type: object
       required:
@@ -232,25 +226,23 @@ components:
           - $ref: '#/components/schemas/TagDeliveryStreamInputTagList'
           - description: A set of key-value pairs to use to create the tags.
     LimitExceededException: {}
+    TagDeliveryStreamInputTagList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Tag'
+      minItems: 1
+      maxItems: 50
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    TagDeliveryStreamOutput:
+      type: object
+      properties: {}
+    DeliveryStreamName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 64
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
@@ -263,6 +255,18 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -271,6 +275,12 @@ components:
       required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
