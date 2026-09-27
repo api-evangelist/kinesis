@@ -230,9 +230,79 @@ paths:
       summary: Update image generation configuration
       x-summary-source: derived
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
+    ImageSelectorType:
+      type: string
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
+    WidthPixels:
+      type: integer
+      minimum: 1
+      maximum: 3840
+    HeightPixels:
+      type: integer
+      minimum: 1
+      maximum: 2160
     NoDataRetentionException: {}
     ResourceInUseException: {}
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
     ImageGenerationDestinationConfig:
       type: object
       required:
@@ -248,104 +318,34 @@ components:
           - $ref: '#/components/schemas/DestinationRegion'
           - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
       description: The structure that contains the information required to deliver images to a customer.
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
-    Format:
-      type: string
-      enum:
-      - JPEG
-      - PNG
-    UpdateImageGenerationConfigurationOutput:
-      type: object
-      properties: {}
-    ConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
     FormatConfigValue:
       type: string
       pattern: ^[a-zA-Z_0-9]+
       minLength: 0
       maxLength: 256
     AccessDeniedException: {}
-    HeightPixels:
-      type: integer
-      minimum: 1
-      maximum: 2160
-    WidthPixels:
-      type: integer
-      minimum: 1
-      maximum: 3840
-    InvalidArgumentException: {}
-    ResourceNotFoundException: {}
-    ClientLimitExceededException: {}
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
     FormatConfig:
       type: object
       minProperties: 1
       maxProperties: 1
       additionalProperties:
         $ref: '#/components/schemas/FormatConfigValue'
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    DestinationUri:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
-      minLength: 1
-      maxLength: 255
-    ImageSelectorType:
+    ResourceNotFoundException: {}
+    ConfigurationStatus:
       type: string
       enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+      - ENABLED
+      - DISABLED
+    UpdateImageGenerationConfigurationOutput:
+      type: object
+      properties: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
   securitySchemes:
     hmac:
       type: apiKey

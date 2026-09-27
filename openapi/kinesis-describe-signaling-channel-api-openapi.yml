@@ -182,7 +182,53 @@ paths:
       summary: Describe signaling channel
       x-summary-source: derived
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
+    Timestamp:
+      type: string
+      format: date-time
     Version:
       type: string
       pattern: '[a-zA-Z0-9]+'
@@ -193,16 +239,22 @@ components:
       enum:
       - SINGLE_MASTER
       - FULL_MESH
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
     ResourceARN:
       type: string
       pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
       minLength: 1
       maxLength: 1024
-    ChannelName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
+    DescribeSignalingChannelOutput:
+      type: object
+      properties:
+        ChannelInfo:
+          allOf:
+          - $ref: '#/components/schemas/ChannelInfo'
+          - description: A structure that encapsulates the specified signaling channel's metadata and properties.
     SingleMasterConfiguration:
       type: object
       properties:
@@ -212,30 +264,11 @@ components:
           - description: The period of time a signaling channel retains undelivered messages before they are discarded.
       description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
     AccessDeniedException: {}
-    DescribeSignalingChannelOutput:
-      type: object
-      properties:
-        ChannelInfo:
-          allOf:
-          - $ref: '#/components/schemas/ChannelInfo'
-          - description: A structure that encapsulates the specified signaling channel's metadata and properties.
-    InvalidArgumentException: {}
-    ResourceNotFoundException: {}
-    Timestamp:
+    ChannelName:
       type: string
-      format: date-time
-    ClientLimitExceededException: {}
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
-    Status:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
     ChannelInfo:
       type: object
       properties:
@@ -268,49 +301,16 @@ components:
           - $ref: '#/components/schemas/Version'
           - description: The current version of the signaling channel.
       description: A structure that encapsulates a signaling channel's metadata and properties.
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
+    Status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
   securitySchemes:
     hmac:
       type: apiKey

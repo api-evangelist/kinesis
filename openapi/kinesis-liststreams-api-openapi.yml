@@ -193,22 +193,50 @@ paths:
       summary: List streams
       x-summary-source: derived
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    KmsKeyId:
-      type: string
-      pattern: .+
-      minLength: 1
-      maxLength: 2048
-    Version:
-      type: string
-      pattern: '[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 64
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
     StreamInfo:
       type: object
       properties:
@@ -249,33 +277,52 @@ components:
           - $ref: '#/components/schemas/DataRetentionInHours'
           - description: How long the stream retains data, in hours.
       description: An object describing a Kinesis video stream.
-    InvalidArgumentException: {}
-    DeviceName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
-    StreamInfoList:
-      type: array
-      items:
-        $ref: '#/components/schemas/StreamInfo'
-    DataRetentionInHours:
-      type: integer
-      minimum: 0
     Timestamp:
       type: string
       format: date-time
-    NextToken:
+    MediaType:
       type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    ClientLimitExceededException: {}
+      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
+      minLength: 1
+      maxLength: 128
     StreamName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 256
+    ComparisonOperator:
+      type: string
+      enum:
+      - BEGINS_WITH
+    Version:
+      type: string
+      pattern: '[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 64
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    KmsKeyId:
+      type: string
+      pattern: .+
+      minLength: 1
+      maxLength: 2048
+    StreamInfoList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamInfo'
+    DeviceName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 128
     ListStreamsOutput:
       type: object
       properties:
@@ -287,11 +334,11 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: 'If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. '
-    MediaType:
-      type: string
-      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
-      minLength: 1
-      maxLength: 128
+    DataRetentionInHours:
+      type: integer
+      minimum: 0
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
     Status:
       type: string
       enum:
@@ -299,53 +346,6 @@ components:
       - ACTIVE
       - UPDATING
       - DELETING
-    ComparisonOperator:
-      type: string
-      enum:
-      - BEGINS_WITH
-  parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
   securitySchemes:
     hmac:
       type: apiKey

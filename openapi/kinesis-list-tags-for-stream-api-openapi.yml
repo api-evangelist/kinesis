@@ -198,17 +198,11 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TagValue:
+    NextToken:
       type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      pattern: '[a-zA-Z0-9+/=]*'
       minLength: 0
-      maxLength: 256
-    ResourceTags:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
+      maxLength: 512
     ListTagsForStreamOutput:
       type: object
       properties:
@@ -221,28 +215,22 @@ components:
           - $ref: '#/components/schemas/ResourceTags'
           - description: A map of tag keys and values associated with the specified stream.
     ResourceNotFoundException: {}
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    NotAuthorizedException: {}
-    InvalidResourceFormatException: {}
     InvalidArgumentException: {}
+    ResourceTags:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    InvalidResourceFormatException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
     ClientLimitExceededException: {}
+    NotAuthorizedException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -255,8 +243,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -267,8 +261,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

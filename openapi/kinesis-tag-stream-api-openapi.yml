@@ -212,30 +212,9 @@ paths:
       summary: Tag stream
       x-summary-source: derived
 components:
-  schemas:
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    ResourceNotFoundException: {}
-    NotAuthorizedException: {}
-    InvalidResourceFormatException: {}
-    TagsPerResourceExceededLimitException: {}
-    InvalidArgumentException: {}
-    TagStreamOutput:
-      type: object
-      properties: {}
-    ClientLimitExceededException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -246,20 +225,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -270,6 +237,39 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    InvalidResourceFormatException: {}
+    ClientLimitExceededException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
+    TagStreamOutput:
+      type: object
+      properties: {}
+    TagsPerResourceExceededLimitException: {}
+    NotAuthorizedException: {}
   securitySchemes:
     hmac:
       type: apiKey

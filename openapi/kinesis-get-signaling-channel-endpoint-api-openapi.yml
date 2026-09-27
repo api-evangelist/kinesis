@@ -202,85 +202,7 @@ paths:
       summary: Get signaling channel endpoint
       x-summary-source: derived
 components:
-  schemas:
-    ResourceInUseException: {}
-    ResourceEndpointListItem:
-      type: object
-      properties:
-        Protocol:
-          allOf:
-          - $ref: '#/components/schemas/ChannelProtocol'
-          - description: The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-        ResourceEndpoint:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpoint'
-          - description: The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-      description: An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-    ResourceEndpoint:
-      type: string
-    ListOfProtocols:
-      type: array
-      items:
-        $ref: '#/components/schemas/ChannelProtocol'
-      minItems: 1
-      maxItems: 5
-    GetSignalingChannelEndpointOutput:
-      type: object
-      properties:
-        ResourceEndpointList:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpointList'
-          - description: A list of endpoints for the specified signaling channel.
-    AccessDeniedException: {}
-    InvalidArgumentException: {}
-    ResourceNotFoundException: {}
-    ResourceEndpointList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ResourceEndpointListItem'
-    ClientLimitExceededException: {}
-    ChannelProtocol:
-      type: string
-      enum:
-      - WSS
-      - HTTPS
-      - WEBRTC
-    ChannelRole:
-      type: string
-      enum:
-      - MASTER
-      - VIEWER
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -293,6 +215,84 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    ChannelProtocol:
+      type: string
+      enum:
+      - WSS
+      - HTTPS
+      - WEBRTC
+    ChannelRole:
+      type: string
+      enum:
+      - MASTER
+      - VIEWER
+    ListOfProtocols:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChannelProtocol'
+      minItems: 1
+      maxItems: 5
+    ResourceInUseException: {}
+    ResourceEndpoint:
+      type: string
+    GetSignalingChannelEndpointOutput:
+      type: object
+      properties:
+        ResourceEndpointList:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpointList'
+          - description: A list of endpoints for the specified signaling channel.
+    AccessDeniedException: {}
+    ResourceEndpointList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ResourceEndpointListItem'
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
+    ResourceEndpointListItem:
+      type: object
+      properties:
+        Protocol:
+          allOf:
+          - $ref: '#/components/schemas/ChannelProtocol'
+          - description: The protocol of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+        ResourceEndpoint:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpoint'
+          - description: The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
+      description: An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
   securitySchemes:
     hmac:
       type: apiKey
