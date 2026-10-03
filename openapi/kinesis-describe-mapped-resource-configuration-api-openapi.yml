@@ -209,12 +209,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NextToken:
+    Type:
       type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
     MappedResourceConfigurationListItem:
       type: object
       properties:
@@ -227,9 +229,7 @@ components:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
       description: A structure that encapsulates, or contains, the media storage configuration properties.
-    Type:
-      type: string
-    InvalidArgumentException: {}
+    ClientLimitExceededException: {}
     DescribeMappedResourceConfigurationOutput:
       type: object
       properties:
@@ -242,12 +242,12 @@ components:
           - $ref: '#/components/schemas/NextToken'
           - description: 'The token that was used in the <code>NextToken</code>request to fetch the next set of results. '
     AccessDeniedException: {}
-    ResourceARN:
+    ResourceNotFoundException: {}
+    NextToken:
       type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    ClientLimitExceededException: {}
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
     MappedResourceConfigurationList:
       type: array
       items:
@@ -255,8 +255,8 @@ components:
       minItems: 0
       maxItems: 1
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -267,8 +267,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -285,14 +285,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string

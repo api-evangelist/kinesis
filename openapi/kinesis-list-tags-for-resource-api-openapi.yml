@@ -184,25 +184,52 @@ paths:
       summary: List tags for resource
       x-summary-source: derived
 components:
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    ResourceNotFoundException: {}
-    ListTagsForResourceOutput:
-      type: object
-      properties:
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: 'If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. '
-        Tags:
-          allOf:
-          - $ref: '#/components/schemas/ResourceTags'
-          - description: A map of tag keys and values associated with the specified signaling channel.
     InvalidArgumentException: {}
+    ClientLimitExceededException: {}
     AccessDeniedException: {}
     ResourceTags:
       type: object
@@ -215,50 +242,23 @@ components:
       pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
       minLength: 0
       maxLength: 256
-    ClientLimitExceededException: {}
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+    ListTagsForResourceOutput:
+      type: object
+      properties:
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: 'If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. '
+        Tags:
+          allOf:
+          - $ref: '#/components/schemas/ResourceTags'
+          - description: A map of tag keys and values associated with the specified signaling channel.
+    ResourceNotFoundException: {}
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
   securitySchemes:
     hmac:
       type: apiKey

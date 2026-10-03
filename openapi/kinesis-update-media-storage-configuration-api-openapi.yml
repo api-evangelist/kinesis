@@ -209,9 +209,29 @@ paths:
       summary: Update media storage configuration
       x-summary-source: derived
 components:
+  schemas:
+    MediaStorageConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    InvalidArgumentException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    ResourceInUseException: {}
+    UpdateMediaStorageConfigurationOutput:
+      type: object
+      properties: {}
+    NoDataRetentionException: {}
+    ClientLimitExceededException: {}
+    AccessDeniedException: {}
+    ResourceNotFoundException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -222,8 +242,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -234,44 +254,24 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    ResourceNotFoundException: {}
-    UpdateMediaStorageConfigurationOutput:
-      type: object
-      properties: {}
-    NoDataRetentionException: {}
-    ResourceInUseException: {}
-    InvalidArgumentException: {}
-    AccessDeniedException: {}
-    MediaStorageConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    ClientLimitExceededException: {}
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

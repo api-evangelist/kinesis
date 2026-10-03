@@ -214,51 +214,13 @@ paths:
       summary: Create signaling channel
       x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    ClientLimitExceededException: {}
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    InvalidArgumentException: {}
+    AccountChannelLimitExceededException: {}
     Tag:
       type: object
       required:
@@ -274,21 +236,24 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value of the tag that is associated with the specified signaling channel.
       description: A key and value pair that is associated with the specified signaling channel.
-    TagKey:
+    AccessDeniedException: {}
+    TagValue:
       type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    ResourceInUseException: {}
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
+    TagsPerResourceExceededLimitException: {}
     ResourceARN:
       type: string
       pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
       minLength: 1
       maxLength: 1024
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    ClientLimitExceededException: {}
     CreateSignalingChannelOutput:
       type: object
       properties:
@@ -296,15 +261,50 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the created channel.
-    AccessDeniedException: {}
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    InvalidArgumentException: {}
-    AccountChannelLimitExceededException: {}
-    TagsPerResourceExceededLimitException: {}
+    ResourceInUseException: {}
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

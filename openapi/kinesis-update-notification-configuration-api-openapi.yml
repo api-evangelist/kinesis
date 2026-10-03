@@ -206,39 +206,9 @@ paths:
       summary: Update notification configuration
       x-summary-source: derived
 components:
-  schemas:
-    DestinationUri:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
-      minLength: 1
-      maxLength: 255
-    UpdateNotificationConfigurationOutput:
-      type: object
-      properties: {}
-    ResourceNotFoundException: {}
-    ConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
-    NoDataRetentionException: {}
-    ResourceInUseException: {}
-    InvalidArgumentException: {}
-    AccessDeniedException: {}
-    ClientLimitExceededException: {}
-    NotificationDestinationConfig:
-      type: object
-      required:
-      - Uri
-      properties:
-        Uri:
-          allOf:
-          - $ref: '#/components/schemas/DestinationUri'
-          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
-      description: The structure that contains the information required to deliver a notification to a customer.
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -249,8 +219,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -261,24 +231,54 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    InvalidArgumentException: {}
+    ResourceInUseException: {}
+    NoDataRetentionException: {}
+    ClientLimitExceededException: {}
+    AccessDeniedException: {}
+    NotificationDestinationConfig:
+      type: object
+      required:
+      - Uri
+      properties:
+        Uri:
+          allOf:
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+      description: The structure that contains the information required to deliver a notification to a customer.
+    ResourceNotFoundException: {}
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    UpdateNotificationConfigurationOutput:
+      type: object
+      properties: {}
   securitySchemes:
     hmac:
       type: apiKey

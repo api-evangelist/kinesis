@@ -182,55 +182,62 @@ paths:
       summary: Describe image generation configuration
       x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    Format:
+    InvalidArgumentException: {}
+    FormatConfigValue:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+
+      minLength: 0
+      maxLength: 256
+    AccessDeniedException: {}
+    WidthPixels:
+      type: integer
+      minimum: 1
+      maximum: 3840
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
+    ImageGenerationDestinationConfig:
+      type: object
+      required:
+      - Uri
+      - DestinationRegion
+      properties:
+        Uri:
+          allOf:
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+        DestinationRegion:
+          allOf:
+          - $ref: '#/components/schemas/DestinationRegion'
+          - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
+      description: The structure that contains the information required to deliver images to a customer.
+    ClientLimitExceededException: {}
+    HeightPixels:
+      type: integer
+      minimum: 1
+      maximum: 2160
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
+    ImageSelectorType:
       type: string
       enum:
-      - JPEG
-      - PNG
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
     ImageGenerationConfiguration:
       type: object
       required:
@@ -273,67 +280,12 @@ components:
           - $ref: '#/components/schemas/HeightPixels'
           - description: The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
       description: The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.
-    ImageSelectorType:
-      type: string
-      enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
-    WidthPixels:
-      type: integer
-      minimum: 1
-      maximum: 3840
-    HeightPixels:
-      type: integer
-      minimum: 1
-      maximum: 2160
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    DestinationUri:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
-      minLength: 1
-      maxLength: 255
-    ImageGenerationDestinationConfig:
-      type: object
-      required:
-      - Uri
-      - DestinationRegion
-      properties:
-        Uri:
-          allOf:
-          - $ref: '#/components/schemas/DestinationUri'
-          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
-        DestinationRegion:
-          allOf:
-          - $ref: '#/components/schemas/DestinationRegion'
-          - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
-      description: The structure that contains the information required to deliver images to a customer.
-    FormatConfigValue:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+
-      minLength: 0
-      maxLength: 256
-    AccessDeniedException: {}
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
-    FormatConfig:
-      type: object
-      minProperties: 1
-      maxProperties: 1
-      additionalProperties:
-        $ref: '#/components/schemas/FormatConfigValue'
     ResourceNotFoundException: {}
-    ConfigurationStatus:
+    Format:
       type: string
       enum:
-      - ENABLED
-      - DISABLED
-    InvalidArgumentException: {}
+      - JPEG
+      - PNG
     DescribeImageGenerationConfigurationOutput:
       type: object
       properties:
@@ -341,7 +293,55 @@ components:
           allOf:
           - $ref: '#/components/schemas/ImageGenerationConfiguration'
           - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
-    ClientLimitExceededException: {}
+    FormatConfig:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties:
+        $ref: '#/components/schemas/FormatConfigValue'
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

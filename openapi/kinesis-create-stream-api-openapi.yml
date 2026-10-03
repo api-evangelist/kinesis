@@ -238,8 +238,8 @@ paths:
       x-summary-source: derived
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -250,20 +250,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -274,18 +268,29 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
   schemas:
-    InvalidDeviceException: {}
-    AccountStreamLimitExceededException: {}
-    ResourceInUseException: {}
     InvalidArgumentException: {}
     DeviceStreamLimitExceededException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    AccountStreamLimitExceededException: {}
+    ResourceInUseException: {}
+    ClientLimitExceededException: {}
     CreateStreamOutput:
       type: object
       properties:
@@ -293,18 +298,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the stream.
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
     TagValue:
       type: string
       pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
       minLength: 0
       maxLength: 256
-    ClientLimitExceededException: {}
     TagsPerResourceExceededLimitException: {}
+    InvalidDeviceException: {}
   securitySchemes:
     hmac:
       type: apiKey

@@ -198,11 +198,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
     ListTagsForStreamOutput:
       type: object
       properties:
@@ -214,25 +209,30 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceTags'
           - description: A map of tag keys and values associated with the specified stream.
-    ResourceNotFoundException: {}
+    InvalidResourceFormatException: {}
     InvalidArgumentException: {}
+    ClientLimitExceededException: {}
     ResourceTags:
       type: object
       minProperties: 1
       maxProperties: 50
       additionalProperties:
         $ref: '#/components/schemas/TagValue'
-    InvalidResourceFormatException: {}
+    ResourceNotFoundException: {}
     TagValue:
       type: string
       pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
       minLength: 0
       maxLength: 256
-    ClientLimitExceededException: {}
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
     NotAuthorizedException: {}
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -243,8 +243,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -255,20 +255,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
     X-Amz-SignedHeaders:
       name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

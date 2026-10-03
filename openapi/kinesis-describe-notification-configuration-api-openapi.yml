@@ -182,27 +182,51 @@ paths:
       summary: Describe notification configuration
       x-summary-source: derived
 components:
+  parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
   schemas:
-    DestinationUri:
-      type: string
-      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
-      minLength: 1
-      maxLength: 255
-    ResourceNotFoundException: {}
-    ConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
     InvalidArgumentException: {}
-    AccessDeniedException: {}
-    DescribeNotificationConfigurationOutput:
-      type: object
-      properties:
-        NotificationConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/NotificationConfiguration'
-          - description: The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
     NotificationConfiguration:
       type: object
       required:
@@ -219,6 +243,13 @@ components:
           - description: The destination information required to deliver a notification to a customer.
       description: The structure that contains the notification information for the KVS images delivery. If this parameter is null, the configuration will be deleted from the stream.
     ClientLimitExceededException: {}
+    AccessDeniedException: {}
+    ResourceNotFoundException: {}
+    DestinationUri:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
+      minLength: 1
+      maxLength: 255
     NotificationDestinationConfig:
       type: object
       required:
@@ -229,49 +260,18 @@ components:
           - $ref: '#/components/schemas/DestinationUri'
           - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
       description: The structure that contains the information required to deliver a notification to a customer.
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    DescribeNotificationConfigurationOutput:
+      type: object
+      properties:
+        NotificationConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/NotificationConfiguration'
+          - description: The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
   securitySchemes:
     hmac:
       type: apiKey

@@ -182,50 +182,12 @@ paths:
       summary: Describe signaling channel
       x-summary-source: derived
 components:
-  parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    InvalidArgumentException: {}
     Timestamp:
       type: string
       format: date-time
@@ -234,41 +196,7 @@ components:
       pattern: '[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 64
-    ChannelType:
-      type: string
-      enum:
-      - SINGLE_MASTER
-      - FULL_MESH
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    DescribeSignalingChannelOutput:
-      type: object
-      properties:
-        ChannelInfo:
-          allOf:
-          - $ref: '#/components/schemas/ChannelInfo'
-          - description: A structure that encapsulates the specified signaling channel's metadata and properties.
-    SingleMasterConfiguration:
-      type: object
-      properties:
-        MessageTtlSeconds:
-          allOf:
-          - $ref: '#/components/schemas/MessageTtlSeconds'
-          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
-      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
     AccessDeniedException: {}
-    ChannelName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
     ChannelInfo:
       type: object
       properties:
@@ -301,9 +229,25 @@ components:
           - $ref: '#/components/schemas/Version'
           - description: The current version of the signaling channel.
       description: A structure that encapsulates a signaling channel's metadata and properties.
-    ResourceNotFoundException: {}
-    InvalidArgumentException: {}
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    SingleMasterConfiguration:
+      type: object
+      properties:
+        MessageTtlSeconds:
+          allOf:
+          - $ref: '#/components/schemas/MessageTtlSeconds'
+          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
+      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
     ClientLimitExceededException: {}
+    ChannelName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
     Status:
       type: string
       enum:
@@ -311,6 +255,62 @@ components:
       - ACTIVE
       - UPDATING
       - DELETING
+    DescribeSignalingChannelOutput:
+      type: object
+      properties:
+        ChannelInfo:
+          allOf:
+          - $ref: '#/components/schemas/ChannelInfo'
+          - description: A structure that encapsulates the specified signaling channel's metadata and properties.
+    ResourceNotFoundException: {}
+    ChannelType:
+      type: string
+      enum:
+      - SINGLE_MASTER
+      - FULL_MESH
+  parameters:
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

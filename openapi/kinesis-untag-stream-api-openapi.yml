@@ -201,8 +201,8 @@ paths:
       x-summary-source: derived
 components:
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -213,8 +213,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
@@ -225,8 +225,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -237,25 +243,19 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
   schemas:
-    UntagStreamOutput:
-      type: object
-      properties: {}
+    InvalidResourceFormatException: {}
+    InvalidArgumentException: {}
     TagKey:
       type: string
       pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
       maxLength: 128
-    ResourceNotFoundException: {}
-    InvalidArgumentException: {}
-    InvalidResourceFormatException: {}
     ClientLimitExceededException: {}
+    ResourceNotFoundException: {}
+    UntagStreamOutput:
+      type: object
+      properties: {}
     NotAuthorizedException: {}
   securitySchemes:
     hmac:
