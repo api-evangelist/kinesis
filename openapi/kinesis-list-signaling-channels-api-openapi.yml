@@ -200,6 +200,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ChannelInfoList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChannelInfo'
+    InvalidArgumentException: {}
+    SingleMasterConfiguration:
+      type: object
+      properties:
+        MessageTtlSeconds:
+          allOf:
+          - $ref: '#/components/schemas/MessageTtlSeconds'
+          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
+      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
+    AccessDeniedException: {}
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    ClientLimitExceededException: {}
     ListSignalingChannelsOutput:
       type: object
       properties:
@@ -211,11 +230,37 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
-    InvalidArgumentException: {}
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
+    Status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
+    ChannelType:
+      type: string
+      enum:
+      - SINGLE_MASTER
+      - FULL_MESH
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
+    ChannelName:
+      type: string
+      pattern: '[a-zA-Z0-9_.-]+'
+      minLength: 1
+      maxLength: 256
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    ComparisonOperator:
+      type: string
+      enum:
+      - BEGINS_WITH
     Timestamp:
       type: string
       format: date-time
@@ -224,7 +269,6 @@ components:
       pattern: '[a-zA-Z0-9]+'
       minLength: 1
       maxLength: 64
-    AccessDeniedException: {}
     ChannelInfo:
       type: object
       properties:
@@ -257,59 +301,15 @@ components:
           - $ref: '#/components/schemas/Version'
           - description: The current version of the signaling channel.
       description: A structure that encapsulates a signaling channel's metadata and properties.
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    SingleMasterConfiguration:
-      type: object
-      properties:
-        MessageTtlSeconds:
-          allOf:
-          - $ref: '#/components/schemas/MessageTtlSeconds'
-          - description: The period of time a signaling channel retains undelivered messages before they are discarded.
-      description: A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel type.
-    ClientLimitExceededException: {}
-    ChannelName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 256
-    ComparisonOperator:
-      type: string
-      enum:
-      - BEGINS_WITH
-    Status:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    ChannelInfoList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ChannelInfo'
-    ChannelType:
-      type: string
-      enum:
-      - SINGLE_MASTER
-      - FULL_MESH
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -320,14 +320,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -338,8 +332,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

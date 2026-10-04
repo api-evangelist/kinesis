@@ -232,21 +232,37 @@ paths:
 components:
   schemas:
     InvalidArgumentException: {}
-    FormatConfigValue:
+    ImageSelectorType:
       type: string
-      pattern: ^[a-zA-Z_0-9]+
-      minLength: 0
-      maxLength: 256
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
+    UpdateImageGenerationConfigurationOutput:
+      type: object
+      properties: {}
+    ResourceNotFoundException: {}
     AccessDeniedException: {}
-    WidthPixels:
+    ResourceInUseException: {}
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
+    HeightPixels:
       type: integer
       minimum: 1
-      maximum: 3840
+      maximum: 2160
+    ClientLimitExceededException: {}
     DestinationUri:
       type: string
       pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
       minLength: 1
       maxLength: 255
+    FormatConfigValue:
+      type: string
+      pattern: ^[a-zA-Z_0-9]+
+      minLength: 0
+      maxLength: 256
     ImageGenerationDestinationConfig:
       type: object
       required:
@@ -262,56 +278,40 @@ components:
           - $ref: '#/components/schemas/DestinationRegion'
           - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
       description: The structure that contains the information required to deliver images to a customer.
-    ClientLimitExceededException: {}
-    HeightPixels:
-      type: integer
-      minimum: 1
-      maximum: 2160
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    ImageSelectorType:
-      type: string
-      enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
-    ConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
-    ResourceInUseException: {}
-    NoDataRetentionException: {}
-    ResourceNotFoundException: {}
-    Format:
-      type: string
-      enum:
-      - JPEG
-      - PNG
-    UpdateImageGenerationConfigurationOutput:
-      type: object
-      properties: {}
     FormatConfig:
       type: object
       minProperties: 1
       maxProperties: 1
       additionalProperties:
         $ref: '#/components/schemas/FormatConfigValue'
+    WidthPixels:
+      type: integer
+      minimum: 1
+      maximum: 3840
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    DestinationRegion:
+      type: string
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    NoDataRetentionException: {}
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -322,14 +322,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -340,8 +334,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

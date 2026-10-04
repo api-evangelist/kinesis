@@ -209,9 +209,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Type:
-      type: string
-    InvalidArgumentException: {}
+    MappedResourceConfigurationList:
+      type: array
+      items:
+        $ref: '#/components/schemas/MappedResourceConfigurationListItem'
+      minItems: 0
+      maxItems: 1
     ResourceARN:
       type: string
       pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
@@ -229,7 +232,13 @@ components:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
       description: A structure that encapsulates, or contains, the media storage configuration properties.
+    InvalidArgumentException: {}
     ClientLimitExceededException: {}
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
     DescribeMappedResourceConfigurationOutput:
       type: object
       properties:
@@ -241,40 +250,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: 'The token that was used in the <code>NextToken</code>request to fetch the next set of results. '
-    AccessDeniedException: {}
-    ResourceNotFoundException: {}
-    NextToken:
+    Type:
       type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    MappedResourceConfigurationList:
-      type: array
-      items:
-        $ref: '#/components/schemas/MappedResourceConfigurationListItem'
-      minItems: 0
-      maxItems: 1
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
       in: header
       schema:
         type: string
@@ -291,8 +273,26 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

@@ -223,39 +223,19 @@ paths:
       summary: Update stream
       x-summary-source: derived
 components:
+  schemas:
+    ClientLimitExceededException: {}
+    UpdateStreamOutput:
+      type: object
+      properties: {}
+    InvalidArgumentException: {}
+    ResourceInUseException: {}
+    NotAuthorizedException: {}
+    ResourceNotFoundException: {}
+    VersionMismatchException: {}
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -266,16 +246,36 @@ components:
       schema:
         type: string
       required: false
-  schemas:
-    InvalidArgumentException: {}
-    VersionMismatchException: {}
-    ResourceInUseException: {}
-    ClientLimitExceededException: {}
-    ResourceNotFoundException: {}
-    UpdateStreamOutput:
-      type: object
-      properties: {}
-    NotAuthorizedException: {}
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey

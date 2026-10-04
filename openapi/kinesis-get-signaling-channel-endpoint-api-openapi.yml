@@ -204,27 +204,28 @@ paths:
 components:
   schemas:
     InvalidArgumentException: {}
+    ResourceNotFoundException: {}
     AccessDeniedException: {}
-    GetSignalingChannelEndpointOutput:
-      type: object
-      properties:
-        ResourceEndpointList:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpointList'
-          - description: A list of endpoints for the specified signaling channel.
-    ListOfProtocols:
-      type: array
-      items:
-        $ref: '#/components/schemas/ChannelProtocol'
-      minItems: 1
-      maxItems: 5
+    ResourceInUseException: {}
     ClientLimitExceededException: {}
+    ChannelProtocol:
+      type: string
+      enum:
+      - WSS
+      - HTTPS
+      - WEBRTC
     ResourceEndpointList:
       type: array
       items:
         $ref: '#/components/schemas/ResourceEndpointListItem'
     ResourceEndpoint:
       type: string
+    ListOfProtocols:
+      type: array
+      items:
+        $ref: '#/components/schemas/ChannelProtocol'
+      minItems: 1
+      maxItems: 5
     ResourceEndpointListItem:
       type: object
       properties:
@@ -237,28 +238,27 @@ components:
           - $ref: '#/components/schemas/ResourceEndpoint'
           - description: The endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
       description: An object that describes the endpoint of the signaling channel returned by the <code>GetSignalingChannelEndpoint</code> API.
-    ResourceInUseException: {}
-    ChannelProtocol:
-      type: string
-      enum:
-      - WSS
-      - HTTPS
-      - WEBRTC
     ChannelRole:
       type: string
       enum:
       - MASTER
       - VIEWER
-    ResourceNotFoundException: {}
+    GetSignalingChannelEndpointOutput:
+      type: object
+      properties:
+        ResourceEndpointList:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpointList'
+          - description: A list of endpoints for the specified signaling channel.
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -269,14 +269,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -287,8 +281,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

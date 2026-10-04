@@ -195,43 +195,30 @@ paths:
 components:
   schemas:
     InvalidArgumentException: {}
-    Timestamp:
+    DeviceName:
       type: string
-      format: date-time
-    ListStreamsOutput:
-      type: object
-      properties:
-        StreamInfoList:
-          allOf:
-          - $ref: '#/components/schemas/StreamInfoList'
-          - description: An array of <code>StreamInfo</code> objects.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: 'If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. '
-    Version:
-      type: string
-      pattern: '[a-zA-Z0-9]+'
+      pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
-      maxLength: 64
-    DataRetentionInHours:
-      type: integer
-      minimum: 0
-    ResourceARN:
+      maxLength: 128
+    KmsKeyId:
       type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      pattern: .+
       minLength: 1
-      maxLength: 1024
-    ClientLimitExceededException: {}
+      maxLength: 2048
     StreamName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
       maxLength: 256
-    ComparisonOperator:
+    DataRetentionInHours:
+      type: integer
+      minimum: 0
+    MediaType:
       type: string
-      enum:
-      - BEGINS_WITH
+      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
+      minLength: 1
+      maxLength: 128
+    ClientLimitExceededException: {}
     Status:
       type: string
       enum:
@@ -239,30 +226,11 @@ components:
       - ACTIVE
       - UPDATING
       - DELETING
-    KmsKeyId:
-      type: string
-      pattern: .+
-      minLength: 1
-      maxLength: 2048
-    MediaType:
-      type: string
-      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
-      minLength: 1
-      maxLength: 128
     NextToken:
       type: string
       pattern: '[a-zA-Z0-9+/=]*'
       minLength: 0
       maxLength: 512
-    StreamInfoList:
-      type: array
-      items:
-        $ref: '#/components/schemas/StreamInfo'
-    DeviceName:
-      type: string
-      pattern: '[a-zA-Z0-9_.-]+'
-      minLength: 1
-      maxLength: 128
     StreamInfo:
       type: object
       properties:
@@ -303,15 +271,47 @@ components:
           - $ref: '#/components/schemas/DataRetentionInHours'
           - description: How long the stream retains data, in hours.
       description: An object describing a Kinesis video stream.
+    StreamInfoList:
+      type: array
+      items:
+        $ref: '#/components/schemas/StreamInfo'
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    ComparisonOperator:
+      type: string
+      enum:
+      - BEGINS_WITH
+    Timestamp:
+      type: string
+      format: date-time
+    Version:
+      type: string
+      pattern: '[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 64
+    ListStreamsOutput:
+      type: object
+      properties:
+        StreamInfoList:
+          allOf:
+          - $ref: '#/components/schemas/StreamInfoList'
+          - description: An array of <code>StreamInfo</code> objects.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: 'If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request. '
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -322,14 +322,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -340,8 +334,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string

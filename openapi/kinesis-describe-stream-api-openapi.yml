@@ -184,45 +184,12 @@ paths:
 components:
   schemas:
     InvalidArgumentException: {}
-    Timestamp:
-      type: string
-      format: date-time
-    Version:
-      type: string
-      pattern: '[a-zA-Z0-9]+'
-      minLength: 1
-      maxLength: 64
-    DataRetentionInHours:
-      type: integer
-      minimum: 0
-    ResourceARN:
-      type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
-      minLength: 1
-      maxLength: 1024
-    ClientLimitExceededException: {}
-    StreamName:
+    DeviceName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
-      maxLength: 256
-    Status:
-      type: string
-      enum:
-      - CREATING
-      - ACTIVE
-      - UPDATING
-      - DELETING
-    KmsKeyId:
-      type: string
-      pattern: .+
-      minLength: 1
-      maxLength: 2048
-    MediaType:
-      type: string
-      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
-      minLength: 1
       maxLength: 128
+    NotAuthorizedException: {}
     DescribeStreamOutput:
       type: object
       properties:
@@ -230,13 +197,33 @@ components:
           allOf:
           - $ref: '#/components/schemas/StreamInfo'
           - description: An object that describes the stream.
+    KmsKeyId:
+      type: string
+      pattern: .+
+      minLength: 1
+      maxLength: 2048
     ResourceNotFoundException: {}
-    DeviceName:
+    StreamName:
       type: string
       pattern: '[a-zA-Z0-9_.-]+'
       minLength: 1
+      maxLength: 256
+    DataRetentionInHours:
+      type: integer
+      minimum: 0
+    MediaType:
+      type: string
+      pattern: '[\w\-\.\+]+/[\w\-\.\+]+(,[\w\-\.\+]+/[\w\-\.\+]+)*'
+      minLength: 1
       maxLength: 128
-    NotAuthorizedException: {}
+    ClientLimitExceededException: {}
+    Status:
+      type: string
+      enum:
+      - CREATING
+      - ACTIVE
+      - UPDATING
+      - DELETING
     StreamInfo:
       type: object
       properties:
@@ -277,15 +264,28 @@ components:
           - $ref: '#/components/schemas/DataRetentionInHours'
           - description: How long the stream retains data, in hours.
       description: An object describing a Kinesis video stream.
+    ResourceARN:
+      type: string
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      minLength: 1
+      maxLength: 1024
+    Timestamp:
+      type: string
+      format: date-time
+    Version:
+      type: string
+      pattern: '[a-zA-Z0-9]+'
+      minLength: 1
+      maxLength: 64
   parameters:
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
@@ -296,14 +296,8 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -314,8 +308,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
