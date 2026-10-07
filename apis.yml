@@ -2243,6 +2243,8 @@ apis:
     url: >-
       https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 common:
+- type: Pricing
+  url: https://aws.amazon.com/managed-service-apache-flink/pricing/
 - type: Plans
   url: plans/kinesis-plans-pricing.yml
 - type: CapabilityMap
