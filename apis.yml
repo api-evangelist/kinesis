@@ -2243,6 +2243,10 @@ apis:
     url: >-
       https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html
 common:
+- type: RateLimits
+  url: rate-limits/kinesis-rate-limits.yml
+- type: FinOps
+  url: finops/kinesis-finops.yml
 - type: Pricing
   url: https://aws.amazon.com/managed-service-apache-flink/pricing/
 - type: Plans
