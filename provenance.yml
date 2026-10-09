@@ -13,89 +13,89 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   collections/kinesis-createsignalingchannel-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-createsignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-createsignalingchannel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-createsignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-createstream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-createstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-createstream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-createstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-deletesignalingchannel-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-deletesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-deletesignalingchannel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-deletesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-deletestream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-deletestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-deletestream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-deletestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describeedgeconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describeedgeconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describeedgeconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describeedgeconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describeimagegenerationconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describeimagegenerationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describeimagegenerationconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describeimagegenerationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describemappedresourceconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describemappedresourceconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describemappedresourceconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describemappedresourceconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describemediastorageconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describemediastorageconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describemediastorageconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describemediastorageconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describenotificationconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describenotificationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describenotificationconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describenotificationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describesignalingchannel-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describesignalingchannel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describestream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-describestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-describestream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-describestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-getdataendpoint-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-getdataendpoint-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-getdataendpoint-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-getdataendpoint-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-getsignalingchannelendpoint-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-getsignalingchannelendpoint-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-getsignalingchannelendpoint-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-getsignalingchannelendpoint-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-listsignalingchannels-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-listsignalingchannels-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-listsignalingchannels-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-listsignalingchannels-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-liststreams-api.opencollection.json:
     method: derived
     evidence: openapi/kinesis-liststreams-api
@@ -103,83 +103,83 @@ artifacts:
     method: derived
     evidence: openapi/kinesis-liststreams-api
   collections/kinesis-listtagsforresource-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-listtagsforresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-listtagsforresource-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-listtagsforresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-listtagsforstream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-listtagsforstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-listtagsforstream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-listtagsforstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-startedgeconfigurationupdate-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-startedgeconfigurationupdate-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-startedgeconfigurationupdate-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-startedgeconfigurationupdate-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-tagresource-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-tagresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-tagresource-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-tagresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-tagstream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-tagstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-tagstream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-tagstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-untagresource-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-untagresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-untagresource-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-untagresource-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-untagstream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-untagstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-untagstream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-untagstream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatedataretention-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updatedataretention-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatedataretention-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updatedataretention-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updateimagegenerationconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updateimagegenerationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updateimagegenerationconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updateimagegenerationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatemediastorageconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updatemediastorageconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatemediastorageconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updatemediastorageconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatenotificationconfiguration-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updatenotificationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatenotificationconfiguration-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updatenotificationconfiguration-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatesignalingchannel-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updatesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatesignalingchannel-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updatesignalingchannel-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatestream-api.opencollection.json:
-    method: derived
-    evidence: openapi/kinesis-updatestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-updatestream-api.postman_collection.json:
-    method: derived
-    evidence: openapi/kinesis-updatestream-api
+    method: unknown
+    evidence: no authorship recorded
   collections/kinesis-x-amz-target-firehose-20150804-createdeliverystream-api.opencollection.json:
     method: derived
     evidence: openapi/kinesis-x-amz-target-firehose-20150804-createdeliverystream-api
@@ -609,6 +609,9 @@ artifacts:
   finops/kinesis-finops.yml:
     method: generated
     evidence: declared in the artifact
+  front-door-ai/2026-09-17.yml:
+    method: unknown
+    evidence: no authorship recorded
   json-schema/kinesis-accessdeniedexception-schema.json:
     method: unknown
     evidence: no authorship recorded
@@ -2814,55 +2817,7 @@ artifacts:
   json-structure/kinesis-structure.json:
     method: unknown
     evidence: no authorship recorded
-  kin/checks-2026-09-05T072335.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-06T210741.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-07T135032.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T093022.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-10T111628.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-11T211707.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-12T193225.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-17T064519.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T080027.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T082702.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-19T114122.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T165047.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T191845.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-20T205517.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-21T110057.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T064859.yml:
-    method: generated
-    evidence: Kin Score snapshot written by score.rb
-  kin/score-2026-08-24T171257.yml:
+  kin/checks-2026-09-24T161608.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-08-25T125852.yml:
@@ -2949,100 +2904,221 @@ artifacts:
   kin/score-2026-09-05T072335.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T144739.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T195450.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-05T211839.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T011047.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T211804.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-06T224210.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T200636.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-07T213054.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T214843.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-08T232836.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T204815.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-10T222408.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T062655.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T080032.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T204651.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-12T221936.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-13T214537.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T064754.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T210656.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-14T225847.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T211329.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-15T230249.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T210549.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-16T225339.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T211151.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-17T233623.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T205255.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-18T231945.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T165737.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-19T193153.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T205903.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-20T232958.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T211425.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-21T233935.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-22T213221.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-23T000603.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T064009.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T090406.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-09-24T161608.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   openapi/_original/amazon-data-firehose-openapi-original.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/amazon-kinesis-data-analytics-openapi-original.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/amazon-kinesis-data-streams-openapi-original.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
   openapi/_original/amazon-kinesis-video-streams-openapi-original.yml:
     method: harvested
-    evidence: fetched from the provider as-is; byte-identical to the source
-  openapi/kinesis-createsignalingchannel-api-openapi.yml:
+    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
+      to the provider's source is unverified
+  openapi/kinesis-create-signaling-channel-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-createstream-api-openapi.yml:
+  openapi/kinesis-create-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-deletesignalingchannel-api-openapi.yml:
+  openapi/kinesis-delete-signaling-channel-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-deletestream-api-openapi.yml:
+  openapi/kinesis-delete-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describeedgeconfiguration-api-openapi.yml:
+  openapi/kinesis-describe-edge-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describeimagegenerationconfiguration-api-openapi.yml:
+  openapi/kinesis-describe-image-generation-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describemappedresourceconfiguration-api-openapi.yml:
+  openapi/kinesis-describe-mapped-resource-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describemediastorageconfiguration-api-openapi.yml:
+  openapi/kinesis-describe-media-storage-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describenotificationconfiguration-api-openapi.yml:
+  openapi/kinesis-describe-notification-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describesignalingchannel-api-openapi.yml:
+  openapi/kinesis-describe-signaling-channel-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-describestream-api-openapi.yml:
+  openapi/kinesis-describe-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-getdataendpoint-api-openapi.yml:
+  openapi/kinesis-get-data-endpoint-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-getsignalingchannelendpoint-api-openapi.yml:
+  openapi/kinesis-get-signaling-channel-endpoint-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-listsignalingchannels-api-openapi.yml:
+  openapi/kinesis-list-signaling-channels-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/kinesis-list-tags-for-resource-api-openapi.yml:
+    method: derived
+    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
+  openapi/kinesis-list-tags-for-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/kinesis-liststreams-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-listtagsforresource-api-openapi.yml:
+  openapi/kinesis-start-edge-configuration-update-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-listtagsforstream-api-openapi.yml:
+  openapi/kinesis-tag-resource-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-startedgeconfigurationupdate-api-openapi.yml:
+  openapi/kinesis-tag-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-tagresource-api-openapi.yml:
+  openapi/kinesis-untag-resource-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-tagstream-api-openapi.yml:
+  openapi/kinesis-untag-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-untagresource-api-openapi.yml:
+  openapi/kinesis-update-data-retention-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-untagstream-api-openapi.yml:
+  openapi/kinesis-update-image-generation-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updatedataretention-api-openapi.yml:
+  openapi/kinesis-update-media-storage-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updateimagegenerationconfiguration-api-openapi.yml:
+  openapi/kinesis-update-notification-configuration-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updatemediastorageconfiguration-api-openapi.yml:
+  openapi/kinesis-update-signaling-channel-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updatenotificationconfiguration-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updatesignalingchannel-api-openapi.yml:
-    method: derived
-    evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
-  openapi/kinesis-updatestream-api-openapi.yml:
+  openapi/kinesis-update-stream-api-openapi.yml:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   openapi/kinesis-x-amz-target-firehose-20150804-createdeliverystream-api-openapi.yml:
@@ -3259,7 +3335,7 @@ artifacts:
     method: derived
     evidence: paths are a subset of openapi/_original/ (split from the harvested spec)
   plans/kinesis-plans-pricing.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rate-limits/kinesis-rate-limits.yml:
     method: generated
