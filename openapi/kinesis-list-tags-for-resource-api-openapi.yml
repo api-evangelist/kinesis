@@ -185,14 +185,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
-    ResourceTags:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
     InvalidArgumentException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
     ListTagsForResourceOutput:
       type: object
       properties:
@@ -204,19 +209,20 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceTags'
           - description: A map of tag keys and values associated with the specified signaling channel.
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
-    ResourceNotFoundException: {}
+    ResourceTags:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     AccessDeniedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -229,6 +235,12 @@ components:
       schema:
         type: string
       required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
       in: header
@@ -237,18 +249,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

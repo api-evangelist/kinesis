@@ -215,18 +215,12 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    InvalidArgumentException: {}
-    AccessDeniedException: {}
-    ResourceInUseException: {}
-    TagKey:
+    ClientLimitExceededException: {}
+    ResourceARN:
       type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
       minLength: 1
-      maxLength: 128
-    MessageTtlSeconds:
-      type: integer
-      minimum: 5
-      maximum: 120
+      maxLength: 1024
     Tag:
       type: object
       required:
@@ -242,13 +236,25 @@ components:
           - $ref: '#/components/schemas/TagValue'
           - description: The value of the tag that is associated with the specified signaling channel.
       description: A key and value pair that is associated with the specified signaling channel.
-    ClientLimitExceededException: {}
-    TagsPerResourceExceededLimitException: {}
-    ResourceARN:
+    InvalidArgumentException: {}
+    TagKey:
       type: string
-      pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
       minLength: 1
-      maxLength: 1024
+      maxLength: 128
+    ResourceInUseException: {}
+    MessageTtlSeconds:
+      type: integer
+      minimum: 5
+      maximum: 120
+    AccessDeniedException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
+    AccountChannelLimitExceededException: {}
+    TagsPerResourceExceededLimitException: {}
     CreateSignalingChannelOutput:
       type: object
       properties:
@@ -256,33 +262,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceARN'
           - description: The Amazon Resource Name (ARN) of the created channel.
-    AccountChannelLimitExceededException: {}
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -295,6 +277,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

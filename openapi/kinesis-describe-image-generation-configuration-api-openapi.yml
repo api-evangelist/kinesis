@@ -183,29 +183,56 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    InvalidArgumentException: {}
-    ImageSelectorType:
+    ClientLimitExceededException: {}
+    DestinationRegion:
       type: string
-      enum:
-      - SERVER_TIMESTAMP
-      - PRODUCER_TIMESTAMP
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    Format:
-      type: string
-      enum:
-      - JPEG
-      - PNG
-    HeightPixels:
+      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
+      minLength: 9
+      maxLength: 14
+    WidthPixels:
       type: integer
       minimum: 1
-      maximum: 2160
-    ClientLimitExceededException: {}
+      maximum: 3840
+    DescribeImageGenerationConfigurationOutput:
+      type: object
+      properties:
+        ImageGenerationConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/ImageGenerationConfiguration'
+          - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
+    FormatConfig:
+      type: object
+      minProperties: 1
+      maxProperties: 1
+      additionalProperties:
+        $ref: '#/components/schemas/FormatConfigValue'
+    InvalidArgumentException: {}
     DestinationUri:
       type: string
       pattern: ^[a-zA-Z_0-9]+:(//)?([^/]+)/?([^*]*)$
       minLength: 1
       maxLength: 255
+    ConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    ResourceNotFoundException: {}
+    Format:
+      type: string
+      enum:
+      - JPEG
+      - PNG
+    SamplingInterval:
+      type: integer
+      minimum: 3000
+      maximum: 20000
+    ImageSelectorType:
+      type: string
+      enum:
+      - SERVER_TIMESTAMP
+      - PRODUCER_TIMESTAMP
+    AccessDeniedException: {}
     ImageGenerationConfiguration:
       type: object
       required:
@@ -248,18 +275,15 @@ components:
           - $ref: '#/components/schemas/HeightPixels'
           - description: The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the specified aspect ratio. If only the <code>HeightPixels</code> parameter is provided, its original aspect ratio will be used to calculate the <code>WidthPixels</code> ratio. If neither parameter is provided, the original image size will be returned.
       description: The structure that contains the information required for the KVS images delivery. If null, the configuration will be deleted from the stream.
+    HeightPixels:
+      type: integer
+      minimum: 1
+      maximum: 2160
     FormatConfigValue:
       type: string
       pattern: ^[a-zA-Z_0-9]+
       minLength: 0
       maxLength: 256
-    DescribeImageGenerationConfigurationOutput:
-      type: object
-      properties:
-        ImageGenerationConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/ImageGenerationConfiguration'
-          - description: The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.
     ImageGenerationDestinationConfig:
       type: object
       required:
@@ -275,51 +299,9 @@ components:
           - $ref: '#/components/schemas/DestinationRegion'
           - description: The AWS Region of the S3 bucket where images will be delivered. This <code>DestinationRegion</code> must match the Region where the stream is located.
       description: The structure that contains the information required to deliver images to a customer.
-    FormatConfig:
-      type: object
-      minProperties: 1
-      maxProperties: 1
-      additionalProperties:
-        $ref: '#/components/schemas/FormatConfigValue'
-    WidthPixels:
-      type: integer
-      minimum: 1
-      maximum: 3840
-    SamplingInterval:
-      type: integer
-      minimum: 3000
-      maximum: 20000
-    ConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
-    DestinationRegion:
-      type: string
-      pattern: ^[a-z]+(-[a-z]+)?-[a-z]+-[0-9]$
-      minLength: 9
-      maxLength: 14
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -332,6 +314,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string

@@ -209,36 +209,25 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NextToken:
+      type: string
+      pattern: '[a-zA-Z0-9+/=]*'
+      minLength: 0
+      maxLength: 512
     MappedResourceConfigurationList:
       type: array
       items:
         $ref: '#/components/schemas/MappedResourceConfigurationListItem'
       minItems: 0
       maxItems: 1
+    ClientLimitExceededException: {}
+    ResourceNotFoundException: {}
+    InvalidArgumentException: {}
     ResourceARN:
       type: string
       pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
       minLength: 1
       maxLength: 1024
-    MappedResourceConfigurationListItem:
-      type: object
-      properties:
-        Type:
-          allOf:
-          - $ref: '#/components/schemas/Type'
-          - description: The type of the associated resource for the kinesis video stream.
-        ARN:
-          allOf:
-          - $ref: '#/components/schemas/ResourceARN'
-          - description: The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
-      description: A structure that encapsulates, or contains, the media storage configuration properties.
-    InvalidArgumentException: {}
-    ClientLimitExceededException: {}
-    NextToken:
-      type: string
-      pattern: '[a-zA-Z0-9+/=]*'
-      minLength: 0
-      maxLength: 512
     DescribeMappedResourceConfigurationOutput:
       type: object
       properties:
@@ -252,9 +241,32 @@ components:
           - description: 'The token that was used in the <code>NextToken</code>request to fetch the next set of results. '
     Type:
       type: string
-    ResourceNotFoundException: {}
     AccessDeniedException: {}
+    MappedResourceConfigurationListItem:
+      type: object
+      properties:
+        Type:
+          allOf:
+          - $ref: '#/components/schemas/Type'
+          - description: The type of the associated resource for the kinesis video stream.
+        ARN:
+          allOf:
+          - $ref: '#/components/schemas/ResourceARN'
+          - description: The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.
+      description: A structure that encapsulates, or contains, the media storage configuration properties.
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -275,18 +287,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

@@ -183,13 +183,27 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
+    InvalidArgumentException: {}
+    DescribeMediaStorageConfigurationOutput:
+      type: object
+      properties:
+        MediaStorageConfiguration:
+          allOf:
+          - $ref: '#/components/schemas/MediaStorageConfiguration'
+          - description: A structure that encapsulates, or contains, the media storage configuration properties.
     ResourceARN:
       type: string
       pattern: arn:[a-z\d-]+:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+
       minLength: 1
       maxLength: 1024
-    InvalidArgumentException: {}
+    MediaStorageConfigurationStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+    AccessDeniedException: {}
     MediaStorageConfiguration:
       type: object
       required:
@@ -204,21 +218,19 @@ components:
           - $ref: '#/components/schemas/MediaStorageConfigurationStatus'
           - description: The status of the media storage configuration.
       description: A structure that encapsulates, or contains, the media storage configuration properties.
-    DescribeMediaStorageConfigurationOutput:
-      type: object
-      properties:
-        MediaStorageConfiguration:
-          allOf:
-          - $ref: '#/components/schemas/MediaStorageConfiguration'
-          - description: A structure that encapsulates, or contains, the media storage configuration properties.
-    MediaStorageConfigurationStatus:
-      type: string
-      enum:
-      - ENABLED
-      - DISABLED
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -239,18 +251,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

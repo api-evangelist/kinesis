@@ -203,7 +203,9 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
+    InvalidArgumentException: {}
     GetDataEndpointOutput:
       type: object
       properties:
@@ -213,10 +215,20 @@ components:
           - description: The endpoint value. To read data from the stream or to write data to it, specify this endpoint in your application.
     DataEndpoint:
       type: string
-    InvalidArgumentException: {}
     NotAuthorizedException: {}
-    ResourceNotFoundException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -237,18 +249,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

@@ -193,21 +193,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ClientLimitExceededException: {}
-    InvalidArgumentException: {}
-    TagResourceOutput:
-      type: object
-      properties: {}
-    TagKey:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
     Tag:
       type: object
       required:
@@ -224,9 +209,36 @@ components:
           - description: The value of the tag that is associated with the specified signaling channel.
       description: A key and value pair that is associated with the specified signaling channel.
     ResourceNotFoundException: {}
-    AccessDeniedException: {}
+    ClientLimitExceededException: {}
+    TagResourceOutput:
+      type: object
+      properties: {}
+    InvalidArgumentException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
     TagsPerResourceExceededLimitException: {}
+    AccessDeniedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -247,18 +259,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

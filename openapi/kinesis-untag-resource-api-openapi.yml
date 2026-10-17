@@ -187,6 +187,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
     InvalidArgumentException: {}
     TagKey:
@@ -197,9 +198,20 @@ components:
     UntagResourceOutput:
       type: object
       properties: {}
-    ResourceNotFoundException: {}
     AccessDeniedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -220,18 +232,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

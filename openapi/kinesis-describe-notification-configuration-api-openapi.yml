@@ -183,6 +183,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
     DestinationUri:
       type: string
@@ -190,6 +191,17 @@ components:
       minLength: 1
       maxLength: 255
     InvalidArgumentException: {}
+    NotificationDestinationConfig:
+      type: object
+      required:
+      - Uri
+      properties:
+        Uri:
+          allOf:
+          - $ref: '#/components/schemas/DestinationUri'
+          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
+      description: The structure that contains the information required to deliver a notification to a customer.
+    AccessDeniedException: {}
     NotificationConfiguration:
       type: object
       required:
@@ -217,19 +229,19 @@ components:
           allOf:
           - $ref: '#/components/schemas/NotificationConfiguration'
           - description: The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.
-    ResourceNotFoundException: {}
-    NotificationDestinationConfig:
-      type: object
-      required:
-      - Uri
-      properties:
-        Uri:
-          allOf:
-          - $ref: '#/components/schemas/DestinationUri'
-          - description: The Uniform Resource Identifier (URI) that identifies where the images will be delivered.
-      description: The structure that contains the information required to deliver a notification to a customer.
-    AccessDeniedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -250,18 +262,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

@@ -198,25 +198,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ClientLimitExceededException: {}
-    ResourceTags:
-      type: object
-      minProperties: 1
-      maxProperties: 50
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    InvalidArgumentException: {}
-    NotAuthorizedException: {}
-    TagValue:
-      type: string
-      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
-      minLength: 0
-      maxLength: 256
     NextToken:
       type: string
       pattern: '[a-zA-Z0-9+/=]*'
       minLength: 0
       maxLength: 512
+    ResourceNotFoundException: {}
+    ClientLimitExceededException: {}
+    InvalidArgumentException: {}
+    TagValue:
+      type: string
+      pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
+      minLength: 0
+      maxLength: 256
     ListTagsForStreamOutput:
       type: object
       properties:
@@ -228,9 +222,27 @@ components:
           allOf:
           - $ref: '#/components/schemas/ResourceTags'
           - description: A map of tag keys and values associated with the specified stream.
+    ResourceTags:
+      type: object
+      minProperties: 1
+      maxProperties: 50
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
     InvalidResourceFormatException: {}
-    ResourceNotFoundException: {}
+    NotAuthorizedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -251,18 +263,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

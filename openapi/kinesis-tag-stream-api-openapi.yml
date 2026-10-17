@@ -213,21 +213,33 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ResourceNotFoundException: {}
     ClientLimitExceededException: {}
-    InvalidArgumentException: {}
     TagStreamOutput:
       type: object
       properties: {}
-    NotAuthorizedException: {}
+    InvalidArgumentException: {}
     TagValue:
       type: string
       pattern: '[\p{L}\p{Z}\p{N}_.:/=+\-@]*'
       minLength: 0
       maxLength: 256
     InvalidResourceFormatException: {}
-    ResourceNotFoundException: {}
     TagsPerResourceExceededLimitException: {}
+    NotAuthorizedException: {}
   parameters:
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Credential:
       name: X-Amz-Credential
       in: header
@@ -248,18 +260,6 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string

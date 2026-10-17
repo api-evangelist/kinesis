@@ -203,21 +203,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    InvalidArgumentException: {}
-    ResourceNotFoundException: {}
-    AccessDeniedException: {}
-    ResourceInUseException: {}
     ClientLimitExceededException: {}
-    ChannelProtocol:
-      type: string
-      enum:
-      - WSS
-      - HTTPS
-      - WEBRTC
-    ResourceEndpointList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ResourceEndpointListItem'
     ResourceEndpoint:
       type: string
     ListOfProtocols:
@@ -226,6 +212,27 @@ components:
         $ref: '#/components/schemas/ChannelProtocol'
       minItems: 1
       maxItems: 5
+    GetSignalingChannelEndpointOutput:
+      type: object
+      properties:
+        ResourceEndpointList:
+          allOf:
+          - $ref: '#/components/schemas/ResourceEndpointList'
+          - description: A list of endpoints for the specified signaling channel.
+    InvalidArgumentException: {}
+    ResourceNotFoundException: {}
+    ChannelProtocol:
+      type: string
+      enum:
+      - WSS
+      - HTTPS
+      - WEBRTC
+    ResourceInUseException: {}
+    AccessDeniedException: {}
+    ResourceEndpointList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ResourceEndpointListItem'
     ResourceEndpointListItem:
       type: object
       properties:
@@ -243,34 +250,9 @@ components:
       enum:
       - MASTER
       - VIEWER
-    GetSignalingChannelEndpointOutput:
-      type: object
-      properties:
-        ResourceEndpointList:
-          allOf:
-          - $ref: '#/components/schemas/ResourceEndpointList'
-          - description: A list of endpoints for the specified signaling channel.
   parameters:
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Date:
-      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -283,6 +265,24 @@ components:
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
