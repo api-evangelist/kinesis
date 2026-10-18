@@ -101,5 +101,5 @@
     quality:
     - unknown
     builder: 'community (Meltano Hub variant maintainers: marouane-tradelab, prontopro)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
