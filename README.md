@@ -1,4 +1,4 @@
-# AWS Kinesis (kinesis)
+# AWS Kinesis
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,149 +66,221 @@
 
 Amazon Kinesis is a family of fully managed AWS services for collecting, processing, and analyzing real-time streaming data. The family includes Kinesis Data Streams for scalable record ingestion, Amazon Data Firehose (formerly Kinesis Data Firehose) for delivery to data lakes and analytics destinations, Amazon Managed Service for Apache Flink (formerly Kinesis Data Analytics) for stateful stream processing, and Kinesis Video Streams for ingest and playback of media from connected devices.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/kinesis/refs/heads/main/apis.yml)
+**Areas:** Analytics · Apache Flink · AWS · Big Data · Data Processing · Real-Time · Streaming · Video
 
-## Scope
+## AWS Kinesis on APIs.io
 
-- **Type:** Index
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for AWS Kinesis is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kinesis/](https://apis.io/providers/kinesis/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (32)
 
- - Analytics, Apache Flink, AWS, Big Data, Data Processing, Real-Time, Streaming, Video
+- [Amazon Managed Service for Apache Flink API](https://apis.io/apis/kinesis/managed-flink-api/) — Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics for Apache Flink) is a fully managed service for processing and analyzing…
+- [AWS Kinesis ListStreams API](https://apis.io/apis/kinesis/kinesis-liststreams-api/) — The ListStreams API from AWS Kinesis — 1 operation(s) for liststreams.
+- [AWS Kinesis Amazon Kinesis Analytics API](https://apis.io/apis/kinesis/kinesis-amazon-kinesis-analytics-api/) — The Amazon Kinesis Analytics API from AWS Kinesis — 31 operation(s) for amazon kinesis analytics.
+- [AWS Kinesis Amazon Kinesis API](https://apis.io/apis/kinesis/kinesis-amazon-kinesis-api/) — The Amazon Kinesis API from AWS Kinesis — 28 operation(s) for amazon kinesis.
+- [AWS Kinesis Amazon Kinesis Firehose API](https://apis.io/apis/kinesis/kinesis-amazon-kinesis-firehose-api/) — The Amazon Kinesis Firehose API from AWS Kinesis — 12 operation(s) for amazon kinesis firehose.
+- [AWS Kinesis Create Signaling Channel API](https://apis.io/apis/kinesis/kinesis-create-signaling-channel-api/) — The Create Signaling Channel API from AWS Kinesis — 1 operation(s) for create signaling channel.
+- [AWS Kinesis Create Stream API](https://apis.io/apis/kinesis/kinesis-create-stream-api/) — The Create Stream API from AWS Kinesis — 1 operation(s) for create stream.
+- [AWS Kinesis Delete Signaling Channel API](https://apis.io/apis/kinesis/kinesis-delete-signaling-channel-api/) — The Delete Signaling Channel API from AWS Kinesis — 1 operation(s) for delete signaling channel.
+- [AWS Kinesis Delete Stream API](https://apis.io/apis/kinesis/kinesis-delete-stream-api/) — The Delete Stream API from AWS Kinesis — 1 operation(s) for delete stream.
+- [AWS Kinesis Describe Edge Configuration API](https://apis.io/apis/kinesis/kinesis-describe-edge-configuration-api/) — The Describe Edge Configuration API from AWS Kinesis — 1 operation(s) for describe edge configuration.
+- [AWS Kinesis Describe Image Generation Configuration API](https://apis.io/apis/kinesis/kinesis-describe-image-generation-configuration-api/) — The Describe Image Generation Configuration API from AWS Kinesis — 1 operation(s) for describe image generation configuration.
+- [AWS Kinesis Describe Mapped Resource Configuration API](https://apis.io/apis/kinesis/kinesis-describe-mapped-resource-configuration-api/) — The Describe Mapped Resource Configuration API from AWS Kinesis — 1 operation(s) for describe mapped resource configuration.
+- [AWS Kinesis Describe Media Storage Configuration API](https://apis.io/apis/kinesis/kinesis-describe-media-storage-configuration-api/) — The Describe Media Storage Configuration API from AWS Kinesis — 1 operation(s) for describe media storage configuration.
+- [AWS Kinesis Describe Notification Configuration API](https://apis.io/apis/kinesis/kinesis-describe-notification-configuration-api/) — The Describe Notification Configuration API from AWS Kinesis — 1 operation(s) for describe notification configuration.
+- [AWS Kinesis Describe Signaling Channel API](https://apis.io/apis/kinesis/kinesis-describe-signaling-channel-api/) — The Describe Signaling Channel API from AWS Kinesis — 1 operation(s) for describe signaling channel.
+- [AWS Kinesis Describe Stream API](https://apis.io/apis/kinesis/kinesis-describe-stream-api/) — The Describe Stream API from AWS Kinesis — 1 operation(s) for describe stream.
+- [AWS Kinesis Get Data Endpoint API](https://apis.io/apis/kinesis/kinesis-get-data-endpoint-api/) — The Get Data Endpoint API from AWS Kinesis — 1 operation(s) for get data endpoint.
+- [AWS Kinesis Get Signaling Channel Endpoint API](https://apis.io/apis/kinesis/kinesis-get-signaling-channel-endpoint-api/) — The Get Signaling Channel Endpoint API from AWS Kinesis — 1 operation(s) for get signaling channel endpoint.
+- [AWS Kinesis List Signaling Channels API](https://apis.io/apis/kinesis/kinesis-list-signaling-channels-api/) — The List Signaling Channels API from AWS Kinesis — 1 operation(s) for list signaling channels.
+- [AWS Kinesis List Tags For Resource API](https://apis.io/apis/kinesis/kinesis-list-tags-for-resource-api/) — The List Tags For Resource API from AWS Kinesis — 1 operation(s) for list tags for resource.
+- [AWS Kinesis List Tags For Stream API](https://apis.io/apis/kinesis/kinesis-list-tags-for-stream-api/) — The List Tags For Stream API from AWS Kinesis — 1 operation(s) for list tags for stream.
+- [AWS Kinesis Start Edge Configuration Update API](https://apis.io/apis/kinesis/kinesis-start-edge-configuration-update-api/) — The Start Edge Configuration Update API from AWS Kinesis — 1 operation(s) for start edge configuration update.
+- [AWS Kinesis Tag Resource API](https://apis.io/apis/kinesis/kinesis-tag-resource-api/) — The Tag Resource API from AWS Kinesis — 1 operation(s) for tag resource.
+- [AWS Kinesis Tag Stream API](https://apis.io/apis/kinesis/kinesis-tag-stream-api/) — The Tag Stream API from AWS Kinesis — 1 operation(s) for tag stream.
+- [AWS Kinesis Untag Resource API](https://apis.io/apis/kinesis/kinesis-untag-resource-api/) — The Untag Resource API from AWS Kinesis — 1 operation(s) for untag resource.
+- [AWS Kinesis Untag Stream API](https://apis.io/apis/kinesis/kinesis-untag-stream-api/) — The Untag Stream API from AWS Kinesis — 1 operation(s) for untag stream.
+- [AWS Kinesis Update Data Retention API](https://apis.io/apis/kinesis/kinesis-update-data-retention-api/) — The Update Data Retention API from AWS Kinesis — 1 operation(s) for update data retention.
+- [AWS Kinesis Update Image Generation Configuration API](https://apis.io/apis/kinesis/kinesis-update-image-generation-configuration-api/) — The Update Image Generation Configuration API from AWS Kinesis — 1 operation(s) for update image generation configuration.
+- [AWS Kinesis Update Media Storage Configuration API](https://apis.io/apis/kinesis/kinesis-update-media-storage-configuration-api/) — The Update Media Storage Configuration API from AWS Kinesis — 1 operation(s) for update media storage configuration.
+- [AWS Kinesis update Notification Configuration API](https://apis.io/apis/kinesis/kinesis-update-notification-configuration-api/) — The update Notification Configuration API from AWS Kinesis — 1 operation(s) for update notification configuration.
+- [AWS Kinesis Update Signaling Channel API](https://apis.io/apis/kinesis/kinesis-update-signaling-channel-api/) — The Update Signaling Channel API from AWS Kinesis — 1 operation(s) for update signaling channel.
+- [AWS Kinesis Update Stream API](https://apis.io/apis/kinesis/kinesis-update-stream-api/) — The Update Stream API from AWS Kinesis — 1 operation(s) for update stream.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Amazon Kinesis Data Streams API
-Amazon Kinesis Data Streams is a scalable and durable real-time data streaming service that can continuously capture gigabytes of data per second from hundreds of thousands of sources. The API supports stream creation and lifecycle management, record put and get operations, shard discovery and resharding, enhanced fan-out consumers, and stream consumer registration for downstream processing.
+Which operations an agent can call, which act, and which need a human in the loop.
 
-**Human URL:** [https://aws.amazon.com/kinesis/data-streams/](https://aws.amazon.com/kinesis/data-streams/)
+- [Kinesis Agentic Access](https://apis.io/agentic-access/kinesis/kinesis-agentic-access/)
 
-**Base URL:** https://kinesis.{region}.amazonaws.com
+#### JSON Schema (734)
 
-#### Tags:
+The data models the API reads and writes.
 
- - Data Streams, Ingestion, Real-Time, Streaming
+- [AccessDeniedException](https://apis.io/schemas/kinesis/kinesis-accessdeniedexception/)
+- [AccountChannelLimitExceededException](https://apis.io/schemas/kinesis/kinesis-accountchannellimitexceededexception/)
+- [AccountStreamLimitExceededException](https://apis.io/schemas/kinesis/kinesis-accountstreamlimitexceededexception/)
+- [AddApplicationCloudWatchLoggingOptionRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationcloudwatchloggingoptionrequest/)
+- [AddApplicationCloudWatchLoggingOptionResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationcloudwatchloggingoptionresponse/)
+- [AddApplicationInputProcessingConfigurationRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationinputprocessingconfigurationrequest/)
+- [AddApplicationInputProcessingConfigurationResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationinputprocessingconfigurationresponse/)
+- [AddApplicationInputRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationinputrequest/)
+- [AddApplicationInputResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationinputresponse/)
+- [AddApplicationOutputRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationoutputrequest/)
+- [AddApplicationOutputResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationoutputresponse/)
+- [AddApplicationReferenceDataSourceRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationreferencedatasourcerequest/)
+- [AddApplicationReferenceDataSourceResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationreferencedatasourceresponse/)
+- [AddApplicationVpcConfigurationRequest](https://apis.io/schemas/kinesis/kinesis-addapplicationvpcconfigurationrequest/)
+- [AddApplicationVpcConfigurationResponse](https://apis.io/schemas/kinesis/kinesis-addapplicationvpcconfigurationresponse/)
+- [AddTagsToStreamInput](https://apis.io/schemas/kinesis/kinesis-addtagstostreaminput/)
+- [AmazonOpenSearchServerlessBufferingHints](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessbufferinghints/)
+- [AmazonOpenSearchServerlessBufferingIntervalInSeconds](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessbufferingintervalinseconds/)
+- [AmazonOpenSearchServerlessBufferingSizeInMBs](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessbufferingsizeinmbs/)
+- [AmazonOpenSearchServerlessCollectionEndpoint](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlesscollectionendpoint/)
+- [AmazonOpenSearchServerlessDestinationConfiguration](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessdestinationconfiguration/)
+- [AmazonOpenSearchServerlessDestinationDescription](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessdestinationdescription/)
+- [AmazonOpenSearchServerlessDestinationUpdate](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessdestinationupdate/)
+- [AmazonOpenSearchServerlessIndexName](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessindexname/)
+- [AmazonOpenSearchServerlessRetryDurationInSeconds](https://apis.io/schemas/kinesis/kinesis-amazonopensearchserverlessretrydurationinseconds/)
+- …and 709 more published on APIs.io
 
-#### Properties
+#### JSON Structure (1)
 
-- [Documentation](https://docs.aws.amazon.com/kinesis/latest/APIReference/)
-- [OpenAPI](openapi/amazon-kinesis-data-streams-openapi-original.yml)
-- [Pricing](https://aws.amazon.com/kinesis/data-streams/pricing/)
-- [GettingStarted](https://aws.amazon.com/kinesis/data-streams/getting-started/)
-- [FAQ](https://aws.amazon.com/kinesis/data-streams/faqs/)
-- [DeveloperGuide](https://docs.aws.amazon.com/streams/latest/dev/introduction.html)
-- [Security](https://docs.aws.amazon.com/streams/latest/dev/security.html)
-- [Customers](https://aws.amazon.com/kinesis/data-streams/customers/)
-- [Integrations](https://aws.amazon.com/kinesis/data-streams/integrations/)
+Data models expressed in JSON Structure.
 
-### Amazon Data Firehose API
-Amazon Data Firehose (formerly Amazon Kinesis Data Firehose) is the easiest way to reliably load streaming data into data lakes, data stores, and analytics services. Firehose can capture, transform with Lambda or built-in conversions, and deliver streaming data to Amazon S3, Amazon Redshift, Amazon OpenSearch Service, Splunk, and supported partner destinations with automatic scaling and retry handling.
+- [Kinesis Structure](https://apis.io/json-structure/kinesis/kinesis-structure/)
 
-**Human URL:** [https://aws.amazon.com/firehose/](https://aws.amazon.com/firehose/)
+#### Collections (99)
 
-**Base URL:** https://firehose.{region}.amazonaws.com
+Postman and Open Collection request collections.
 
-#### Tags:
+- [Amazon Kinesis Firehose CreateSignalingChannel API](https://apis.io/collections/kinesis/open-kinesis-createsignalingchannel-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel CreateStream API](https://apis.io/collections/kinesis/open-kinesis-createstream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DeleteSignalingChannel API](https://apis.io/collections/kinesis/open-kinesis-deletesignalingchannel-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DeleteStream API](https://apis.io/collections/kinesis/open-kinesis-deletestream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeEdgeConfiguration API](https://apis.io/collections/kinesis/open-kinesis-describeedgeconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeImageGenerationConfiguration API](https://apis.io/collections/kinesis/open-kinesis-describeimagegenerationconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeMappedResourceConfiguration API](https://apis.io/collections/kinesis/open-kinesis-describemappedresourceconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeMediaStorageConfiguration API](https://apis.io/collections/kinesis/open-kinesis-describemediastorageconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeNotificationConfiguration API](https://apis.io/collections/kinesis/open-kinesis-describenotificationconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeSignalingChannel API](https://apis.io/collections/kinesis/open-kinesis-describesignalingchannel-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel DescribeStream API](https://apis.io/collections/kinesis/open-kinesis-describestream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel GetDataEndpoint API](https://apis.io/collections/kinesis/open-kinesis-getdataendpoint-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel GetSignalingChannelEndpoint API](https://apis.io/collections/kinesis/open-kinesis-getsignalingchannelendpoint-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel ListSignalingChannels API](https://apis.io/collections/kinesis/open-kinesis-listsignalingchannels-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel ListStreams API](https://apis.io/collections/kinesis/open-kinesis-liststreams-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel ListTagsForResource API](https://apis.io/collections/kinesis/open-kinesis-listtagsforresource-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel ListTagsForStream API](https://apis.io/collections/kinesis/open-kinesis-listtagsforstream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel StartEdgeConfigurationUpdate API](https://apis.io/collections/kinesis/open-kinesis-startedgeconfigurationupdate-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel TagResource API](https://apis.io/collections/kinesis/open-kinesis-tagresource-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel TagStream API](https://apis.io/collections/kinesis/open-kinesis-tagstream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel UntagResource API](https://apis.io/collections/kinesis/open-kinesis-untagresource-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel UntagStream API](https://apis.io/collections/kinesis/open-kinesis-untagstream-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel UpdateDataRetention API](https://apis.io/collections/kinesis/open-kinesis-updatedataretention-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel UpdateImageGenerationConfiguration API](https://apis.io/collections/kinesis/open-kinesis-updateimagegenerationconfiguration-api/)
+- [Amazon Kinesis Firehose CreateSignalingChannel UpdateMediaStorageConfiguration API](https://apis.io/collections/kinesis/open-kinesis-updatemediastorageconfiguration-api/)
+- …and 74 more published on APIs.io
 
- - Data Delivery, ETL, Streaming
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://docs.aws.amazon.com/firehose/latest/APIReference/)
-- [OpenAPI](openapi/amazon-data-firehose-openapi-original.yml)
-- [Pricing](https://aws.amazon.com/kinesis/data-firehose/pricing/)
-- [GettingStarted](https://aws.amazon.com/kinesis/data-firehose/getting-started/)
-- [FAQ](https://aws.amazon.com/kinesis/data-firehose/faqs/)
-- [DeveloperGuide](https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html)
+- [AWS Kinesis — jsonschema rules](https://apis.io/rules/kinesis/kinesis-jsonschema-spectral-rules/)
 
-### Amazon Kinesis Data Analytics API
-Amazon Kinesis Data Analytics is a managed service for analyzing streaming data using SQL or Apache Flink. The API enables creation and management of streaming applications, input and output stream configuration, application code deployment, and runtime monitoring, enabling near real-time insights and event-driven actions on continuously arriving data.
+#### Security (4)
 
-**Human URL:** [https://aws.amazon.com/kinesis/data-analytics/](https://aws.amazon.com/kinesis/data-analytics/)
+Authentication, trust centre, and vulnerability disclosure.
 
-**Base URL:** https://kinesisanalytics.{region}.amazonaws.com
+- [Kinesis Authentication](https://apis.io/security/kinesis/kinesis-authentication/)
+- [Kinesis Domain Security](https://apis.io/security/kinesis/kinesis-domain-security/)
+- [Kinesis Trust Center](https://apis.io/security/kinesis/kinesis-trust-center/)
+- [Kinesis Vulnerability Disclosure](https://apis.io/security/kinesis/kinesis-vulnerability-disclosure/)
 
-#### Tags:
+#### Plans and pricing (1)
 
- - Analytics, Apache Flink, SQL, Streaming
+Published plans, tiers and prices.
 
-#### Properties
+- [Kinesis Plans Pricing](https://apis.io/plans/kinesis/kinesis-plans-pricing/)
 
-- [Documentation](https://docs.aws.amazon.com/kinesisanalytics/latest/apiv2/)
-- [OpenAPI](openapi/amazon-kinesis-data-analytics-openapi-original.yml)
-- [Pricing](https://aws.amazon.com/kinesis/data-analytics/pricing/)
-- [GettingStarted](https://aws.amazon.com/kinesis/data-analytics/getting-started/)
-- [FAQ](https://aws.amazon.com/kinesis/data-analytics/faqs/)
-- [DeveloperGuide](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html)
-- [Security](https://docs.aws.amazon.com/kinesisanalytics/latest/dev/security.html)
+#### Rate limits (1)
 
-### Amazon Managed Service for Apache Flink API
-Amazon Managed Service for Apache Flink (formerly Amazon Kinesis Data Analytics for Apache Flink) is a fully managed service for processing and analyzing streaming data using Apache Flink. Developers build streaming applications in Java, Python, SQL, or Scala, and the service handles infrastructure provisioning, scaling, state management, and high availability for stateful stream processing.
+Published request limits.
 
-**Human URL:** [https://aws.amazon.com/managed-service-apache-flink/](https://aws.amazon.com/managed-service-apache-flink/)
+- [Kinesis Rate Limits](https://apis.io/rate-limits/kinesis/kinesis-rate-limits/)
 
-**Base URL:** https://kinesisanalytics.{region}.amazonaws.com
+#### FinOps (1)
 
-#### Tags:
+What the API costs to run, by operation.
 
- - Analytics, Apache Flink, Real-Time, Streaming
+- [Kinesis Finops](https://apis.io/finops/kinesis/kinesis-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.aws.amazon.com/managed-flink/latest/apiv2/Welcome.html)
-- [DeveloperGuide](https://docs.aws.amazon.com/managed-flink/latest/java/getting-started.html)
-- [Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/)
-- [GettingStarted](https://aws.amazon.com/managed-service-apache-flink/getting-started/)
-- [FAQ](https://aws.amazon.com/managed-service-apache-flink/faqs/)
-
-### Amazon Kinesis Video Streams API
-Amazon Kinesis Video Streams makes it easy to securely stream video, audio, and time-encoded data from connected devices to AWS for analytics, machine learning, playback, and other processing. The API supports stream lifecycle management, media ingest and retrieval, HLS and DASH playback URL generation, signaling for WebRTC peer connections, and integration with AWS Rekognition for video analysis.
-
-**Human URL:** [https://aws.amazon.com/kinesis/video-streams/](https://aws.amazon.com/kinesis/video-streams/)
-
-**Base URL:** https://kinesisvideo.{region}.amazonaws.com
-
-#### Tags:
-
- - IoT, Machine Learning, Streaming, Video, WebRTC
-
-#### Properties
-
-- [Documentation](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Reference.html)
-- [OpenAPI](openapi/amazon-kinesis-video-streams-openapi-original.yml)
-- [Pricing](https://aws.amazon.com/kinesis/video-streams/pricing/)
-- [GettingStarted](https://aws.amazon.com/kinesis/video-streams/getting-started/)
-- [FAQ](https://aws.amazon.com/kinesis/video-streams/faqs/)
-- [DeveloperGuide](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/what-is-kinesis-video.html)
-- [Security](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/security.html)
-- [Customers](https://aws.amazon.com/kinesis/video-streams/customers/)
-- [Features](https://aws.amazon.com/kinesis/video-streams/features/)
-- [Resources](https://aws.amazon.com/kinesis/video-streams/resources/)
-- [WebRTCGuide](https://docs.aws.amazon.com/kinesisvideostreams-webrtc-dg/latest/devguide/what-is-kvswebrtc.html)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://aws.amazon.com/kinesis/)
 - [Documentation](https://docs.aws.amazon.com/kinesis/)
-- [Blog](https://aws.amazon.com/blogs/big-data/category/analytics/amazon-kinesis/)
-- [Console](https://console.aws.amazon.com/kinesis/)
-- [SDKs](https://aws.amazon.com/tools/)
-- [StatusPage](https://status.aws.amazon.com/)
+- [Getting started](https://aws.amazon.com/kinesis/getting-started/)
+- [Pricing](https://aws.amazon.com/managed-service-apache-flink/pricing/)
 - [Support](https://aws.amazon.com/premiumsupport/)
-- [SLA](https://aws.amazon.com/kinesis/sla/)
-- [GettingStarted](https://aws.amazon.com/kinesis/getting-started/)
-- [Legal](https://aws.amazon.com/legal/service-level-agreements/)
-- [Contact](https://aws.amazon.com/contact-us/)
+- [Blog](https://aws.amazon.com/blogs/big-data/category/analytics/amazon-kinesis/)
+- [Status](https://status.aws.amazon.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 47.7** — developing · rubric 0.25.0 · scored 2026-10-23
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 49.9 |
+| Contract governance | 9.8 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 54.8 |
+| Access clarity | 50.0 |
+
+**Agent readiness 29.4** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 22.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kinesis/](https://apis.io/providers/kinesis/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AWS Kinesis: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kinesis/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
